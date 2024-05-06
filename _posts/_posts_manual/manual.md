@@ -25,3 +25,15 @@ git bash로 일일이 git add, commit, push 명령어를 칠 필요 없이 VS code UI로 Githu
 
 커밋메세지를 쓴 후 체크 표시를 누르면 커밋 된다. (= git commit -m “블라블라”)
 그리고 체크 표시 옆에 …를 눌러 푸시 (= git push) 해주면 블로그에 포스트가 잘 업로드 될 것이다. 최소 1분 정도는 기다려주어야 하는 것 같다. ?
+
+
+
+[Github 블로그] 깃허브(Github) 블로그를 생성해 보자.
+
+https://ansohxxn.github.io/blog/i-made-my-blog/
+
+
+
+[Github 블로그] 블로그 포스팅하는 방법
+
+https://ansohxxn.github.io/blog/posting/
