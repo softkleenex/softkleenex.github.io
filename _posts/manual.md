@@ -13,7 +13,7 @@ _post 폴더가 새로 생김.
 
 
 
-? git이 미리 설치되어 있어야 한다.
+git이 미리 설치되어 있어야 한다.
 
 git bash로 일일이 git add, commit, push 명령어를 칠 필요 없이 VS code UI로 Github 원격 서버에 포스트를 업로드 할 수 있다.
 작업 중인 이 폴더는 이미 git과 연결되어 있는 폴더이기 때문에 그냥 VS code 왼쪽 상단 세번째 아이콘을 클릭하면 바로 git을 사용할 수 있다.
