@@ -16,6 +16,11 @@ last_modified_at: 2024-05-06
 
 2024-4-35에 백준 1927-최소힙 문제를 풀었다
 
+
+![image](https://github.com/softkleenex/softkleenex.github.io/assets/92619941/030ff5d4-7f55-4d3f-a60a-14cdfc794f08)
+
+
+
 https://www.acmicpc.net/problem/1927
 
 ![image](https://github.com/softkleenex/softkleenex.github.io/assets/92619941/e71e63ee-850f-45a9-a36f-99a5e5c58ea5)
