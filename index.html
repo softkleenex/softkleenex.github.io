@@ -5,29 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Softkleenex | Developer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <meta name="naver-site-verification" content="b54ffa2e51201a3e274c90ea7234dfeab7094514" />
     <meta name="google-site-verification" content="DlixtFsQ7eZ9lcdthn-evx0eazwiUSvA_5hIiVZfahc" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background: radial-gradient(circle at top left, #1e293b, #000000);
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-2px);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen font-sans p-4">
-    <div class="max-w-2xl w-full p-8 bg-gray-800 rounded-2xl shadow-2xl text-center border border-gray-700">
-        <img src="https://avatars.githubusercontent.com/u/92619941?v=4" alt="Profile" class="w-32 h-32 mx-auto rounded-full border-4 border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)] mb-6 transition-transform hover:scale-105 duration-300">
-        <h1 class="text-4xl font-extrabold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Softkleenex</h1>
-        <p class="text-xl text-gray-400 mb-8 font-light">Backend Developer & Algorithm Enthusiast</p>
+<body class="flex items-center justify-center p-6 sm:p-12 overflow-x-hidden relative">
+    
+    <!-- Background Decor -->
+    <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob"></div>
+    <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animation-delay-2000"></div>
+
+    <div class="max-w-xl w-full glass-card rounded-3xl p-10 relative z-10 text-center flex flex-col items-center">
+        <!-- Profile Image -->
+        <div class="relative w-36 h-36 mb-6 group">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+            <img src="https://avatars.githubusercontent.com/u/92619941?v=4" alt="Profile" class="relative w-full h-full rounded-full object-cover border-2 border-gray-800">
+        </div>
+
+        <h1 class="text-5xl font-extrabold mb-3 tracking-tight">
+            Soft<span class="gradient-text">kleenex</span>
+        </h1>
+        <p class="text-lg text-gray-400 font-medium mb-10 tracking-wide">Backend Developer & Algorithm Enthusiast</p>
         
-        <div class="space-y-4">
-            <a href="/coding_training/" class="block w-full py-4 px-6 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 rounded-xl text-lg font-bold transition duration-300 ease-in-out transform hover:-translate-y-1 shadow-lg border border-blue-500/30">
-                🚀 나의 알고리즘 블로그 (Coding Training) 보러 가기
+        <!-- Links / Bento Box Style -->
+        <div class="w-full space-y-4">
+            <a href="/coding_training/" class="flex items-center justify-between w-full p-5 glass-card rounded-2xl hover-glow transition-all duration-300 group">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-blue-500/10 rounded-xl text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <div class="text-left">
+                        <h2 class="text-xl font-bold text-gray-100">Coding Training</h2>
+                        <p class="text-sm text-gray-400 mt-1">Obsidian 기반 알고리즘 & 기술 블로그</p>
+                    </div>
+                </div>
+                <svg class="w-5 h-5 text-gray-500 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
-            <a href="https://github.com/softkleenex" target="_blank" class="block w-full py-4 px-6 bg-gray-700 hover:bg-gray-600 rounded-xl text-lg font-semibold transition duration-300 ease-in-out shadow-md border border-gray-600">
-                💻 GitHub 프로필
+
+            <a href="https://github.com/softkleenex" target="_blank" class="flex items-center justify-between w-full p-5 glass-card rounded-2xl hover-glow transition-all duration-300 group">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-purple-500/10 rounded-xl text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </div>
+                    <div class="text-left">
+                        <h2 class="text-xl font-bold text-gray-100">GitHub Profile</h2>
+                        <p class="text-sm text-gray-400 mt-1">소스 코드 및 오픈소스 활동</p>
+                    </div>
+                </div>
+                <svg class="w-5 h-5 text-gray-500 group-hover:text-purple-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
         </div>
-        
-        <div class="mt-12 pt-6 border-t border-gray-700 text-gray-500 text-sm">
-            <p>배움을 멈추지 않는 개발자입니다. 끊임없이 기록하고 성장합니다.</p>
-            <p class="mt-2 font-mono">© 2026 Softkleenex. All rights reserved.</p>
+
+        <div class="mt-12 pt-8 border-t border-gray-700/50 text-gray-500 text-sm">
+            <p class="mb-2 tracking-wide font-medium">"배움을 멈추지 않는 개발자"</p>
+            <p class="font-mono opacity-60">© 2026 Softkleenex. All rights reserved.</p>
         </div>
     </div>
+
 </body>
 </html>
