@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DACON ETRI Human Understanding 회고 | Softkleenex</title>
+    <meta name="description" content="DACON ETRI Human Understanding AI Paper Challenge에서 검증, 리더보드, 제출 기록을 어떻게 운영했는지 정리한 회고입니다.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background: #0b1020;
+            color: #e5e7eb;
+            min-height: 100vh;
+        }
+        .panel {
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+        }
+        .metric {
+            background: rgba(15, 23, 42, 0.74);
+            border: 1px solid rgba(148, 163, 184, 0.16);
+        }
+        .copy p {
+            margin-top: 1rem;
+            line-height: 1.85;
+            color: #cbd5e1;
+        }
+        .copy h2 {
+            margin-top: 3rem;
+            font-size: 1.45rem;
+            line-height: 1.25;
+            font-weight: 800;
+            color: #f8fafc;
+        }
+        .copy ul {
+            margin-top: 1rem;
+            padding-left: 1.2rem;
+            color: #cbd5e1;
+        }
+        .copy li {
+            margin-top: 0.65rem;
+            line-height: 1.75;
+        }
+        .mono {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body>
+    <main class="mx-auto max-w-5xl px-6 py-10 sm:py-14">
+        <nav class="mb-10 flex items-center justify-between text-sm text-slate-400">
+            <a href="/" class="rounded-full border border-slate-700 px-4 py-2 transition hover:border-emerald-400 hover:text-emerald-300">Softkleenex</a>
+            <a href="https://github.com/softkleenex/dacon-etri-human-understanding" class="transition hover:text-emerald-300" target="_blank" rel="noreferrer">Repository</a>
+        </nav>
+
+        <header class="panel overflow-hidden rounded-3xl">
+            <div class="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
+                <section class="p-7 sm:p-10">
+                    <p class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-emerald-300">Competition Retrospective</p>
+                    <h1 class="text-4xl font-black leading-tight text-white sm:text-5xl">
+                        DACON ETRI Human Understanding AI Paper Challenge 회고
+                    </h1>
+                    <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+                        멀티모달 라이프로그로 수면, 피로, 스트레스, 수면 지표를 예측했던 대회에서
+                        모델보다 더 오래 남은 것은 검증과 기록의 문제였다.
+                    </p>
+                    <div class="mt-8 grid gap-3 sm:grid-cols-3">
+                        <div class="metric rounded-2xl p-4">
+                            <p class="text-xs uppercase tracking-widest text-slate-500">Best public</p>
+                            <p class="mono mt-2 text-2xl font-black text-white">0.596083</p>
+                        </div>
+                        <div class="metric rounded-2xl p-4">
+                            <p class="text-xs uppercase tracking-widest text-slate-500">Anchor</p>
+                            <p class="mono mt-2 text-2xl font-black text-white">ID342</p>
+                        </div>
+                        <div class="metric rounded-2xl p-4">
+                            <p class="text-xs uppercase tracking-widest text-slate-500">Targets</p>
+                            <p class="mono mt-2 text-2xl font-black text-white">7</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="border-t border-slate-700/70 bg-slate-950/45 p-7 sm:p-10 lg:border-l lg:border-t-0">
+                    <svg viewBox="0 0 520 320" role="img" aria-label="ID342 and final emergency submission scores" class="h-full min-h-[280px] w-full">
+                        <rect x="0" y="0" width="520" height="320" rx="24" fill="#0f172a"></rect>
+                        <line x1="72" y1="248" x2="470" y2="248" stroke="#334155" stroke-width="2"></line>
+                        <line x1="72" y1="58" x2="72" y2="248" stroke="#334155" stroke-width="2"></line>
+                        <text x="70" y="34" fill="#cbd5e1" font-size="18" font-weight="700">Public LB, lower is better</text>
+                        <polyline points="98,92 218,120 338,119 452,104" fill="none" stroke="#34d399" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                        <circle cx="98" cy="92" r="9" fill="#34d399"></circle>
+                        <circle cx="218" cy="120" r="8" fill="#f97316"></circle>
+                        <circle cx="338" cy="119" r="8" fill="#f97316"></circle>
+                        <circle cx="452" cy="104" r="8" fill="#f97316"></circle>
+                        <text x="76" y="286" fill="#94a3b8" font-size="15">ID342</text>
+                        <text x="195" y="286" fill="#94a3b8" font-size="15">ID346</text>
+                        <text x="316" y="286" fill="#94a3b8" font-size="15">ID350</text>
+                        <text x="430" y="286" fill="#94a3b8" font-size="15">ID347</text>
+                        <text x="118" y="86" fill="#e2e8f0" font-size="15">0.596083</text>
+                        <text x="236" y="126" fill="#fed7aa" font-size="15">worse</text>
+                        <text x="356" y="125" fill="#fed7aa" font-size="15">worse</text>
+                        <text x="376" y="92" fill="#fed7aa" font-size="15">closest miss</text>
+                    </svg>
+                </section>
+            </div>
+        </header>
+
+        <article class="copy mt-10 rounded-3xl bg-slate-950/50 p-7 sm:p-10">
+            <p class="text-sm font-semibold text-slate-500">2026.06.26 · DACON · ML Competition Ops</p>
+
+            <h2>무엇을 풀었나</h2>
+            <p>
+                대회는 스마트폰과 스마트워치에서 수집된 라이프로그를 바탕으로 Q1-Q3의 주관식 상태와
+                S1-S4의 수면 관련 지표를 예측하는 문제였다. 목표는 평균 로그로스를 낮추는 것이었고,
+                7개 타깃은 서로 닮은 듯하면서도 실제로는 꽤 다른 신호를 요구했다.
+            </p>
+            <p>
+                작업은 단순한 모델 성능 경쟁이라기보다 검증 설계와 기록 관리의 싸움에 가까웠다.
+                로컬 CV는 낮아지는데 public leaderboard가 거의 움직이지 않거나 오히려 나빠지는 일이
+                반복되었고, 마지막에는 그 차이를 줄이는 것보다 그 차이를 정직하게 기록하는 일이 더 중요해졌다.
+            </p>
+
+            <h2>최종으로 남은 해</h2>
+            <p>
+                public 기준으로 가장 좋았던 제출은 ID342였다. ID178과 ID221의 feature-similarity 기반
+                예측을 보수적으로 shrink한 후보였고, public score는 0.5960832519였다. 이후 여러 Q3,
+                S3, S4 중심의 독립 신호를 시도했지만 이 기준점을 넘지는 못했다.
+            </p>
+            <p>
+                마지막 날에는 Q3 app-name lexicon anti-signal을 만들었다. 로컬 게이트에서는 좋아 보였고
+                5개 split에서 일관되게 이기는 후보도 있었다. 하지만 실제 public score는 ID346, ID350,
+                ID347 모두 ID342보다 나빴다. 셋 중 가장 가까웠던 ID347도 0.5961947552로, 기준점보다
+                0.0001115033 높았다.
+            </p>
+
+            <h2>무엇이 효과가 있었나</h2>
+            <ul>
+                <li>검증되지 않은 큰 이동보다 기존 anchor 주변의 작은 convex movement가 더 잘 버텼다.</li>
+                <li>파일, notebook-history stub, submission log 한 행을 맞춰 둔 덕분에 마지막 혼란 속에서도 무엇을 제출했는지 복구할 수 있었다.</li>
+                <li>로컬 점수와 public 점수를 분리해서 기록한 것이 나중에 실패한 실험을 해석하는 데 결정적이었다.</li>
+            </ul>
+
+            <h2>무엇이 실패했나</h2>
+            <ul>
+                <li>로컬 CV만 보고 후보를 승격하면 public transfer가 무너졌다.</li>
+                <li>Q3/S3/S4에 대한 새 신호는 의미 있어 보여도 public 기준에서는 ID342 주변의 안정성을 넘지 못했다.</li>
+                <li>마지막 제출권을 쓸 때는 시간이 없어서 새 실험보다 이미 생성된 후보 중 안전한 변형을 쓰는 선택을 했다. 결과적으로는 작은 손실을 확인한 셈이 되었다.</li>
+            </ul>
+
+            <h2>운영에서 배운 것</h2>
+            <p>
+                이 대회에서 가장 중요한 교훈은 "좋은 로컬 점수"와 "좋은 제출 후보"가 다르다는 점이었다.
+                제출을 아끼는 정책, 후보별 decision note, 실패한 후보까지 남기는 submission log가 없었다면
+                마지막 날의 세 제출은 그냥 아쉬운 숫자로만 남았을 것이다.
+            </p>
+            <p>
+                보안 쪽에서도 배운 것이 있다. 제출 자동화는 편하지만 credential은 반드시 환경변수로만
+                다뤄야 한다. 과거 이력에 남았던 하드코딩 토큰은 제거하고 history rewrite까지 진행했다.
+                대회용 repo도 결국 제품 repo처럼 운영되어야 한다는 걸, 조금 늦게 배웠다.
+            </p>
+
+            <h2>마무리</h2>
+            <p>
+                목표했던 0.55에는 닿지 못했다. 그래도 마지막에 남은 것은 제출 파일 몇 개가 아니라,
+                왜 어떤 후보가 위험했고 왜 어떤 후보가 조금 더 믿을 만했는지 설명할 수 있는 기록이었다.
+                다음 대회에서는 모델을 더 빨리 키우는 것보다, public feedback을 설명하는 validation lens를
+                더 빨리 세우는 데 시간을 쓸 것 같다.
+            </p>
+        </article>
+    </main>
+</body>
+</html>
