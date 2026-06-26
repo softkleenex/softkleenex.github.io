@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Softkleenex</title>
+    <meta name="description" content="Softkleenex의 알고리즘, 개발, 머신러닝 대회 회고 블로그입니다.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background: #0b1020;
+            color: #e5e7eb;
+            min-height: 100vh;
+        }
+        .panel {
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+        }
+        .post-card {
+            background: rgba(15, 23, 42, 0.74);
+            border: 1px solid rgba(148, 163, 184, 0.16);
+        }
+        .post-card:hover {
+            border-color: rgba(52, 211, 153, 0.5);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <main class="mx-auto max-w-5xl px-6 py-10 sm:py-14">
+        <nav class="mb-10 flex items-center justify-between text-sm text-slate-400">
+            <a href="/" class="rounded-full border border-slate-700 px-4 py-2 transition hover:border-emerald-400 hover:text-emerald-300">Softkleenex</a>
+            <a href="https://github.com/softkleenex" class="transition hover:text-emerald-300" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+
+        <header class="panel rounded-3xl p-7 sm:p-10">
+            <p class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-emerald-300">Blog</p>
+            <h1 class="text-4xl font-black leading-tight text-white sm:text-5xl">기록해두는 개발 노트</h1>
+            <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+                알고리즘 훈련, 개발하면서 배운 것들, 그리고 머신러닝 대회에서 얻은 운영 교훈을 모아둡니다.
+            </p>
+        </header>
+
+        <section class="mt-8 grid gap-4">
+            <a href="/blog/dacon-etri-human-understanding/" class="post-card block rounded-2xl p-6 transition duration-300">
+                <p class="text-sm font-semibold text-emerald-300">ML Competition Ops · 2026.06.26</p>
+                <h2 class="mt-3 text-2xl font-black text-white">DACON ETRI Human Understanding AI Paper Challenge 회고</h2>
+                <p class="mt-3 max-w-3xl leading-7 text-slate-300">
+                    로컬 CV와 public leaderboard가 어긋날 때 어떤 기록과 검증 절차가 필요했는지,
+                    마지막 제출과 최종 anchor ID342를 중심으로 정리했습니다.
+                </p>
+            </a>
+        </section>
+    </main>
+</body>
+</html>
