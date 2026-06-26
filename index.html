@@ -1,124 +1,317 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Softkleenex | 개발 블로그와 ML 대회 포트폴리오</title>
-    <meta name="description" content="Softkleenex의 개발 블로그입니다. 백준, AtCoder 알고리즘 풀이와 DACON, Kaggle 머신러닝 대회 회고 및 프로젝트 포트폴리오를 정리합니다.">
-    <meta name="robots" content="index,follow">
-    <link rel="canonical" href="https://softkleenex.github.io/">
-    <link rel="alternate" type="application/rss+xml" title="Softkleenex Dev Blog RSS" href="https://softkleenex.github.io/coding_training/index.xml">
-    <meta property="og:site_name" content="Softkleenex">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Softkleenex | 개발 블로그와 ML 대회 포트폴리오">
-    <meta property="og:description" content="알고리즘 풀이, 개발 기록, DACON과 Kaggle 머신러닝 대회 회고를 모아둔 Softkleenex의 기술 블로그입니다.">
-    <meta property="og:url" content="https://softkleenex.github.io/">
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/92619941?v=4">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Softkleenex | 개발 블로그와 ML 대회 포트폴리오">
-    <meta name="twitter:description" content="백준, AtCoder, DACON, Kaggle 기록을 정리하는 개발 블로그입니다.">
-    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/92619941?v=4">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Softkleenex Archive | AI 개발 블로그와 대회 회고</title>
+    <meta
+      name="description"
+      content="Softkleenex Archive는 AI 개발자를 꿈꾸며 쌓아가는 개발 블로그입니다. DACON, Kaggle 대회 회고와 병목 해결 과정, 백준과 AtCoder 알고리즘 기록을 정리합니다."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta
+      name="keywords"
+      content="Softkleenex Archive, AI 개발 블로그, DACON, Kaggle, 머신러닝 대회, 백준, AtCoder, 포트폴리오"
+    />
+    <link rel="canonical" href="https://softkleenex.github.io/" />
+    <link rel="icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="apple-touch-icon" href="/assets/softkleenex-avatar.png" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Softkleenex Archive RSS"
+      href="https://softkleenex.github.io/coding_training/index.xml"
+    />
+    <meta property="og:site_name" content="Softkleenex Archive" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Softkleenex Archive | AI 개발 블로그와 대회 회고"
+    />
+    <meta
+      property="og:description"
+      content="DACON, Kaggle, AI, 알고리즘 기록을 포트폴리오처럼 정리하는 개발 블로그입니다. 병목과 해결 과정, 대회 회고와 실험 운영을 함께 남깁니다."
+    />
+    <meta property="og:url" content="https://softkleenex.github.io/" />
+    <meta
+      property="og:image"
+      content="https://softkleenex.github.io/assets/softkleenex-avatar.png"
+    />
+    <meta property="og:image:width" content="460" />
+    <meta property="og:image:height" content="460" />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Softkleenex Archive | AI 개발 블로그와 대회 회고"
+    />
+    <meta
+      name="twitter:description"
+      content="DACON, Kaggle, AI, 알고리즘 기록을 정리하는 포트폴리오형 개발 블로그입니다."
+    />
+    <meta
+      name="twitter:image"
+      content="https://softkleenex.github.io/assets/softkleenex-avatar.png"
+    />
+    <meta
+      name="naver-site-verification"
+      content="b54ffa2e51201a3e274c90ea7234dfeab7094514"
+    />
+    <meta
+      name="google-site-verification"
+      content="DlixtFsQ7eZ9lcdthn-evx0eazwiUSvA_5hIiVZfahc"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <meta name="naver-site-verification" content="b54ffa2e51201a3e274c90ea7234dfeab7094514" />
-    <meta name="google-site-verification" content="DlixtFsQ7eZ9lcdthn-evx0eazwiUSvA_5hIiVZfahc" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202"
+      crossorigin="anonymous"
+    ></script>
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Softkleenex",
-      "url": "https://softkleenex.github.io/",
-      "sameAs": [
-        "https://github.com/softkleenex"
-      ],
-      "knowsAbout": [
-        "Python",
-        "Algorithm",
-        "Machine Learning",
-        "DACON",
-        "Kaggle"
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://softkleenex.github.io/#person",
+            "name": "softkleenex",
+            "alternateName": "Softkleenex Archive",
+            "url": "https://softkleenex.github.io/",
+            "image": "https://softkleenex.github.io/assets/softkleenex-avatar.png",
+            "sameAs": ["https://github.com/softkleenex"],
+            "knowsAbout": [
+              "AI",
+              "Machine Learning",
+              "Python",
+              "Algorithm",
+              "DACON",
+              "Kaggle",
+              "MLOps"
+            ]
+          },
+          {
+            "@type": "Blog",
+            "@id": "https://softkleenex.github.io/coding_training/#blog",
+            "name": "Softkleenex Archive",
+            "url": "https://softkleenex.github.io/coding_training/",
+            "description": "AI 개발자를 꿈꾸며 남기는 DACON, Kaggle, 알고리즘, 개발 회고 아카이브",
+            "author": {
+              "@id": "https://softkleenex.github.io/#person"
+            },
+            "inLanguage": "ko-KR"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://softkleenex.github.io/#website",
+            "name": "Softkleenex Archive",
+            "url": "https://softkleenex.github.io/",
+            "publisher": {
+              "@id": "https://softkleenex.github.io/#person"
+            },
+            "inLanguage": "ko-KR"
+          }
+        ]
+      }
     </script>
     <style>
-        body {
-            font-family: 'Pretendard', sans-serif;
-            background: radial-gradient(circle at top left, #1e293b, #000000);
-            color: #f8fafc;
-            min-height: 100vh;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-        .hover-glow:hover {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
-            border-color: rgba(59, 130, 246, 0.3);
-            transform: translateY(-2px);
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #60a5fa, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+      :root {
+        color-scheme: light;
+        --ink: #101827;
+        --muted: #526173;
+        --line: #d8dee8;
+        --paper: #f7f9fc;
+        --accent: #2563eb;
+        --green: #047857;
+        --red: #b91c1c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family:
+          "Pretendard",
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        letter-spacing: 0;
+        margin: 0;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .soft-card {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+      }
+
+      .soft-link {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        transition:
+          border-color 160ms ease,
+          transform 160ms ease,
+          box-shadow 160ms ease;
+      }
+
+      .soft-link:hover {
+        border-color: rgba(37, 99, 235, 0.55);
+        box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
+        transform: translateY(-1px);
+      }
     </style>
-</head>
-<body class="flex items-center justify-center p-6 sm:p-12 overflow-x-hidden relative">
-    
-    <!-- Background Decor -->
-    <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob"></div>
-    <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animation-delay-2000"></div>
-
-    <div class="max-w-xl w-full glass-card rounded-3xl p-10 relative z-10 text-center flex flex-col items-center">
-        <!-- Profile Image -->
-        <div class="relative w-36 h-36 mb-6 group">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
-            <img src="https://avatars.githubusercontent.com/u/92619941?v=4" alt="Profile" class="relative w-full h-full rounded-full object-cover border-2 border-gray-800">
+  </head>
+  <body>
+    <header class="border-b border-slate-200 bg-white/90">
+      <nav
+        class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4"
+      >
+        <a
+          href="/"
+          class="flex items-center gap-3 text-slate-950"
+          aria-label="Softkleenex Archive home"
+        >
+          <img
+            src="/assets/softkleenex-avatar.png"
+            alt=""
+            class="h-9 w-9 rounded-full border border-slate-200"
+          />
+          <span class="text-base font-bold">Softkleenex Archive</span>
+        </a>
+        <div
+          class="flex items-center gap-3 text-sm font-semibold text-slate-600"
+        >
+          <a class="hover:text-blue-700" href="/coding_training/">Blog</a>
+          <a class="hover:text-blue-700" href="https://github.com/softkleenex"
+            >GitHub</a
+          >
         </div>
+      </nav>
+    </header>
 
-        <h1 class="text-5xl font-extrabold mb-3 tracking-tight">
-            Soft<span class="gradient-text">kleenex</span>
-        </h1>
-        <p class="text-lg text-gray-400 font-medium mb-10 tracking-wide">Backend Developer & Algorithm Enthusiast</p>
-        
-        <!-- Links / Bento Box Style -->
-        <div class="w-full space-y-4">
-            <a href="/coding_training/" class="flex items-center justify-between w-full p-5 glass-card rounded-2xl hover-glow transition-all duration-300 group">
-                <div class="flex items-center gap-4">
-                    <div class="p-3 bg-blue-500/10 rounded-xl text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                    </div>
-                    <div class="text-left">
-                        <h2 class="text-xl font-bold text-gray-100">Blog</h2>
-                        <p class="text-sm text-gray-400 mt-1">알고리즘, 개발, ML 대회 회고</p>
-                    </div>
-                </div>
-                <svg class="w-5 h-5 text-gray-500 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </a>
-
-            <a href="https://github.com/softkleenex" target="_blank" class="flex items-center justify-between w-full p-5 glass-card rounded-2xl hover-glow transition-all duration-300 group">
-                <div class="flex items-center gap-4">
-                    <div class="p-3 bg-purple-500/10 rounded-xl text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </div>
-                    <div class="text-left">
-                        <h2 class="text-xl font-bold text-gray-100">GitHub Profile</h2>
-                        <p class="text-sm text-gray-400 mt-1">소스 코드 및 오픈소스 활동</p>
-                    </div>
-                </div>
-                <svg class="w-5 h-5 text-gray-500 group-hover:text-purple-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </a>
+    <main>
+      <section class="border-b border-slate-200 bg-white">
+        <div
+          class="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:items-center"
+        >
+          <div>
+            <p class="mb-4 text-sm font-bold uppercase text-blue-700">
+              AI developer blog and competition archive
+            </p>
+            <h1
+              class="max-w-3xl text-4xl font-extrabold leading-tight text-slate-950"
+            >
+              Softkleenex Archive
+            </h1>
+            <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-700">
+              AI 개발자를 꿈꾸며 쌓아가는 개발 블로그입니다. DACON, Kaggle 대회
+              회고와 백준, AtCoder 알고리즘 기록을 한곳에 모으고, 결과보다
+              병목과 해결 과정을 오래 남깁니다.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a
+                href="/coding_training/"
+                class="inline-flex items-center gap-2 rounded-lg bg-slate-950 px-5 py-3 text-sm font-bold text-white"
+              >
+                <span>Archive로 이동</span>
+                <span aria-hidden="true">→</span>
+              </a>
+              <a
+                href="/coding_training/dacon/dacon-etri-human-understanding"
+                class="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-5 py-3 text-sm font-bold text-slate-800"
+              >
+                <span>ETRI 회고 읽기</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+          <aside class="soft-card p-6" aria-label="Profile summary">
+            <div class="flex items-center gap-4">
+              <img
+                src="/assets/softkleenex-avatar.png"
+                alt="Softkleenex GitHub profile image"
+                class="h-20 w-20 rounded-full border border-slate-200"
+              />
+              <div>
+                <p class="text-xl font-extrabold text-slate-950">softkleenex</p>
+                <p class="mt-1 text-sm text-slate-600">
+                  DACON, Kaggle, AI, 알고리즘 기록
+                </p>
+              </div>
+            </div>
+            <p
+              class="mt-6 border-l-4 border-blue-600 pl-4 text-sm leading-7 text-slate-700"
+            >
+              잘 된 모델만 남기기보다 검증이 흔들린 순간, 제출을 멈춘 이유, 다음
+              대회로 가져갈 습관까지 적는 포트폴리오형 아카이브입니다.
+            </p>
+          </aside>
         </div>
+      </section>
 
-        <div class="mt-12 pt-8 border-t border-gray-700/50 text-gray-500 text-sm">
-            <p class="mb-2 tracking-wide font-medium">"배움을 멈추지 않는 개발자"</p>
-            <p class="font-mono opacity-60">© 2026 Softkleenex. All rights reserved.</p>
+      <section class="mx-auto max-w-6xl px-5 py-12">
+        <h2 class="text-2xl font-extrabold text-slate-950">주요 기록</h2>
+        <p class="mt-2 max-w-2xl text-slate-600">
+          대회 repo는 그대로 유지하고, 블로그는 사람이 읽기 좋은 회고와 탐색
+          입구로 관리합니다.
+        </p>
+        <div class="mt-7 grid gap-4 md:grid-cols-3">
+          <a class="soft-link bg-white p-5" href="/coding_training/dacon/">
+            <p class="text-sm font-bold text-blue-700">DACON</p>
+            <h3 class="mt-2 text-lg font-extrabold text-slate-950">
+              대회 회고와 제출 운영
+            </h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+              로컬 검증, 리더보드 gap, 제출 후보 관리와 같은 대회 운영 기록을
+              정리합니다.
+            </p>
+          </a>
+          <a class="soft-link bg-white p-5" href="/coding_training/kaggle/">
+            <p class="text-sm font-bold text-emerald-700">Kaggle</p>
+            <h3 class="mt-2 text-lg font-extrabold text-slate-950">
+              실험과 포트폴리오
+            </h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+              Kaggle repo, 실험 노트, 모델링 병목과 해결 과정을 연결합니다.
+            </p>
+          </a>
+          <a
+            class="soft-link bg-white p-5"
+            href="/coding_training/posts/hello-world"
+          >
+            <p class="text-sm font-bold text-red-700">AI and Development</p>
+            <h3 class="mt-2 text-lg font-extrabold text-slate-950">
+              개발자로 남기는 과정
+            </h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+              알고리즘, 자동화, 트러블슈팅, 회고를 넓은 개발 블로그 주제로
+              쌓아갑니다.
+            </p>
+          </a>
         </div>
-    </div>
+      </section>
+    </main>
 
-</body>
+    <footer class="border-t border-slate-200 bg-white">
+      <div
+        class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-7 text-sm text-slate-500 md:flex-row md:items-center md:justify-between"
+      >
+        <p>© 2026 Softkleenex. Softkleenex Archive.</p>
+        <p>병목과 해결까지 남기는 개발 아카이브</p>
+      </div>
+    </footer>
+  </body>
 </html>
