@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THE COLOR HOUSE 제작기 | Softkleenex Archive</title>
+    <meta name="description" content="BBIA × AIBB의 One DNA를 두 개의 컬러룸과 듀얼 립앤치크 제품으로 번역하며 겪은 제품 일관성, 인물, 손, 타이포그래피 문제와 해결 과정" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://softkleenex.github.io/posts/2026-the-color-house/" />
+    <link rel="icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="apple-touch-icon" href="/assets/softkleenex-avatar.png" />
+    <meta property="og:site_name" content="Softkleenex Archive" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="THE COLOR HOUSE: AI로 자매 브랜드의 세계와 제품을 설계한 기록" />
+    <meta property="og:description" content="예쁜 한 장보다 어려웠던 제품·인물·포스터의 일관성. BBIA × AIBB 1주년 캠페인 제작기" />
+    <meta property="og:url" content="https://softkleenex.github.io/posts/2026-the-color-house/" />
+    <meta property="og:image" content="https://softkleenex.github.io/assets/2026-the-color-house/poster.png" />
+    <meta property="og:image:width" content="896" />
+    <meta property="og:image:height" content="1120" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="THE COLOR HOUSE 제작기" />
+    <meta name="twitter:description" content="One DNA를 두 개의 컬러룸과 하나의 듀얼 콤팩트로 번역한 AI 디자인 프로젝트" />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/2026-the-color-house/poster.png" />
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "THE COLOR HOUSE: AI로 자매 브랜드의 세계와 제품을 설계한 기록",
+        "description": "BBIA × AIBB의 One DNA를 두 개의 컬러룸과 듀얼 립앤치크 제품으로 번역하며 겪은 문제와 해결 과정",
+        "datePublished": "2026-07-21",
+        "dateModified": "2026-07-21",
+        "inLanguage": "ko-KR",
+        "image": "https://softkleenex.github.io/assets/2026-the-color-house/poster.png",
+        "author": { "@type": "Person", "name": "softkleenex", "url": "https://softkleenex.github.io/" },
+        "publisher": { "@type": "Person", "name": "softkleenex", "url": "https://softkleenex.github.io/" },
+        "mainEntityOfPage": "https://softkleenex.github.io/posts/2026-the-color-house/"
+      }
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #24151b;
+        --body: #4a3540;
+        --muted: #76616b;
+        --line: #ead9df;
+        --paper: #fff9fa;
+        --surface: #ffffff;
+        --accent: #a3284b;
+        --accent-deep: #711d36;
+        --accent-soft: #fff0f3;
+        --cherry: #b4233f;
+        --rose: #d59ca7;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Pretendard", system-ui, sans-serif; }
+      img { max-width: 100%; height: auto; }
+      a { color: var(--accent-deep); text-underline-offset: 3px; }
+      a:focus-visible { outline: 3px solid #e3a008; outline-offset: 3px; border-radius: 3px; }
+      .skip { position: fixed; top: 8px; left: 8px; z-index: 10; padding: 10px 14px; transform: translateY(-160%); background: var(--ink); color: #fff; font-weight: 800; }
+      .skip:focus { transform: translateY(0); }
+      header, footer { background: rgba(255, 255, 255, .96); border-color: var(--line); }
+      header { border-bottom: 1px solid var(--line); }
+      nav { width: min(100% - 32px, 1000px); min-height: 64px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+      .brand, .back { font-weight: 800; text-decoration: none; }
+      .brand { color: var(--ink); }
+      .back { color: var(--muted); font-size: 14px; }
+      main { width: min(100% - 32px, 800px); margin: 0 auto; }
+      .hero { padding: 70px 0 42px; text-align: center; }
+      .eyebrow { margin: 0 0 16px; color: var(--accent); font-size: 13px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+      h1 { margin: 0 auto; max-width: 780px; font-size: clamp(38px, 7vw, 66px); line-height: 1.09; letter-spacing: -.04em; }
+      .lead { margin: 24px auto 0; max-width: 680px; color: var(--body); font-size: clamp(18px, 3vw, 22px); line-height: 1.75; }
+      .meta { margin: 20px 0 0; color: var(--muted); font-size: 14px; }
+      .hero-poster { width: min(100%, 600px); margin: 0 auto 56px; }
+      .hero-poster img { display: block; width: 100%; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 24px 70px rgba(113, 29, 54, .12); }
+      article { padding: 0 0 84px; }
+      h2 { margin: 60px 0 18px; font-size: clamp(26px, 4vw, 34px); line-height: 1.3; letter-spacing: -.025em; }
+      h3 { margin: 32px 0 12px; font-size: 21px; line-height: 1.4; }
+      p, li { color: var(--body); font-size: 17px; line-height: 1.9; }
+      p { margin: 0 0 20px; }
+      ul, ol { padding-left: 25px; }
+      li + li { margin-top: 8px; }
+      code { padding: 2px 6px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); font-size: .9em; }
+      pre { overflow-x: auto; margin: 26px 0; padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: #2c1921; color: #fff5f7; line-height: 1.7; }
+      pre code { padding: 0; border: 0; background: transparent; color: inherit; }
+      blockquote { margin: 30px 0; padding: 20px 22px; border-left: 4px solid var(--accent); background: var(--accent-soft); color: var(--accent-deep); font-size: 19px; font-weight: 700; line-height: 1.8; }
+      figure { margin: 40px 0; }
+      figure img { display: block; width: 100%; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+      figcaption { margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+      .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 30px 0 42px; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--line); }
+      .summary div { padding: 18px; background: var(--surface); }
+      .summary strong { display: block; color: var(--accent-deep); font-size: 20px; }
+      .summary span { display: block; margin-top: 5px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+      .issue { margin: 24px 0; padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+      .issue h3 { margin-top: 0; color: var(--accent-deep); }
+      .issue p:last-child { margin-bottom: 0; }
+      .rule-list { counter-reset: rule; display: grid; gap: 10px; margin: 28px 0; padding: 0; list-style: none; }
+      .rule-list li { position: relative; padding: 14px 16px 14px 52px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); }
+      .rule-list li::before { counter-increment: rule; content: counter(rule); position: absolute; left: 15px; top: 14px; width: 24px; height: 24px; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 900; }
+      .table-wrap { margin: 28px 0; overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+      table { width: 100%; min-width: 620px; border-collapse: collapse; }
+      th, td { padding: 14px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 14px; line-height: 1.6; }
+      th { background: var(--accent-soft); color: var(--accent-deep); }
+      tr:last-child td { border-bottom: 0; }
+      .links { margin-top: 52px; padding: 26px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+      .links strong { display: block; margin-bottom: 8px; }
+      .links a { display: block; padding: 8px 0; font-weight: 750; }
+      footer { border-top: 1px solid var(--line); }
+      footer p { width: min(100% - 32px, 1000px); margin: 0 auto; padding: 25px 0; color: var(--muted); font-size: 14px; }
+      @media (max-width: 620px) {
+        .hero { padding-top: 48px; }
+        .summary { grid-template-columns: 1fr; }
+        p, li { font-size: 16px; }
+        .issue { padding: 20px; }
+      }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#content">본문으로 건너뛰기</a>
+    <header>
+      <nav aria-label="주요 탐색">
+        <a class="brand" href="/">Softkleenex Archive</a>
+        <a class="back" href="/">홈으로</a>
+      </nav>
+    </header>
+    <main id="content">
+      <section class="hero">
+        <p class="eyebrow">AI design · Competition retrospective</p>
+        <h1>THE COLOR HOUSE</h1>
+        <p class="lead">AI로 자매 브랜드의 세계와 제품을 설계하며, 제품 구조·인물·손·타이포그래피의 일관성을 지켜낸 기록</p>
+        <p class="meta"><time datetime="2026-07-21">2026년 7월 21일</time> · softkleenex.</p>
+      </section>
+      <figure class="hero-poster">
+        <img src="/assets/2026-the-color-house/poster.png" width="896" height="1120" alt="BBIA와 AIBB 두 자매가 두 개의 컬러룸 안에 있는 THE COLOR HOUSE 최종 포스터" />
+      </figure>
+      <article>
+        <p>예쁜 한 장을 만드는 것보다 어려운 일은 제품 시안, 모델 연출과 포스터가 모두 같은 제품과 세계를 보여주게 하는 것이었다.</p>
+        <p>2026년 BBIA × AIBB × PiiX AI 공모전에 참가했다. AIBB 1주년을 맞아 자매 브랜드 BBIA와 AIBB가 콜라보 제품을 출시하고 생일 캠페인을 연다는 설정이었다. 내가 만든 캠페인의 이름은 <code>THE COLOR HOUSE</code>, 제품명은 <code>COLOR ROOM DUO</code>다.</p>
+        <div class="summary" aria-label="프로젝트 요약">
+          <div><strong>2026.07.13–21</strong><span>기획부터 최종 아카이빙까지</span></div>
+          <div><strong>3 outputs</strong><span>제품 · 연출 · 4:5 포스터</span></div>
+          <div><strong>One DNA</strong><span>두 개의 컬러룸과 하나의 제품</span></div>
+        </div>
+
+        <h2>대회와 작업 범위</h2>
+        <p>제출 항목은 제품 최종 시안 1개, 연출 이미지 1–3개, AIBB 1주년 생일 파티 포스터 1개와 기획 설명이었다. 심사 비중은 비주얼 완성도·활용성 40%, 브랜드·주제 해석력 30%, 디자인 기획력 30%였다.</p>
+        <p>브랜드 분석, 콘셉트와 제품 기획, 구조·CMF 설계, 캐릭터·공간 아트 디렉션, PiiX 플로우 구성, 프롬프트 작성, 결과 선별과 QA, 제출 문서 작성까지 전 과정을 맡았다.</p>
+
+        <h2>두 브랜드를 붙이는 것만으로는 부족했다</h2>
+        <p>BBIA와 AIBB는 이름부터 서로를 반대로 비추는 구조다. 하지만 로고를 뒤집거나 두 로고 사이에 제품을 놓는 것만으로는 <code>One DNA</code>가 충분히 설명되지 않았다. 두 브랜드를 하나의 색으로 합치면 각자의 태도도 사라졌다.</p>
+        <p>초기에는 두 개의 팟과 키링형 구조를 탐색했다. 기능은 설명할 수 있었지만 캠페인과 포스터로 확장할 서사가 부족했다. 그래서 제품보다 두 브랜드가 함께 존재할 공간을 먼저 만들었다.</p>
+        <pre><code>하나의 집
+├── 왼쪽: BBIA의 더스티 로즈 컬러룸
+├── 중앙: 연결 통로와 공용 화장대
+└── 오른쪽: AIBB의 체리 레드 컬러룸
+
+하나의 콤팩트
+├── 왼쪽: BBIA 뮤트 로즈 블러
+├── 중앙: 실버 세로 이음선
+└── 오른쪽: AIBB 체리 레드 글로우</code></pre>
+        <blockquote>One DNA, Two Color Rooms.<br />닮은 우리, 다른 색의 방.</blockquote>
+
+        <h2>제품 — COLOR ROOM DUO</h2>
+        <figure>
+          <img src="/assets/2026-the-color-house/product.png" width="1024" height="1024" alt="열린 상태와 닫힌 상태의 COLOR ROOM DUO 듀얼 립앤치크 콤팩트" />
+          <figcaption>왼쪽 BBIA 블러와 오른쪽 AIBB 글로우가 양쪽 바깥 힌지에서 열리는 구조다.</figcaption>
+        </figure>
+        <p><code>COLOR ROOM DUO</code>는 손바닥 크기의 얇고 둥근 직사각형 듀얼 립앤치크 콤팩트다. 왼쪽에는 프로스티드 더스티 로즈 뚜껑과 뮤트 로즈 블러 팬, 오른쪽에는 투명 젤리 레드 뚜껑과 체리 레드 글로우 팬이 있다.</p>
+        <p>실제 힌지는 중앙이 아니라 베이스의 양쪽 바깥 가장자리에 있다. 두 뚜껑이 닫히면 중앙 실버 세로 이음선에서 만난다. 제품을 여는 동작이 두 자매가 각자의 방문을 열고 중앙에서 만나는 서사를 반복한다.</p>
+
+        <h2>어려웠던 점과 해결 방법</h2>
+
+        <section class="issue">
+          <h3>1. 제품이 매번 다른 구조가 됐다</h3>
+          <p>중앙이 책처럼 접히거나 팬이 세 개 이상 생겼다. 핑크 뚜껑 아래 레드 팬이 놓이고, 열린 제품과 닫힌 제품의 비율도 달라졌다.</p>
+          <p><strong>해결:</strong> 감성적인 형용사 대신 출력 전 판정할 수 있는 구조 규칙을 고정했다.</p>
+        </section>
+        <ol class="rule-list">
+          <li>팬은 정확히 두 개다.</li>
+          <li>BBIA는 왼쪽, AIBB는 오른쪽이다.</li>
+          <li>핑크 뚜껑 아래에는 핑크 팬이 있다.</li>
+          <li>레드 뚜껑 아래에는 레드 팬이 있다.</li>
+          <li>힌지는 양쪽 바깥 가장자리에 있다.</li>
+          <li>중앙은 힌지가 아니라 실버 이음선이다.</li>
+        </ol>
+
+        <section class="issue">
+          <h3>2. 모델 장면에서 제품이 거대해졌다</h3>
+          <p>제품 단독 시안에서는 괜찮던 콤팩트가 인물과 함께 놓이면 대형 디스플레이 소품처럼 커졌다. 손이 제품을 덮어 구조가 보이지 않는 결과도 많았다.</p>
+          <p><strong>해결:</strong> 닫힌 폭 9–10cm, 한 손바닥 크기, 사람의 어깨보다 훨씬 작은 열린 폭처럼 절대 수치와 상대 비교를 함께 사용했다. 테이블 원근과 접지 그림자도 별도 검수했다.</p>
+        </section>
+
+        <section class="issue">
+          <h3>3. 얼굴의 작은 특징이 사라졌다</h3>
+          <p>AIBB 동생의 시그니처 점이 사라지거나 반대쪽에 생기고, 두 개가 여러 주근깨로 늘어났다.</p>
+          <p><strong>해결:</strong> “본인의 왼쪽 볼, 즉 관람자 기준 얼굴 오른쪽”처럼 방향을 이중으로 기술했다. 얼굴·제품·공간 레퍼런스도 한 이미지에 섞지 않고 역할별로 분리했다.</p>
+        </section>
+
+        <section class="issue">
+          <h3>4. 한 부분을 고치면 다른 부분이 바뀌었다</h3>
+          <p>점을 고치면서 제품이 달라지고, 제품 크기를 줄이면서 손과 얼굴이 바뀌었다. 전체 재생성은 이미 통과한 요소까지 흔들었다.</p>
+          <p><strong>해결:</strong> 수정 요청을 이번에 바꿀 편집 목표, 절대 변경 금지 영역, 출력 전 확인 목록으로 분리했다. “더 예쁜가”보다 “이번 목표만 바뀌었는가”를 먼저 확인했다.</p>
+        </section>
+
+        <section class="issue">
+          <h3>5. 포스터의 글자와 장면이 경쟁했다</h3>
+          <p>임의 영문과 깨진 문구, 큰 로고, 건축선과 겹치는 글자가 생겼다. 반대로 글자를 사진에서 완전히 분리하면 정확했지만 캠페인 장면과 동떨어져 보였다.</p>
+          <p><strong>해결:</strong> 사진 위 조판, 별도 편집 여백, 장면 안에 제목과 락업을 통합하는 방향을 비교했다. 최종 선택에서는 문자 정확도와 조형적 통합감을 별개로 평가하고 전체 캠페인의 인상을 우선했다.</p>
+        </section>
+
+        <h2>최종 연출</h2>
+        <figure>
+          <img src="/assets/2026-the-color-house/campaign.png" width="2048" height="2048" alt="BBIA 언니와 AIBB 동생이 서로를 바라보며 블러와 글로우 컬러를 사용하는 캠페인 연출" />
+          <figcaption>두 자매의 컬러 선택과 제품 사용 경험을 한 장면 안에 연결했다.</figcaption>
+        </figure>
+        <p>최종 연출은 두 자매가 서로를 바라보며 각자의 컬러를 사용하는 순간을 담았다. BBIA 언니의 뮤트 로즈와 AIBB 동생의 체리 글로우가 얼굴, 손, 배경과 제품에서 반복된다.</p>
+        <p>세 제출물의 역할도 분리했다. 제품 시안은 구조와 CMF, 연출 이미지는 관계와 사용 경험, 포스터는 세계관과 1주년 캠페인을 담당한다.</p>
+
+        <h2>작업 흐름</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>날짜</th><th>주요 작업</th></tr></thead>
+            <tbody>
+              <tr><td>7월 13일</td><td>공모전 요강, 공식 BI와 제출 조건 정리</td></tr>
+              <tr><td>7월 14일</td><td>브랜드 분석, 얼굴 레퍼런스 분리, 초기 제품 탐색</td></tr>
+              <tr><td>7월 15일</td><td>THE COLOR HOUSE 확정, 자매·공간·제품 구조 전개</td></tr>
+              <tr><td>7월 16일</td><td>PiiX 리서치·디자인 매핑, 제품과 연출 이미지 발전</td></tr>
+              <tr><td>7월 17–20일</td><td>제품 구조, 얼굴, 손, 제품 크기와 포스터 후보 검수</td></tr>
+              <tr><td>7월 21일</td><td>최종 3종 확정, 문서·GitHub·블로그 아카이브 정리</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>PiiX 플로우보드에서 배운 것</h2>
+        <p>PiiX는 제품 이미지에서 연출과 포스터로 노드를 연결하며 프로젝트의 흐름을 만들 수 있었다. 그러나 노드가 연결됐다는 사실만으로 제품 구조가 자동으로 보존되지는 않았다. 각 단계에서 기준 이미지와 고정 규칙을 다시 선언해야 했다.</p>
+        <ol>
+          <li>단계가 바뀌면 기준 이미지와 성공 조건을 다시 선언한다.</li>
+          <li>얼굴·공간·제품 레퍼런스는 하나의 역할만 맡긴다.</li>
+          <li>자동 리서치 결과도 콘셉트와 충돌하면 직접 수정한다.</li>
+          <li>생성 횟수보다 합격 기준을 통과한 이미지 수를 관리한다.</li>
+          <li>선택하지 않은 결과도 실패 이유와 함께 버전으로 보관한다.</li>
+          <li>최종 선택에서는 도구보다 브랜드 해석과 활용성을 우선한다.</li>
+        </ol>
+
+        <h2>결과와 회고</h2>
+        <p>완성된 <code>THE COLOR HOUSE</code>에서는 하나의 콘셉트가 공간, 제품과 캠페인에 반복된다. 두 개의 방은 두 제형이 되고, 중앙 통로는 실버 이음선이 되며, 두 자매의 컬러 선택은 제품 사용 경험으로 연결된다.</p>
+        <p>가장 큰 배움은 생성형 AI 작업에서도 결국 중요한 것은 이미지 수가 아니라 디자인 시스템이라는 점이었다. 관계, 위치, 수량, 색상과 금지 조건을 고정하지 않으면 결과는 매번 다른 세계로 흩어진다. 반대로 규칙이 선명하면 여러 도구와 수정 단계를 거쳐도 같은 프로젝트로 다시 모을 수 있다.</p>
+        <p>다시 진행한다면 제품의 정면·사시·열림·닫힘 구조 시트를 더 일찍 확정하고, 얼굴·손·제품 검수를 위한 QA 표를 처음부터 운영할 것이다. 포스터도 이미지 생성과 정확한 타이포그래피 조판 단계를 더 명확히 분리할 것이다.</p>
+        <blockquote>결과물보다 오래 남는 것은 어떤 문제가 있었고, 무엇을 고정했을 때 해결됐는지에 대한 기록이었다.</blockquote>
+
+        <aside class="links" aria-label="관련 자료">
+          <strong>관련 자료</strong>
+          <a href="https://github.com/softkleenex/2026-bbia-aibb-color-house">프로젝트 GitHub 저장소</a>
+          <a href="https://github.com/softkleenex/2026-bbia-aibb-color-house/blob/main/REPORT.md">상세 프로젝트 REPORT</a>
+          <a href="https://github.com/softkleenex/2026-bbia-aibb-color-house#readme">README와 최종 결과</a>
+        </aside>
+      </article>
+    </main>
+    <footer><p>© 2026 Softkleenex. Softkleenex Archive.</p></footer>
+  </body>
+</html>
