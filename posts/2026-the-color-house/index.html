@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" data-accent="rose">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,7 +21,12 @@
     <meta name="twitter:title" content="THE COLOR HOUSE 제작기" />
     <meta name="twitter:description" content="One DNA를 두 개의 컬러룸과 하나의 듀얼 콤팩트로 번역한 AI 디자인 프로젝트" />
     <meta name="twitter:image" content="https://softkleenex.github.io/assets/2026-the-color-house/poster.png" />
+    <meta property="article:published_time" content="2026-07-21" />
+    <link rel="alternate" type="application/rss+xml" title="Softkleenex Archive RSS" href="https://softkleenex.github.io/feed.xml" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="/assets/base.css" />
+    <link rel="stylesheet" href="/assets/post.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -37,96 +42,42 @@
         "mainEntityOfPage": "https://softkleenex.github.io/posts/2026-the-color-house/"
       }
     </script>
-    <style>
-      :root {
-        color-scheme: light;
-        --ink: #24151b;
-        --body: #4a3540;
-        --muted: #76616b;
-        --line: #ead9df;
-        --paper: #fff9fa;
-        --surface: #ffffff;
-        --accent: #a3284b;
-        --accent-deep: #711d36;
-        --accent-soft: #fff0f3;
-        --cherry: #b4233f;
-        --rose: #d59ca7;
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://softkleenex.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "글", "item": "https://softkleenex.github.io/posts/" },
+          { "@type": "ListItem", "position": 3, "name": "THE COLOR HOUSE 제작기" }
+        ]
       }
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Pretendard", system-ui, sans-serif; }
-      img { max-width: 100%; height: auto; }
-      a { color: var(--accent-deep); text-underline-offset: 3px; }
-      a:focus-visible { outline: 3px solid #e3a008; outline-offset: 3px; border-radius: 3px; }
-      .skip { position: fixed; top: 8px; left: 8px; z-index: 10; padding: 10px 14px; transform: translateY(-160%); background: var(--ink); color: #fff; font-weight: 800; }
-      .skip:focus { transform: translateY(0); }
-      header, footer { background: rgba(255, 255, 255, .96); border-color: var(--line); }
-      header { border-bottom: 1px solid var(--line); }
-      nav { width: min(100% - 32px, 1000px); min-height: 64px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-      .brand, .back { font-weight: 800; text-decoration: none; }
-      .brand { color: var(--ink); }
-      .back { color: var(--muted); font-size: 14px; }
-      main { width: min(100% - 32px, 800px); margin: 0 auto; }
-      .hero { padding: 70px 0 42px; text-align: center; }
-      .eyebrow { margin: 0 0 16px; color: var(--accent); font-size: 13px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
-      h1 { margin: 0 auto; max-width: 780px; font-size: clamp(38px, 7vw, 66px); line-height: 1.09; letter-spacing: -.04em; }
-      .lead { margin: 24px auto 0; max-width: 680px; color: var(--body); font-size: clamp(18px, 3vw, 22px); line-height: 1.75; }
-      .meta { margin: 20px 0 0; color: var(--muted); font-size: 14px; }
-      .hero-poster { width: min(100%, 600px); margin: 0 auto 56px; }
-      .hero-poster img { display: block; width: 100%; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 24px 70px rgba(113, 29, 54, .12); }
-      article { padding: 0 0 84px; }
-      h2 { margin: 60px 0 18px; font-size: clamp(26px, 4vw, 34px); line-height: 1.3; letter-spacing: -.025em; }
-      h3 { margin: 32px 0 12px; font-size: 21px; line-height: 1.4; }
-      p, li { color: var(--body); font-size: 17px; line-height: 1.9; }
-      p { margin: 0 0 20px; }
-      ul, ol { padding-left: 25px; }
-      li + li { margin-top: 8px; }
-      code { padding: 2px 6px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); font-size: .9em; }
-      pre { overflow-x: auto; margin: 26px 0; padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: #2c1921; color: #fff5f7; line-height: 1.7; }
-      pre code { padding: 0; border: 0; background: transparent; color: inherit; }
-      blockquote { margin: 30px 0; padding: 20px 22px; border-left: 4px solid var(--accent); background: var(--accent-soft); color: var(--accent-deep); font-size: 19px; font-weight: 700; line-height: 1.8; }
-      figure { margin: 40px 0; }
-      figure img { display: block; width: 100%; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
-      figcaption { margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.6; }
-      .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 30px 0 42px; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--line); }
-      .summary div { padding: 18px; background: var(--surface); }
-      .summary strong { display: block; color: var(--accent-deep); font-size: 20px; }
-      .summary span { display: block; margin-top: 5px; color: var(--muted); font-size: 13px; line-height: 1.5; }
-      .issue { margin: 24px 0; padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
-      .issue h3 { margin-top: 0; color: var(--accent-deep); }
-      .issue p:last-child { margin-bottom: 0; }
-      .rule-list { counter-reset: rule; display: grid; gap: 10px; margin: 28px 0; padding: 0; list-style: none; }
-      .rule-list li { position: relative; padding: 14px 16px 14px 52px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); }
-      .rule-list li::before { counter-increment: rule; content: counter(rule); position: absolute; left: 15px; top: 14px; width: 24px; height: 24px; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 900; }
-      .table-wrap { margin: 28px 0; overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
-      table { width: 100%; min-width: 620px; border-collapse: collapse; }
-      th, td { padding: 14px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 14px; line-height: 1.6; }
-      th { background: var(--accent-soft); color: var(--accent-deep); }
-      tr:last-child td { border-bottom: 0; }
-      .links { margin-top: 52px; padding: 26px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
-      .links strong { display: block; margin-bottom: 8px; }
-      .links a { display: block; padding: 8px 0; font-weight: 750; }
-      footer { border-top: 1px solid var(--line); }
-      footer p { width: min(100% - 32px, 1000px); margin: 0 auto; padding: 25px 0; color: var(--muted); font-size: 14px; }
-      @media (max-width: 620px) {
-        .hero { padding-top: 48px; }
-        .summary { grid-template-columns: 1fr; }
-        p, li { font-size: 16px; }
-        .issue { padding: 20px; }
-      }
-      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-    </style>
+    </script>
   </head>
   <body>
     <a class="skip" href="#content">본문으로 건너뛰기</a>
-    <header>
+    <header class="site-header">
       <nav aria-label="주요 탐색">
-        <a class="brand" href="/">Softkleenex Archive</a>
-        <a class="back" href="/">홈으로</a>
+        <a class="brand" href="/">
+          <img src="/assets/softkleenex-avatar.png" width="34" height="34" alt="" />
+          <span>Softkleenex Archive</span>
+        </a>
+        <div class="site-nav">
+          <a href="/posts/">글</a>
+          <a href="/coding_training/">아카이브</a>
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </div>
       </nav>
     </header>
     <main id="content">
-      <section class="hero">
+      <nav class="breadcrumb" aria-label="탐색 경로">
+        <ol>
+          <li><a href="/">홈</a></li>
+          <li><a href="/posts/">글</a></li>
+          <li aria-current="page">THE COLOR HOUSE 제작기</li>
+        </ol>
+      </nav>
+      <section class="hero centered">
         <p class="eyebrow">AI design · Competition retrospective</p>
         <h1>THE COLOR HOUSE</h1>
         <p class="lead">AI로 자매 브랜드의 세계와 제품을 설계하며, 제품 구조·인물·손·타이포그래피의 일관성을 지켜낸 기록</p>
@@ -138,7 +89,7 @@
       <article>
         <p>예쁜 한 장을 만드는 것보다 어려운 일은 제품 시안, 모델 연출과 포스터가 모두 같은 제품과 세계를 보여주게 하는 것이었다.</p>
         <p>2026년 BBIA × AIBB × PiiX AI 공모전에 참가했다. AIBB 1주년을 맞아 자매 브랜드 BBIA와 AIBB가 콜라보 제품을 출시하고 생일 캠페인을 연다는 설정이었다. 내가 만든 캠페인의 이름은 <code>THE COLOR HOUSE</code>, 제품명은 <code>COLOR ROOM DUO</code>다.</p>
-        <div class="summary" aria-label="프로젝트 요약">
+        <div class="stats" aria-label="프로젝트 요약">
           <div><strong>2026.07.13–21</strong><span>기획부터 최종 아카이빙까지</span></div>
           <div><strong>3 outputs</strong><span>제품 · 연출 · 4:5 포스터</span></div>
           <div><strong>One DNA</strong><span>두 개의 컬러룸과 하나의 제품</span></div>
@@ -258,6 +209,14 @@
         </aside>
       </article>
     </main>
-    <footer><p>© 2026 Softkleenex. Softkleenex Archive.</p></footer>
+    <footer class="site-footer">
+      <div>
+        <p>© 2026 Softkleenex. Softkleenex Archive.</p>
+        <p>
+          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="/coding_training/">대회 아카이브</a>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

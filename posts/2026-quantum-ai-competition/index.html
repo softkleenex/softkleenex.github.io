@@ -5,67 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>제3회 Global Quantum AI Competition 회고 | Softkleenex Archive</title>
     <meta name="description" content="209개 회로를 검증하고 0.005점이 부족했다: depth 50 제약 아래의 양자 분류기와 잘못 잡은 목표에 대한 기록" />
+    <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://softkleenex.github.io/posts/2026-quantum-ai-competition/" />
     <link rel="icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="apple-touch-icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="alternate" type="application/rss+xml" title="Softkleenex Archive RSS" href="https://softkleenex.github.io/feed.xml" />
+    <meta property="og:site_name" content="Softkleenex Archive" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="제3회 Global Quantum AI Competition 회고" />
     <meta property="og:description" content="검증 체계는 정확했다. 틀린 것은 그 체계를 겨눈 방향이었다. 72팀 중 44위로 끝난 양자 회로 분류기 회고." />
     <meta property="og:url" content="https://softkleenex.github.io/posts/2026-quantum-ai-competition/" />
     <meta property="og:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta property="og:image:width" content="460" />
+    <meta property="og:image:height" content="460" />
+    <meta property="article:published_time" content="2026-08-10" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="제3회 Global Quantum AI Competition 회고" />
+    <meta name="twitter:description" content="검증 체계는 정확했다. 틀린 것은 그 체계를 겨눈 방향이었다. 72팀 중 44위로 끝난 양자 회로 분류기 회고." />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <style>
-      :root { color-scheme: light; --ink: #101827; --muted: #526173; --line: #d8dee8; --paper: #f7f9fc; --accent: #1d4ed8; --soft: #eef4ff; }
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Pretendard", system-ui, sans-serif; letter-spacing: 0; }
-      a { color: var(--accent); }
-      a:focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
-      header, footer { border-bottom: 1px solid var(--line); background: #fff; }
-      nav { width: min(100% - 32px, 960px); margin: 0 auto; min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-      .brand, .back { text-decoration: none; font-weight: 800; }
-      .brand { color: var(--ink); }
-      .back { color: var(--muted); font-size: 14px; }
-      main { width: min(100% - 32px, 760px); margin: 0 auto; }
-      .hero { padding: 64px 0 40px; border-bottom: 1px solid var(--line); }
-      .eyebrow { margin: 0 0 14px; color: var(--accent); font-size: 14px; font-weight: 800; text-transform: uppercase; }
-      h1 { margin: 0; max-width: 680px; font-size: clamp(38px, 8vw, 64px); line-height: 1.08; }
-      .lead { margin: 22px 0 0; color: #334155; font-size: 20px; line-height: 1.75; }
-      .meta { margin-top: 22px; color: var(--muted); font-size: 14px; }
-      article { padding: 36px 0 72px; }
-      h2 { margin: 52px 0 16px; font-size: 28px; line-height: 1.3; }
-      p, li { font-size: 17px; line-height: 1.9; }
-      p { margin: 0 0 20px; }
-      ol, ul { padding-left: 24px; }
-      li + li { margin-top: 10px; }
-      code { padding: 2px 6px; border: 1px solid var(--line); border-radius: 4px; background: #fff; font-size: .9em; }
-      pre { margin: 28px 0; padding: 18px 20px; overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
-      pre code { display: block; padding: 0; border: 0; background: none; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; line-height: 1.7; white-space: pre; }
-      .tablewrap { margin: 28px 0; overflow-x: auto; }
-      table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: 8px; }
-      th, td { padding: 11px 14px; border-bottom: 1px solid var(--line); font-size: 15px; line-height: 1.6; text-align: left; }
-      th { background: var(--soft); font-weight: 800; }
-      tbody tr:last-child td { border-bottom: 0; }
-      td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
-      tr.hl td { background: #fffbeb; font-weight: 700; }
-      .result { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 28px 0 40px; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--line); }
-      .result div { min-width: 0; padding: 18px 14px; background: #fff; }
-      .result strong { display: block; font-size: 24px; }
-      .result span { color: var(--muted); font-size: 13px; }
-      figure { margin: 36px 0; }
-      figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
-      figcaption { margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.6; }
-      blockquote { margin: 28px 0; padding: 18px 20px; border-left: 4px solid var(--accent); background: var(--soft); font-size: 18px; line-height: 1.8; }
-      .links { margin-top: 48px; padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
-      .links a { display: block; padding: 8px 0; font-weight: 700; }
-      footer { border-top: 1px solid var(--line); border-bottom: 0; }
-      footer p { width: min(100% - 32px, 960px); margin: 0 auto; padding: 24px 0; color: var(--muted); font-size: 14px; }
-      @media (max-width: 560px) { .hero { padding-top: 44px; } .result { grid-template-columns: 1fr; } h2 { font-size: 24px; } p, li { font-size: 16px; } }
-      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-    </style>
+    <link rel="stylesheet" href="/assets/base.css" />
+    <link rel="stylesheet" href="/assets/post.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "제3회 Global Quantum AI Competition 회고",
+        "description": "209개 회로를 검증하고 0.005점이 부족했다: depth 50 제약 아래의 양자 분류기와 잘못 잡은 목표에 대한 기록",
+        "datePublished": "2026-08-10",
+        "dateModified": "2026-08-10",
+        "inLanguage": "ko-KR",
+        "image": "https://softkleenex.github.io/assets/softkleenex-avatar.png",
+        "author": { "@type": "Person", "name": "softkleenex", "url": "https://softkleenex.github.io/" },
+        "publisher": { "@type": "Person", "name": "softkleenex", "url": "https://softkleenex.github.io/" },
+        "mainEntityOfPage": "https://softkleenex.github.io/posts/2026-quantum-ai-competition/"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://softkleenex.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "글", "item": "https://softkleenex.github.io/posts/" },
+          { "@type": "ListItem", "position": 3, "name": "제3회 Global Quantum AI Competition 회고" }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <header><nav aria-label="주요 탐색"><a class="brand" href="/">Softkleenex Archive</a><a class="back" href="/">홈으로</a></nav></header>
-    <main>
+    <a class="skip" href="#content">본문으로 건너뛰기</a>
+    <header class="site-header">
+      <nav aria-label="주요 탐색">
+        <a class="brand" href="/">
+          <img src="/assets/softkleenex-avatar.png" width="34" height="34" alt="" />
+          <span>Softkleenex Archive</span>
+        </a>
+        <div class="site-nav">
+          <a href="/posts/">글</a>
+          <a href="/coding_training/">아카이브</a>
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </div>
+      </nav>
+    </header>
+    <main id="content">
+      <nav class="breadcrumb" aria-label="탐색 경로">
+        <ol>
+          <li><a href="/">홈</a></li>
+          <li><a href="/posts/">글</a></li>
+          <li aria-current="page">Global Quantum AI Competition 회고</li>
+        </ol>
+      </nav>
       <section class="hero">
         <p class="eyebrow">Competition retrospective</p>
         <h1>제3회 Global Quantum AI Competition 회고</h1>
@@ -74,7 +85,7 @@
       </section>
       <article>
         <p>1인 팀 <code>softkleenex1217</code>로 제3회 Global Quantum AI Competition 1st Challenge에 참가했다. 8개 feature를 가진 설문형 데이터의 두 잠재 class를 분류하는 <strong>양자 회로</strong>를 설계하는 과제였다.</p>
-        <div class="result" aria-label="최종 결과 요약"><div><strong>44위</strong><span>72팀 중</span></div><div><strong>0.82</strong><span>balanced accuracy</span></div><div><strong>209개</strong><span>검증한 회로 후보</span></div></div>
+        <div class="stats" aria-label="최종 결과 요약"><div><strong>44위</strong><span>72팀 중</span></div><div><strong>0.82</strong><span>balanced accuracy</span></div><div><strong>209개</strong><span>검증한 회로 후보</span></div></div>
         <p>2nd Challenge 진출선은 0.83이었다. 표시 점수로는 한 칸, Raw 점수로는 <strong>0.005</strong> 차이였다.</p>
 
         <h2>제약이 문제를 다르게 만든다</h2>
@@ -118,7 +129,7 @@ q1   RZ(w·x) → RY                  × 8 블록
           <li>모든 후보에 대해 <strong>결과를 보기 전에</strong> 승격 기준을 문서에 고정했고, 미달한 후보를 seed나 예산 변형으로 되살리지 않았다.</li>
         </ul>
         <p>효과는 숫자로 확인됐다. 로컬 OOF와 서버 private 점수의 차이가 매 제출 <code>+0.0008</code> 이내였다.</p>
-        <div class="tablewrap">
+        <div class="table-wrap">
           <table>
             <thead><tr><th>제출</th><th class="num">로컬 OOF</th><th class="num">private Raw</th><th class="num">차이</th></tr></thead>
             <tbody>
@@ -133,7 +144,7 @@ q1   RZ(w·x) → RY                  × 8 블록
         <h2>그런데 목표가 틀렸다</h2>
         <p>문제는 다른 곳에 있었다. 이 워크스페이스는 목표를 <strong>0.90</strong>으로 유지했다.</p>
         <p>최종 리더보드를 보고 나서야 알았다. <strong>72팀 중 최고점이 0.84였다.</strong> 0.85 이상은 아무도 없었다.</p>
-        <div class="tablewrap">
+        <div class="table-wrap">
           <table>
             <thead><tr><th class="num">점수</th><th class="num">팀 수</th><th>순위</th></tr></thead>
             <tbody>
@@ -182,6 +193,14 @@ q1   RZ(w·x) → RY                  × 8 블록
         <aside class="links" aria-label="관련 자료"><strong>관련 자료</strong><a href="https://github.com/softkleenex/quantum-ai-competition-2026">프로젝트 저장소</a><a href="https://github.com/softkleenex/quantum-ai-competition-2026/blob/main/docs/worklogs/final_result_1st_challenge.md">최종 결과와 전체 리더보드</a><a href="https://github.com/softkleenex/quantum-ai-competition-2026/tree/main/docs/research">후보별 사전등록 기준과 결과</a></aside>
       </article>
     </main>
-    <footer><p>© 2026 Softkleenex. Softkleenex Archive.</p></footer>
+    <footer class="site-footer">
+      <div>
+        <p>© 2026 Softkleenex. Softkleenex Archive.</p>
+        <p>
+          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="/coding_training/">대회 아카이브</a>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

@@ -20,6 +20,12 @@
       rel="alternate"
       type="application/rss+xml"
       title="Softkleenex Archive RSS"
+      href="https://softkleenex.github.io/feed.xml"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Softkleenex 대회 아카이브 RSS"
       href="https://softkleenex.github.io/coding_training/index.xml"
     />
     <meta property="og:site_name" content="Softkleenex Archive" />
@@ -60,12 +66,13 @@
       name="google-site-verification"
       content="DlixtFsQ7eZ9lcdthn-evx0eazwiUSvA_5hIiVZfahc"
     />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link
       rel="stylesheet"
       crossorigin="anonymous"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
+    <link rel="stylesheet" href="/assets/base.css" />
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202"
@@ -97,13 +104,11 @@
           },
           {
             "@type": "Blog",
-            "@id": "https://softkleenex.github.io/coding_training/#blog",
+            "@id": "https://softkleenex.github.io/#blog",
             "name": "Softkleenex Archive",
-            "url": "https://softkleenex.github.io/coding_training/",
+            "url": "https://softkleenex.github.io/posts/",
             "description": "AI 개발, 대회 회고, 알고리즘과 생성형 디자인 프로젝트를 기록하는 아카이브",
-            "author": {
-              "@id": "https://softkleenex.github.io/#person"
-            },
+            "author": { "@id": "https://softkleenex.github.io/#person" },
             "inLanguage": "ko-KR"
           },
           {
@@ -111,238 +116,322 @@
             "@id": "https://softkleenex.github.io/#website",
             "name": "Softkleenex Archive",
             "url": "https://softkleenex.github.io/",
-            "publisher": {
-              "@id": "https://softkleenex.github.io/#person"
-            },
+            "publisher": { "@id": "https://softkleenex.github.io/#person" },
             "inLanguage": "ko-KR"
           }
         ]
       }
     </script>
     <style>
-      :root {
-        color-scheme: light;
-        --ink: #101827;
-        --muted: #526173;
-        --line: #d8dee8;
-        --paper: #f7f9fc;
-        --accent: #2563eb;
-        --green: #047857;
-        --red: #b91c1c;
+      .shell {
+        width: var(--shell);
+        margin: 0 auto;
       }
 
-      * {
-        box-sizing: border-box;
+      .intro {
+        border-bottom: 1px solid var(--line);
+        background: var(--surface);
       }
 
-      body {
-        background: var(--paper);
-        color: var(--ink);
-        font-family:
-          "Pretendard",
-          system-ui,
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          sans-serif;
-        letter-spacing: 0;
+      .intro .shell {
+        display: grid;
+        gap: 40px;
+        padding: 64px 0;
+        align-items: center;
+      }
+
+      @media (min-width: 860px) {
+        .intro .shell {
+          grid-template-columns: 1.05fr 0.95fr;
+        }
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
         margin: 0;
+        font-size: clamp(36px, 7vw, 56px);
+        line-height: 1.1;
+        letter-spacing: -0.035em;
       }
 
-      a {
+      .lead {
+        margin: 20px 0 0;
+        max-width: 34em;
+        color: var(--body);
+        font-size: 18px;
+        line-height: 1.85;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 20px;
+        border: 1px solid var(--ink);
+        border-radius: 8px;
+        background: var(--ink);
+        color: var(--paper);
+        font-size: 15px;
+        font-weight: 700;
         text-decoration: none;
       }
 
-      .soft-card {
-        background: #ffffff;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+      .btn.ghost {
+        border-color: var(--line);
+        background: transparent;
+        color: var(--ink);
       }
 
-      .soft-link {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        transition:
-          border-color 160ms ease,
-          transform 160ms ease,
-          box-shadow 160ms ease;
+      .btn:hover {
+        border-color: var(--accent);
       }
 
-      .soft-link:hover {
-        border-color: rgba(37, 99, 235, 0.55);
-        box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
-        transform: translateY(-1px);
+      .profile {
+        padding: 26px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .profile-top {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .profile-top img {
+        width: 76px;
+        height: 76px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+      }
+
+      .profile-top p:first-child {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 800;
+      }
+
+      .profile-top p:last-child {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .profile blockquote {
+        margin: 22px 0 0;
+        padding: 0 0 0 16px;
+        border-left: 4px solid var(--accent);
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.85;
+      }
+
+      section.band {
+        padding: 56px 0;
+      }
+
+      section.band + section.band {
+        padding-top: 0;
+      }
+
+      .band-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px 20px;
+      }
+
+      .band-head h2 {
+        margin: 0;
+        font-size: 24px;
+        letter-spacing: -0.02em;
+      }
+
+      .band-head a {
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .band-note {
+        margin: 10px 0 0;
+        max-width: 46em;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.75;
       }
     </style>
   </head>
   <body>
-    <header class="border-b border-slate-200 bg-white/90">
-      <nav
-        class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4"
-      >
-        <a
-          href="/"
-          class="flex items-center gap-3 text-slate-950"
-          aria-label="Softkleenex Archive home"
-        >
+    <a class="skip" href="#content">본문으로 건너뛰기</a>
+    <header class="site-header">
+      <nav aria-label="주요 탐색">
+        <a class="brand" href="/">
           <img
             src="/assets/softkleenex-avatar.png"
+            width="34"
+            height="34"
             alt=""
-            class="h-9 w-9 rounded-full border border-slate-200"
           />
-          <span class="text-base font-bold">Softkleenex Archive</span>
+          <span>Softkleenex Archive</span>
         </a>
-        <div
-          class="flex items-center gap-3 text-sm font-semibold text-slate-600"
-        >
-          <a class="hover:text-blue-700" href="/coding_training/">Blog</a>
-          <a class="hover:text-blue-700" href="https://github.com/softkleenex"
-            >GitHub</a
-          >
+        <div class="site-nav">
+          <a href="/posts/">글</a>
+          <a href="/coding_training/">아카이브</a>
+          <a href="https://github.com/softkleenex">GitHub</a>
         </div>
       </nav>
     </header>
 
-    <main>
-      <section class="border-b border-slate-200 bg-white">
-        <div
-          class="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:items-center"
-        >
+    <main id="content">
+      <section class="intro">
+        <div class="shell">
           <div>
-            <p class="mb-4 text-sm font-bold uppercase text-blue-700">
-              AI developer blog and competition archive
-            </p>
-            <h1
-              class="max-w-3xl text-4xl font-extrabold leading-tight text-slate-950"
-            >
-              Softkleenex Archive
-            </h1>
-            <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-700">
+            <p class="eyebrow">AI developer blog and competition archive</p>
+            <h1>Softkleenex Archive</h1>
+            <p class="lead">
               AI 개발과 생성형 디자인 프로젝트를 기록하는 블로그입니다. 대회
               회고, 알고리즘, 실험과 디자인 제작기를 한곳에 모으고, 결과보다
               병목과 해결 과정을 오래 남깁니다.
             </p>
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a
-                href="/coding_training/"
-                class="inline-flex items-center gap-2 rounded-lg bg-slate-950 px-5 py-3 text-sm font-bold text-white"
-              >
-                <span>Archive로 이동</span>
+            <div class="actions">
+              <a class="btn" href="/posts/">
+                <span>글 읽기</span>
                 <span aria-hidden="true">→</span>
               </a>
-              <a
-                href="/coding_training/dacon/dacon-etri-human-understanding"
-                class="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-5 py-3 text-sm font-bold text-slate-800"
-              >
-                <span>ETRI 회고 읽기</span>
+              <a class="btn ghost" href="/coding_training/">
+                <span>대회 아카이브</span>
                 <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>
-          <aside class="soft-card p-6" aria-label="Profile summary">
-            <div class="flex items-center gap-4">
+          <aside class="profile" aria-label="프로필 요약">
+            <div class="profile-top">
               <img
                 src="/assets/softkleenex-avatar.png"
-                alt="Softkleenex GitHub profile image"
-                class="h-20 w-20 rounded-full border border-slate-200"
+                width="76"
+                height="76"
+                alt="Softkleenex GitHub 프로필 이미지"
               />
               <div>
-                <p class="text-xl font-extrabold text-slate-950">softkleenex</p>
-                <p class="mt-1 text-sm text-slate-600">
-                  DACON, Kaggle, AI, 알고리즘 기록
-                </p>
+                <p>softkleenex</p>
+                <p>DACON, Kaggle, AI, 알고리즘 기록</p>
               </div>
             </div>
-            <p
-              class="mt-6 border-l-4 border-blue-600 pl-4 text-sm leading-7 text-slate-700"
-            >
+            <blockquote>
               잘 된 모델만 남기기보다 검증이 흔들린 순간, 제출을 멈춘 이유, 다음
               대회로 가져갈 습관까지 적는 포트폴리오형 아카이브입니다.
-            </p>
+            </blockquote>
           </aside>
         </div>
       </section>
 
-      <section class="mx-auto max-w-6xl px-5 py-12">
-        <h2 class="text-2xl font-extrabold text-slate-950">주요 기록</h2>
-        <p class="mt-2 max-w-2xl text-slate-600">
-          대회 repo는 그대로 유지하고, 블로그는 사람이 읽기 좋은 회고와 탐색
-          입구로 관리합니다.
-        </p>
-        <div class="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <a
-            class="soft-link bg-white p-5"
-            href="/posts/2026-quantum-ai-competition/"
-          >
-            <p class="text-sm font-bold text-indigo-700">QUANTUM AI 2026</p>
-            <h3 class="mt-2 text-lg font-extrabold text-slate-950">
-              양자 회로 분류기 회고
-            </h3>
-            <p class="mt-3 text-sm leading-6 text-slate-600">
-              depth 50 제약 아래 209개 회로를 검증하고 0.005점이 부족했던
-              이유와 잘못 잡은 목표를 정리했습니다.
-            </p>
-          </a>
-          <a
-            class="soft-link bg-white p-5"
-            href="/posts/2026-the-color-house/"
-          >
-            <p class="text-sm font-bold text-rose-700">AI DESIGN 2026</p>
-            <h3 class="mt-2 text-lg font-extrabold text-slate-950">
-              THE COLOR HOUSE 제작기
-            </h3>
-            <p class="mt-3 text-sm leading-6 text-slate-600">
-              자매 브랜드의 세계와 듀얼 제품을 설계하며 제품·인물·타이포의
-              일관성을 해결한 과정을 정리했습니다.
-            </p>
-          </a>
-          <a class="soft-link bg-white p-5" href="/coding_training/dacon/">
-            <p class="text-sm font-bold text-blue-700">DACON</p>
-            <h3 class="mt-2 text-lg font-extrabold text-slate-950">
-              대회 회고와 제출 운영
-            </h3>
-            <p class="mt-3 text-sm leading-6 text-slate-600">
-              로컬 검증, 리더보드 gap, 제출 후보 관리와 같은 대회 운영 기록을
-              정리합니다.
-            </p>
-          </a>
-          <a
-            class="soft-link bg-white p-5"
-            href="/posts/2026-nypc-retrospective/"
-          >
-            <p class="text-sm font-bold text-emerald-700">NYPC 2026</p>
-            <h3 class="mt-2 text-lg font-extrabold text-slate-950">
-              NEXT NATION 봇 개발 회고
-            </h3>
-            <p class="mt-3 text-sm leading-6 text-slate-600">
-              183개의 후보와 300경기 로그 뒤에 남은 검증의 함정과 실패를
-              정리했습니다.
-            </p>
-          </a>
-          <a
-            class="soft-link bg-white p-5"
-            href="/coding_training/posts/hello-world"
-          >
-            <p class="text-sm font-bold text-red-700">AI and Development</p>
-            <h3 class="mt-2 text-lg font-extrabold text-slate-950">
-              개발자로 남기는 과정
-            </h3>
-            <p class="mt-3 text-sm leading-6 text-slate-600">
-              알고리즘, 자동화, 트러블슈팅, 회고를 넓은 개발 블로그 주제로
-              쌓아갑니다.
-            </p>
-          </a>
+      <section class="band">
+        <div class="shell">
+          <div class="band-head">
+            <h2>최근 글</h2>
+            <a href="/posts/">전체 보기 →</a>
+          </div>
+          <p class="band-note">
+            길게 쓴 회고와 제작기입니다. 어디서 막혔고 무엇을 고정했을 때
+            풀렸는지를 남깁니다.
+          </p>
+          <div class="card-grid cols-3">
+            <a class="card" href="/posts/2026-quantum-ai-competition/">
+              <p class="kicker">Quantum AI 2026</p>
+              <h3>양자 회로 분류기 회고</h3>
+              <p>
+                depth 50 제약 아래 209개 회로를 검증하고 0.005점이 부족했던
+                이유와 잘못 잡은 목표를 정리했습니다.
+              </p>
+              <time datetime="2026-08-10">2026년 8월 10일</time>
+            </a>
+            <a class="card" href="/posts/2026-the-color-house/">
+              <p class="kicker">AI Design 2026</p>
+              <h3>THE COLOR HOUSE 제작기</h3>
+              <p>
+                자매 브랜드의 세계와 듀얼 제품을 설계하며 제품·인물·타이포의
+                일관성을 해결한 과정을 정리했습니다.
+              </p>
+              <time datetime="2026-07-21">2026년 7월 21일</time>
+            </a>
+            <a class="card" href="/posts/2026-nypc-retrospective/">
+              <p class="kicker">NYPC 2026</p>
+              <h3>NEXT NATION 봇 개발 회고</h3>
+              <p>
+                183개의 후보와 300경기 로그 뒤에 남은 검증의 함정과 실패를
+                정리했습니다.
+              </p>
+              <time datetime="2026-07-20">2026년 7월 20일</time>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="shell">
+          <div class="band-head">
+            <h2>대회 아카이브</h2>
+            <a href="/coding_training/">아카이브 홈 →</a>
+          </div>
+          <p class="band-note">
+            대회별 저장소는 그대로 두고, 아카이브에는 사람이 읽기 좋은 노트와
+            탐색 입구만 관리합니다.
+          </p>
+          <div class="card-grid cols-3">
+            <a class="card" href="/coding_training/dacon/">
+              <p class="kicker">DACON</p>
+              <h3>대회 회고와 제출 운영</h3>
+              <p>
+                로컬 검증, 리더보드 gap, 제출 후보 관리와 같은 대회 운영 기록을
+                정리합니다.
+              </p>
+            </a>
+            <a class="card" href="/coding_training/kaggle/">
+              <p class="kicker">Kaggle</p>
+              <h3>파이프라인과 실험 기록</h3>
+              <p>
+                RNA 3D folding, ARC Prize, Jigsaw 등 진행한 대회의 접근과 실패
+                지점을 남깁니다.
+              </p>
+            </a>
+            <a class="card" href="/coding_training/posts/hello-world">
+              <p class="kicker">AI and Development</p>
+              <h3>개발자로 남기는 과정</h3>
+              <p>
+                알고리즘, 자동화, 트러블슈팅, 회고를 넓은 개발 블로그 주제로
+                쌓아갑니다.
+              </p>
+            </a>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer class="border-t border-slate-200 bg-white">
-      <div
-        class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-7 text-sm text-slate-500 md:flex-row md:items-center md:justify-between"
-      >
+    <footer class="site-footer">
+      <div>
         <p>© 2026 Softkleenex. Softkleenex Archive.</p>
-        <p>병목과 해결까지 남기는 개발 아카이브</p>
+        <p>
+          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="/coding_training/">대회 아카이브</a>
+        </p>
       </div>
     </footer>
   </body>

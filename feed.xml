@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Softkleenex Archive</title>
+    <link>https://softkleenex.github.io/</link>
+    <description>AI 개발과 생성형 디자인 프로젝트를 기록하는 블로그. 대회 회고와 제작기를 남깁니다.</description>
+    <language>ko</language>
+    <copyright>© 2026 Softkleenex</copyright>
+    <lastBuildDate>Mon, 10 Aug 2026 09:00:00 +0900</lastBuildDate>
+    <atom:link href="https://softkleenex.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://softkleenex.github.io/assets/softkleenex-avatar.png</url>
+      <title>Softkleenex Archive</title>
+      <link>https://softkleenex.github.io/</link>
+    </image>
+
+    <item>
+      <title>제3회 Global Quantum AI Competition 회고</title>
+      <link>https://softkleenex.github.io/posts/2026-quantum-ai-competition/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/2026-quantum-ai-competition/</guid>
+      <pubDate>Mon, 10 Aug 2026 09:00:00 +0900</pubDate>
+      <description>209개 회로를 검증하고 0.005점이 부족했다. 검증 체계는 정확했고, 틀린 것은 그 체계를 겨눈 방향이었다. depth 50 제약 아래의 2-qubit data re-uploading 분류기와 잘못 잡은 목표에 대한 기록.</description>
+    </item>
+
+    <item>
+      <title>THE COLOR HOUSE 제작기</title>
+      <link>https://softkleenex.github.io/posts/2026-the-color-house/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/2026-the-color-house/</guid>
+      <pubDate>Tue, 21 Jul 2026 09:00:00 +0900</pubDate>
+      <description>BBIA × AIBB의 One DNA를 두 개의 컬러룸과 듀얼 립앤치크 제품으로 번역하며 겪은 제품 일관성, 인물, 손, 타이포그래피 문제와 해결 과정.</description>
+    </item>
+
+    <item>
+      <title>2026 NYPC 회고록</title>
+      <link>https://softkleenex.github.io/posts/2026-nypc-retrospective/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/2026-nypc-retrospective/</guid>
+      <pubDate>Mon, 20 Jul 2026 09:00:00 +0900</pubDate>
+      <description>로컬 rush 승률 95%, 마지막 유저 평가 579위. 183개의 후보와 300경기 로그 뒤에 남은 로컬 검증의 함정과 NEXT NATION 봇 개발 회고.</description>
+    </item>
+  </channel>
+</rss>
