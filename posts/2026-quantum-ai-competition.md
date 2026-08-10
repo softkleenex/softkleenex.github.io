@@ -26,9 +26,11 @@ description: "209개 회로를 검증하고 0.005점이 부족했다: depth 50 �
 제출한 것은 2-qubit **data re-uploading** 회로다. 같은 raw feature를 회로의 여러 위치에 반복 입력해서 깊이를 표현력으로 바꾸는 구조다.
 
 ```
-q0: [RY·RX] → 15 × [ RZ(w·x) → RY → RX ] ─┐
-                                           CZ → RX → RY → measure
-q1: 8 × [ RZ(w·x) → RY ] ─────────────────┘
+q0   RY, RX                        (데이터 없이 학습 회전만)
+     RZ(w·x) → RY → RX             × 15 블록
+q1   RZ(w·x) → RY                  × 8 블록
+--------------------------------------------------
+     CZ(q0, q1) → RX(q0) → RY(q0) → measure q0
 ```
 
 q0는 16개 블록으로 feature를 순서 `[0,3,4,1,7,5,6,5,7,6,0,4,3,1,2]`로 재업로드한다. 일부 feature는 두 번 등장한다. q1은 같은 feature를 **역순**으로 인코딩해서 반대 방향으로 정보를 쌓는다. 두 branch를 CZ 하나로 얽고, 그 뒤에 RX와 RY readout을 붙여 측정 basis까지 학습시켰다.
