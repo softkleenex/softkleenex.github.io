@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block layout %}
+<div class="shell with-explorer">
+  {% include "_explorer.html" %}
+  <main id="content">
+    <nav class="breadcrumb" aria-label="탐색 경로">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li><a href="/posts/">글</a></li>
+        <li aria-current="page">{{ post.title }}</li>
+      </ol>
+    </nav>
+    <article>
+      <header class="hero">
+        <p class="eyebrow">{{ post.category }} · {{ post.date.year }}</p>
+        <h1>{{ post.title }}</h1>
+        <p class="lead">{{ post.subtitle }}</p>
+        <p class="meta">
+          <time datetime="{{ post.date }}">{{ post.date_ko }}</time>
+          {%- if post.repo %} · <a href="https://github.com/softkleenex/{{ post.repo }}">저장소</a>{% endif %}
+        </p>
+      </header>
+      {{ post.html|safe }}
+    </article>
+    <nav class="postnav" aria-label="글 이동">
+      {%- if post.prev %}
+      <a class="pn prev" href="/posts/{{ post.prev.slug }}/">
+        <span>이전 글</span><strong>{{ post.prev.title }}</strong>
+      </a>
+      {%- endif %}
+      {%- if post.next %}
+      <a class="pn next" href="/posts/{{ post.next.slug }}/">
+        <span>다음 글</span><strong>{{ post.next.title }}</strong>
+      </a>
+      {%- endif %}
+    </nav>
+  </main>
+</div>
+{% endblock %}

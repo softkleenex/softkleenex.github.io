@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DACON 대회 시작 템플릿 | Softkleenex Archive</title>
+    <meta name="description" content="DACON과 Kaggle 대회를 30분 안에 시작하기 위한 운영 템플릿 기록. 검증 우선 원칙, 제출 로그, 데이터 사전, Kaggle 오프로드를 표준화한 이유를 정리했다." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://softkleenex.github.io/posts/dacon-base/" />
+    <link rel="icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="apple-touch-icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="alternate" type="application/rss+xml" title="Softkleenex Archive RSS" href="https://softkleenex.github.io/feed.xml" />
+    <meta property="og:site_name" content="Softkleenex Archive" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="DACON 대회 시작 템플릿 | Softkleenex Archive" />
+    <meta property="og:description" content="DACON과 Kaggle 대회를 30분 안에 시작하기 위한 운영 템플릿 기록. 검증 우선 원칙, 제출 로그, 데이터 사전, Kaggle 오프로드를 표준화한 이유를 정리했다." />
+    <meta property="og:url" content="https://softkleenex.github.io/posts/dacon-base/" />
+    <meta property="og:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta property="og:image:width" content="460" />
+    <meta property="og:image:height" content="460" />
+    <meta property="article:published_time" content="2026-05-06" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="DACON 대회 시작 템플릿 | Softkleenex Archive" />
+    <meta name="twitter:description" content="DACON과 Kaggle 대회를 30분 안에 시작하기 위한 운영 템플릿 기록. 검증 우선 원칙, 제출 로그, 데이터 사전, Kaggle 오프로드를 표준화한 이유를 정리했다." />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta name="naver-site-verification" content="07d8e8da57a2f02b48c11e909923ec67" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="/assets/base.css" />
+    <link rel="stylesheet" href="/assets/post.css" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "DACON 대회 시작 템플릿", "alternativeHeadline": "성능을 내기 전에 성능을 믿을 수 있게 만드는 운영 템플릿", "description": "DACON과 Kaggle 대회를 30분 안에 시작하기 위한 운영 템플릿 기록. 검증 우선 원칙, 제출 로그, 데이터 사전, Kaggle 오프로드를 표준화한 이유를 정리했다.", "datePublished": "2026-05-06", "inLanguage": "ko-KR", "url": "https://softkleenex.github.io/posts/dacon-base/", "mainEntityOfPage": {"@id": "https://softkleenex.github.io/posts/dacon-base/"}, "author": {"@id": "https://softkleenex.github.io/#person"}, "publisher": {"@id": "https://softkleenex.github.io/#person"}, "isPartOf": {"@id": "https://softkleenex.github.io/#blog"}, "image": "https://softkleenex.github.io/assets/softkleenex-avatar.png"}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://softkleenex.github.io/"}, {"@type": "ListItem", "position": 2, "name": "글", "item": "https://softkleenex.github.io/posts/"}, {"@type": "ListItem", "position": 3, "name": "DACON 대회 시작 템플릿"}]}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <a class="skip" href="#content">본문으로 건너뛰기</a>
+    <header class="site-header">
+      <nav aria-label="주요 탐색">
+        <a class="brand" href="/">
+          <img src="/assets/softkleenex-avatar.png" width="34" height="34" alt="" />
+          <span>Softkleenex Archive</span>
+        </a>
+        <div class="site-nav">
+          <a href="/posts/" aria-current="page">글</a>
+          <a href="/feed.xml">RSS</a>
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </div>
+      </nav>
+    </header>
+    
+<div class="shell with-explorer">
+  <aside class="explorer" aria-label="글 탐색기">
+  <nav>
+    <div class="ex-group">
+      <p class="ex-head">DACON<span class="ex-n">9</span></p>
+      <ul>
+        <li><a href="/posts/dacon-webgamming/">웹 미니게임 해커톤 회고</a></li>
+        <li><a href="/posts/dacon-etri-human-understanding/">ETRI 휴먼 이해 대회 회고</a></li>
+        <li><a href="/posts/dacon-mosquito-trajectory-prediction/">모기 궤적 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-hai-2025/">HAI 2025 딥페이크 탐지 회고</a></li>
+        <li><a href="/posts/dacon-k-league-pass-prediction/">K리그 패스 좌표 예측 회고</a></li>
+        <li><a href="/posts/dacon-mai-glm-2025/">MAI 유전체 모델 대회 회고</a></li>
+        <li><a href="/posts/dacon-toss-ctr-prediction/">Toss CTR 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-shipping-anomaly-detection/">해운물류 센서 이상탐지 회고</a></li>
+        <li><a href="/posts/dacon-car-news-classification/">자동차 뉴스 분류 프롬프트 대회 회고</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">Kaggle<span class="ex-n">7</span></p>
+      <ul>
+        <li><a href="/posts/kaggle-hull-tactical-prediction/">Hull Tactical 시장 예측</a></li>
+        <li><a href="/posts/kaggle-stanford-rna-3d-folding-2/">Stanford RNA 3D 예측</a></li>
+        <li><a href="/posts/kaggle-dpc-tate/">Deep Past 아카드어 번역</a></li>
+        <li><a href="/posts/kaggle-medgemma-clinical-rag-pipeline/">MedGemma 임상 RAG 번역</a></li>
+        <li><a href="/posts/kaggle-heart-disease-prediction/">Kaggle S6E2 심장질환 예측</a></li>
+        <li><a href="/posts/kaggle-arc-prize-2025/">ARC Prize 2025 추상 추론</a></li>
+        <li><a href="/posts/kaggle-jigsaw-acrc-portfolio/">Jigsaw ACRC 룰 위반 분류</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">대회<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-quantum-ai-competition/">Global Quantum AI 회고</a></li>
+        <li><a href="/posts/2026-nypc-retrospective/">2026 NYPC 회고록</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">공모전<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-the-color-house/">THE COLOR HOUSE 제작기</a></li>
+        <li><a href="/posts/hlftc/">한화생명 공모전 LifeTwin AI</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">기록<span class="ex-n">1</span></p>
+      <ul>
+        <li><a href="/posts/dacon-base/" aria-current="page">DACON 대회 시작 템플릿</a></li>
+      </ul>
+    </div>
+  </nav>
+</aside>
+  <main id="content">
+    <nav class="breadcrumb" aria-label="탐색 경로">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li><a href="/posts/">글</a></li>
+        <li aria-current="page">DACON 대회 시작 템플릿</li>
+      </ol>
+    </nav>
+    <article>
+      <header class="hero">
+        <p class="eyebrow">기록 · 2026</p>
+        <h1>DACON 대회 시작 템플릿</h1>
+        <p class="lead">성능을 내기 전에 성능을 믿을 수 있게 만드는 운영 템플릿</p>
+        <p class="meta">
+          <time datetime="2026-05-06">2026년 5월 6일</time> · <a href="https://github.com/softkleenex/dacon-base">저장소</a>
+        </p>
+      </header>
+      <p><code>dacon-base</code>는 특정 대회 회고가 아니라, 여러 DACON과 Kaggle 대회를 반복하면서 생긴 운영 템플릿이다. 처음에는 매 대회마다 폴더 구조, 제출 로그, 데이터 사전, Kaggle 업로드 스크립트, README 링크를 다시 만들었다. 그 반복이 생각보다 시간을 많이 먹었고, 더 위험한 문제는 제출 직전의 기록 누락이었다.</p>
+<p>그래서 이 저장소는 “대회 시작 30분 안에 최소한의 질서가 있는 상태를 만들자”는 목적으로 만들었다. 모델 성능을 직접 올리는 코드는 아니지만, 검증 점수와 리더보드 점수를 섞어 보지 않게 하고, 어떤 submission file이 어떤 실험에서 나왔는지 남기고, heavy run을 Kaggle notebook으로 넘기는 흐름을 표준화한다. ETRI 대회처럼 제출 파일, 로그 CSV, 노트북 기록이 맞물려야 하는 작업에서 특히 이런 템플릿의 필요성이 커졌다.</p>
+<h2>왜 만들었나</h2>
+<p>대회 막판에는 사람도 에이전트도 급해진다. 좋은 feature인지, public LB에만 맞춘 도박인지, 제출 파일 이름과 로그 행이 맞는지 확인하지 못한 채 넘어가기 쉽다. <code>dacon-base</code>는 그 지점을 줄이기 위한 바닥 공사에 가깝다.</p>
+<ul>
+<li><code>docs/MASTER_PLAN.md</code>로 validation-first 원칙과 작업 단계를 고정한다.</li>
+<li><code>docs/DATA_DICTIONARY.md</code>로 feature 의미와 EDA 발견을 공유 메모리로 남긴다.</li>
+<li><code>docs/SUBMISSION_HISTORY.md</code>와 <code>submissions/submission_log.csv</code>로 local CV, public LB, 제출 여부를 분리한다.</li>
+<li><code>src/</code>, <code>scripts/</code>, <code>configs/</code>, <code>notebooks/</code>를 기본 구조로 나눠 재사용 가능한 코드를 흩어지지 않게 한다.</li>
+<li>Kaggle dataset과 notebook push/pull 흐름을 Makefile에 묶어 local과 cloud 실행을 오갈 수 있게 한다.</li>
+</ul>
+<h2>운영 철학</h2>
+<p>이 템플릿의 중심은 “성능을 낸다”보다 “성능을 믿을 수 있게 만든다”에 있다. Public leaderboard가 빠른 feedback을 주더라도, 그 점수가 local CV와 어긋날 때는 기록이 없으면 다음 판단이 흐려진다. 특히 여러 후보를 cascade나 ensemble로 찍어낼 때는 파일명, 노트북, 결과 CSV, 로그 한 행이 서로 맞아야 한다.</p>
+<p>또 하나의 목적은 에이전트 협업이다. 긴 대회 작업에서는 한 세션의 기억만으로 끝까지 가기 어렵다. 그래서 data dictionary, submission history, master plan 같은 문서를 agent-human shared memory로 쓰도록 했다. 다음 세션이 들어와도 “어떤 실험이 왜 실패했는지”를 README보다 구체적으로 읽고 이어갈 수 있게 하는 구조다.</p>
+<h2>아쉬운 점</h2>
+<p>현재 저장소는 아직 실제 대회 하나의 완성된 성과물이 아니라 템플릿 성격이 강하다. 일부 문서는 placeholder가 남아 있고, 소스 레포도 구조 개편 중인 상태다. 그래서 이 페이지도 대회 성적 회고가 아니라, 앞으로의 DACON/Kaggle 작업을 더 빨리 시작하고 더 덜 잃어버리기 위한 운영 노트로 남긴다.</p>
+<p>다음 개선 방향은 명확하다. 대회별 README와 블로그 URL 자동 삽입, 제출 로그 스키마 검증, secret scan, Kaggle metadata 생성, docs audit를 기본 명령으로 묶으면 템플릿의 가치가 더 커진다. 모델링 실험의 속도만 올리는 것이 아니라, 마지막 제출 직전의 실수를 줄이는 쪽으로 계속 다듬을 만하다.</p>
+    </article>
+    <nav class="postnav" aria-label="글 이동">
+      <a class="pn prev" href="/posts/kaggle-stanford-rna-3d-folding-2/">
+        <span>이전 글</span><strong>Stanford RNA 3D 예측</strong>
+      </a>
+      <a class="pn next" href="/posts/dacon-mosquito-trajectory-prediction/">
+        <span>다음 글</span><strong>모기 궤적 예측 대회 회고</strong>
+      </a>
+    </nav>
+  </main>
+</div>
+
+    <footer class="site-footer">
+      <div>
+        <p>© 2026 Softkleenex. Softkleenex Archive.</p>
+        <p>
+          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

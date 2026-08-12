@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAI 유전체 모델 대회 회고 | Softkleenex Archive</title>
+    <meta name="description" content="DNA 서열 임베딩의 variant 민감도를 겨루는 대회에서 815팀 중 91위. 2.5B 모델이 500m를 못 이겼고, PCA와 contrastive learning이 실제 해답이었다." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://softkleenex.github.io/posts/dacon-mai-glm-2025/" />
+    <link rel="icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="apple-touch-icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="alternate" type="application/rss+xml" title="Softkleenex Archive RSS" href="https://softkleenex.github.io/feed.xml" />
+    <meta property="og:site_name" content="Softkleenex Archive" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="MAI 유전체 모델 대회 회고 | Softkleenex Archive" />
+    <meta property="og:description" content="DNA 서열 임베딩의 variant 민감도를 겨루는 대회에서 815팀 중 91위. 2.5B 모델이 500m를 못 이겼고, PCA와 contrastive learning이 실제 해답이었다." />
+    <meta property="og:url" content="https://softkleenex.github.io/posts/dacon-mai-glm-2025/" />
+    <meta property="og:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta property="og:image:width" content="460" />
+    <meta property="og:image:height" content="460" />
+    <meta property="article:published_time" content="2025-11-28" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="MAI 유전체 모델 대회 회고 | Softkleenex Archive" />
+    <meta name="twitter:description" content="DNA 서열 임베딩의 variant 민감도를 겨루는 대회에서 815팀 중 91위. 2.5B 모델이 500m를 못 이겼고, PCA와 contrastive learning이 실제 해답이었다." />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta name="naver-site-verification" content="07d8e8da57a2f02b48c11e909923ec67" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="/assets/base.css" />
+    <link rel="stylesheet" href="/assets/post.css" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "MAI 유전체 모델 대회 회고", "alternativeHeadline": "큰 유전체 모델보다 metric에 맞는 objective가 중요했다", "description": "DNA 서열 임베딩의 variant 민감도를 겨루는 대회에서 815팀 중 91위. 2.5B 모델이 500m를 못 이겼고, PCA와 contrastive learning이 실제 해답이었다.", "datePublished": "2025-11-28", "inLanguage": "ko-KR", "url": "https://softkleenex.github.io/posts/dacon-mai-glm-2025/", "mainEntityOfPage": {"@id": "https://softkleenex.github.io/posts/dacon-mai-glm-2025/"}, "author": {"@id": "https://softkleenex.github.io/#person"}, "publisher": {"@id": "https://softkleenex.github.io/#person"}, "isPartOf": {"@id": "https://softkleenex.github.io/#blog"}, "image": "https://softkleenex.github.io/assets/softkleenex-avatar.png"}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://softkleenex.github.io/"}, {"@type": "ListItem", "position": 2, "name": "글", "item": "https://softkleenex.github.io/posts/"}, {"@type": "ListItem", "position": 3, "name": "MAI 유전체 모델 대회 회고"}]}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <a class="skip" href="#content">본문으로 건너뛰기</a>
+    <header class="site-header">
+      <nav aria-label="주요 탐색">
+        <a class="brand" href="/">
+          <img src="/assets/softkleenex-avatar.png" width="34" height="34" alt="" />
+          <span>Softkleenex Archive</span>
+        </a>
+        <div class="site-nav">
+          <a href="/posts/" aria-current="page">글</a>
+          <a href="/feed.xml">RSS</a>
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </div>
+      </nav>
+    </header>
+    
+<div class="shell with-explorer">
+  <aside class="explorer" aria-label="글 탐색기">
+  <nav>
+    <div class="ex-group">
+      <p class="ex-head">DACON<span class="ex-n">9</span></p>
+      <ul>
+        <li><a href="/posts/dacon-webgamming/">웹 미니게임 해커톤 회고</a></li>
+        <li><a href="/posts/dacon-etri-human-understanding/">ETRI 휴먼 이해 대회 회고</a></li>
+        <li><a href="/posts/dacon-mosquito-trajectory-prediction/">모기 궤적 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-hai-2025/">HAI 2025 딥페이크 탐지 회고</a></li>
+        <li><a href="/posts/dacon-k-league-pass-prediction/">K리그 패스 좌표 예측 회고</a></li>
+        <li><a href="/posts/dacon-mai-glm-2025/" aria-current="page">MAI 유전체 모델 대회 회고</a></li>
+        <li><a href="/posts/dacon-toss-ctr-prediction/">Toss CTR 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-shipping-anomaly-detection/">해운물류 센서 이상탐지 회고</a></li>
+        <li><a href="/posts/dacon-car-news-classification/">자동차 뉴스 분류 프롬프트 대회 회고</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">Kaggle<span class="ex-n">7</span></p>
+      <ul>
+        <li><a href="/posts/kaggle-hull-tactical-prediction/">Hull Tactical 시장 예측</a></li>
+        <li><a href="/posts/kaggle-stanford-rna-3d-folding-2/">Stanford RNA 3D 예측</a></li>
+        <li><a href="/posts/kaggle-dpc-tate/">Deep Past 아카드어 번역</a></li>
+        <li><a href="/posts/kaggle-medgemma-clinical-rag-pipeline/">MedGemma 임상 RAG 번역</a></li>
+        <li><a href="/posts/kaggle-heart-disease-prediction/">Kaggle S6E2 심장질환 예측</a></li>
+        <li><a href="/posts/kaggle-arc-prize-2025/">ARC Prize 2025 추상 추론</a></li>
+        <li><a href="/posts/kaggle-jigsaw-acrc-portfolio/">Jigsaw ACRC 룰 위반 분류</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">대회<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-quantum-ai-competition/">Global Quantum AI 회고</a></li>
+        <li><a href="/posts/2026-nypc-retrospective/">2026 NYPC 회고록</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">공모전<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-the-color-house/">THE COLOR HOUSE 제작기</a></li>
+        <li><a href="/posts/hlftc/">한화생명 공모전 LifeTwin AI</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">기록<span class="ex-n">1</span></p>
+      <ul>
+        <li><a href="/posts/dacon-base/">DACON 대회 시작 템플릿</a></li>
+      </ul>
+    </div>
+  </nav>
+</aside>
+  <main id="content">
+    <nav class="breadcrumb" aria-label="탐색 경로">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li><a href="/posts/">글</a></li>
+        <li aria-current="page">MAI 유전체 모델 대회 회고</li>
+      </ol>
+    </nav>
+    <article>
+      <header class="hero">
+        <p class="eyebrow">DACON · 2025</p>
+        <h1>MAI 유전체 모델 대회 회고</h1>
+        <p class="lead">큰 유전체 모델보다 metric에 맞는 objective가 중요했다</p>
+        <p class="meta">
+          <time datetime="2025-11-28">2025년 11월 28일</time> · <a href="https://github.com/softkleenex/dacon-mai-glm-2025">저장소</a>
+        </p>
+      </header>
+      <p>이 프로젝트는 DACON <code>2nd MAI Competition: Improving Variant Sensitivity in Genomic Language Models</code> 기록이다. 목표는 DNA sequence를 고정 차원 embedding으로 바꾸되, reference sequence와 variant sequence의 차이가 잘 드러나도록 만드는 것이었다.</p>
+<p>기록에는 두 점수가 함께 남아 있다. README의 final table 기준 private 기록은 <code>0.54554</code>, 순위는 <code>815</code>팀 중 <code>91</code>위(top 11.1%)였다. 별도로 best experiment/submission으로는 contrastive learning 기반 <code>0.54805</code>가 정리되어 있다. 이 글에서는 둘을 섞지 않고, 최종 leaderboard 기록과 실험상 최고 방법을 나눠서 본다.</p>
+<h2>어떤 문제였나</h2>
+<p>입력은 1,024bp DNA sequence <code>13,711</code>개였다. 대회가 요구한 것은 sequence별 embedding이고, embedding 차원은 <code>768</code> 이하로 제한됐다. 평가는 reference-variant pair 사이의 cosine distance, pathogenic/benign variant 구분력, variant count와 distance의 correlation을 함께 보는 방식이었다.</p>
+<p>즉 일반적인 classification 대회가 아니었다. label을 맞히는 문제라기보다, embedding space 자체가 variant-sensitive해야 했다. 이 차이를 늦게 인정할수록 실험은 돌아갔다.</p>
+<h2>실험 흐름</h2>
+<p>초기에는 여러 genomic/protein language model에서 embedding을 뽑고 pooling과 dimensionality reduction을 바꾸는 식으로 접근했다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>방법</th>
+<th>점수</th>
+<th>메모</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ESM-2 L33 + PCA 768D</td>
+<td><code>0.5432</code></td>
+<td>protein model baseline</td>
+</tr>
+<tr>
+<td>NT 500m-human-ref + PCA</td>
+<td><code>0.5445</code></td>
+<td>standard extraction best baseline</td>
+</tr>
+<tr>
+<td>NT 500m-human-ref raw 1280D</td>
+<td><code>0.4955</code></td>
+<td>PCA 없는 raw embedding은 크게 실패</td>
+</tr>
+<tr>
+<td>NT 2.5B multi-species</td>
+<td><code>0.5420</code></td>
+<td>큰 모델이 더 좋지는 않았다</td>
+</tr>
+<tr>
+<td>HyenaDNA character-level</td>
+<td><code>0.4977</code></td>
+<td>긴 context 장점이 점수로 이어지지 않음</td>
+</tr>
+<tr>
+<td>Contrastive + ClinVar</td>
+<td><code>0.54805</code></td>
+<td>best experiment/submission</td>
+</tr>
+</tbody>
+</table></div>
+<p>가장 의외였던 건 PCA였다. 차원 축소는 단순히 파일 크기를 줄이기 위한 후처리가 아니라, variant detection을 방해하는 noise dimension을 제거하는 핵심 단계였다. raw 1280D는 <code>0.4955</code>였지만 PCA 768D는 <code>0.5445</code>까지 올랐다. 심지어 PCA 256D와 768D가 같은 점수를 냈기 때문에, 필요한 신호는 생각보다 낮은 차원에 압축되어 있었다.</p>
+<h2>실패한 가정</h2>
+<p>처음에는 더 큰 모델, 더 복잡한 pooling, 더 많은 layer 조합이 이길 것이라고 기대했다. 실제 결과는 반대에 가까웠다.</p>
+<ol>
+<li><code>NT 2.5B</code>는 <code>NT 500m-human-ref</code>보다 낮았다. 모델 크기보다 human genome domain alignment가 더 중요했다.</li>
+<li>center pooling은 variant가 sequence 중앙에 있을 것이라는 가정을 깔고 있었지만, 실제로는 mean pooling이 더 안정적이었다.</li>
+<li>layer concatenation과 weighted layers는 baseline을 확실히 넘지 못했다.</li>
+<li>splice/promoter classification fine-tuning은 loss가 random baseline 근처에서 멈췄다.</li>
+</ol>
+<p>가장 큰 깨달음은 classification fine-tuning과 similarity-based variant detection이 다른 문제라는 점이었다. promoter를 잘 분류하는 representation이 reference-variant distance를 잘 벌려준다는 보장은 없다.</p>
+<h2>왜 contrastive가 맞았나</h2>
+<p>후반부에는 ClinVar에서 pathogenic/benign variant pair를 모으고, reference와 variant embedding 사이의 거리를 직접 학습하는 contrastive 방향으로 바꿨다. backbone은 <code>Nucleotide Transformer 500m-human-ref</code>를 사용하고, backbone을 얼린 뒤 projection head를 학습하는 식이었다.</p>
+<p>핵심은 objective였다.</p>
+<ul>
+<li>pathogenic variant pair는 더 강하게 분리한다.</li>
+<li>benign pair도 reference와 variant 차이를 반영하되, 가중치를 다르게 둔다.</li>
+<li>classification label을 맞히는 대신 embedding distance 자체를 조정한다.</li>
+</ul>
+<p>이 접근은 "대회 metric이 무엇을 원하는가"에 더 직접적으로 맞았다. 그래서 architectural tweak보다 작은 projection head와 contrastive loss가 더 설득력 있는 방향이 됐다.</p>
+<h2>포트폴리오에 남길 교훈</h2>
+<p>이 대회는 BioAI라는 단어보다, representation learning 문제를 어떻게 읽을 것인가가 더 중요했다.</p>
+<ol>
+<li>metric이 embedding space를 평가하면 objective도 embedding space를 직접 겨냥해야 한다.</li>
+<li>PCA는 단순 압축이 아니라 noise reduction일 수 있다.</li>
+<li>모델 크기보다 pretraining corpus와 task alignment가 중요하다.</li>
+<li>fine-tuning은 "무엇을 학습시키는가"가 틀리면 compute만 태운다.</li>
+<li>bio domain에서는 실패한 모델도 왜 실패했는지 문서화해야 다음 실험이 짧아진다.</li>
+</ol>
+<p>이 프로젝트가 마음에 남는 이유는 점수보다 방향 전환 때문이다. 처음에는 모델을 바꾸고 layer를 섞으며 답을 찾으려 했다. 하지만 결국 문제는 "더 많은 표현"이 아니라 "평가지표가 보는 거리"였다. 그걸 인정하고 contrastive learning으로 옮겨간 순간, 실험의 언어가 조금 더 정확해졌다.</p>
+<h2>기록 포인트</h2>
+<ul>
+<li>핵심 발견은 repo의 <code>docs/FINDINGS.md</code>에 정리되어 있습니다.</li>
+<li>전체 실험 흐름은 <code>README.md</code>, <code>docs/FINAL_REPORT.txt</code>, <code>archive/experiments.md</code>에서 이어서 볼 수 있습니다.</li>
+<li>이 페이지는 유전체 모델 크기 경쟁보다 PCA noise reduction, objective mismatch, contrastive learning 교훈을 중심으로 정리합니다.</li>
+</ul>
+    </article>
+    <nav class="postnav" aria-label="글 이동">
+      <a class="pn prev" href="/posts/kaggle-arc-prize-2025/">
+        <span>이전 글</span><strong>ARC Prize 2025 추상 추론</strong>
+      </a>
+      <a class="pn next" href="/posts/dacon-k-league-pass-prediction/">
+        <span>다음 글</span><strong>K리그 패스 좌표 예측 회고</strong>
+      </a>
+    </nav>
+  </main>
+</div>
+
+    <footer class="site-footer">
+      <div>
+        <p>© 2026 Softkleenex. Softkleenex Archive.</p>
+        <p>
+          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

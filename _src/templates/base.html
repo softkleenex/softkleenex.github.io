@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko"{% if accent %} data-accent="{{ accent }}"{% endif %}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ description }}" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="{{ site.url }}{{ url }}" />
+    <link rel="icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="apple-touch-icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS" href="{{ site.url }}/feed.xml" />
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta property="og:type" content="{{ og_type|default('website') }}" />
+    <meta property="og:title" content="{{ page_title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:url" content="{{ site.url }}{{ url }}" />
+    <meta property="og:image" content="{{ site.url }}{{ og_image|default('/assets/softkleenex-avatar.png') }}" />
+    <meta property="og:image:width" content="{{ og_w|default(460) }}" />
+    <meta property="og:image:height" content="{{ og_h|default(460) }}" />
+    {%- if published %}
+    <meta property="article:published_time" content="{{ published }}" />
+    {%- endif %}
+    <meta name="twitter:card" content="{{ twitter_card|default('summary') }}" />
+    <meta name="twitter:title" content="{{ page_title }}" />
+    <meta name="twitter:description" content="{{ description }}" />
+    <meta name="twitter:image" content="{{ site.url }}{{ og_image|default('/assets/softkleenex-avatar.png') }}" />
+    <meta name="naver-site-verification" content="{{ site.naver }}" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="/assets/base.css" />
+    <link rel="stylesheet" href="/assets/post.css" />
+    {%- for block in jsonld %}
+    <script type="application/ld+json">{{ block|safe }}</script>
+    {%- endfor %}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense }}" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <a class="skip" href="#content">본문으로 건너뛰기</a>
+    <header class="site-header">
+      <nav aria-label="주요 탐색">
+        <a class="brand" href="/">
+          <img src="/assets/softkleenex-avatar.png" width="34" height="34" alt="" />
+          <span>{{ site.title }}</span>
+        </a>
+        <div class="site-nav">
+          <a href="/posts/"{% if nav == 'posts' %} aria-current="page"{% endif %}>글</a>
+          <a href="/feed.xml">RSS</a>
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </div>
+      </nav>
+    </header>
+    {% block layout %}{% endblock %}
+    <footer class="site-footer">
+      <div>
+        <p>© {{ site.year }} Softkleenex. {{ site.title }}.</p>
+        <p>
+          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

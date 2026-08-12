@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>웹 미니게임 해커톤 회고 | Softkleenex Archive</title>
+    <meta name="description" content="DACON 월간 웹 미니게임 해커톤 참가 기록. 스킬트리와 스테이지를 전부 버리고 원 버튼 패링이라는 코어 루프 하나에 몰아넣은 스코프 관리 판단을 정리했다." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://softkleenex.github.io/posts/dacon-webgamming/" />
+    <link rel="icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="apple-touch-icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="alternate" type="application/rss+xml" title="Softkleenex Archive RSS" href="https://softkleenex.github.io/feed.xml" />
+    <meta property="og:site_name" content="Softkleenex Archive" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="웹 미니게임 해커톤 회고 | Softkleenex Archive" />
+    <meta property="og:description" content="DACON 월간 웹 미니게임 해커톤 참가 기록. 스킬트리와 스테이지를 전부 버리고 원 버튼 패링이라는 코어 루프 하나에 몰아넣은 스코프 관리 판단을 정리했다." />
+    <meta property="og:url" content="https://softkleenex.github.io/posts/dacon-webgamming/" />
+    <meta property="og:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta property="og:image:width" content="460" />
+    <meta property="og:image:height" content="460" />
+    <meta property="article:published_time" content="2026-06-28" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="웹 미니게임 해커톤 회고 | Softkleenex Archive" />
+    <meta name="twitter:description" content="DACON 월간 웹 미니게임 해커톤 참가 기록. 스킬트리와 스테이지를 전부 버리고 원 버튼 패링이라는 코어 루프 하나에 몰아넣은 스코프 관리 판단을 정리했다." />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta name="naver-site-verification" content="07d8e8da57a2f02b48c11e909923ec67" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="/assets/base.css" />
+    <link rel="stylesheet" href="/assets/post.css" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "웹 미니게임 해커톤 회고", "alternativeHeadline": "클릭 하나로 끝내는 원 버튼 보스전 Just One Click", "description": "DACON 월간 웹 미니게임 해커톤 참가 기록. 스킬트리와 스테이지를 전부 버리고 원 버튼 패링이라는 코어 루프 하나에 몰아넣은 스코프 관리 판단을 정리했다.", "datePublished": "2026-06-28", "inLanguage": "ko-KR", "url": "https://softkleenex.github.io/posts/dacon-webgamming/", "mainEntityOfPage": {"@id": "https://softkleenex.github.io/posts/dacon-webgamming/"}, "author": {"@id": "https://softkleenex.github.io/#person"}, "publisher": {"@id": "https://softkleenex.github.io/#person"}, "isPartOf": {"@id": "https://softkleenex.github.io/#blog"}, "image": "https://softkleenex.github.io/assets/softkleenex-avatar.png"}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://softkleenex.github.io/"}, {"@type": "ListItem", "position": 2, "name": "글", "item": "https://softkleenex.github.io/posts/"}, {"@type": "ListItem", "position": 3, "name": "웹 미니게임 해커톤 회고"}]}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <a class="skip" href="#content">본문으로 건너뛰기</a>
+    <header class="site-header">
+      <nav aria-label="주요 탐색">
+        <a class="brand" href="/">
+          <img src="/assets/softkleenex-avatar.png" width="34" height="34" alt="" />
+          <span>Softkleenex Archive</span>
+        </a>
+        <div class="site-nav">
+          <a href="/posts/" aria-current="page">글</a>
+          <a href="/feed.xml">RSS</a>
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </div>
+      </nav>
+    </header>
+    
+<div class="shell with-explorer">
+  <aside class="explorer" aria-label="글 탐색기">
+  <nav>
+    <div class="ex-group">
+      <p class="ex-head">DACON<span class="ex-n">9</span></p>
+      <ul>
+        <li><a href="/posts/dacon-webgamming/" aria-current="page">웹 미니게임 해커톤 회고</a></li>
+        <li><a href="/posts/dacon-etri-human-understanding/">ETRI 휴먼 이해 대회 회고</a></li>
+        <li><a href="/posts/dacon-mosquito-trajectory-prediction/">모기 궤적 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-hai-2025/">HAI 2025 딥페이크 탐지 회고</a></li>
+        <li><a href="/posts/dacon-k-league-pass-prediction/">K리그 패스 좌표 예측 회고</a></li>
+        <li><a href="/posts/dacon-mai-glm-2025/">MAI 유전체 모델 대회 회고</a></li>
+        <li><a href="/posts/dacon-toss-ctr-prediction/">Toss CTR 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-shipping-anomaly-detection/">해운물류 센서 이상탐지 회고</a></li>
+        <li><a href="/posts/dacon-car-news-classification/">자동차 뉴스 분류 프롬프트 대회 회고</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">Kaggle<span class="ex-n">7</span></p>
+      <ul>
+        <li><a href="/posts/kaggle-hull-tactical-prediction/">Hull Tactical 시장 예측</a></li>
+        <li><a href="/posts/kaggle-stanford-rna-3d-folding-2/">Stanford RNA 3D 예측</a></li>
+        <li><a href="/posts/kaggle-dpc-tate/">Deep Past 아카드어 번역</a></li>
+        <li><a href="/posts/kaggle-medgemma-clinical-rag-pipeline/">MedGemma 임상 RAG 번역</a></li>
+        <li><a href="/posts/kaggle-heart-disease-prediction/">Kaggle S6E2 심장질환 예측</a></li>
+        <li><a href="/posts/kaggle-arc-prize-2025/">ARC Prize 2025 추상 추론</a></li>
+        <li><a href="/posts/kaggle-jigsaw-acrc-portfolio/">Jigsaw ACRC 룰 위반 분류</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">대회<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-quantum-ai-competition/">Global Quantum AI 회고</a></li>
+        <li><a href="/posts/2026-nypc-retrospective/">2026 NYPC 회고록</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">공모전<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-the-color-house/">THE COLOR HOUSE 제작기</a></li>
+        <li><a href="/posts/hlftc/">한화생명 공모전 LifeTwin AI</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">기록<span class="ex-n">1</span></p>
+      <ul>
+        <li><a href="/posts/dacon-base/">DACON 대회 시작 템플릿</a></li>
+      </ul>
+    </div>
+  </nav>
+</aside>
+  <main id="content">
+    <nav class="breadcrumb" aria-label="탐색 경로">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li><a href="/posts/">글</a></li>
+        <li aria-current="page">웹 미니게임 해커톤 회고</li>
+      </ol>
+    </nav>
+    <article>
+      <header class="hero">
+        <p class="eyebrow">DACON · 2026</p>
+        <h1>웹 미니게임 해커톤 회고</h1>
+        <p class="lead">클릭 하나로 끝내는 원 버튼 보스전 Just One Click</p>
+        <p class="meta">
+          <time datetime="2026-06-28">2026년 6월 28일</time> · <a href="https://github.com/softkleenex/dacon-webgamming">저장소</a>
+        </p>
+      </header>
+      <p>DACON 월간 해커톤 웹 미니게임 챌린지 참가 기록이다. 주제는 “10분 안에 중독시켜라”였고, 여기서 만든 게임 컨셉은 <code>Just One Click</code>, 원 버튼 보스 킬러였다. 복잡한 조작, 성장 시스템, 맵 이동을 버리고 클릭 또는 스페이스바 하나로 패링, 반격, 재도전을 모두 처리하는 초고속 아케이드 게임을 목표로 했다.</p>
+<p>ML 대회와는 완전히 다른 종류의 작업이었다. 점수식이나 CV가 아니라, 사용자가 첫 3초 안에 규칙을 이해하고 다시 플레이하고 싶어지는지가 중요했다. 그래서 기획의 중심을 “새로운 시스템을 많이 넣기”가 아니라 “하나의 core loop를 손맛 있게 만들기”에 두었다.</p>
+<h2>기획 판단</h2>
+<p>해커톤 문서에서 가장 강하게 잡은 원칙은 스코프 최소화였다. 미니게임은 아이디어가 커지기 쉽다. 스킬트리, 여러 보스, 스테이지, 아이템, 랭킹 시스템을 넣기 시작하면 짧은 기간 안에 완성도와 안정성을 같이 잃을 수 있다. 그래서 단일 화면, 단일 보스, 단일 입력으로 줄였다.</p>
+<p>대신 남은 시간을 피드백에 몰았다. 패링 성공 시 파티클, 화면 흔들림, hit stop, floating text, 콤보 증가, 보스 체력 감소가 동시에 터지게 했다. 실패 시에는 하트가 줄고 콤보가 초기화되며 바로 재시작할 수 있게 했다. 게임의 깊이는 방대한 컨텐츠가 아니라, 짧은 루프가 얼마나 즉각적으로 반응하는지에서 나오도록 설계했다.</p>
+<h2>구현</h2>
+<p>구현은 Vite와 Vanilla TypeScript, HTML5 Canvas 2D API로 했다. 별도 게임 엔진을 쓰지 않고 직접 game loop, projectile update, collision, boss phase, particle, floating text를 구성했다. 오디오는 Web Audio API로 합성해서 외부 사운드 에셋 의존도를 줄였다.</p>
+<p>보스는 체력에 따라 phase가 바뀐다. phase 1은 기본 단발 투사체, phase 2는 빠른 확산탄과 laser charge, phase 3은 더 빠른 곡선 투사체와 강한 압박을 사용한다. 플레이어는 마우스 위치 또는 터치 위치를 따라 좌우로 움직이고, 클릭/스페이스 입력으로 짧은 parry window를 연다. 이 타이밍에 투사체나 laser가 닿으면 반사되어 보스에게 damage가 들어간다.</p>
+<p>시각적 스타일은 네온 아케이드 쪽으로 잡았다. 화면 전체 grid, 보스 glow, laser warning, CRT 느낌의 UI, 파티클 폭발 같은 요소는 모두 “규칙 설명 없이도 지금 무슨 일이 벌어졌는지 보이게 하자”는 목적이었다.</p>
+<h2>회고</h2>
+<p>가장 잘한 판단은 아이디어를 끝까지 줄인 것이다. 기획 문서에는 여러 후보가 있었지만, 최종적으로 원 버튼 패링 액션을 선택하면서 구현 경로가 선명해졌다. 덕분에 조작, 충돌, 보스 패턴, 사운드, 연출이 같은 방향으로 쌓였다.</p>
+<p>아쉬운 점은 playable demo와 gameplay capture까지 이어지는 공개 산출물 정리가 늦었다는 점이다. 코드는 GitHub에 공개했지만, 포트폴리오로 쓰려면 실제로 눌러볼 수 있는 배포 URL과 짧은 gameplay capture까지 붙여야 완성도가 훨씬 좋아질 것이다.</p>
+<p>이 작업은 이후 경쟁형 ML 대회에도 은근히 도움이 됐다. 해커톤에서는 “작게 만들고, 빨리 확인하고, 사용자가 느끼는 핵심 피드백에 집중한다”는 감각이 중요하다. ML에서도 feature를 무작정 늘리기보다, 점수를 움직이는 가장 짧은 loop를 찾아야 한다는 점에서 꽤 닮아 있었다.</p>
+    </article>
+    <nav class="postnav" aria-label="글 이동">
+      <a class="pn prev" href="/posts/dacon-etri-human-understanding/">
+        <span>이전 글</span><strong>ETRI 휴먼 이해 대회 회고</strong>
+      </a>
+      <a class="pn next" href="/posts/hlftc/">
+        <span>다음 글</span><strong>한화생명 공모전 LifeTwin AI</strong>
+      </a>
+    </nav>
+  </main>
+</div>
+
+    <footer class="site-footer">
+      <div>
+        <p>© 2026 Softkleenex. Softkleenex Archive.</p>
+        <p>
+          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

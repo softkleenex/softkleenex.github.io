@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ETRI 휴먼 이해 대회 회고 | Softkleenex Archive</title>
+    <meta name="description" content="라이프로그로 수면과 스트레스를 예측한 대회 회고. 로컬 CV와 public LB가 어긋나는 상황에서 ID342를 방어선으로 삼고, 외부 데이터와 제출 운영을 어떻게 관리했는지 남겼다." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://softkleenex.github.io/posts/dacon-etri-human-understanding/" />
+    <link rel="icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="apple-touch-icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="alternate" type="application/rss+xml" title="Softkleenex Archive RSS" href="https://softkleenex.github.io/feed.xml" />
+    <meta property="og:site_name" content="Softkleenex Archive" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="ETRI 휴먼 이해 대회 회고 | Softkleenex Archive" />
+    <meta property="og:description" content="라이프로그로 수면과 스트레스를 예측한 대회 회고. 로컬 CV와 public LB가 어긋나는 상황에서 ID342를 방어선으로 삼고, 외부 데이터와 제출 운영을 어떻게 관리했는지 남겼다." />
+    <meta property="og:url" content="https://softkleenex.github.io/posts/dacon-etri-human-understanding/" />
+    <meta property="og:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta property="og:image:width" content="460" />
+    <meta property="og:image:height" content="460" />
+    <meta property="article:published_time" content="2026-06-26" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="ETRI 휴먼 이해 대회 회고 | Softkleenex Archive" />
+    <meta name="twitter:description" content="라이프로그로 수면과 스트레스를 예측한 대회 회고. 로컬 CV와 public LB가 어긋나는 상황에서 ID342를 방어선으로 삼고, 외부 데이터와 제출 운영을 어떻게 관리했는지 남겼다." />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta name="naver-site-verification" content="07d8e8da57a2f02b48c11e909923ec67" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="/assets/base.css" />
+    <link rel="stylesheet" href="/assets/post.css" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "ETRI 휴먼 이해 대회 회고", "alternativeHeadline": "점수는 기대에 못 미쳤지만 기록은 오래 남았다", "description": "라이프로그로 수면과 스트레스를 예측한 대회 회고. 로컬 CV와 public LB가 어긋나는 상황에서 ID342를 방어선으로 삼고, 외부 데이터와 제출 운영을 어떻게 관리했는지 남겼다.", "datePublished": "2026-06-26", "inLanguage": "ko-KR", "url": "https://softkleenex.github.io/posts/dacon-etri-human-understanding/", "mainEntityOfPage": {"@id": "https://softkleenex.github.io/posts/dacon-etri-human-understanding/"}, "author": {"@id": "https://softkleenex.github.io/#person"}, "publisher": {"@id": "https://softkleenex.github.io/#person"}, "isPartOf": {"@id": "https://softkleenex.github.io/#blog"}, "image": "https://softkleenex.github.io/assets/softkleenex-avatar.png"}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://softkleenex.github.io/"}, {"@type": "ListItem", "position": 2, "name": "글", "item": "https://softkleenex.github.io/posts/"}, {"@type": "ListItem", "position": 3, "name": "ETRI 휴먼 이해 대회 회고"}]}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <a class="skip" href="#content">본문으로 건너뛰기</a>
+    <header class="site-header">
+      <nav aria-label="주요 탐색">
+        <a class="brand" href="/">
+          <img src="/assets/softkleenex-avatar.png" width="34" height="34" alt="" />
+          <span>Softkleenex Archive</span>
+        </a>
+        <div class="site-nav">
+          <a href="/posts/" aria-current="page">글</a>
+          <a href="/feed.xml">RSS</a>
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </div>
+      </nav>
+    </header>
+    
+<div class="shell with-explorer">
+  <aside class="explorer" aria-label="글 탐색기">
+  <nav>
+    <div class="ex-group">
+      <p class="ex-head">DACON<span class="ex-n">9</span></p>
+      <ul>
+        <li><a href="/posts/dacon-webgamming/">웹 미니게임 해커톤 회고</a></li>
+        <li><a href="/posts/dacon-etri-human-understanding/" aria-current="page">ETRI 휴먼 이해 대회 회고</a></li>
+        <li><a href="/posts/dacon-mosquito-trajectory-prediction/">모기 궤적 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-hai-2025/">HAI 2025 딥페이크 탐지 회고</a></li>
+        <li><a href="/posts/dacon-k-league-pass-prediction/">K리그 패스 좌표 예측 회고</a></li>
+        <li><a href="/posts/dacon-mai-glm-2025/">MAI 유전체 모델 대회 회고</a></li>
+        <li><a href="/posts/dacon-toss-ctr-prediction/">Toss CTR 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-shipping-anomaly-detection/">해운물류 센서 이상탐지 회고</a></li>
+        <li><a href="/posts/dacon-car-news-classification/">자동차 뉴스 분류 프롬프트 대회 회고</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">Kaggle<span class="ex-n">7</span></p>
+      <ul>
+        <li><a href="/posts/kaggle-hull-tactical-prediction/">Hull Tactical 시장 예측</a></li>
+        <li><a href="/posts/kaggle-stanford-rna-3d-folding-2/">Stanford RNA 3D 예측</a></li>
+        <li><a href="/posts/kaggle-dpc-tate/">Deep Past 아카드어 번역</a></li>
+        <li><a href="/posts/kaggle-medgemma-clinical-rag-pipeline/">MedGemma 임상 RAG 번역</a></li>
+        <li><a href="/posts/kaggle-heart-disease-prediction/">Kaggle S6E2 심장질환 예측</a></li>
+        <li><a href="/posts/kaggle-arc-prize-2025/">ARC Prize 2025 추상 추론</a></li>
+        <li><a href="/posts/kaggle-jigsaw-acrc-portfolio/">Jigsaw ACRC 룰 위반 분류</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">대회<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-quantum-ai-competition/">Global Quantum AI 회고</a></li>
+        <li><a href="/posts/2026-nypc-retrospective/">2026 NYPC 회고록</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">공모전<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-the-color-house/">THE COLOR HOUSE 제작기</a></li>
+        <li><a href="/posts/hlftc/">한화생명 공모전 LifeTwin AI</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">기록<span class="ex-n">1</span></p>
+      <ul>
+        <li><a href="/posts/dacon-base/">DACON 대회 시작 템플릿</a></li>
+      </ul>
+    </div>
+  </nav>
+</aside>
+  <main id="content">
+    <nav class="breadcrumb" aria-label="탐색 경로">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li><a href="/posts/">글</a></li>
+        <li aria-current="page">ETRI 휴먼 이해 대회 회고</li>
+      </ol>
+    </nav>
+    <article>
+      <header class="hero">
+        <p class="eyebrow">DACON · 2026</p>
+        <h1>ETRI 휴먼 이해 대회 회고</h1>
+        <p class="lead">점수는 기대에 못 미쳤지만 기록은 오래 남았다</p>
+        <p class="meta">
+          <time datetime="2026-06-26">2026년 6월 26일</time> · <a href="https://github.com/softkleenex/dacon-etri-human-understanding">저장소</a>
+        </p>
+      </header>
+      <p>2026년 6월 26일 오전, DACON ETRI Human Understanding AI Paper Challenge가 끝났다.</p>
+<p>막판에는 거의 분 단위로 판단했다. 제출권은 남아 있고, public leaderboard는 생각만큼 움직이지 않고, 로컬에서는 좋아 보이는 후보가 계속 생겼다. "지금 이걸 제출하는 게 맞나?"를 계속 물으면서 파일 이름, 로그, notebook 기록, 제출 메모를 하나씩 맞췄다.</p>
+<p>대회가 끝나고 나니 가장 오래 남은 건 모델 구조가 아니었다. 오히려 검증을 믿을 수 없을 때 무엇을 기준으로 의사결정했는지, 그리고 실패한 제출을 나중에 설명할 수 있게 기록했는지가 더 크게 남았다.</p>
+<h2>어떤 대회였나</h2>
+<p>스마트폰과 스마트워치에서 수집된 라이프로그를 바탕으로 사람의 상태를 예측하는 문제였다. 타깃은 Q1-Q3의 주관식 상태와 S1-S4의 수면 관련 지표, 총 7개였다.</p>
+<p>처음에는 "라이프로그니까 도메인 신호를 잘 뽑으면 되지 않을까?"라고 생각했다. 앱 사용, 활동량, 수면 패턴, 날씨, 대기질 같은 신호를 잘 엮으면 점수가 내려갈 것 같았다. 그런데 실제로는 그렇게 단순하지 않았다. 어떤 feature는 로컬에서는 그럴듯했지만 public leaderboard에서는 거의 반응하지 않았고, 어떤 후보는 로컬 CV가 좋아졌는데 실제 제출 점수는 나빠졌다.</p>
+<p>이때부터 대회는 모델링 문제이면서 동시에 운영 문제가 됐다. 새 feature를 만드는 것만큼이나, 그 feature가 진짜 신호인지 아니면 split에 과적합한 착시인지 구분하는 일이 중요했다.</p>
+<p>문제의 어려움은 타깃이 하나의 상태로 묶이지 않는다는 데 있었다. Q1-Q3는 수면의 느낌, 피로, 스트레스처럼 사람이 직접 응답한 주관 지표에 가깝고, S1-S4는 수면 시간이나 수면 중 생체/행동 상태에 가까운 지표였다. 같은 라이프로그라도 앱 사용량이 Q3에는 말이 될 수 있고, HR이나 조도, 활동량은 S4 쪽에 더 말이 될 수 있다. 결국 "좋은 feature"라는 표현은 너무 넓었다. 어떤 타깃에, 어떤 시간대에서, 어떤 subject split에서 살아남는지가 훨씬 중요했다.</p>
+<p>그래서 후반에는 feature 의미를 타깃별로 나눠 보려고 했다. Q2/Q3에는 앱 사용과 routine, S3/S4에는 수면 전후의 활동량, HR, light, 대기환경을 붙여봤다. 이 접근 자체는 맞는 방향이었지만, public으로 transfer될 만큼 큰 독립 신호를 찾지는 못했다.</p>
+<h2>끝까지 기준점이 된 ID342</h2>
+<p>public 기준으로 마지막까지 가장 좋았던 제출은 <code>ID342</code>였다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: right;">id</th>
+<th>설명</th>
+<th style="text-align: right;">local CV</th>
+<th style="text-align: right;">public LB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">342</td>
+<td>ID178/ID221 feature-similarity shrink, alpha 0.50</td>
+<td style="text-align: right;">0.534000</td>
+<td style="text-align: right;">0.5960832519</td>
+</tr>
+</tbody>
+</table></div>
+<p>이 후보는 "강한 새 모델 하나"라기보다, 이미 만든 예측 두 계열을 feature similarity 기준으로 보수적으로 줄여 섞은 결과였다. 화려한 아이디어는 아니었지만 안정적이었다. 새로 만든 후보들이 로컬에서 조금씩 이겨도, public에서는 이 기준점을 넘기 어려웠다.</p>
+<p>이 지점이 좀 괴로웠다. 연구하고 feature를 붙이면 붙일수록 로컬 점수는 내려가는데, 정작 public에서는 잘 안 먹혔다. 대회 중반 이후에는 <code>ID342</code>가 일종의 방어선이 됐다. 새 후보는 "좋아 보인다"가 아니라 "ID342보다 정말 제출할 가치가 있나?"를 통과해야 했다.</p>
+<p>나중에 public-scored 후보들을 놓고 다시 보니, 단순 local CV 전체 순위는 위험했다. ID287은 local <code>0.378934</code>까지 내려갔지만 public은 <code>0.6698787318</code>로 무너졌다. ID329도 local <code>0.516718</code>이었지만 public <code>0.6017908577</code>로 ID342를 이기지 못했다. 반대로 ID342, ID339, ID338이 들어간 2026년 6월 23일 slate는 local 순서와 public 순서가 같이 <code>[342, 339, 338]</code>로 맞았다. 이때부터 "로컬 점수가 낮은가"보다 "실패한 frontier 후보와 같은 방향으로 움직이는가"를 보는 쪽이 더 중요해졌다.</p>
+<h2>마지막 날의 제출들</h2>
+<p>마지막 날에는 Q3 app-name lexicon anti-signal 후보를 만들었다. 앱 이름에서 스트레스와 관련된 신호를 뽑아보자는 아이디어였다. 도메인상 말이 됐고, 로컬 게이트도 나쁘지 않았다. 일부 split에서는 꽤 일관되게 이겼다.</p>
+<p>그래서 제출했다. 그리고 전부 졌다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: right;">id</th>
+<th style="text-align: right;">local CV</th>
+<th style="text-align: right;">public LB</th>
+<th style="text-align: right;">ID342 대비 public 변화</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">346</td>
+<td style="text-align: right;">0.533659</td>
+<td style="text-align: right;">0.5963391483</td>
+<td style="text-align: right;">+0.0002558964</td>
+</tr>
+<tr>
+<td style="text-align: right;">350</td>
+<td style="text-align: right;">0.533699</td>
+<td style="text-align: right;">0.5963352712</td>
+<td style="text-align: right;">+0.0002520193</td>
+</tr>
+<tr>
+<td style="text-align: right;">347</td>
+<td style="text-align: right;">0.533813</td>
+<td style="text-align: right;">0.5961947552</td>
+<td style="text-align: right;">+0.0001115033</td>
+</tr>
+</tbody>
+</table></div>
+<p>셋 중 가장 가까웠던 ID347도 ID342보다 나빴다. 수치상으로는 아주 작은 차이지만, 대회 막판에는 이런 작은 차이가 하루 종일 머릿속을 맴돈다. "조금만 더 보수적으로 갔으면?" "아예 제출하지 않는 게 맞았나?" 같은 생각이 남는다.</p>
+<p>그래도 이 제출들이 완전히 무의미하다고 생각하지는 않는다. 이들은 적어도 한 가지를 확인해줬다. 내가 만든 Q3 lexicon 신호는 로컬에서는 유용해 보였지만 public split으로는 충분히 transfer되지 않았다. 아쉽지만, 이것도 대회에서 얻는 정보다.</p>
+<p>이때 ID348과 ID349도 생성됐지만 DACON daily submission limit에 걸려 제출되지 않았다. 마지막 30분에는 모델링보다 운영 판단이 더 컸다. 제출 파일 이름, submission log, notebook history stub, 제출 메모가 서로 맞아야 했고, 어떤 파일이 실제 public score를 받은 파일인지 나중에 복원 가능해야 했다. 막판에 만든 CSV가 많아질수록 이 매칭이 더 중요해졌다.</p>
+<h2>외부 데이터와 API 실험</h2>
+<p>대회 후반에는 날씨와 대기질도 붙여봤다. ETRI와 대전이라는 도메인 prior가 있었고, 사람의 수면과 피로, 스트레스가 환경 신호와 완전히 무관하다고 보기는 어려웠다. 다만 여기서도 중요한 건 "데이터를 가져왔는가"가 아니라 "대회 기간과 타깃에 맞는 historical feature가 되는가"였다.</p>
+<p>KMA ASOS 시간자료는 가장 깔끔했다. 대전 ASOS 133번 지점 기준으로 2024년 6월 1일부터 2024년 11월 22일까지 historical hourly observation을 가져올 수 있었다. 온도, 습도, 강수, 풍속, 기압, 일사 같은 변수를 후보로 볼 수 있었다. 하지만 ID342 gate에서는 기대만큼 강한 신호가 나오지 않았다.</p>
+<p>생활기상지수 API는 호출 자체보다 시간 범위가 문제였다. UV 지수와 대기정체지수는 forecast 성격이 강했고, 2024년 historical lookup으로 쓰기 어렵다는 smoke 결과가 나왔다. 그래서 train/test feature로 쓰지 않고 report-only로 닫았다.</p>
+<p>AirKorea는 처음 받은 API가 실시간/최근 3개월 중심이라 대회 기간과 맞지 않았다. 이후 2024년 historical archive를 받아 다시 점검했고, 대전 13개 측정소에 대해 competition window <code>2024-06-01 00:00</code>부터 <code>2024-11-22 23:00</code>까지 4200개 hourly timestamp가 모두 있는 것을 확인했다. PM10, PM2.5, O3, NO2, CO, SO2 같은 feature를 만들 수 있었지만, ID342 gate 결과는 통과 0건이었다. 가장 좋은 row도 projected public <code>0.596056065</code> 수준으로 ID342 주변에 머물렀고, 목표였던 public <code>0.55</code>와는 여전히 <code>+0.046056065</code>만큼 멀었다.</p>
+<p>이 경험은 꽤 좋은 교훈이었다. 외부 데이터는 "있으면 좋아 보이는 것"과 "검증을 통과하는 독립 신호"가 다르다. 특히 수면/스트레스처럼 subject별 baseline이 강한 문제에서는 지역 단위 환경 신호가 너무 부드럽거나, public split에서 충분히 분리되지 않을 수 있다.</p>
+<h2>Kaggle과 자동화에서 배운 것</h2>
+<p>Kaggle CLI 문제도 한동안 발목을 잡았다. 처음에는 인증이나 네트워크, slug 문제처럼 보였지만, 작은 Kaggle dataset/kernel probe는 성공했다. 결국 핵심 원인은 Kaggle 입력 패키지가 낡아 있었다는 점이었다.</p>
+<p>기존 <code>softkleenex/dacon-etri-human-base</code> 입력은 2026년 6월 17일 snapshot에 가까웠고, 최신 <code>reports/</code>와 post-ID341 산출물이 없었다. runner는 필요한 경로가 없어서 바로 실패했다. 이후 base dataset 위에 patch dataset을 overlay하는 방식으로 바꿨고, 최신 scripts, reports, submissions, base predictions를 덮어씌우게 했다. no-submit upstream rebuild v3는 remote blueprint gate까지 통과했지만, 새로 promotion할 artifact evidence는 나오지 않았다.</p>
+<p>이 과정에서 Kaggle은 "제출 버튼을 대신 누르는 곳"이 아니라 "무거운 실험을 격리해서 검증하는 곳"이어야 한다는 생각이 더 강해졌다. 대회 막판에는 특히 자동화가 빠를수록 위험하다. no-submit run, artifact gate, submission log, decision note가 분리되어 있어야 실험이 운영 사고로 번지지 않는다.</p>
+<h2>이번 대회에서 제일 많이 배운 것</h2>
+<p>이번 대회의 핵심 문장은 이것이었다.</p>
+<blockquote>
+<p>좋은 로컬 점수와 좋은 제출 후보는 다르다.</p>
+</blockquote>
+<p>로컬 CV는 필요하다. 없으면 아무것도 못 한다. 하지만 로컬 CV가 좋아졌다는 사실만으로 제출 가치가 생기지는 않았다. 특히 타깃별로 신호가 다르고, public/private split의 분포를 완전히 알 수 없는 상황에서는 더 그랬다.</p>
+<p>그래서 후반부에는 점수표보다 로그가 더 중요해졌다. 제출 파일 하나, notebook-history stub 하나, submission log 한 행이 서로 맞아야 했다. 그래야 나중에 "이 public score가 어느 파일에서 나온 거지?"라는 질문에 답할 수 있었다.</p>
+<p>대회 막판에는 정신이 꽤 흐려진다. 비슷한 이름의 CSV가 많아지고, 제출 메모는 길어지고, 로컬 점수와 public 점수가 섞이기 쉽다. 이때 기록이 없으면 실험이 아니라 운에 가까워진다. 이번에는 적어도 그 부분을 끝까지 붙잡으려고 했다.</p>
+<h2>잘했던 것과 아쉬운 것</h2>
+<p>잘했던 건 제출 후보를 꽤 엄격하게 관리하려고 한 점이다. 로컬 점수와 제출 점수를 분리해서 적었고, 위험한 후보는 따로 표시했다. 덕분에 마지막 날에도 어느 후보가 실제로 제출됐고, 어느 후보가 실패했는지 복구할 수 있었다.</p>
+<p>아쉬운 건 public feedback을 설명하는 validation lens를 충분히 빨리 만들지 못한 점이다. 날씨, 대기질, 앱 사용량 같은 외부/도메인 feature를 계속 실험했지만, "왜 public에서는 안 먹히는가"를 더 일찍 분석했어야 했다. feature를 더 많이 만드는 것보다, public에서 통하는 신호와 안 통하는 신호의 차이를 먼저 봤어야 했다.</p>
+<p>보안 쪽에서도 배운 게 있다. 자동 제출과 API 연동은 편하지만 credential은 절대 코드에 남기면 안 된다. 이번에는 과거 이력에 남은 토큰을 제거하고 history rewrite까지 했다. 대회 repo도 결국 제품 repo처럼 다뤄야 한다.</p>
+<p>그리고 목표였던 public <code>0.55</code>는 끝까지 증명하지 못했다. ID342의 public <code>0.5960832519</code>는 이전 <code>0.60</code> 벽을 깬 의미 있는 개선이었지만, 상금권을 노리기에는 아직 멀었다. 마지막 날의 Q3 app lexicon도, AirKorea도, raw sequence smoke도 결국 ID342를 안정적으로 넘지 못했다. 이건 단순히 "운이 나빴다"보다 "public에 맞는 validation lens를 너무 늦게 만들었다"에 가깝다.</p>
+<h2>다음 대회라면</h2>
+<p>다음에 비슷한 대회를 한다면 초반부터 세 가지를 더 강하게 가져갈 것 같다.</p>
+<ol>
+<li>public feedback을 설명하는 검증 set을 빨리 만든다.</li>
+<li>실험 이름, CSV, 로그, notebook 기록을 처음부터 1:1로 맞춘다.</li>
+<li>새 feature가 로컬에서 이겼을 때보다, 왜 이겼는지 설명될 때 제출한다.</li>
+<li>외부 데이터는 먼저 historical coverage와 license, train/test feature 가능성을 검증한다.</li>
+<li>Kaggle remote run은 no-submit artifact gate로 유지하고, 제출과 분리한다.</li>
+</ol>
+<p>목표했던 0.55에는 닿지 못했다. 솔직히 아쉽다. 점수표만 보면 실패에 가깝다. 그런데 대회가 끝난 뒤 남은 폴더를 보면, 그래도 다음 대회에서 반복하지 않을 실수들이 꽤 선명하게 남아 있다.</p>
+<p>그게 이번 대회의 수확이었다. 점수는 기대보다 높았지만, 기록은 생각보다 오래 남았다.</p>
+    </article>
+    <nav class="postnav" aria-label="글 이동">
+      <a class="pn prev" href="/posts/dacon-mosquito-trajectory-prediction/">
+        <span>이전 글</span><strong>모기 궤적 예측 대회 회고</strong>
+      </a>
+      <a class="pn next" href="/posts/dacon-webgamming/">
+        <span>다음 글</span><strong>웹 미니게임 해커톤 회고</strong>
+      </a>
+    </nav>
+  </main>
+</div>
+
+    <footer class="site-footer">
+      <div>
+        <p>© 2026 Softkleenex. Softkleenex Archive.</p>
+        <p>
+          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

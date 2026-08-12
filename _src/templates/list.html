@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block layout %}
+<div class="shell with-explorer">
+  {% include "_explorer.html" %}
+  <main id="content">
+    <nav class="breadcrumb" aria-label="탐색 경로">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li aria-current="page">글</li>
+      </ol>
+    </nav>
+    <section class="hero">
+      <p class="eyebrow">Writing</p>
+      <h1>글 목록</h1>
+      <p class="lead">
+        대회 회고와 제작기입니다. 잘 된 결과보다 어디서 막혔고 무엇을 고정했을 때
+        풀렸는지를 남깁니다.
+      </p>
+      <p class="meta">전체 {{ posts|length }}편 · <a href="/feed.xml">RSS로 구독</a></p>
+    </section>
+
+    {%- for year, items in by_year %}
+    <p class="year">{{ year }}<span>{{ items|length }}편</span></p>
+    {%- for p in items %}
+    <a class="entry" href="/posts/{{ p.slug }}/">
+      <p class="kicker">{{ p.category }}</p>
+      <h2>{{ p.title }}</h2>
+      <p class="sub">{{ p.subtitle }}</p>
+      <p class="desc">{{ p.description }}</p>
+      <time datetime="{{ p.date }}">{{ p.date_ko }}</time>
+    </a>
+    {%- endfor %}
+    {%- endfor %}
+  </main>
+</div>
+{% endblock %}

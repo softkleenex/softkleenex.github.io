@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toss CTR 예측 대회 회고 | Softkleenex Archive</title>
+    <meta name="description" content="토스 광고 클릭률 예측 대회 기록. 1,070만 행 로그와 1.91% 클릭률 위에서 피처 엔지니어링과 rank calibration으로 AUC를 0.3409에서 0.3434까지 밀어올렸다." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://softkleenex.github.io/posts/dacon-toss-ctr-prediction/" />
+    <link rel="icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="apple-touch-icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="alternate" type="application/rss+xml" title="Softkleenex Archive RSS" href="https://softkleenex.github.io/feed.xml" />
+    <meta property="og:site_name" content="Softkleenex Archive" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Toss CTR 예측 대회 회고 | Softkleenex Archive" />
+    <meta property="og:description" content="토스 광고 클릭률 예측 대회 기록. 1,070만 행 로그와 1.91% 클릭률 위에서 피처 엔지니어링과 rank calibration으로 AUC를 0.3409에서 0.3434까지 밀어올렸다." />
+    <meta property="og:url" content="https://softkleenex.github.io/posts/dacon-toss-ctr-prediction/" />
+    <meta property="og:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta property="og:image:width" content="460" />
+    <meta property="og:image:height" content="460" />
+    <meta property="article:published_time" content="2025-10-13" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Toss CTR 예측 대회 회고 | Softkleenex Archive" />
+    <meta name="twitter:description" content="토스 광고 클릭률 예측 대회 기록. 1,070만 행 로그와 1.91% 클릭률 위에서 피처 엔지니어링과 rank calibration으로 AUC를 0.3409에서 0.3434까지 밀어올렸다." />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta name="naver-site-verification" content="07d8e8da57a2f02b48c11e909923ec67" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="/assets/base.css" />
+    <link rel="stylesheet" href="/assets/post.css" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Toss CTR 예측 대회 회고", "alternativeHeadline": "익명 광고 로그에서 AUC 0.0025를 올리는 일", "description": "토스 광고 클릭률 예측 대회 기록. 1,070만 행 로그와 1.91% 클릭률 위에서 피처 엔지니어링과 rank calibration으로 AUC를 0.3409에서 0.3434까지 밀어올렸다.", "datePublished": "2025-10-13", "inLanguage": "ko-KR", "url": "https://softkleenex.github.io/posts/dacon-toss-ctr-prediction/", "mainEntityOfPage": {"@id": "https://softkleenex.github.io/posts/dacon-toss-ctr-prediction/"}, "author": {"@id": "https://softkleenex.github.io/#person"}, "publisher": {"@id": "https://softkleenex.github.io/#person"}, "isPartOf": {"@id": "https://softkleenex.github.io/#blog"}, "image": "https://softkleenex.github.io/assets/softkleenex-avatar.png"}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://softkleenex.github.io/"}, {"@type": "ListItem", "position": 2, "name": "글", "item": "https://softkleenex.github.io/posts/"}, {"@type": "ListItem", "position": 3, "name": "Toss CTR 예측 대회 회고"}]}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <a class="skip" href="#content">본문으로 건너뛰기</a>
+    <header class="site-header">
+      <nav aria-label="주요 탐색">
+        <a class="brand" href="/">
+          <img src="/assets/softkleenex-avatar.png" width="34" height="34" alt="" />
+          <span>Softkleenex Archive</span>
+        </a>
+        <div class="site-nav">
+          <a href="/posts/" aria-current="page">글</a>
+          <a href="/feed.xml">RSS</a>
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </div>
+      </nav>
+    </header>
+    
+<div class="shell with-explorer">
+  <aside class="explorer" aria-label="글 탐색기">
+  <nav>
+    <div class="ex-group">
+      <p class="ex-head">DACON<span class="ex-n">9</span></p>
+      <ul>
+        <li><a href="/posts/dacon-webgamming/">웹 미니게임 해커톤 회고</a></li>
+        <li><a href="/posts/dacon-etri-human-understanding/">ETRI 휴먼 이해 대회 회고</a></li>
+        <li><a href="/posts/dacon-mosquito-trajectory-prediction/">모기 궤적 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-hai-2025/">HAI 2025 딥페이크 탐지 회고</a></li>
+        <li><a href="/posts/dacon-k-league-pass-prediction/">K리그 패스 좌표 예측 회고</a></li>
+        <li><a href="/posts/dacon-mai-glm-2025/">MAI 유전체 모델 대회 회고</a></li>
+        <li><a href="/posts/dacon-toss-ctr-prediction/" aria-current="page">Toss CTR 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-shipping-anomaly-detection/">해운물류 센서 이상탐지 회고</a></li>
+        <li><a href="/posts/dacon-car-news-classification/">자동차 뉴스 분류 프롬프트 대회 회고</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">Kaggle<span class="ex-n">7</span></p>
+      <ul>
+        <li><a href="/posts/kaggle-hull-tactical-prediction/">Hull Tactical 시장 예측</a></li>
+        <li><a href="/posts/kaggle-stanford-rna-3d-folding-2/">Stanford RNA 3D 예측</a></li>
+        <li><a href="/posts/kaggle-dpc-tate/">Deep Past 아카드어 번역</a></li>
+        <li><a href="/posts/kaggle-medgemma-clinical-rag-pipeline/">MedGemma 임상 RAG 번역</a></li>
+        <li><a href="/posts/kaggle-heart-disease-prediction/">Kaggle S6E2 심장질환 예측</a></li>
+        <li><a href="/posts/kaggle-arc-prize-2025/">ARC Prize 2025 추상 추론</a></li>
+        <li><a href="/posts/kaggle-jigsaw-acrc-portfolio/">Jigsaw ACRC 룰 위반 분류</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">대회<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-quantum-ai-competition/">Global Quantum AI 회고</a></li>
+        <li><a href="/posts/2026-nypc-retrospective/">2026 NYPC 회고록</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">공모전<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-the-color-house/">THE COLOR HOUSE 제작기</a></li>
+        <li><a href="/posts/hlftc/">한화생명 공모전 LifeTwin AI</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">기록<span class="ex-n">1</span></p>
+      <ul>
+        <li><a href="/posts/dacon-base/">DACON 대회 시작 템플릿</a></li>
+      </ul>
+    </div>
+  </nav>
+</aside>
+  <main id="content">
+    <nav class="breadcrumb" aria-label="탐색 경로">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li><a href="/posts/">글</a></li>
+        <li aria-current="page">Toss CTR 예측 대회 회고</li>
+      </ol>
+    </nav>
+    <article>
+      <header class="hero">
+        <p class="eyebrow">DACON · 2025</p>
+        <h1>Toss CTR 예측 대회 회고</h1>
+        <p class="lead">익명 광고 로그에서 AUC 0.0025를 올리는 일</p>
+        <p class="meta">
+          <time datetime="2025-10-13">2025년 10월 13일</time> · <a href="https://github.com/softkleenex/dacon-toss-ctr-prediction">저장소</a>
+        </p>
+      </header>
+      <p>이 프로젝트는 DACON <code>Toss NEXT 2025 ML Challenge - 광고 클릭률(CTR) 예측</code> 기록이다. 토스 앱 안에서 광고가 노출됐을 때 사용자가 클릭할 확률을 예측하는 binary classification 문제였다.</p>
+<p>최종 private leaderboard 기록은 <code>0.3434805649</code> AUC였고, 1위 점수 <code>0.35179</code>와의 차이는 <code>-0.00831</code>이었다. 데이터는 train <code>10.7M</code> rows, test <code>1.5M</code> rows 규모였고, click rate는 약 <code>1.91%</code>로 매우 낮았다. 이 대회는 화려한 딥러닝보다 익명화된 광고 로그에서 조금이라도 신호를 더 보존하는 tabular engineering 싸움에 가까웠다.</p>
+<h2>왜 어려웠나</h2>
+<p>CTR 문제는 겉으로는 간단하다. 클릭하면 1, 클릭하지 않으면 0이다. 하지만 실제로는 대부분의 row가 non-click이고, 피처명은 익명화되어 있으며, train/test distribution을 직접 이해하기 어렵다. <code>history_b_21</code>, <code>feat_b_3</code>, <code>feat_c_8</code> 같은 이름만 보고 도메인을 알 수 없으니, 의미를 "확정"하기보다 패턴을 조심스럽게 가정해야 했다.</p>
+<p>이때 중요한 건 이름이 아니라 관계였다.</p>
+<ul>
+<li><code>history_*</code> 계열은 과거 반응이나 노출 이력에 가까운 강한 신호로 보였다.</li>
+<li><code>feat_*</code> 계열은 행동/컨텍스트 신호처럼 작동했다.</li>
+<li><code>inventory_id</code>, <code>hour</code>, <code>age_group</code>은 광고 지면, 시간, 사용자 세그먼트의 기본축이었다.</li>
+<li>단일 피처보다 <code>history_a_1 x history_b_21</code>, <code>feat_b_3 / feat_c_8</code> 같은 조합에서 추가 신호가 나왔다.</li>
+</ul>
+<h2>성능이 오른 흐름</h2>
+<p>기록상 개선은 작지만 일관됐다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>단계</th>
+<th>AUC</th>
+<th>변화</th>
+<th>핵심</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td><code>0.3409</code></td>
+<td>-</td>
+<td>22개 기본 피처, LightGBM</td>
+</tr>
+<tr>
+<td>Basic FE</td>
+<td><code>0.3417</code></td>
+<td><code>+0.0008</code></td>
+<td>상호작용 피처 6개 추가</td>
+</tr>
+<tr>
+<td>Advanced FE</td>
+<td><code>0.3425</code></td>
+<td><code>+0.0008</code></td>
+<td>통계/시간/다항식 포함 42+ 피처</td>
+</tr>
+<tr>
+<td>Ensemble</td>
+<td><code>0.3432</code></td>
+<td><code>+0.0007</code></td>
+<td>5-fold x 5-seed LightGBM + XGB</td>
+</tr>
+<tr>
+<td>Rank Calibration</td>
+<td><code>0.3434</code></td>
+<td><code>+0.0002</code></td>
+<td>rank-based linear transformation</td>
+</tr>
+</tbody>
+</table></div>
+<p>최종 모델은 LightGBM 25개, XGBoost 1-2개, weighted ensemble, 그리고 <code>0.248 + 0.504 x rank</code> 형태의 rank calibration을 사용했다. CTR처럼 raw probability가 낮게 몰리는 문제에서는 확률의 절대값보다 ordering을 안정적으로 보존하는 것이 중요했다.</p>
+<h2>Feature Engineering</h2>
+<p>성능을 가장 많이 올린 부분은 모델 교체가 아니라 feature engineering이었다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>그룹</th>
+<th>예시</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interaction</td>
+<td><code>history_a_1 x history_b_21</code></td>
+<td>과거 행동 신호의 조합 효과</td>
+</tr>
+<tr>
+<td>Ratio</td>
+<td><code>feat_b_3 / (feat_c_8 + eps)</code></td>
+<td>상대적 강도</td>
+</tr>
+<tr>
+<td>Statistics</td>
+<td>mean, std, skew, kurtosis, IQR, MAD</td>
+<td>이력 피처 묶음의 분포 요약</td>
+</tr>
+<tr>
+<td>Time</td>
+<td>sin/cos by 24, 12, 8, 6 hour periods</td>
+<td>시간의 주기성 보존</td>
+</tr>
+<tr>
+<td>Polynomial</td>
+<td>square, cube, sqrt, log1p for top signals</td>
+<td>비선형 click response 포착</td>
+</tr>
+</tbody>
+</table></div>
+<p>중요도 상위에는 <code>history_b_21</code>, <code>history_a_1</code>, <code>feat_b_3</code>, <code>feat_c_8</code>, <code>inventory_id</code>, <code>hour</code>가 반복해서 등장했다. 익명화된 데이터에서도 "광고/사용자/시간/이력"이라는 CTR의 기본 구조는 꽤 강하게 남아 있었다.</p>
+<h2>실패한 시도</h2>
+<p>이 대회는 작은 개선이 쌓이는 만큼, 작은 실수도 크게 벌어졌다.</p>
+<ol>
+<li>93개 피처까지 늘렸을 때는 오히려 점수가 크게 떨어졌다. 의미 없는 조합이 늘면서 일반화가 무너졌다.</li>
+<li>aggressive calibration은 ordering을 살리기보다 예측 분포를 왜곡했다.</li>
+<li>100개 이상 모델을 섞는 mega ensemble은 계산 비용만 키우고 품질 낮은 모델까지 끌고 들어왔다.</li>
+<li>10M+ row 전체를 무심코 메모리에 올리면 OOM이 반복됐다. dtype downcast, chunking, 명시적 <code>gc.collect()</code>가 필요했다.</li>
+</ol>
+<p>가장 좋은 교훈은 "tabular competition에서 피처 수는 실력이 아니라 부채가 될 수 있다"는 점이었다. 42개 근처에서 멈춘 것이 성능과 안정성의 균형이었다.</p>
+<h2>남은 감각</h2>
+<p>이 프로젝트에서 재미있었던 건 점수의 단위가 작다는 점이다. <code>+0.0025</code> AUC는 겉보기에는 미세하지만, 830팀 규모의 CTR 대회에서는 며칠치 실험과 운영 판단이 들어간 결과였다. 특히 click rate가 <code>1.91%</code>인 환경에서는 잘못된 sampling, calibration, memory handling 하나가 바로 score collapse로 이어졌다.</p>
+<p>다시 한다면 모델을 더 크게 만들기 전에 다음을 먼저 더 엄격히 할 것이다.</p>
+<ol>
+<li>feature group별 ablation table을 자동 생성한다.</li>
+<li>calibration 전후의 rank correlation과 probability histogram을 저장한다.</li>
+<li>high-cardinality categorical 처리와 target encoding risk를 별도 audit한다.</li>
+<li>memory profile을 실험 로그에 함께 남긴다.</li>
+<li>제출 파일마다 local metric, public score, calibration formula를 한 줄로 맞춘다.</li>
+</ol>
+<p>CTR 예측은 결국 사람의 클릭을 맞히는 문제지만, 대회에서는 "작은 신호를 얼마나 덜 망가뜨리고 끝까지 가져가느냐"의 문제로 바뀐다. 이 프로젝트는 그 감각을 배운 기록이다.</p>
+<h2>기록 포인트</h2>
+<ul>
+<li>상세 제출 이력은 repo의 <code>docs/SUBMISSION_RECORD.md</code>에서 확인할 수 있습니다.</li>
+<li>feature engineering 근거는 <code>docs/FEATURES.md</code>, 실험 결과는 <code>docs/RESULTS.md</code>에 남아 있습니다.</li>
+<li>이 페이지는 LightGBM/XGBoost ensemble보다 익명 로그 해석, calibration, 실패한 과최적화를 중심으로 정리합니다.</li>
+</ul>
+    </article>
+    <nav class="postnav" aria-label="글 이동">
+      <a class="pn prev" href="/posts/dacon-shipping-anomaly-detection/">
+        <span>이전 글</span><strong>해운물류 센서 이상탐지 회고</strong>
+      </a>
+      <a class="pn next" href="/posts/kaggle-jigsaw-acrc-portfolio/">
+        <span>다음 글</span><strong>Jigsaw ACRC 룰 위반 분류</strong>
+      </a>
+    </nav>
+  </main>
+</div>
+
+    <footer class="site-footer">
+      <div>
+        <p>© 2026 Softkleenex. Softkleenex Archive.</p>
+        <p>
+          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

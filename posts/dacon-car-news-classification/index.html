@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자동차 뉴스 분류 프롬프트 대회 회고 | Softkleenex Archive</title>
+    <meta name="description" content="프롬프트 한 줄만 제출하는 이진 분류 대회 기록. 샘플 46/46을 맞힌 짧은 한국어 문장이 public 0.856을 냈고, 한국어와 영어 프롬프트의 정확도 차이까지 비교했다." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://softkleenex.github.io/posts/dacon-car-news-classification/" />
+    <link rel="icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="apple-touch-icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="alternate" type="application/rss+xml" title="Softkleenex Archive RSS" href="https://softkleenex.github.io/feed.xml" />
+    <meta property="og:site_name" content="Softkleenex Archive" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="자동차 뉴스 분류 프롬프트 대회 회고 | Softkleenex Archive" />
+    <meta property="og:description" content="프롬프트 한 줄만 제출하는 이진 분류 대회 기록. 샘플 46/46을 맞힌 짧은 한국어 문장이 public 0.856을 냈고, 한국어와 영어 프롬프트의 정확도 차이까지 비교했다." />
+    <meta property="og:url" content="https://softkleenex.github.io/posts/dacon-car-news-classification/" />
+    <meta property="og:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta property="og:image:width" content="460" />
+    <meta property="og:image:height" content="460" />
+    <meta property="article:published_time" content="2025-09-23" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="자동차 뉴스 분류 프롬프트 대회 회고 | Softkleenex Archive" />
+    <meta name="twitter:description" content="프롬프트 한 줄만 제출하는 이진 분류 대회 기록. 샘플 46/46을 맞힌 짧은 한국어 문장이 public 0.856을 냈고, 한국어와 영어 프롬프트의 정확도 차이까지 비교했다." />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta name="naver-site-verification" content="07d8e8da57a2f02b48c11e909923ec67" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="/assets/base.css" />
+    <link rel="stylesheet" href="/assets/post.css" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "자동차 뉴스 분류 프롬프트 대회 회고", "alternativeHeadline": "긴 설명형 프롬프트보다 짧은 한국어 한 줄이 강했다", "description": "프롬프트 한 줄만 제출하는 이진 분류 대회 기록. 샘플 46/46을 맞힌 짧은 한국어 문장이 public 0.856을 냈고, 한국어와 영어 프롬프트의 정확도 차이까지 비교했다.", "datePublished": "2025-09-23", "inLanguage": "ko-KR", "url": "https://softkleenex.github.io/posts/dacon-car-news-classification/", "mainEntityOfPage": {"@id": "https://softkleenex.github.io/posts/dacon-car-news-classification/"}, "author": {"@id": "https://softkleenex.github.io/#person"}, "publisher": {"@id": "https://softkleenex.github.io/#person"}, "isPartOf": {"@id": "https://softkleenex.github.io/#blog"}, "image": "https://softkleenex.github.io/assets/softkleenex-avatar.png"}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://softkleenex.github.io/"}, {"@type": "ListItem", "position": 2, "name": "글", "item": "https://softkleenex.github.io/posts/"}, {"@type": "ListItem", "position": 3, "name": "자동차 뉴스 분류 프롬프트 대회 회고"}]}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <a class="skip" href="#content">본문으로 건너뛰기</a>
+    <header class="site-header">
+      <nav aria-label="주요 탐색">
+        <a class="brand" href="/">
+          <img src="/assets/softkleenex-avatar.png" width="34" height="34" alt="" />
+          <span>Softkleenex Archive</span>
+        </a>
+        <div class="site-nav">
+          <a href="/posts/" aria-current="page">글</a>
+          <a href="/feed.xml">RSS</a>
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </div>
+      </nav>
+    </header>
+    
+<div class="shell with-explorer">
+  <aside class="explorer" aria-label="글 탐색기">
+  <nav>
+    <div class="ex-group">
+      <p class="ex-head">DACON<span class="ex-n">9</span></p>
+      <ul>
+        <li><a href="/posts/dacon-webgamming/">웹 미니게임 해커톤 회고</a></li>
+        <li><a href="/posts/dacon-etri-human-understanding/">ETRI 휴먼 이해 대회 회고</a></li>
+        <li><a href="/posts/dacon-mosquito-trajectory-prediction/">모기 궤적 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-hai-2025/">HAI 2025 딥페이크 탐지 회고</a></li>
+        <li><a href="/posts/dacon-k-league-pass-prediction/">K리그 패스 좌표 예측 회고</a></li>
+        <li><a href="/posts/dacon-mai-glm-2025/">MAI 유전체 모델 대회 회고</a></li>
+        <li><a href="/posts/dacon-toss-ctr-prediction/">Toss CTR 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-shipping-anomaly-detection/">해운물류 센서 이상탐지 회고</a></li>
+        <li><a href="/posts/dacon-car-news-classification/" aria-current="page">자동차 뉴스 분류 프롬프트 대회 회고</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">Kaggle<span class="ex-n">7</span></p>
+      <ul>
+        <li><a href="/posts/kaggle-hull-tactical-prediction/">Hull Tactical 시장 예측</a></li>
+        <li><a href="/posts/kaggle-stanford-rna-3d-folding-2/">Stanford RNA 3D 예측</a></li>
+        <li><a href="/posts/kaggle-dpc-tate/">Deep Past 아카드어 번역</a></li>
+        <li><a href="/posts/kaggle-medgemma-clinical-rag-pipeline/">MedGemma 임상 RAG 번역</a></li>
+        <li><a href="/posts/kaggle-heart-disease-prediction/">Kaggle S6E2 심장질환 예측</a></li>
+        <li><a href="/posts/kaggle-arc-prize-2025/">ARC Prize 2025 추상 추론</a></li>
+        <li><a href="/posts/kaggle-jigsaw-acrc-portfolio/">Jigsaw ACRC 룰 위반 분류</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">대회<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-quantum-ai-competition/">Global Quantum AI 회고</a></li>
+        <li><a href="/posts/2026-nypc-retrospective/">2026 NYPC 회고록</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">공모전<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-the-color-house/">THE COLOR HOUSE 제작기</a></li>
+        <li><a href="/posts/hlftc/">한화생명 공모전 LifeTwin AI</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">기록<span class="ex-n">1</span></p>
+      <ul>
+        <li><a href="/posts/dacon-base/">DACON 대회 시작 템플릿</a></li>
+      </ul>
+    </div>
+  </nav>
+</aside>
+  <main id="content">
+    <nav class="breadcrumb" aria-label="탐색 경로">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li><a href="/posts/">글</a></li>
+        <li aria-current="page">자동차 뉴스 분류 프롬프트 대회 회고</li>
+      </ol>
+    </nav>
+    <article>
+      <header class="hero">
+        <p class="eyebrow">DACON · 2025</p>
+        <h1>자동차 뉴스 분류 프롬프트 대회 회고</h1>
+        <p class="lead">긴 설명형 프롬프트보다 짧은 한국어 한 줄이 강했다</p>
+        <p class="meta">
+          <time datetime="2025-09-23">2025년 9월 23일</time> · <a href="https://github.com/softkleenex/dacon-car-news-classification">저장소</a>
+        </p>
+      </header>
+      <p>짧은 한국어 프롬프트가 긴 설명형 프롬프트보다 강했던 대회였다. 자동차 관련 뉴스면 <code>1</code>, 아니면 <code>0</code>을 내는 단순한 이진 분류였지만, 제출물은 코드나 모델이 아니라 프롬프트 한 줄이었다. 평가도 사람이 읽는 방식이 아니라 <code>GPT-4o-mini</code>, <code>temperature=0.4</code> 조건에서 돌아갔고, 점수는 정확도와 프롬프트 길이를 같이 보았다.</p>
+<p>처음에는 “자동차 제조, 판매, 전기차, 부품, 배터리”처럼 기준을 자세히 적어야 안정적일 것 같았다. 그런데 실제 기록은 반대에 가까웠다. 제공 샘플 46개에서는 <code>자동차 아니면 0 맞으면 1</code>이 <code>46/46</code>을 맞혔고, 실제 제출 최고 점수는 쉼표와 마침표가 들어간 <code>자동차 아니면 0, 맞으면 1.</code>의 public <code>0.856</code>이었다. 이 프로젝트는 거창한 프롬프트 기교보다 문제 경계, 출력 형식, 언어 선택, 과적합 검증이 더 중요하다는 쪽으로 결론이 났다.</p>
+<h2>대회 구조</h2>
+<p>점수식은 <code>0.9 * Accuracy + 0.1 * sqrt(1 - (bytes / 3000)^2)</code>였다. 길이 점수가 10% 들어가지만, 30바이트 안팎의 짧은 프롬프트에서는 사실상 정확도가 대부분을 결정했다. 그래서 핵심 질문은 “얼마나 짧게 쓰느냐”가 아니라 “조건을 잃지 않는 선에서 얼마나 짧게 유지하느냐”였다.</p>
+<p>이 제약 때문에 일반적인 ML 대회와 다른 운영 감각이 필요했다. feature를 추가하거나 모델을 앙상블하는 대신, 문장 하나에서 다음을 동시에 맞춰야 했다.</p>
+<ul>
+<li>자동차 관련이면 <code>1</code>, 무관하면 <code>0</code>이라는 조건이 명확해야 한다.</li>
+<li>모델이 설명을 붙이지 않고 숫자만 내도록 유도해야 한다.</li>
+<li>한국어 뉴스 문맥에서 자동차, 차량, EV, 배터리, 모빌리티의 경계를 안정적으로 잡아야 한다.</li>
+<li>프롬프트가 제공 샘플 46개에만 맞춰진 우연한 문장인지 따로 의심해야 한다.</li>
+</ul>
+<h2>실험 기록</h2>
+<p>가장 좋은 로컬 프롬프트는 <code>자동차 아니면 0 맞으면 1</code>이었다. 제공 샘플 <code>46/46</code>을 맞혔고, 바이트 수도 짧았다. 다만 실제 제출 최고 프롬프트는 <code>자동차 아니면 0, 맞으면 1.</code>였고 public score는 <code>0.856</code>이었다. 로컬 최적과 리더보드 최적이 완전히 일치하지 않은 점이 이 대회의 중요한 기록이다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>구분</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Best public submission</td>
+<td><code>0.856</code></td>
+</tr>
+<tr>
+<td>Best submitted prompt</td>
+<td><code>자동차 아니면 0, 맞으면 1.</code></td>
+</tr>
+<tr>
+<td>Best local validation prompt</td>
+<td><code>자동차 아니면 0 맞으면 1</code></td>
+</tr>
+<tr>
+<td>Local validation</td>
+<td><code>46/46</code></td>
+</tr>
+<tr>
+<td>Synthetic robustness check</td>
+<td><code>86.7%</code> on 30 samples</td>
+</tr>
+<tr>
+<td>Korean prompt average</td>
+<td><code>85.5%</code></td>
+</tr>
+<tr>
+<td>English prompt average</td>
+<td><code>73.9%</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>한국어 프롬프트와 영어 프롬프트의 차이도 컸다. 같은 의미라도 한국어 평균이 <code>85.5%</code>, 영어 평균이 <code>73.9%</code>로 나왔다. 한국어 기사 분류에서는 평가 모델이 한국어 조건문을 더 안정적으로 따라간 셈이다.</p>
+<h2>실패가 더 가르쳐준 것</h2>
+<p>이 대회에서 가장 무서운 실패는 긴 프롬프트가 아니라 “조건이 빠진 짧은 프롬프트”였다. <code>자동차 1</code>처럼 너무 압축한 문장은 조건문이 아니어서 크게 무너졌다. <code>자동차=1, 기타=0</code>처럼 사람이 보기에는 명확한 표기도 실제 평가에서는 특수문자와 출력 형식 리스크가 커졌다.</p>
+<p><code>차량</code>이라는 단어도 기대만큼 안정적이지 않았다. 전기차 배터리나 부품 뉴스 일부를 놓쳤고, 반대로 택시 서비스나 UAM처럼 넓은 모빌리티 맥락을 자동차로 끌고 갈 위험이 있었다. 이 문제의 경계는 “이동 수단 전반”이 아니라 “자동차 뉴스”였기 때문에, 단어 하나가 도메인 범위를 바꾸는 효과가 있었다.</p>
+<p>Chain-of-Thought 계열도 만능은 아니었다. <code>주제를 분석한 후 답하세요</code> 같은 process prompt는 로컬 정확도를 올릴 때가 있었지만, 길이가 늘고 출력에 설명이 섞일 가능성이 생겼다. prompt-only 대회에서는 모델을 더 생각하게 만드는 것보다, 채점기가 원하는 형식으로 안정적으로 수렴시키는 것이 더 실용적이었다.</p>
+<h2>최종 판단</h2>
+<p>최종적으로 이 저장소의 핵심 교훈은 단순함 자체가 아니라 검증된 단순함이었다. 짧은 프롬프트를 무작정 믿은 것이 아니라, 제공 샘플 전체 테스트, 언어별 비교, CoT 비교, 합성 데이터 30개 robustness check를 거쳐 “이 정도로 짧아도 조건이 살아 있다”는 쪽을 선택했다.</p>
+<p>가장 아쉬운 부분은 private 분포를 더 잘 추정하지 못한 점이다. 제공 샘플 <code>46/46</code>은 좋아 보였지만 합성 데이터에서는 <code>86.7%</code>로 내려갔다. 이 차이는 public <code>0.856</code>이라는 결과와도 잘 맞는다. 샘플을 완벽히 맞히는 프롬프트가 실제 평가셋을 완벽히 일반화한다는 뜻은 아니었다.</p>
+<p>그럼에도 포트폴리오 관점에서는 꽤 좋은 작은 실험이었다. 모델 학습 없이도 평가 모델의 언어 민감도, 출력 형식, 도메인 경계, leaderboard feedback을 하나씩 분리해서 확인했다. 큰 모델을 쓰는 시대에도, 문제를 한 줄로 어떻게 압축하느냐가 여전히 실험 대상이라는 걸 보여준 대회였다.</p>
+    </article>
+    <nav class="postnav" aria-label="글 이동">
+      <a class="pn next" href="/posts/dacon-shipping-anomaly-detection/">
+        <span>다음 글</span><strong>해운물류 센서 이상탐지 회고</strong>
+      </a>
+    </nav>
+  </main>
+</div>
+
+    <footer class="site-footer">
+      <div>
+        <p>© 2026 Softkleenex. Softkleenex Archive.</p>
+        <p>
+          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

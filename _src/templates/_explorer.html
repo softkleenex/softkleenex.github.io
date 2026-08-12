@@ -1,0 +1,14 @@
+<aside class="explorer" aria-label="글 탐색기">
+  <nav>
+    {%- for group in groups %}
+    <div class="ex-group">
+      <p class="ex-head">{{ group.name }}<span class="ex-n">{{ group.posts|length }}</span></p>
+      <ul>
+        {%- for p in group.posts %}
+        <li><a href="/posts/{{ p.slug }}/"{% if p.slug == current %} aria-current="page"{% endif %}>{{ p.title }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endfor %}
+  </nav>
+</aside>

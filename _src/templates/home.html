@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block layout %}
+<div class="shell">
+  <main id="content">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">Softkleenex Archive</p>
+        <h1>결과보다 어디서 막혔는지를 남깁니다</h1>
+        <p class="lead">
+          AI 대회 회고와 생성형 디자인 제작기를 씁니다. 점수만 적으면 다음에 쓸 수
+          없어서, 무엇을 검증했고 어디서 틀렸는지를 같이 남깁니다.
+        </p>
+        <p class="meta">
+          전체 {{ posts|length }}편 · <a href="/posts/">글 목록</a> ·
+          <a href="/feed.xml">RSS</a>
+        </p>
+      </div>
+      <aside class="profile">
+        <img src="/assets/softkleenex-avatar.png" width="120" height="120" alt="" />
+        <p><strong>softkleenex</strong></p>
+        <p>AI 대회와 생성형 디자인을 오갑니다.</p>
+        <p><a href="https://github.com/softkleenex">GitHub →</a></p>
+      </aside>
+    </section>
+
+    <section class="band">
+      <h2>최근 글</h2>
+      <div class="card-grid cols-3">
+        {%- for p in recent %}
+        <a class="card" href="/posts/{{ p.slug }}/">
+          <p class="kicker">{{ p.category }}</p>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.subtitle }}</p>
+          <time datetime="{{ p.date }}">{{ p.date_ko }}</time>
+        </a>
+        {%- endfor %}
+      </div>
+    </section>
+
+    <section class="band">
+      <h2>카테고리</h2>
+      <div class="card-grid cols-3">
+        {%- for g in groups %}
+        <a class="card" href="/posts/#{{ g.anchor }}">
+          <p class="kicker">{{ g.posts|length }}편</p>
+          <h3>{{ g.name }}</h3>
+          <p>{{ g.blurb }}</p>
+        </a>
+        {%- endfor %}
+      </div>
+    </section>
+  </main>
+</div>
+{% endblock %}

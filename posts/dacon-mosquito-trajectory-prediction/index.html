@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>모기 궤적 예측 대회 회고 | Softkleenex Archive</title>
+    <meta name="description" content="모기의 80ms 뒤 3D 좌표를 예측한 대회에서 785팀 중 117위. baseline 0.4848을 0.6886까지 올린 물리 기반 selector와 행 정렬 버그 디버깅 기록." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://softkleenex.github.io/posts/dacon-mosquito-trajectory-prediction/" />
+    <link rel="icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="apple-touch-icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="alternate" type="application/rss+xml" title="Softkleenex Archive RSS" href="https://softkleenex.github.io/feed.xml" />
+    <meta property="og:site_name" content="Softkleenex Archive" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="모기 궤적 예측 대회 회고 | Softkleenex Archive" />
+    <meta property="og:description" content="모기의 80ms 뒤 3D 좌표를 예측한 대회에서 785팀 중 117위. baseline 0.4848을 0.6886까지 올린 물리 기반 selector와 행 정렬 버그 디버깅 기록." />
+    <meta property="og:url" content="https://softkleenex.github.io/posts/dacon-mosquito-trajectory-prediction/" />
+    <meta property="og:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta property="og:image:width" content="460" />
+    <meta property="og:image:height" content="460" />
+    <meta property="article:published_time" content="2026-05-06" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="모기 궤적 예측 대회 회고 | Softkleenex Archive" />
+    <meta name="twitter:description" content="모기의 80ms 뒤 3D 좌표를 예측한 대회에서 785팀 중 117위. baseline 0.4848을 0.6886까지 올린 물리 기반 selector와 행 정렬 버그 디버깅 기록." />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta name="naver-site-verification" content="07d8e8da57a2f02b48c11e909923ec67" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="/assets/base.css" />
+    <link rel="stylesheet" href="/assets/post.css" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "모기 궤적 예측 대회 회고", "alternativeHeadline": "80ms 뒤 좌표를 1cm 안에 넣는 물리 기반 예측", "description": "모기의 80ms 뒤 3D 좌표를 예측한 대회에서 785팀 중 117위. baseline 0.4848을 0.6886까지 올린 물리 기반 selector와 행 정렬 버그 디버깅 기록.", "datePublished": "2026-05-06", "inLanguage": "ko-KR", "url": "https://softkleenex.github.io/posts/dacon-mosquito-trajectory-prediction/", "mainEntityOfPage": {"@id": "https://softkleenex.github.io/posts/dacon-mosquito-trajectory-prediction/"}, "author": {"@id": "https://softkleenex.github.io/#person"}, "publisher": {"@id": "https://softkleenex.github.io/#person"}, "isPartOf": {"@id": "https://softkleenex.github.io/#blog"}, "image": "https://softkleenex.github.io/assets/softkleenex-avatar.png"}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://softkleenex.github.io/"}, {"@type": "ListItem", "position": 2, "name": "글", "item": "https://softkleenex.github.io/posts/"}, {"@type": "ListItem", "position": 3, "name": "모기 궤적 예측 대회 회고"}]}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <a class="skip" href="#content">본문으로 건너뛰기</a>
+    <header class="site-header">
+      <nav aria-label="주요 탐색">
+        <a class="brand" href="/">
+          <img src="/assets/softkleenex-avatar.png" width="34" height="34" alt="" />
+          <span>Softkleenex Archive</span>
+        </a>
+        <div class="site-nav">
+          <a href="/posts/" aria-current="page">글</a>
+          <a href="/feed.xml">RSS</a>
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </div>
+      </nav>
+    </header>
+    
+<div class="shell with-explorer">
+  <aside class="explorer" aria-label="글 탐색기">
+  <nav>
+    <div class="ex-group">
+      <p class="ex-head">DACON<span class="ex-n">9</span></p>
+      <ul>
+        <li><a href="/posts/dacon-webgamming/">웹 미니게임 해커톤 회고</a></li>
+        <li><a href="/posts/dacon-etri-human-understanding/">ETRI 휴먼 이해 대회 회고</a></li>
+        <li><a href="/posts/dacon-mosquito-trajectory-prediction/" aria-current="page">모기 궤적 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-hai-2025/">HAI 2025 딥페이크 탐지 회고</a></li>
+        <li><a href="/posts/dacon-k-league-pass-prediction/">K리그 패스 좌표 예측 회고</a></li>
+        <li><a href="/posts/dacon-mai-glm-2025/">MAI 유전체 모델 대회 회고</a></li>
+        <li><a href="/posts/dacon-toss-ctr-prediction/">Toss CTR 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-shipping-anomaly-detection/">해운물류 센서 이상탐지 회고</a></li>
+        <li><a href="/posts/dacon-car-news-classification/">자동차 뉴스 분류 프롬프트 대회 회고</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">Kaggle<span class="ex-n">7</span></p>
+      <ul>
+        <li><a href="/posts/kaggle-hull-tactical-prediction/">Hull Tactical 시장 예측</a></li>
+        <li><a href="/posts/kaggle-stanford-rna-3d-folding-2/">Stanford RNA 3D 예측</a></li>
+        <li><a href="/posts/kaggle-dpc-tate/">Deep Past 아카드어 번역</a></li>
+        <li><a href="/posts/kaggle-medgemma-clinical-rag-pipeline/">MedGemma 임상 RAG 번역</a></li>
+        <li><a href="/posts/kaggle-heart-disease-prediction/">Kaggle S6E2 심장질환 예측</a></li>
+        <li><a href="/posts/kaggle-arc-prize-2025/">ARC Prize 2025 추상 추론</a></li>
+        <li><a href="/posts/kaggle-jigsaw-acrc-portfolio/">Jigsaw ACRC 룰 위반 분류</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">대회<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-quantum-ai-competition/">Global Quantum AI 회고</a></li>
+        <li><a href="/posts/2026-nypc-retrospective/">2026 NYPC 회고록</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">공모전<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-the-color-house/">THE COLOR HOUSE 제작기</a></li>
+        <li><a href="/posts/hlftc/">한화생명 공모전 LifeTwin AI</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">기록<span class="ex-n">1</span></p>
+      <ul>
+        <li><a href="/posts/dacon-base/">DACON 대회 시작 템플릿</a></li>
+      </ul>
+    </div>
+  </nav>
+</aside>
+  <main id="content">
+    <nav class="breadcrumb" aria-label="탐색 경로">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li><a href="/posts/">글</a></li>
+        <li aria-current="page">모기 궤적 예측 대회 회고</li>
+      </ol>
+    </nav>
+    <article>
+      <header class="hero">
+        <p class="eyebrow">DACON · 2026</p>
+        <h1>모기 궤적 예측 대회 회고</h1>
+        <p class="lead">80ms 뒤 좌표를 1cm 안에 넣는 물리 기반 예측</p>
+        <p class="meta">
+          <time datetime="2026-05-06">2026년 5월 6일</time> · <a href="https://github.com/softkleenex/dacon-mosquito-trajectory-prediction">저장소</a>
+        </p>
+      </header>
+      <p>이 대회는 과거 400ms 동안 관측된 3D 비행 궤적을 보고, 지연 시간 이후인 <code>+80ms</code> 시점의 모기 위치를 예측하는 문제였다. 평가 기준은 예측 좌표가 실제 좌표에서 <code>1cm</code> 안에 들어오는지였다. 평균 오차를 조금 줄이는 것보다, 실제 타격 반경 안으로 얼마나 많이 넣는지가 훨씬 중요했다.</p>
+<p>최종 결과는 785팀 중 117등, 최고 score <code>0.6886</code>이었다. 1등 score <code>0.7036</code>과 비교하면 아직 차이가 있지만, baseline <code>0.4848</code>에서 시작해 물리 기반 전처리와 selector 구조, 정렬 오류 디버깅을 거치며 꽤 멀리 올라간 프로젝트였다.</p>
+<h2>문제를 어떻게 봤나</h2>
+<p>처음에는 이 문제를 일반적인 3D regression으로 볼 수 있다. 과거 11개 좌표를 넣고, 다음 좌표를 직접 예측하는 식이다. 하지만 metric이 <code>R-Hit@1cm</code>라면 관점이 조금 달라진다. 모델이 전체 평균 오차를 낮추더라도, 1cm 경계 바깥으로 조금씩 밀리면 점수는 바로 손해를 본다.</p>
+<p>그래서 이 문제는 "미래 좌표 하나를 정확히 맞히는 회귀"이면서 동시에 "물리적으로 가능한 후보 궤적 중 정답에 가까운 것을 고르고, 1cm 경계 안으로 미세 조정하는 문제"에 가까웠다.</p>
+<h2>점수를 끌어올린 것들</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>단계</th>
+<th style="text-align: right;">LB</th>
+<th>핵심 변화</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td style="text-align: right;">0.4848</td>
+<td>tabular 시계열 feature와 GBDT baseline</td>
+</tr>
+<tr>
+<td>Isotropic scaling</td>
+<td style="text-align: right;">0.5594</td>
+<td>3D 좌표축 비율을 보존하는 전처리</td>
+</tr>
+<tr>
+<td>Physics-informed selector</td>
+<td style="text-align: right;">0.6852</td>
+<td>물리 후보 궤적 selector로 0.68대 진입</td>
+</tr>
+<tr>
+<td>Target leak / reindexing fix</td>
+<td style="text-align: right;">0.6882</td>
+<td>ID 기반 merge와 sample submission 재정렬</td>
+</tr>
+<tr>
+<td>5-cohort blend</td>
+<td style="text-align: right;">0.6886</td>
+<td>속도 구간별 Dirichlet ensemble</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Isotropic scaling</h3>
+<p>처음에는 <code>x</code>, <code>y</code>, <code>z</code>를 각각 표준화하는 평범한 전처리를 썼다. 그런데 3D 물리 좌표에서는 이게 문제가 됐다. 축별 분산이 다르다고 각 축을 따로 맞춰버리면, 모델이 보는 공간의 비율이 실제 유클리드 공간과 달라진다. 특히 <code>z</code>축의 작은 편차가 과하게 부풀어 오차 구조가 왜곡될 수 있었다.</p>
+<p>해결은 좌표축을 따로 표준화하지 않고, 3D 전체에 하나의 global scale을 적용하는 쪽이었다. 말하자면 모델에게 "진짜 공간의 모양"을 덜 망가뜨려 보여준 셈이다. 이 변화만으로도 baseline 구간을 꽤 크게 넘어섰다.</p>
+<h3>Physics-informed selector</h3>
+<p>가장 큰 도약은 직접 regression만 하던 관점에서 벗어난 것이다. 모기의 과거 비행 궤적을 보고 물리적으로 가능한 후보 궤적들을 만들고, 모델이 그중 정답에 가까운 후보를 고르게 했다.</p>
+<p>repo의 분석 문서에서는 이 패러다임을 <code>Regression -&gt; Selection + Micro-Correction</code>으로 정리했다. 후보에는 등속 직선 운동, 가속도 유지, Frenet-Serret frame 기반 회전, jerk, latency 계열이 포함됐다. 이후 tiny correction net으로 1cm 경계 부근의 오차를 미세하게 보정했다.</p>
+<p>이 접근이 좋았던 이유는 모델이 허공으로 크게 튀는 외삽을 덜 하게 만들었기 때문이다. 데이터만 보고 연속 좌표를 뱉는 모델보다, 물리적으로 그럴듯한 후보 안에서 고르게 하는 구조가 metric과 더 잘 맞았다.</p>
+<h3>Permutation leak 디버깅</h3>
+<p>가장 아찔했던 문제는 로컬 검증과 리더보드가 갑자기 벌어진 순간이었다. 예측 좌표의 개수와 값은 정상처럼 보이는데, 제출 점수가 급락했다. 원인은 모델이 아니라 행 정렬이었다.</p>
+<p>분산 실행과 후처리 과정에서 고유 ID와 예측 좌표의 매칭이 미묘하게 뒤틀렸다. 좌표값 자체는 그럴듯하지만, 다른 sample의 좌표를 제출하면 metric은 당연히 무너진다. 이 문제를 해결하기 위해 마지막 단계에서 ID 기반 <code>pd.merge</code>와 <code>sample_submission.csv</code> 기준 재정렬을 강제했다.</p>
+<p>이건 꽤 중요한 교훈이었다. competition에서는 모델이 틀릴 수도 있지만, 파이프라인이 틀릴 수도 있다. 특히 좌표 예측처럼 row alignment가 절대적인 문제에서는 제출 파일 검증이 모델 성능만큼 중요하다.</p>
+<h2>회고</h2>
+<p>이 대회에서 재미있었던 점은, 성능 개선이 "더 복잡한 모델"이 아니라 "문제를 물리적으로 더 정확히 보는 방식"에서 나왔다는 것이다. 모기는 생물이고 궤적은 3D 물리 공간에 있다. 그 사실을 전처리, 후보 생성, 후처리, ensemble에 계속 반영할수록 점수가 좋아졌다.</p>
+<p>아쉬운 점도 있다. 최종 117등은 나쁘지 않지만, 1등권과의 차이를 줄이려면 후보 selector를 더 안정적으로 학습하거나, 1cm 경계 부근의 boundary sample을 더 정교하게 다뤄야 했을 것 같다. 또 대회 중간에 정렬 오류를 잡는 데 시간이 꽤 들었는데, 처음부터 submission contract test를 더 강하게 만들었으면 시행착오를 줄일 수 있었다.</p>
+<p>다음에 비슷한 3D trajectory 문제를 한다면 다음을 먼저 챙길 것이다.</p>
+<ol>
+<li>제출 파일 row alignment 테스트를 초반부터 자동화한다.</li>
+<li>좌표축별 독립 scaling이 metric 공간을 왜곡하는지 먼저 본다.</li>
+<li>순수 regression baseline과 physics-informed candidate selector를 초반부터 같이 비교한다.</li>
+<li>metric 경계 근처 sample을 별도 분석한다.</li>
+<li>속도/가속도 regime별로 모델 강점이 다른지 early stage부터 기록한다.</li>
+</ol>
+<p>이 프로젝트는 "AI 대회에서 도메인 물리를 어떻게 모델링에 넣을 수 있는가"를 보여주는 좋은 사례로 남았다. 점수도 중요했지만, 더 오래 남은 건 1cm metric에 맞춰 문제를 다시 해석했던 과정이다.</p>
+<h2>더 읽을거리</h2>
+<ul>
+<li>상세 기술 백서와 실험 기록은 repo README와 docs에 남겨 두었다.</li>
+<li>이 글은 3D 물리 공간, metric 해석, 정렬 오류 디버깅, physics-informed selector 중심으로 요약했다.</li>
+<li>특히 <code>sample_submission.csv</code> 기준 재정렬과 ID 기반 merge는 이후 대회에서도 계속 재사용할 만한 제출 안정성 패턴이다.</li>
+</ul>
+    </article>
+    <nav class="postnav" aria-label="글 이동">
+      <a class="pn prev" href="/posts/dacon-base/">
+        <span>이전 글</span><strong>DACON 대회 시작 템플릿</strong>
+      </a>
+      <a class="pn next" href="/posts/dacon-etri-human-understanding/">
+        <span>다음 글</span><strong>ETRI 휴먼 이해 대회 회고</strong>
+      </a>
+    </nav>
+  </main>
+</div>
+
+    <footer class="site-footer">
+      <div>
+        <p>© 2026 Softkleenex. Softkleenex Archive.</p>
+        <p>
+          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

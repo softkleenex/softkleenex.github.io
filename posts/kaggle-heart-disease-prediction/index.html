@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaggle S6E2 심장질환 예측 | Softkleenex Archive</title>
+    <meta name="description" content="CatBoost 앙상블과 pseudo-labeling으로 private AUC 0.95506, 1위와 0.00029 차이. 막판 제출 에러로 좋은 모델과 안전한 제출은 별개임을 배웠다." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://softkleenex.github.io/posts/kaggle-heart-disease-prediction/" />
+    <link rel="icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="apple-touch-icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="alternate" type="application/rss+xml" title="Softkleenex Archive RSS" href="https://softkleenex.github.io/feed.xml" />
+    <meta property="og:site_name" content="Softkleenex Archive" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Kaggle S6E2 심장질환 예측 | Softkleenex Archive" />
+    <meta property="og:description" content="CatBoost 앙상블과 pseudo-labeling으로 private AUC 0.95506, 1위와 0.00029 차이. 막판 제출 에러로 좋은 모델과 안전한 제출은 별개임을 배웠다." />
+    <meta property="og:url" content="https://softkleenex.github.io/posts/kaggle-heart-disease-prediction/" />
+    <meta property="og:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta property="og:image:width" content="460" />
+    <meta property="og:image:height" content="460" />
+    <meta property="article:published_time" content="2026-02-13" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Kaggle S6E2 심장질환 예측 | Softkleenex Archive" />
+    <meta name="twitter:description" content="CatBoost 앙상블과 pseudo-labeling으로 private AUC 0.95506, 1위와 0.00029 차이. 막판 제출 에러로 좋은 모델과 안전한 제출은 별개임을 배웠다." />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta name="naver-site-verification" content="07d8e8da57a2f02b48c11e909923ec67" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="/assets/base.css" />
+    <link rel="stylesheet" href="/assets/post.css" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Kaggle S6E2 심장질환 예측", "alternativeHeadline": "1위와 0.00029 차이, 그리고 제출 파일 검증의 비용", "description": "CatBoost 앙상블과 pseudo-labeling으로 private AUC 0.95506, 1위와 0.00029 차이. 막판 제출 에러로 좋은 모델과 안전한 제출은 별개임을 배웠다.", "datePublished": "2026-02-13", "inLanguage": "ko-KR", "url": "https://softkleenex.github.io/posts/kaggle-heart-disease-prediction/", "mainEntityOfPage": {"@id": "https://softkleenex.github.io/posts/kaggle-heart-disease-prediction/"}, "author": {"@id": "https://softkleenex.github.io/#person"}, "publisher": {"@id": "https://softkleenex.github.io/#person"}, "isPartOf": {"@id": "https://softkleenex.github.io/#blog"}, "image": "https://softkleenex.github.io/assets/softkleenex-avatar.png"}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://softkleenex.github.io/"}, {"@type": "ListItem", "position": 2, "name": "글", "item": "https://softkleenex.github.io/posts/"}, {"@type": "ListItem", "position": 3, "name": "Kaggle S6E2 심장질환 예측"}]}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <a class="skip" href="#content">본문으로 건너뛰기</a>
+    <header class="site-header">
+      <nav aria-label="주요 탐색">
+        <a class="brand" href="/">
+          <img src="/assets/softkleenex-avatar.png" width="34" height="34" alt="" />
+          <span>Softkleenex Archive</span>
+        </a>
+        <div class="site-nav">
+          <a href="/posts/" aria-current="page">글</a>
+          <a href="/feed.xml">RSS</a>
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </div>
+      </nav>
+    </header>
+    
+<div class="shell with-explorer">
+  <aside class="explorer" aria-label="글 탐색기">
+  <nav>
+    <div class="ex-group">
+      <p class="ex-head">DACON<span class="ex-n">9</span></p>
+      <ul>
+        <li><a href="/posts/dacon-webgamming/">웹 미니게임 해커톤 회고</a></li>
+        <li><a href="/posts/dacon-etri-human-understanding/">ETRI 휴먼 이해 대회 회고</a></li>
+        <li><a href="/posts/dacon-mosquito-trajectory-prediction/">모기 궤적 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-hai-2025/">HAI 2025 딥페이크 탐지 회고</a></li>
+        <li><a href="/posts/dacon-k-league-pass-prediction/">K리그 패스 좌표 예측 회고</a></li>
+        <li><a href="/posts/dacon-mai-glm-2025/">MAI 유전체 모델 대회 회고</a></li>
+        <li><a href="/posts/dacon-toss-ctr-prediction/">Toss CTR 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-shipping-anomaly-detection/">해운물류 센서 이상탐지 회고</a></li>
+        <li><a href="/posts/dacon-car-news-classification/">자동차 뉴스 분류 프롬프트 대회 회고</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">Kaggle<span class="ex-n">7</span></p>
+      <ul>
+        <li><a href="/posts/kaggle-hull-tactical-prediction/">Hull Tactical 시장 예측</a></li>
+        <li><a href="/posts/kaggle-stanford-rna-3d-folding-2/">Stanford RNA 3D 예측</a></li>
+        <li><a href="/posts/kaggle-dpc-tate/">Deep Past 아카드어 번역</a></li>
+        <li><a href="/posts/kaggle-medgemma-clinical-rag-pipeline/">MedGemma 임상 RAG 번역</a></li>
+        <li><a href="/posts/kaggle-heart-disease-prediction/" aria-current="page">Kaggle S6E2 심장질환 예측</a></li>
+        <li><a href="/posts/kaggle-arc-prize-2025/">ARC Prize 2025 추상 추론</a></li>
+        <li><a href="/posts/kaggle-jigsaw-acrc-portfolio/">Jigsaw ACRC 룰 위반 분류</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">대회<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-quantum-ai-competition/">Global Quantum AI 회고</a></li>
+        <li><a href="/posts/2026-nypc-retrospective/">2026 NYPC 회고록</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">공모전<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-the-color-house/">THE COLOR HOUSE 제작기</a></li>
+        <li><a href="/posts/hlftc/">한화생명 공모전 LifeTwin AI</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">기록<span class="ex-n">1</span></p>
+      <ul>
+        <li><a href="/posts/dacon-base/">DACON 대회 시작 템플릿</a></li>
+      </ul>
+    </div>
+  </nav>
+</aside>
+  <main id="content">
+    <nav class="breadcrumb" aria-label="탐색 경로">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li><a href="/posts/">글</a></li>
+        <li aria-current="page">Kaggle S6E2 심장질환 예측</li>
+      </ol>
+    </nav>
+    <article>
+      <header class="hero">
+        <p class="eyebrow">Kaggle · 2026</p>
+        <h1>Kaggle S6E2 심장질환 예측</h1>
+        <p class="lead">1위와 0.00029 차이, 그리고 제출 파일 검증의 비용</p>
+        <p class="meta">
+          <time datetime="2026-02-13">2026년 2월 13일</time> · <a href="https://github.com/softkleenex/kaggle-heart-disease-prediction">저장소</a>
+        </p>
+      </header>
+      <p>이 프로젝트는 Kaggle <code>Playground Series - Season 6, Episode 2</code> 심장 질환 예측 대회 기록이다. 목표는 tabular clinical feature를 바탕으로 <code>Heart Disease</code> 여부를 예측하는 binary classification이었고, 평가지표는 AUC-ROC였다.</p>
+<p>최고 private score는 <code>0.95506</code>, 최고 public score는 <code>0.95349</code>였다. private 기준 1위 reference score <code>0.95535</code>와의 차이는 단 <code>0.00029</code>였다. 숫자만 보면 아주 좋은 결과지만, 이 프로젝트에서 더 오래 남은 건 "좋은 모델"과 "안전한 제출 파이프라인"은 별개의 문제라는 점이었다.</p>
+<h2>무엇이 먹혔나</h2>
+<p>핵심 모델은 <code>CatBoost</code>였다. 이 대회는 synthetic tabular data 성격이 강했고, 범주형 변수와 비선형 상호작용을 안정적으로 다루는 CatBoost가 강하게 작동했다. LightGBM, XGBoost, simple NN도 실험했지만, 최종 ensemble에서 CatBoost 비중이 약 <code>0.85</code>까지 올라간 것이 상징적이었다.</p>
+<p>주요 접근은 세 가지였다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>축</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>External data</td>
+<td>UCI Heart Disease 원본 920 rows를 통합해 synthetic noise 완화</td>
+</tr>
+<tr>
+<td>Feature engineering</td>
+<td><code>MaxHR_Age_Ratio</code>, <code>ST_MaxHR_Interaction</code>, target encoding</td>
+</tr>
+<tr>
+<td>Ensemble</td>
+<td>OOF AUC를 최대화하도록 SLSQP 기반 hill climbing weight 탐색</td>
+</tr>
+</tbody>
+</table></div>
+<p>feature importance에서도 <code>Max HR</code>, <code>Cholesterol</code>, <code>Number of vessels fluro</code>, <code>MaxHR_Age_Ratio</code>, <code>ST depression</code> 같은 임상적으로 납득 가능한 feature가 위에 있었다. synthetic playground 데이터라고 해도, 도메인 감각이 완전히 사라지는 것은 아니었다.</p>
+<h2>Pseudo-Labeling</h2>
+<p>pseudo-labeling은 test prediction confidence가 높은 샘플을 train에 다시 넣어 재학습하는 방식으로 사용했다. 기록상 threshold는 <code>0.98</code> 또는 <code>0.99</code> 계열이었다. 이 접근은 단일 모델 성능을 끌어올리는 데 도움이 됐다.</p>
+<p>다만 pseudo-labeling은 늘 양날이다. test distribution에 적응할 수 있지만, 잘못된 high-confidence sample이 들어가면 모델의 자기 확신을 증폭한다. 이 프로젝트에서는 CatBoost dominant ensemble과 함께 썼을 때 효과가 있었지만, 후반부 round2에서는 제출 에러와 id/order 위험이 같이 커졌다.</p>
+<h2>MLOps로 얻은 것</h2>
+<p>로컬에서 전부 돌리기보다 Kaggle CLI와 notebook runner를 사용해 원격 실행 파이프라인을 만들었다.</p>
+<ol>
+<li><code>src/</code> 아래에 model, preprocessing, ensemble 코드를 모듈화한다.</li>
+<li><code>notebooks/kaggle_runner/runner.py</code>를 Kaggle entrypoint로 둔다.</li>
+<li><code>kernel-metadata.json</code>과 <code>kaggle kernels push</code>로 cloud execution을 위임한다.</li>
+<li>결과물을 내려받아 local analysis와 submission 검증으로 이어간다.</li>
+</ol>
+<p>이 흐름은 단순한 대회용 편의 기능이 아니었다. 실험이 많아질수록 notebook 안에 로직을 쌓는 방식은 금방 무너진다. repo 중심 구조와 cloud runner를 분리한 덕분에, 이후 다른 Kaggle tabular 작업에도 가져갈 수 있는 보일러플레이트가 생겼다.</p>
+<h2>뼈아픈 부분</h2>
+<p>가장 뼈아픈 실패는 막판 <code>SubmissionStatus.ERROR</code>였다. 기록상 <code>train_pseudo_round2.py</code>, <code>fix_submission.py</code> 계열 결과물이 Kaggle 시스템에서 에러를 냈고, 원인은 크게 두 가지로 추정됐다.</p>
+<ol>
+<li>ensemble/post-processing 과정에서 확률값이 <code>[0, 1]</code> 범위를 미세하게 벗어났을 가능성</li>
+<li>pseudo-labeling 후 test set을 다시 분리하면서 <code>id</code> order가 어긋났을 가능성</li>
+</ol>
+<p>이건 모델링 문제가 아니라 운영 문제였다. AUC가 높아도 제출 파일이 깨지면 아무 의미가 없다. 다음부터는 submission 생성 직후 아래 검증이 pipeline 마지막에 강제로 들어가야 한다.</p>
+<pre><code class="language-python">assert submission[&quot;Heart Disease&quot;].between(0, 1).all()
+assert len(submission) == len(sample_submission)
+assert submission[&quot;id&quot;].equals(sample_submission[&quot;id&quot;])
+</code></pre>
+<p>이 세 줄은 멋지진 않지만 제출권을 지켜준다. 대회 막판에는 이런 방어 코드가 모델 아이디어만큼 중요해진다.</p>
+<h2>배운 것</h2>
+<p>이 프로젝트는 좋은 성적과 좋은 반성을 동시에 남겼다.</p>
+<ul>
+<li>synthetic tabular에서는 CatBoost가 여전히 강력한 baseline이자 final model이 될 수 있다.</li>
+<li>pseudo-labeling은 효과가 있지만, id/order와 calibration 검증을 더 엄격히 해야 한다.</li>
+<li>hill climbing ensemble은 모델 수보다 OOF quality와 correlation 관리가 중요하다.</li>
+<li>private score가 1위에 가까워도 public rank와 운영 안정성은 별도 축이다.</li>
+<li>Kaggle CLI runner 구조는 반복 실험 속도를 크게 올린다.</li>
+</ul>
+<p>가장 마음에 남는 문장은 이것이다. "0.00029 차이까지 모델을 끌어올릴 수 있어도, 제출 파일 검증 세 줄을 빼먹으면 그 노력은 쉽게 증발한다." 그래서 이 회고는 성적 자랑보다, 좋은 모델을 안전한 artifact로 끝내는 법에 더 가깝다.</p>
+<h2>기록 포인트</h2>
+<ul>
+<li>상세 회고는 repo의 <code>docs/retrospective_analysis.md</code>에 정리되어 있습니다.</li>
+<li>포트폴리오 요약은 <code>docs/portfolio_summary.md</code>, feature importance는 <code>docs/feature_importance.csv</code>에서 확인할 수 있습니다.</li>
+<li>이 페이지는 의료 예측 자체보다 synthetic tabular, CatBoost ensemble, Kaggle CLI MLOps, submission validation 교훈을 중심으로 정리합니다.</li>
+</ul>
+    </article>
+    <nav class="postnav" aria-label="글 이동">
+      <a class="pn prev" href="/posts/dacon-hai-2025/">
+        <span>이전 글</span><strong>HAI 2025 딥페이크 탐지 회고</strong>
+      </a>
+      <a class="pn next" href="/posts/kaggle-medgemma-clinical-rag-pipeline/">
+        <span>다음 글</span><strong>MedGemma 임상 RAG 번역</strong>
+      </a>
+    </nav>
+  </main>
+</div>
+
+    <footer class="site-footer">
+      <div>
+        <p>© 2026 Softkleenex. Softkleenex Archive.</p>
+        <p>
+          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

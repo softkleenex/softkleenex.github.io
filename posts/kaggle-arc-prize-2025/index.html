@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARC Prize 2025 추상 추론 | Softkleenex Archive</title>
+    <meta name="description" content="rule-based DSL과 program search로 ARC에 도전해 public 1.67점. 로컬 97-98% 픽셀 매치가 왜 0점이 되는지, DSL 탐색이 어디서 막히는지를 정리했다." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://softkleenex.github.io/posts/kaggle-arc-prize-2025/" />
+    <link rel="icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="apple-touch-icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="alternate" type="application/rss+xml" title="Softkleenex Archive RSS" href="https://softkleenex.github.io/feed.xml" />
+    <meta property="og:site_name" content="Softkleenex Archive" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="ARC Prize 2025 추상 추론 | Softkleenex Archive" />
+    <meta property="og:description" content="rule-based DSL과 program search로 ARC에 도전해 public 1.67점. 로컬 97-98% 픽셀 매치가 왜 0점이 되는지, DSL 탐색이 어디서 막히는지를 정리했다." />
+    <meta property="og:url" content="https://softkleenex.github.io/posts/kaggle-arc-prize-2025/" />
+    <meta property="og:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta property="og:image:width" content="460" />
+    <meta property="og:image:height" content="460" />
+    <meta property="article:published_time" content="2025-11-17" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="ARC Prize 2025 추상 추론 | Softkleenex Archive" />
+    <meta name="twitter:description" content="rule-based DSL과 program search로 ARC에 도전해 public 1.67점. 로컬 97-98% 픽셀 매치가 왜 0점이 되는지, DSL 탐색이 어디서 막히는지를 정리했다." />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta name="naver-site-verification" content="07d8e8da57a2f02b48c11e909923ec67" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="/assets/base.css" />
+    <link rel="stylesheet" href="/assets/post.css" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "ARC Prize 2025 추상 추론", "alternativeHeadline": "로컬 98% 픽셀 매치도 pass@2에서는 0점이 되는 평가 구조", "description": "rule-based DSL과 program search로 ARC에 도전해 public 1.67점. 로컬 97-98% 픽셀 매치가 왜 0점이 되는지, DSL 탐색이 어디서 막히는지를 정리했다.", "datePublished": "2025-11-17", "inLanguage": "ko-KR", "url": "https://softkleenex.github.io/posts/kaggle-arc-prize-2025/", "mainEntityOfPage": {"@id": "https://softkleenex.github.io/posts/kaggle-arc-prize-2025/"}, "author": {"@id": "https://softkleenex.github.io/#person"}, "publisher": {"@id": "https://softkleenex.github.io/#person"}, "isPartOf": {"@id": "https://softkleenex.github.io/#blog"}, "image": "https://softkleenex.github.io/assets/softkleenex-avatar.png"}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://softkleenex.github.io/"}, {"@type": "ListItem", "position": 2, "name": "글", "item": "https://softkleenex.github.io/posts/"}, {"@type": "ListItem", "position": 3, "name": "ARC Prize 2025 추상 추론"}]}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <a class="skip" href="#content">본문으로 건너뛰기</a>
+    <header class="site-header">
+      <nav aria-label="주요 탐색">
+        <a class="brand" href="/">
+          <img src="/assets/softkleenex-avatar.png" width="34" height="34" alt="" />
+          <span>Softkleenex Archive</span>
+        </a>
+        <div class="site-nav">
+          <a href="/posts/" aria-current="page">글</a>
+          <a href="/feed.xml">RSS</a>
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </div>
+      </nav>
+    </header>
+    
+<div class="shell with-explorer">
+  <aside class="explorer" aria-label="글 탐색기">
+  <nav>
+    <div class="ex-group">
+      <p class="ex-head">DACON<span class="ex-n">9</span></p>
+      <ul>
+        <li><a href="/posts/dacon-webgamming/">웹 미니게임 해커톤 회고</a></li>
+        <li><a href="/posts/dacon-etri-human-understanding/">ETRI 휴먼 이해 대회 회고</a></li>
+        <li><a href="/posts/dacon-mosquito-trajectory-prediction/">모기 궤적 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-hai-2025/">HAI 2025 딥페이크 탐지 회고</a></li>
+        <li><a href="/posts/dacon-k-league-pass-prediction/">K리그 패스 좌표 예측 회고</a></li>
+        <li><a href="/posts/dacon-mai-glm-2025/">MAI 유전체 모델 대회 회고</a></li>
+        <li><a href="/posts/dacon-toss-ctr-prediction/">Toss CTR 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-shipping-anomaly-detection/">해운물류 센서 이상탐지 회고</a></li>
+        <li><a href="/posts/dacon-car-news-classification/">자동차 뉴스 분류 프롬프트 대회 회고</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">Kaggle<span class="ex-n">7</span></p>
+      <ul>
+        <li><a href="/posts/kaggle-hull-tactical-prediction/">Hull Tactical 시장 예측</a></li>
+        <li><a href="/posts/kaggle-stanford-rna-3d-folding-2/">Stanford RNA 3D 예측</a></li>
+        <li><a href="/posts/kaggle-dpc-tate/">Deep Past 아카드어 번역</a></li>
+        <li><a href="/posts/kaggle-medgemma-clinical-rag-pipeline/">MedGemma 임상 RAG 번역</a></li>
+        <li><a href="/posts/kaggle-heart-disease-prediction/">Kaggle S6E2 심장질환 예측</a></li>
+        <li><a href="/posts/kaggle-arc-prize-2025/" aria-current="page">ARC Prize 2025 추상 추론</a></li>
+        <li><a href="/posts/kaggle-jigsaw-acrc-portfolio/">Jigsaw ACRC 룰 위반 분류</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">대회<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-quantum-ai-competition/">Global Quantum AI 회고</a></li>
+        <li><a href="/posts/2026-nypc-retrospective/">2026 NYPC 회고록</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">공모전<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-the-color-house/">THE COLOR HOUSE 제작기</a></li>
+        <li><a href="/posts/hlftc/">한화생명 공모전 LifeTwin AI</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">기록<span class="ex-n">1</span></p>
+      <ul>
+        <li><a href="/posts/dacon-base/">DACON 대회 시작 템플릿</a></li>
+      </ul>
+    </div>
+  </nav>
+</aside>
+  <main id="content">
+    <nav class="breadcrumb" aria-label="탐색 경로">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li><a href="/posts/">글</a></li>
+        <li aria-current="page">ARC Prize 2025 추상 추론</li>
+      </ol>
+    </nav>
+    <article>
+      <header class="hero">
+        <p class="eyebrow">Kaggle · 2025</p>
+        <h1>ARC Prize 2025 추상 추론</h1>
+        <p class="lead">로컬 98% 픽셀 매치도 pass@2에서는 0점이 되는 평가 구조</p>
+        <p class="meta">
+          <time datetime="2025-11-17">2025년 11월 17일</time> · <a href="https://github.com/softkleenex/kaggle-arc-prize-2025">저장소</a>
+        </p>
+      </header>
+      <p>이 프로젝트는 Kaggle <code>ARC Prize 2025</code> 대회 기록이다. ARC는 작은 grid 입출력 예시 몇 개를 보고, 새로운 input grid에 같은 추상 규칙을 적용해 output grid를 맞히는 문제다. 겉으로는 색깔 있는 작은 배열 문제처럼 보이지만, 실제로는 few-shot abstraction, object-centric reasoning, program synthesis가 섞인 어려운 벤치마크다.</p>
+<p>최종 public leaderboard 기록은 <code>1.67</code>점, 약 top 45%였다. README에는 1위 <code>27.64</code>점과의 차이도 남아 있다. 이 숫자는 높지 않지만, 이 프로젝트에서 남은 핵심은 점수보다 실패의 모양이다. 로컬에서는 일부 task가 <code>97-98%</code> pixel match까지 갔지만, ARC의 pass@2 평가는 정답 grid와 완전히 같아야 점수를 준다. 1-3%의 픽셀 차이가 0점과 만점의 차이가 됐다.</p>
+<h2>빠르게 만든 것</h2>
+<p>초기 목표는 Kaggle code competition 제출 루프를 빨리 닫는 것이었다. JSON을 직접 업로드하는 대회가 아니라 notebook output을 제출해야 했기 때문에, kernel metadata, offline execution, submission.json 형식 검증까지 먼저 맞췄다.</p>
+<p>그 뒤 solver는 하루 안에 빠르게 커졌다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>버전</th>
+<th>방향</th>
+<th>메모</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V1</td>
+<td>baseline transforms</td>
+<td>rotate, flip, transpose, scale, tile</td>
+</tr>
+<tr>
+<td>V2-V3</td>
+<td>color/pattern/object</td>
+<td>color mapping, symmetry, crop, padding</td>
+</tr>
+<tr>
+<td>V4</td>
+<td>multi-step transforms</td>
+<td>border, quadrant, row/column rules</td>
+</tr>
+<tr>
+<td>V5</td>
+<td>broader ensemble</td>
+<td>50+ transforms, scoring and fallback</td>
+</tr>
+<tr>
+<td>V8-V10</td>
+<td>hybrid/DSL/search</td>
+<td>DSL program search, transform search, learning fallback</td>
+</tr>
+</tbody>
+</table></div>
+<p>V10은 세 단계 pipeline에 가까웠다. 먼저 DSL primitive 조합을 찾고, 안 되면 50개 이상의 custom transform을 검증하고, 마지막에는 size ratio, color mapping, repeating pattern 같은 rule을 학습하려 했다.</p>
+<h2>왜 어려웠나</h2>
+<p>ARC의 함정은 "대충 맞음"이 점수로 이어지지 않는다는 것이다. 로컬 평가 문서에는 모든 V2-V5가 exact accuracy <code>0.00%</code>였지만, partial match는 <code>97-98%</code>까지 나오는 케이스가 있었다. 사람이 보면 방향은 맞아 보이지만, 평가 시스템은 한 칸이라도 틀리면 그 task를 틀린 것으로 본다.</p>
+<p>실패 패턴도 반복됐다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>실패 유형</th>
+<th>비율/예시</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Size mismatch</td>
+<td>약 30%</td>
+<td>출력 grid 크기 규칙을 제대로 못 배움</td>
+</tr>
+<tr>
+<td>Pattern wrong</td>
+<td>약 50%</td>
+<td>크기는 맞아도 논리/객체 규칙이 틀림</td>
+</tr>
+<tr>
+<td>Color wrong</td>
+<td>약 15%</td>
+<td>색상 매핑이나 색상 의미 해석 실패</td>
+</tr>
+<tr>
+<td>Completely wrong</td>
+<td>소수</td>
+<td>정의한 primitive 밖의 문제</td>
+</tr>
+</tbody>
+</table></div>
+<p>처음에는 변환 함수를 늘리면 점수가 오를 것처럼 느껴졌다. 하지만 ARC에서는 primitive 개수보다 "이 task에서 어떤 개념을 보고 있는가"가 더 중요했다. 같은 색상 변경도 단순 remap인지, object role인지, count 결과인지에 따라 전혀 다른 규칙이 된다.</p>
+<h2>DSL의 한계</h2>
+<p>rule-based DSL은 필요한 출발점이었다. 작은 grid에서 rotate, flip, crop, recolor 같은 연산을 program으로 표현하면, train examples에 맞는 후보를 탐색할 수 있다. 문제는 search depth가 조금만 깊어져도 조합 수가 폭발한다는 점이다.</p>
+<p>더 근본적인 한계도 있었다.</p>
+<ol>
+<li>predefined primitive 안에 없는 개념은 찾을 수 없다.</li>
+<li>object, containment, symmetry, counting을 모두 grid-level numpy operation으로만 표현하기 어렵다.</li>
+<li>train example 2-4개에 딱 맞는 program이 test input에서도 맞는다는 보장이 없다.</li>
+<li>pixel-level partial score가 좋아도 pass@2 task score는 0이 될 수 있다.</li>
+</ol>
+<p>그래서 이 프로젝트는 "DSL을 만들면 ARC가 풀린다"보다 "DSL만으로는 어디까지 막히는지"를 확인한 쪽에 가깝다.</p>
+<h2>다음에 다시 한다면</h2>
+<p>다시 ARC를 한다면 transform catalog를 더 늘리는 것보다 representation을 먼저 바꿀 것이다.</p>
+<ol>
+<li>grid를 connected components와 object graph로 변환한다.</li>
+<li>색상을 단순 숫자가 아니라 background, marker, object id 같은 role로 추론한다.</li>
+<li>candidate program마다 exact match뿐 아니라 실패 유형 taxonomy를 남긴다.</li>
+<li>open-weight LLM이나 vision-language model로 primitive proposal을 만들되, 실행/검증은 symbolic하게 둔다.</li>
+<li>test-time training이나 task-specific search를 쓰더라도 Kaggle 12시간 제한 안에서 budgeted search를 설계한다.</li>
+</ol>
+<p>ARC는 "많이 시도하면 언젠가 맞는다"가 잘 통하지 않는 문제였다. 오히려 작은 task 하나를 제대로 이해하는 능력이 중요했다. 이 점이 매력적이면서도 답답했다. 컴퓨터는 98%를 맞혔다고 말하지만, ARC는 "그럼 나머지 2%는 왜 틀렸는데?"라고 묻는다.</p>
+<h2>기록 포인트</h2>
+<ul>
+<li>빠른 제출 루프와 code competition 운영은 repo의 <code>docs/evaluation_reports/FINAL_SUMMARY.md</code>에 남아 있습니다.</li>
+<li>실패 유형 분석은 <code>docs/evaluation_reports/EVALUATION_INSIGHTS.md</code>에서 확인할 수 있습니다.</li>
+<li>이 페이지는 ARC score 자체보다 pixel-perfect reasoning, DSL search 한계, object-centric representation 필요성을 중심으로 정리합니다.</li>
+</ul>
+    </article>
+    <nav class="postnav" aria-label="글 이동">
+      <a class="pn prev" href="/posts/kaggle-jigsaw-acrc-portfolio/">
+        <span>이전 글</span><strong>Jigsaw ACRC 룰 위반 분류</strong>
+      </a>
+      <a class="pn next" href="/posts/dacon-mai-glm-2025/">
+        <span>다음 글</span><strong>MAI 유전체 모델 대회 회고</strong>
+      </a>
+    </nav>
+  </main>
+</div>
+
+    <footer class="site-footer">
+      <div>
+        <p>© 2026 Softkleenex. Softkleenex Archive.</p>
+        <p>
+          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

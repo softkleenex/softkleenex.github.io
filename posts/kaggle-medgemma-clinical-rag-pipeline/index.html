@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedGemma 임상 RAG 번역 | Softkleenex Archive</title>
+    <meta name="description" content="방사선 리포트를 임상 리포트와 환자용 설명으로 나눠 내는 dual-agent RAG 파이프라인. 설명 난이도를 Grade 15.3에서 7.2로 낮추고 인증·경로 문제와 싸웠다." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://softkleenex.github.io/posts/kaggle-medgemma-clinical-rag-pipeline/" />
+    <link rel="icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="apple-touch-icon" href="/assets/softkleenex-avatar.png" />
+    <link rel="alternate" type="application/rss+xml" title="Softkleenex Archive RSS" href="https://softkleenex.github.io/feed.xml" />
+    <meta property="og:site_name" content="Softkleenex Archive" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="MedGemma 임상 RAG 번역 | Softkleenex Archive" />
+    <meta property="og:description" content="방사선 리포트를 임상 리포트와 환자용 설명으로 나눠 내는 dual-agent RAG 파이프라인. 설명 난이도를 Grade 15.3에서 7.2로 낮추고 인증·경로 문제와 싸웠다." />
+    <meta property="og:url" content="https://softkleenex.github.io/posts/kaggle-medgemma-clinical-rag-pipeline/" />
+    <meta property="og:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta property="og:image:width" content="460" />
+    <meta property="og:image:height" content="460" />
+    <meta property="article:published_time" content="2026-02-21" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="MedGemma 임상 RAG 번역 | Softkleenex Archive" />
+    <meta name="twitter:description" content="방사선 리포트를 임상 리포트와 환자용 설명으로 나눠 내는 dual-agent RAG 파이프라인. 설명 난이도를 Grade 15.3에서 7.2로 낮추고 인증·경로 문제와 싸웠다." />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta name="naver-site-verification" content="07d8e8da57a2f02b48c11e909923ec67" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="/assets/base.css" />
+    <link rel="stylesheet" href="/assets/post.css" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "MedGemma 임상 RAG 번역", "alternativeHeadline": "의료 VLM 출력을 환자가 읽을 수 있는 언어로 번역하기", "description": "방사선 리포트를 임상 리포트와 환자용 설명으로 나눠 내는 dual-agent RAG 파이프라인. 설명 난이도를 Grade 15.3에서 7.2로 낮추고 인증·경로 문제와 싸웠다.", "datePublished": "2026-02-21", "inLanguage": "ko-KR", "url": "https://softkleenex.github.io/posts/kaggle-medgemma-clinical-rag-pipeline/", "mainEntityOfPage": {"@id": "https://softkleenex.github.io/posts/kaggle-medgemma-clinical-rag-pipeline/"}, "author": {"@id": "https://softkleenex.github.io/#person"}, "publisher": {"@id": "https://softkleenex.github.io/#person"}, "isPartOf": {"@id": "https://softkleenex.github.io/#blog"}, "image": "https://softkleenex.github.io/assets/softkleenex-avatar.png"}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://softkleenex.github.io/"}, {"@type": "ListItem", "position": 2, "name": "글", "item": "https://softkleenex.github.io/posts/"}, {"@type": "ListItem", "position": 3, "name": "MedGemma 임상 RAG 번역"}]}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <a class="skip" href="#content">본문으로 건너뛰기</a>
+    <header class="site-header">
+      <nav aria-label="주요 탐색">
+        <a class="brand" href="/">
+          <img src="/assets/softkleenex-avatar.png" width="34" height="34" alt="" />
+          <span>Softkleenex Archive</span>
+        </a>
+        <div class="site-nav">
+          <a href="/posts/" aria-current="page">글</a>
+          <a href="/feed.xml">RSS</a>
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </div>
+      </nav>
+    </header>
+    
+<div class="shell with-explorer">
+  <aside class="explorer" aria-label="글 탐색기">
+  <nav>
+    <div class="ex-group">
+      <p class="ex-head">DACON<span class="ex-n">9</span></p>
+      <ul>
+        <li><a href="/posts/dacon-webgamming/">웹 미니게임 해커톤 회고</a></li>
+        <li><a href="/posts/dacon-etri-human-understanding/">ETRI 휴먼 이해 대회 회고</a></li>
+        <li><a href="/posts/dacon-mosquito-trajectory-prediction/">모기 궤적 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-hai-2025/">HAI 2025 딥페이크 탐지 회고</a></li>
+        <li><a href="/posts/dacon-k-league-pass-prediction/">K리그 패스 좌표 예측 회고</a></li>
+        <li><a href="/posts/dacon-mai-glm-2025/">MAI 유전체 모델 대회 회고</a></li>
+        <li><a href="/posts/dacon-toss-ctr-prediction/">Toss CTR 예측 대회 회고</a></li>
+        <li><a href="/posts/dacon-shipping-anomaly-detection/">해운물류 센서 이상탐지 회고</a></li>
+        <li><a href="/posts/dacon-car-news-classification/">자동차 뉴스 분류 프롬프트 대회 회고</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">Kaggle<span class="ex-n">7</span></p>
+      <ul>
+        <li><a href="/posts/kaggle-hull-tactical-prediction/">Hull Tactical 시장 예측</a></li>
+        <li><a href="/posts/kaggle-stanford-rna-3d-folding-2/">Stanford RNA 3D 예측</a></li>
+        <li><a href="/posts/kaggle-dpc-tate/">Deep Past 아카드어 번역</a></li>
+        <li><a href="/posts/kaggle-medgemma-clinical-rag-pipeline/" aria-current="page">MedGemma 임상 RAG 번역</a></li>
+        <li><a href="/posts/kaggle-heart-disease-prediction/">Kaggle S6E2 심장질환 예측</a></li>
+        <li><a href="/posts/kaggle-arc-prize-2025/">ARC Prize 2025 추상 추론</a></li>
+        <li><a href="/posts/kaggle-jigsaw-acrc-portfolio/">Jigsaw ACRC 룰 위반 분류</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">대회<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-quantum-ai-competition/">Global Quantum AI 회고</a></li>
+        <li><a href="/posts/2026-nypc-retrospective/">2026 NYPC 회고록</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">공모전<span class="ex-n">2</span></p>
+      <ul>
+        <li><a href="/posts/2026-the-color-house/">THE COLOR HOUSE 제작기</a></li>
+        <li><a href="/posts/hlftc/">한화생명 공모전 LifeTwin AI</a></li>
+      </ul>
+    </div>
+    <div class="ex-group">
+      <p class="ex-head">기록<span class="ex-n">1</span></p>
+      <ul>
+        <li><a href="/posts/dacon-base/">DACON 대회 시작 템플릿</a></li>
+      </ul>
+    </div>
+  </nav>
+</aside>
+  <main id="content">
+    <nav class="breadcrumb" aria-label="탐색 경로">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li><a href="/posts/">글</a></li>
+        <li aria-current="page">MedGemma 임상 RAG 번역</li>
+      </ol>
+    </nav>
+    <article>
+      <header class="hero">
+        <p class="eyebrow">Kaggle · 2026</p>
+        <h1>MedGemma 임상 RAG 번역</h1>
+        <p class="lead">의료 VLM 출력을 환자가 읽을 수 있는 언어로 번역하기</p>
+        <p class="meta">
+          <time datetime="2026-02-21">2026년 2월 21일</time> · <a href="https://github.com/softkleenex/kaggle-medgemma-clinical-rag-pipeline">저장소</a>
+        </p>
+      </header>
+      <p>이 프로젝트는 Kaggle <code>MedGemma Impact Challenge</code>에서 만든 의료 VLM + RAG 파이프라인 회고다. 목표는 방사선 리포트와 의료 이미지를 읽고, 임상적 판단을 돕는 구조화된 보고서와 환자가 이해하기 쉬운 설명을 함께 만드는 것이었다.</p>
+<p>의료 도메인에서 AI를 쓴다는 건 단순히 모델을 붙이는 일이 아니었다. 임상 용어는 정확해야 하고, 환자용 설명은 불안을 키우지 않아야 하며, cloud notebook 환경에서는 인증, 파일 경로, multimodal token 처리 같은 엔지니어링 문제가 계속 튀어나왔다.</p>
+<p>그래서 이 프로젝트의 핵심은 "MedGemma를 써봤다"가 아니라, 제한된 Kaggle 환경에서 VLM, RAG, agentic workflow를 끝까지 실행 가능한 파이프라인으로 묶었다는 점이다.</p>
+<h2>문제의식</h2>
+<p>방사선 리포트는 의료진에게는 정확한 문서지만, 환자에게는 너무 어렵다. 예를 들어 <code>periventricular white matter changes</code> 같은 표현은 임상적으로는 의미가 있지만, 환자 입장에서는 무엇이 위험하고 무엇을 해야 하는지 바로 이해하기 어렵다.</p>
+<p>이 프로젝트에서는 두 단계 agent를 나눴다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sentinel-Clinician</td>
+<td>VLM이 scan/report를 읽고 RAG로 근거를 보강해 임상 triage report 생성</td>
+</tr>
+<tr>
+<td>Sentinel-Guide</td>
+<td>임상 결과를 환자 친화적 설명으로 번역하고 다음 행동을 안내</td>
+</tr>
+</tbody>
+</table></div>
+<p>중요한 건 환자용 설명이 의료 판단을 대체하지 않는다는 점이다. 이 파이프라인은 진단을 자동 확정하는 시스템이 아니라, 의료진과 환자 사이의 언어적 간극을 줄이는 보조 도구에 가깝다.</p>
+<h2>측정한 효과</h2>
+<p>repo README에는 Flesch-Kincaid Grade Level 기준으로 설명 난이도를 비교한 결과가 남아 있다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>출력</th>
+<th style="text-align: right;">Grade level</th>
+<th>해석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clinical baseline</td>
+<td style="text-align: right;">15.3</td>
+<td>대학원 수준에 가까운 의료 문체</td>
+</tr>
+<tr>
+<td>Patient translation</td>
+<td style="text-align: right;">7.2</td>
+<td>일반인이 읽기 쉬운 수준</td>
+</tr>
+</tbody>
+</table></div>
+<p>수치만 보면 약 <code>53%</code> 정도 언어 복잡도를 낮춘 셈이다. 물론 이 수치 하나로 임상 안전성을 증명할 수는 없다. 그래도 "환자에게 읽히는 설명"을 별도 목표로 측정했다는 점은 좋았다. 의료 AI 프로젝트에서는 모델 성능뿐 아니라 사용자가 실제로 이해할 수 있는지도 같이 봐야 한다.</p>
+<h2>제일 크게 막힌 것들</h2>
+<h3>1. Kaggle secret과 401 Unauthorized</h3>
+<p>MedGemma 계열 모델은 gated model access가 필요했다. 라이선스를 수락했는데도 Kaggle notebook에서 <code>401 Unauthorized</code>가 반복됐다. 원인은 단순히 토큰이 틀린 게 아니라, Kaggle <code>UserSecretsClient</code>, notebook cell 실행 순서, <code>transformers</code> 모델 초기화 타이밍이 미묘하게 엇갈리는 문제였다.</p>
+<p>해결은 "atomic execution"이었다. 여러 cell에 흩어진 초기화를 믿지 않고, token 주입, <code>HF_TOKEN</code>/<code>HUGGINGFACE_HUB_TOKEN</code> 설정, <code>huggingface_hub.login()</code>, 모델 로딩을 하나의 단단한 실행 흐름으로 묶었다. 예쁘지는 않지만, cloud notebook에서는 이런 방어적 설계가 훨씬 중요했다.</p>
+<h3>2. VLM image token mismatch</h3>
+<p>초기 multimodal prompt는 <code>Prompt contained 0 image tokens but received 1 images</code> 같은 에러로 깨졌다. 사람이 보기엔 <code>&lt;image&gt;</code> 문자열을 넣으면 될 것 같지만, VLM 입장에서는 내부 <code>image_token_id</code>와 processor 규약이 맞아야 한다.</p>
+<p>결국 manual string prompt를 버리고 <code>processor.apply_chat_template()</code> 기반의 structured input으로 바꿨다. image와 text를 dictionary 구조로 넣어 processor가 pixel value와 text token을 함께 맞추게 하니 visual reasoning이 정상화됐다. 이 부분은 "모델을 아는 것"보다 "processor contract를 지키는 것"이 더 중요했던 지점이다.</p>
+<h3>3. RAG pathing trap</h3>
+<p>FAISS 기반 RAG engine은 Kaggle dataset mount 경로 때문에 자주 깨졌다. <code>/kaggle/input/...</code> 아래 경로가 세션마다 달라질 수 있는데, absolute path를 박아두면 바로 <code>FileNotFoundError</code>가 난다.</p>
+<p>해결은 <code>os.walk</code> 기반 dynamic discovery였다. <code>/kaggle/input</code> 전체를 훑고, 파일명과 확장자 heuristic으로 필요한 MedQuAD 자료를 찾게 했다. 멋진 알고리즘은 아니지만, ephemeral cloud filesystem에서는 이런 resilience가 실제 완성도를 갈랐다.</p>
+<h2>회고</h2>
+<p>이 프로젝트에서 제일 크게 배운 건 RAG와 VLM은 모델 품질만으로 완성되지 않는다는 점이다. 인증, tokenization, pathing, notebook execution state 같은 작은 엔지니어링 문제가 하나라도 흔들리면 전체 pipeline이 바로 멈춘다.</p>
+<p>또 하나는 의료 도메인의 출력 설계다. 임상 요약과 환자 설명을 하나의 답변에 섞으면 둘 다 애매해지기 쉽다. Sentinel-Clinician과 Sentinel-Guide를 나눈 것은 좋은 선택이었다. 하나는 정확한 clinical triage에 집중하고, 다른 하나는 쉬운 언어와 행동 안내에 집중할 수 있었다.</p>
+<p>다음에 비슷한 프로젝트를 한다면 초반부터 세 가지를 더 강하게 가져갈 것 같다.</p>
+<ol>
+<li>cloud notebook에서 인증과 모델 로딩을 atomic smoke test로 먼저 고정한다.</li>
+<li>multimodal prompt는 처음부터 processor-native template만 사용한다.</li>
+<li>RAG dataset path는 hardcoding하지 않고 discovery와 validation report를 기본으로 둔다.</li>
+</ol>
+<p>이 프로젝트는 대회 점수표로만 설명하기 어려운 Impact Challenge였다. 하지만 포트폴리오 관점에서는 오히려 좋다. 모델을 붙이는 데서 끝나지 않고, 실제 cloud execution 제약 속에서 의료 AI pipeline을 끝까지 움직이게 만든 기록이기 때문이다.</p>
+<h2>더 읽을거리</h2>
+<ul>
+<li>상세 코드, demo video, 실행 구조는 repo README에서 확인할 수 있다.</li>
+<li>이 글은 의료 VLM/RAG pipeline에서 겪은 cloud, tokenization, pathing 병목을 중심으로 요약했다.</li>
+<li>특히 gated model access, processor-native multimodal prompt, Kaggle dataset discovery는 이후 의료 AI 실험에도 재사용할 만한 운영 패턴이다.</li>
+</ul>
+    </article>
+    <nav class="postnav" aria-label="글 이동">
+      <a class="pn prev" href="/posts/kaggle-heart-disease-prediction/">
+        <span>이전 글</span><strong>Kaggle S6E2 심장질환 예측</strong>
+      </a>
+      <a class="pn next" href="/posts/kaggle-dpc-tate/">
+        <span>다음 글</span><strong>Deep Past 아카드어 번역</strong>
+      </a>
+    </nav>
+  </main>
+</div>
+
+    <footer class="site-footer">
+      <div>
+        <p>© 2026 Softkleenex. Softkleenex Archive.</p>
+        <p>
+          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="https://github.com/softkleenex">GitHub</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

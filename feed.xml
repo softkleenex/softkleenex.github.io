@@ -3,7 +3,7 @@
   <channel>
     <title>Softkleenex Archive</title>
     <link>https://softkleenex.github.io/</link>
-    <description>AI 개발과 생성형 디자인 프로젝트를 기록하는 블로그. 대회 회고와 제작기를 남깁니다.</description>
+    <description>AI 대회 회고와 생성형 디자인 제작기. 결과보다 어디서 막혔는지를 남깁니다.</description>
     <language>ko</language>
     <copyright>© 2026 Softkleenex</copyright>
     <lastBuildDate>Mon, 10 Aug 2026 09:00:00 +0900</lastBuildDate>
@@ -13,29 +13,173 @@
       <title>Softkleenex Archive</title>
       <link>https://softkleenex.github.io/</link>
     </image>
-
     <item>
-      <title>제3회 Global Quantum AI Competition 회고</title>
+      <title>Global Quantum AI 회고</title>
       <link>https://softkleenex.github.io/posts/2026-quantum-ai-competition/</link>
       <guid isPermaLink="true">https://softkleenex.github.io/posts/2026-quantum-ai-competition/</guid>
       <pubDate>Mon, 10 Aug 2026 09:00:00 +0900</pubDate>
-      <description>209개 회로를 검증하고 0.005점이 부족했다. 검증 체계는 정확했고, 틀린 것은 그 체계를 겨눈 방향이었다. depth 50 제약 아래의 2-qubit data re-uploading 분류기와 잘못 잡은 목표에 대한 기록.</description>
+      <category>대회</category>
+      <description>209개 회로를 검증하고 0.005점이 부족했다. depth 50 제약 아래의 2-qubit data re-uploading 분류기와 잘못 잡은 목표에 대한 기록.</description>
     </item>
-
     <item>
       <title>THE COLOR HOUSE 제작기</title>
       <link>https://softkleenex.github.io/posts/2026-the-color-house/</link>
       <guid isPermaLink="true">https://softkleenex.github.io/posts/2026-the-color-house/</guid>
       <pubDate>Tue, 21 Jul 2026 09:00:00 +0900</pubDate>
+      <category>공모전</category>
       <description>BBIA × AIBB의 One DNA를 두 개의 컬러룸과 듀얼 립앤치크 제품으로 번역하며 겪은 제품 일관성, 인물, 손, 타이포그래피 문제와 해결 과정.</description>
     </item>
-
     <item>
       <title>2026 NYPC 회고록</title>
       <link>https://softkleenex.github.io/posts/2026-nypc-retrospective/</link>
       <guid isPermaLink="true">https://softkleenex.github.io/posts/2026-nypc-retrospective/</guid>
       <pubDate>Mon, 20 Jul 2026 09:00:00 +0900</pubDate>
-      <description>로컬 rush 승률 95%, 마지막 유저 평가 579위. 183개의 후보와 300경기 로그 뒤에 남은 로컬 검증의 함정과 NEXT NATION 봇 개발 회고.</description>
+      <category>대회</category>
+      <description>로컬 rush 승률 95%, 마지막 유저 평가 579위. 183번까지 이어진 후보와 300경기 로그 뒤에 남은 로컬 검증의 함정과 NEXT NATION 봇 개발 회고.</description>
+    </item>
+    <item>
+      <title>Hull Tactical 시장 예측</title>
+      <link>https://softkleenex.github.io/posts/kaggle-hull-tactical-prediction/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/kaggle-hull-tactical-prediction/</guid>
+      <pubDate>Tue, 30 Jun 2026 09:00:00 +0900</pubDate>
+      <category>Kaggle</category>
+      <description>Sharpe 17+ public 점수를 함정으로 보고 보수적으로 갔다. 2026년 1-6월 live 평가에서 3.898부터 -0.379까지, static model의 한계를 확인했다.</description>
+    </item>
+    <item>
+      <title>한화생명 공모전 LifeTwin AI</title>
+      <link>https://softkleenex.github.io/posts/hlftc/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/hlftc/</guid>
+      <pubDate>Sun, 28 Jun 2026 09:00:00 +0900</pubDate>
+      <category>공모전</category>
+      <description>한화생명 공모전 AI 분야에 낸 LifeTwin AI 기획안. 시장 수치를 직접 fact check해 설득력을 만든 과정과, prototype까지 가지 못한 아쉬움을 남겼다.</description>
+    </item>
+    <item>
+      <title>웹 미니게임 해커톤 회고</title>
+      <link>https://softkleenex.github.io/posts/dacon-webgamming/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/dacon-webgamming/</guid>
+      <pubDate>Sun, 28 Jun 2026 09:00:00 +0900</pubDate>
+      <category>DACON</category>
+      <description>DACON 월간 웹 미니게임 해커톤 참가 기록. 스킬트리와 스테이지를 전부 버리고 원 버튼 패링이라는 코어 루프 하나에 몰아넣은 스코프 관리 판단을 정리했다.</description>
+    </item>
+    <item>
+      <title>ETRI 휴먼 이해 대회 회고</title>
+      <link>https://softkleenex.github.io/posts/dacon-etri-human-understanding/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/dacon-etri-human-understanding/</guid>
+      <pubDate>Fri, 26 Jun 2026 09:00:00 +0900</pubDate>
+      <category>DACON</category>
+      <description>라이프로그로 수면과 스트레스를 예측한 대회 회고. 로컬 CV와 public LB가 어긋나는 상황에서 ID342를 방어선으로 삼고, 외부 데이터와 제출 운영을 어떻게 관리했는지 남겼다.</description>
+    </item>
+    <item>
+      <title>모기 궤적 예측 대회 회고</title>
+      <link>https://softkleenex.github.io/posts/dacon-mosquito-trajectory-prediction/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/dacon-mosquito-trajectory-prediction/</guid>
+      <pubDate>Wed, 06 May 2026 09:00:00 +0900</pubDate>
+      <category>DACON</category>
+      <description>모기의 80ms 뒤 3D 좌표를 예측한 대회에서 785팀 중 117위. baseline 0.4848을 0.6886까지 올린 물리 기반 selector와 행 정렬 버그 디버깅 기록.</description>
+    </item>
+    <item>
+      <title>DACON 대회 시작 템플릿</title>
+      <link>https://softkleenex.github.io/posts/dacon-base/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/dacon-base/</guid>
+      <pubDate>Wed, 06 May 2026 09:00:00 +0900</pubDate>
+      <category>기록</category>
+      <description>DACON과 Kaggle 대회를 30분 안에 시작하기 위한 운영 템플릿 기록. 검증 우선 원칙, 제출 로그, 데이터 사전, Kaggle 오프로드를 표준화한 이유를 정리했다.</description>
+    </item>
+    <item>
+      <title>Stanford RNA 3D 예측</title>
+      <link>https://softkleenex.github.io/posts/kaggle-stanford-rna-3d-folding-2/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/kaggle-stanford-rna-3d-folding-2/</guid>
+      <pubDate>Mon, 04 May 2026 09:00:00 +0900</pubDate>
+      <category>Kaggle</category>
+      <description>LLM agent 루프를 300회 이상 돌려 RNA 3D 구조를 예측해 0.41124점(905/1877). 반복 속도가 아니라 검증 층의 부재가 병목이었다는 기록.</description>
+    </item>
+    <item>
+      <title>Deep Past 아카드어 번역</title>
+      <link>https://softkleenex.github.io/posts/kaggle-dpc-tate/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/kaggle-dpc-tate/</guid>
+      <pubDate>Mon, 04 May 2026 09:00:00 +0900</pubDate>
+      <category>Kaggle</category>
+      <description>ByT5와 MBR decoding, 사전 lookup으로 Akkadian을 영어로 번역해 33.8371점(954/2673). 정작 가장 오래 붙든 건 Kaggle 자동화의 실패 모드였다.</description>
+    </item>
+    <item>
+      <title>MedGemma 임상 RAG 번역</title>
+      <link>https://softkleenex.github.io/posts/kaggle-medgemma-clinical-rag-pipeline/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/kaggle-medgemma-clinical-rag-pipeline/</guid>
+      <pubDate>Sat, 21 Feb 2026 09:00:00 +0900</pubDate>
+      <category>Kaggle</category>
+      <description>방사선 리포트를 임상 리포트와 환자용 설명으로 나눠 내는 dual-agent RAG 파이프라인. 설명 난이도를 Grade 15.3에서 7.2로 낮추고 인증·경로 문제와 싸웠다.</description>
+    </item>
+    <item>
+      <title>Kaggle S6E2 심장질환 예측</title>
+      <link>https://softkleenex.github.io/posts/kaggle-heart-disease-prediction/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/kaggle-heart-disease-prediction/</guid>
+      <pubDate>Fri, 13 Feb 2026 09:00:00 +0900</pubDate>
+      <category>Kaggle</category>
+      <description>CatBoost 앙상블과 pseudo-labeling으로 private AUC 0.95506, 1위와 0.00029 차이. 막판 제출 에러로 좋은 모델과 안전한 제출은 별개임을 배웠다.</description>
+    </item>
+    <item>
+      <title>HAI 2025 딥페이크 탐지 회고</title>
+      <link>https://softkleenex.github.io/posts/dacon-hai-2025/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/dacon-hai-2025/</guid>
+      <pubDate>Wed, 28 Jan 2026 09:00:00 +0900</pubDate>
+      <category>DACON</category>
+      <description>딥페이크 탐지 대회에서 1,356팀 중 121위, private AUC 0.70403. 점수를 가장 크게 올린 pseudo-labeling이 동시에 규정 위반 리스크였다는 기록을 남겼다.</description>
+    </item>
+    <item>
+      <title>K리그 패스 좌표 예측 회고</title>
+      <link>https://softkleenex.github.io/posts/dacon-k-league-pass-prediction/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/dacon-k-league-pass-prediction/</guid>
+      <pubDate>Sun, 18 Jan 2026 09:00:00 +0900</pubDate>
+      <category>DACON</category>
+      <description>K리그 패스 도착 좌표 예측 대회에서 1,782팀 중 121위, 상위 6.8%. delta 예측과 LOGO CV로 검증하며 Zone 6x6 baseline이 왜 더 강했는지 정리했다.</description>
+    </item>
+    <item>
+      <title>MAI 유전체 모델 대회 회고</title>
+      <link>https://softkleenex.github.io/posts/dacon-mai-glm-2025/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/dacon-mai-glm-2025/</guid>
+      <pubDate>Fri, 28 Nov 2025 09:00:00 +0900</pubDate>
+      <category>DACON</category>
+      <description>DNA 서열 임베딩의 variant 민감도를 겨루는 대회에서 815팀 중 91위. 2.5B 모델이 500m를 못 이겼고, PCA와 contrastive learning이 실제 해답이었다.</description>
+    </item>
+    <item>
+      <title>ARC Prize 2025 추상 추론</title>
+      <link>https://softkleenex.github.io/posts/kaggle-arc-prize-2025/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/kaggle-arc-prize-2025/</guid>
+      <pubDate>Mon, 17 Nov 2025 09:00:00 +0900</pubDate>
+      <category>Kaggle</category>
+      <description>rule-based DSL과 program search로 ARC에 도전해 public 1.67점. 로컬 97-98% 픽셀 매치가 왜 0점이 되는지, DSL 탐색이 어디서 막히는지를 정리했다.</description>
+    </item>
+    <item>
+      <title>Jigsaw ACRC 룰 위반 분류</title>
+      <link>https://softkleenex.github.io/posts/kaggle-jigsaw-acrc-portfolio/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/kaggle-jigsaw-acrc-portfolio/</guid>
+      <pubDate>Sat, 25 Oct 2025 09:00:00 +0900</pubDate>
+      <category>Kaggle</category>
+      <description>LoRA adapter를 붙였더니 에러 없이 모든 예측이 0.0. prompt와 데이터 불균형을 차례로 지우고 4B/1.5B base mismatch를 찾아낸 silent failure 추적기.</description>
+    </item>
+    <item>
+      <title>Toss CTR 예측 대회 회고</title>
+      <link>https://softkleenex.github.io/posts/dacon-toss-ctr-prediction/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/dacon-toss-ctr-prediction/</guid>
+      <pubDate>Mon, 13 Oct 2025 09:00:00 +0900</pubDate>
+      <category>DACON</category>
+      <description>토스 광고 클릭률 예측 대회 기록. 1,070만 행 로그와 1.91% 클릭률 위에서 피처 엔지니어링과 rank calibration으로 AUC를 0.3409에서 0.3434까지 밀어올렸다.</description>
+    </item>
+    <item>
+      <title>해운물류 센서 이상탐지 회고</title>
+      <link>https://softkleenex.github.io/posts/dacon-shipping-anomaly-detection/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/dacon-shipping-anomaly-detection/</guid>
+      <pubDate>Thu, 02 Oct 2025 09:00:00 +0900</pubDate>
+      <category>DACON</category>
+      <description>익명화된 해양 장비 센서 데이터로 21개 클래스를 분류한 대회에서 946팀 중 236위. 피처를 149개까지 늘린 실험과 hard class 대응이 늦었던 반성을 남겼다.</description>
+    </item>
+    <item>
+      <title>자동차 뉴스 분류 프롬프트 대회 회고</title>
+      <link>https://softkleenex.github.io/posts/dacon-car-news-classification/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/dacon-car-news-classification/</guid>
+      <pubDate>Tue, 23 Sep 2025 09:00:00 +0900</pubDate>
+      <category>DACON</category>
+      <description>프롬프트 한 줄만 제출하는 이진 분류 대회 기록. 샘플 46/46을 맞힌 짧은 한국어 문장이 public 0.856을 냈고, 한국어와 영어 프롬프트의 정확도 차이까지 비교했다.</description>
     </item>
   </channel>
 </rss>
