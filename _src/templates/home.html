@@ -41,7 +41,7 @@
       <h2>카테고리</h2>
       <div class="card-grid cols-3">
         {%- for g in groups %}
-        <a class="card" href="/posts/#{{ g.anchor }}">
+        <a class="card" href="/posts/{{ g.anchor }}/">
           <p class="kicker">{{ g.posts|length }}편</p>
           <h3>{{ g.name }}</h3>
           <p>{{ g.blurb }}</p>

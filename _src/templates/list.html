@@ -6,10 +6,21 @@
     <nav class="breadcrumb" aria-label="탐색 경로">
       <ol>
         <li><a href="/">홈</a></li>
+        {%- if category %}
+        <li><a href="/posts/">글</a></li>
+        <li aria-current="page">{{ category.name }}</li>
+        {%- else %}
         <li aria-current="page">글</li>
+        {%- endif %}
       </ol>
     </nav>
     <section class="hero">
+      {%- if category %}
+      <p class="eyebrow">Category</p>
+      <h1>{{ category.name }}</h1>
+      <p class="lead">{{ category.blurb }}</p>
+      <p class="meta">{{ posts|length }}편 · <a href="/posts/">전체 글 보기</a></p>
+      {%- else %}
       <p class="eyebrow">Writing</p>
       <h1>글 목록</h1>
       <p class="lead">
@@ -17,7 +28,16 @@
         풀렸는지를 남깁니다.
       </p>
       <p class="meta">전체 {{ posts|length }}편 · <a href="/feed.xml">RSS로 구독</a></p>
+      {%- endif %}
     </section>
+
+    {%- if not category %}
+    <nav class="cat-strip" aria-label="카테고리">
+      {%- for g in groups %}
+      <a href="/posts/{{ g.anchor }}/">{{ g.name }}<span>{{ g.posts|length }}</span></a>
+      {%- endfor %}
+    </nav>
+    {%- endif %}
 
     {%- for year, items in by_year %}
     <p class="year">{{ year }}<span>{{ items|length }}편</span></p>

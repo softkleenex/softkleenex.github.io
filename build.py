@@ -13,7 +13,6 @@ from __future__ import annotations
 
 import json
 import re
-import shutil
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -54,7 +53,14 @@ def read_posts():
         if not raw.startswith("---"):
             raise SystemExit(f"frontmatter 없음: {f.name}")
         end = raw.find("\n---", 3)
+        if end == -1:
+            raise SystemExit(f"frontmatter 닫는 --- 없음: {f.name}")
         meta = yaml.safe_load(raw[3:end])
+        if not isinstance(meta, dict):
+            raise SystemExit(f"frontmatter 파싱 실패: {f.name}")
+        for key in ("title", "date", "description"):
+            if key not in meta:
+                raise SystemExit(f"frontmatter 에 {key} 없음: {f.name}")
         body = raw[end + 4 :].lstrip("\n")
 
         md = markdown.Markdown(
@@ -89,7 +95,19 @@ def read_posts():
     return posts
 
 
-def make_groups(posts, current=None):
+VALID_CATS = {name for name, _, _ in CATEGORIES}
+
+
+def check_categories(posts):
+    """오타 하나로 글이 탐색기에서 조용히 사라지는 것을 막는다."""
+    bad = [(p["slug"], p["category"]) for p in posts if p["category"] not in VALID_CATS]
+    if bad:
+        known = ", ".join(sorted(VALID_CATS))
+        lines = "\n".join(f"  {s}: {c!r}" for s, c in bad)
+        raise SystemExit(f"알 수 없는 category:\n{lines}\n허용: {known}")
+
+
+def make_groups(posts):
     groups = []
     for name, anchor, blurb in CATEGORIES:
         items = [p for p in posts if p["category"] == name]
@@ -189,6 +207,7 @@ def esc(s):
 
 def main():
     posts = read_posts()
+    check_categories(posts)
     groups = make_groups(posts)
     env = Environment(
         loader=FileSystemLoader(SRC / "templates"),
@@ -230,52 +249,78 @@ def main():
             encoding="utf-8",
         )
 
-    # 목록
-    by_year = []
-    for y in sorted({p["date"].year for p in posts}, reverse=True):
-        by_year.append((y, [p for p in posts if p["date"].year == y]))
-    (ROOT / "posts").mkdir(exist_ok=True)
-    (ROOT / "posts" / "index.html").write_text(
-        env.get_template("list.html").render(
-            site=SITE,
-            posts=posts,
-            by_year=by_year,
-            groups=groups,
-            current=None,
-            page_title=f"글 목록 | {SITE['title']}",
-            description=f"{SITE['title']}에 쓴 대회 회고와 제작기 {len(posts)}편 전체 목록입니다.",
-            url="/posts/",
-            nav="posts",
-            jsonld=[
-                ld(
-                    {
-                        "@context": "https://schema.org",
-                        "@type": "CollectionPage",
-                        "name": "글 목록",
-                        "url": f"{SITE['url']}/posts/",
-                        "inLanguage": "ko-KR",
-                        "isPartOf": {"@id": f"{SITE['url']}/#website"},
-                        "mainEntity": {
-                            "@type": "ItemList",
-                            "itemListOrder": "https://schema.org/ItemListOrderDescending",
-                            "numberOfItems": len(posts),
-                            "itemListElement": [
-                                {
-                                    "@type": "ListItem",
-                                    "position": i + 1,
-                                    "url": f"{SITE['url']}/posts/{p['slug']}/",
-                                    "name": p["title"],
-                                }
-                                for i, p in enumerate(posts)
-                            ],
-                        },
-                    }
-                ),
-                jsonld_crumbs([("홈", f"{SITE['url']}/"), ("글", None)]),
-            ],
-        ),
-        encoding="utf-8",
+    # 목록 + 카테고리별 페이지
+    def by_year_of(items):
+        return [
+            (y, [p for p in items if p["date"].year == y])
+            for y in sorted({p["date"].year for p in items}, reverse=True)
+        ]
+
+    def render_list(items, out, url, title, desc, category=None):
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(
+            env.get_template("list.html").render(
+                site=SITE,
+                posts=items,
+                by_year=by_year_of(items),
+                groups=groups,
+                category=category,
+                current=None,
+                page_title=title,
+                description=desc,
+                url=url,
+                nav="posts",
+                jsonld=[
+                    ld(
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "CollectionPage",
+                            "name": category["name"] if category else "글 목록",
+                            "url": f"{SITE['url']}{url}",
+                            "inLanguage": "ko-KR",
+                            "isPartOf": {"@id": f"{SITE['url']}/#website"},
+                            "mainEntity": {
+                                "@type": "ItemList",
+                                "itemListOrder": "https://schema.org/ItemListOrderDescending",
+                                "numberOfItems": len(items),
+                                "itemListElement": [
+                                    {
+                                        "@type": "ListItem",
+                                        "position": i + 1,
+                                        "url": f"{SITE['url']}/posts/{p['slug']}/",
+                                        "name": p["title"],
+                                    }
+                                    for i, p in enumerate(items)
+                                ],
+                            },
+                        }
+                    ),
+                    jsonld_crumbs(
+                        [("홈", f"{SITE['url']}/"), ("글", f"{SITE['url']}/posts/"), (category["name"], None)]
+                        if category
+                        else [("홈", f"{SITE['url']}/"), ("글", None)]
+                    ),
+                ],
+            ),
+            encoding="utf-8",
+        )
+
+    render_list(
+        posts,
+        ROOT / "posts" / "index.html",
+        "/posts/",
+        f"글 목록 | {SITE['title']}",
+        f"{SITE['title']}에 쓴 대회 회고와 제작기 {len(posts)}편 전체 목록입니다.",
     )
+    for g in groups:
+        render_list(
+            g["posts"],
+            ROOT / "posts" / g["anchor"] / "index.html",
+            f"/posts/{g['anchor']}/",
+            f"{g['name']} | {SITE['title']}",
+            f"{g['blurb']}. {SITE['title']}의 {g['name']} 글 {len(g['posts'])}편.",
+            category=g,
+        )
 
     # 홈
     (ROOT / "index.html").write_text(
@@ -331,6 +376,10 @@ def main():
 
     # 사이트맵
     urls = [("/", "weekly", "1.0", posts[0]["date"]), ("/posts/", "weekly", "0.9", posts[0]["date"])]
+    urls += [
+        (f"/posts/{g['anchor']}/", "weekly", "0.7", max(p["date"] for p in g["posts"]))
+        for g in groups
+    ]
     urls += [(f"/posts/{p['slug']}/", "monthly", "0.8", p["date"]) for p in posts]
     body = "\n".join(
         f"""  <url>
@@ -349,6 +398,18 @@ def main():
 """,
         encoding="utf-8",
     )
+
+    known = {p["slug"] for p in posts} | {g["anchor"] for g in groups}
+    orphans = [
+        d.name
+        for d in (ROOT / "posts").iterdir()
+        if d.is_dir() and d.name not in known
+    ]
+    if orphans:
+        print("\n[경고] 사이트맵·목록·탐색기에 없는 고아 페이지가 남아 있다:")
+        for o in sorted(orphans):
+            print(f"  posts/{o}/")
+        print("  제거: /usr/bin/trash " + " ".join(f"posts/{o}" for o in sorted(orphans)))
 
     print(f"글 {len(posts)}편")
     for g in groups:

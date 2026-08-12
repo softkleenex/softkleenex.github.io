@@ -648,3 +648,38 @@ button:focus-visible {
 .band:last-of-type {
   padding-bottom: 80px;
 }
+
+/* ── 카테고리 스트립 ──────────────────────────────────── */
+
+.cat-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.cat-strip a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--body);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cat-strip a:hover {
+  border-color: var(--accent-ring);
+  color: var(--accent-deep);
+}
+
+.cat-strip span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
