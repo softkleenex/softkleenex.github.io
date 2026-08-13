@@ -59,8 +59,8 @@ def read_posts():
         if not isinstance(meta, dict):
             raise SystemExit(f"frontmatter 파싱 실패: {f.name}")
         for key in ("title", "date", "description"):
-            if key not in meta:
-                raise SystemExit(f"frontmatter 에 {key} 없음: {f.name}")
+            if not meta.get(key):
+                raise SystemExit(f"frontmatter 의 {key} 가 비어 있음: {f.name}")
         body = raw[end + 4 :].lstrip("\n")
 
         md = markdown.Markdown(
@@ -96,6 +96,22 @@ def read_posts():
 
 
 VALID_CATS = {name for name, _, _ in CATEGORIES}
+ANCHORS = {anchor for _, anchor, _ in CATEGORIES}
+
+
+def check_slugs(posts):
+    """슬러그와 카테고리 앵커는 /posts/<name>/ 을 공유한다.
+
+    겹치면 카테고리 페이지가 나중에 쓰여 글 페이지를 덮어쓰는데,
+    목록과 피드는 여전히 그 URL 을 글로 링크하므로 조용히 깨진다.
+    """
+    clash = sorted({p["slug"] for p in posts} & ANCHORS)
+    if clash:
+        raise SystemExit(
+            "슬러그가 카테고리 앵커와 충돌한다: "
+            + ", ".join(clash)
+            + f"\n예약된 이름: {', '.join(sorted(ANCHORS))}"
+        )
 
 
 def check_categories(posts):
@@ -208,6 +224,7 @@ def esc(s):
 def main():
     posts = read_posts()
     check_categories(posts)
+    check_slugs(posts)
     groups = make_groups(posts)
     env = Environment(
         loader=FileSystemLoader(SRC / "templates"),
