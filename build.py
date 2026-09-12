@@ -486,6 +486,24 @@ def main():
         encoding="utf-8",
     )
 
+    # 404 페이지. 개편 전 주소를 새 주소로 넘기는 마지막 그물이다.
+    (ROOT / "404.html").write_text(
+        env.get_template("404.html").render(
+            site=SITE,
+            recent=posts[:3],
+            groups=groups,
+            current=None,
+            page_title=f"페이지를 찾을 수 없습니다 | {SITE['title']}",
+            description="주소가 바뀌었거나 삭제된 페이지입니다.",
+            url="/404.html",
+            robots="noindex,follow",
+            nav=None,
+            jsonld=[],
+            slugs=json.dumps([p["slug"] for p in posts], ensure_ascii=False),
+        ),
+        encoding="utf-8",
+    )
+
     # 옛 주소 리다이렉트
     for src, dst in REDIRECTS.items():
         out = ROOT / src / "index.html"
@@ -524,6 +542,7 @@ def main():
     print(f"글 {len(posts)}편")
     for g in groups:
         print(f"  {g['name']:<8} {len(g['posts'])}편")
+    print("생성: 404.html")
     print(f"리다이렉트 {len(REDIRECTS)}개: " + ", ".join(f"/{k}/" for k in REDIRECTS))
     print(f"생성: index.html, posts/index.html, posts/*/index.html, feed.xml, sitemap.xml")
 
