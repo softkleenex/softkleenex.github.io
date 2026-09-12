@@ -13,6 +13,8 @@ from __future__ import annotations
 
 import json
 import re
+import struct
+import subprocess
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -44,6 +46,68 @@ CATEGORIES = [
 ]
 
 ACCENT = {"2026-the-color-house": "rose"}
+
+# 재구축 전에 쓰던 주소. 옛 색인과 외부 링크를 새 주소로 넘긴다.
+# GitHub Pages 는 301 을 만들 수 없어 meta refresh + canonical 로 대신한다.
+REDIRECTS = {
+    "coding_training": "/posts/",
+    "blog": "/posts/",
+    "blog/dacon-etri-human-understanding": "/posts/dacon-etri-human-understanding/",
+    "dacon-etri-human-understanding": "/posts/dacon-etri-human-understanding/",
+}
+
+# og:image 후보. 외부 URL 과 SVG 는 제외한다 -
+# 카카오·네이버 미리보기가 SVG 를 렌더링하지 않는다.
+IMG_RE = re.compile(r"!\[[^\]]*\]\((/assets/[^)\s]+\.(?:png|jpg|jpeg))\)", re.I)
+
+
+def png_size(path):
+    """PNG 헤더에서 가로·세로를 읽는다. og:image:width 를 추측하지 않기 위해서다."""
+    try:
+        head = path.read_bytes()[:24]
+    except OSError:
+        return None
+    if len(head) < 24 or head[:8] != b"\x89PNG\r\n\x1a\n":
+        return None
+    return struct.unpack(">II", head[16:24])
+
+
+def cover_image(meta, body):
+    """frontmatter 의 image 가 우선, 없으면 본문 첫 로컬 이미지를 쓴다."""
+    rel = meta.get("image")
+    if not rel:
+        m = IMG_RE.search(body)
+        rel = m.group(1) if m else None
+    if not rel:
+        return None
+    size = png_size(ROOT / rel.lstrip("/"))
+    if not size:
+        return None
+    return {"url": rel, "w": size[0], "h": size[1]}
+
+
+def git_date(path, fallback):
+    """마지막 커밋 날짜. 커밋 전 수정본이면 오늘로 본다.
+
+    sitemap 의 lastmod 가 발행일에 묶여 있으면 본문을 고쳐도
+    검색엔진에 재수집 신호가 가지 않는다.
+    """
+    try:
+        dirty = subprocess.run(
+            ["git", "status", "--porcelain", "--", str(path)],
+            cwd=ROOT, capture_output=True, text=True, timeout=10,
+        )
+        if dirty.returncode == 0 and dirty.stdout.strip():
+            return datetime.now(KST).date()
+        log = subprocess.run(
+            ["git", "log", "-1", "--format=%cs", "--", str(path)],
+            cwd=ROOT, capture_output=True, text=True, timeout=10,
+        )
+        if log.returncode == 0 and log.stdout.strip():
+            return datetime.strptime(log.stdout.strip(), "%Y-%m-%d").date()
+    except (OSError, ValueError, subprocess.SubprocessError):
+        pass
+    return fallback
 
 
 def read_posts():
@@ -86,6 +150,8 @@ def read_posts():
                 "date_ko": f"{d.year}년 {d.month}월 {d.day}일",
                 "html": html,
                 "accent": ACCENT.get(f.stem),
+                "cover": cover_image(meta, body),
+                "updated": git_date(f.relative_to(ROOT), d),
             }
         )
     posts.sort(key=lambda p: (p["date"], p["slug"]), reverse=True)
@@ -249,7 +315,10 @@ def main():
                 url=f"/posts/{p['slug']}/",
                 og_type="article",
                 published=str(p["date"]),
-                twitter_card="summary",
+                twitter_card="summary_large_image" if p["cover"] else "summary",
+                og_image=p["cover"]["url"] if p["cover"] else None,
+                og_w=p["cover"]["w"] if p["cover"] else None,
+                og_h=p["cover"]["h"] if p["cover"] else None,
                 accent=p["accent"],
                 nav="posts",
                 jsonld=[
@@ -287,6 +356,9 @@ def main():
                 description=desc,
                 url=url,
                 nav="posts",
+                # 카테고리는 /posts/ 의 부분집합이라 중복으로 잡힌다.
+                # 링크는 계속 따라가도록 follow 는 남긴다.
+                robots="noindex,follow" if category else "index,follow",
                 jsonld=[
                     ld(
                         {
@@ -392,12 +464,10 @@ def main():
     )
 
     # 사이트맵
-    urls = [("/", "weekly", "1.0", posts[0]["date"]), ("/posts/", "weekly", "0.9", posts[0]["date"])]
-    urls += [
-        (f"/posts/{g['anchor']}/", "weekly", "0.7", max(p["date"] for p in g["posts"]))
-        for g in groups
-    ]
-    urls += [(f"/posts/{p['slug']}/", "monthly", "0.8", p["date"]) for p in posts]
+    latest = max(p["updated"] for p in posts)
+    urls = [("/", "weekly", "1.0", latest), ("/posts/", "weekly", "0.9", latest)]
+    # 카테고리 목록은 noindex 라 사이트맵에 넣지 않는다. 색인 요청과 모순된다.
+    urls += [(f"/posts/{p['slug']}/", "monthly", "0.8", p["updated"]) for p in posts]
     body = "\n".join(
         f"""  <url>
     <loc>{SITE['url']}{loc}</loc>
@@ -416,6 +486,29 @@ def main():
         encoding="utf-8",
     )
 
+    # 옛 주소 리다이렉트
+    for src, dst in REDIRECTS.items():
+        out = ROOT / src / "index.html"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(
+            f"""<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,follow">
+    <meta http-equiv="refresh" content="0; url={dst}">
+    <link rel="canonical" href="{SITE['url']}{dst}">
+    <title>Redirecting | Softkleenex</title>
+</head>
+<body>
+    <p>Moved to <a href="{dst}">{dst}</a>.</p>
+</body>
+</html>
+""",
+            encoding="utf-8",
+        )
+
     known = {p["slug"] for p in posts} | {g["anchor"] for g in groups}
     orphans = [
         d.name
@@ -431,6 +524,7 @@ def main():
     print(f"글 {len(posts)}편")
     for g in groups:
         print(f"  {g['name']:<8} {len(g['posts'])}편")
+    print(f"리다이렉트 {len(REDIRECTS)}개: " + ", ".join(f"/{k}/" for k in REDIRECTS))
     print(f"생성: index.html, posts/index.html, posts/*/index.html, feed.xml, sitemap.xml")
 
 

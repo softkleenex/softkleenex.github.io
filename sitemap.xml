@@ -2,169 +2,139 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://softkleenex.github.io/</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://softkleenex.github.io/posts/dacon/</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://softkleenex.github.io/posts/kaggle/</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://softkleenex.github.io/posts/competition/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://softkleenex.github.io/posts/contest/</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://softkleenex.github.io/posts/notes/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://softkleenex.github.io/posts/2026-quantum-ai-competition/</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/2026-the-color-house/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/2026-nypc-retrospective/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/kaggle-hull-tactical-prediction/</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/hlftc/</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/dacon-webgamming/</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/dacon-etri-human-understanding/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/dacon-mosquito-trajectory-prediction/</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/dacon-base/</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/kaggle-stanford-rna-3d-folding-2/</loc>
-    <lastmod>2026-05-04</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/kaggle-dpc-tate/</loc>
-    <lastmod>2026-05-04</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/kaggle-medgemma-clinical-rag-pipeline/</loc>
-    <lastmod>2026-02-21</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/kaggle-heart-disease-prediction/</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/dacon-hai-2025/</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/dacon-k-league-pass-prediction/</loc>
-    <lastmod>2026-01-18</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/dacon-mai-glm-2025/</loc>
-    <lastmod>2025-11-28</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/kaggle-arc-prize-2025/</loc>
-    <lastmod>2025-11-17</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/kaggle-jigsaw-acrc-portfolio/</loc>
-    <lastmod>2025-10-25</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/dacon-toss-ctr-prediction/</loc>
-    <lastmod>2025-10-13</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/dacon-shipping-anomaly-detection/</loc>
-    <lastmod>2025-10-02</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://softkleenex.github.io/posts/dacon-car-news-classification/</loc>
-    <lastmod>2025-09-23</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
