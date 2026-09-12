@@ -468,6 +468,7 @@ def main():
     urls = [("/", "weekly", "1.0", latest), ("/posts/", "weekly", "0.9", latest)]
     # 카테고리 목록은 noindex 라 사이트맵에 넣지 않는다. 색인 요청과 모순된다.
     urls += [(f"/posts/{p['slug']}/", "monthly", "0.8", p["updated"]) for p in posts]
+    urls += [("/privacy/", "yearly", "0.3", latest)]
     body = "\n".join(
         f"""  <url>
     <loc>{SITE['url']}{loc}</loc>
@@ -483,6 +484,24 @@ def main():
 {body}
 </urlset>
 """,
+        encoding="utf-8",
+    )
+
+    # 개인정보처리방침. 애드센스는 쿠키·광고 개인화 고지를 요구한다.
+    priv = ROOT / "privacy" / "index.html"
+    priv.parent.mkdir(parents=True, exist_ok=True)
+    priv.write_text(
+        env.get_template("privacy.html").render(
+            site=SITE,
+            groups=groups,
+            current=None,
+            page_title=f"개인정보처리방침 | {SITE['title']}",
+            description=f"{SITE['title']}의 개인정보처리방침. 직접 수집하는 개인정보는 없으며, Google AdSense 광고 쿠키 사용에 대해 안내합니다.",
+            url="/privacy/",
+            nav=None,
+            effective="2026년 9월 12일",
+            jsonld=[],
+        ),
         encoding="utf-8",
     )
 
@@ -542,7 +561,7 @@ def main():
     print(f"글 {len(posts)}편")
     for g in groups:
         print(f"  {g['name']:<8} {len(g['posts'])}편")
-    print("생성: 404.html")
+    print("생성: privacy/index.html, 404.html")
     print(f"리다이렉트 {len(REDIRECTS)}개: " + ", ".join(f"/{k}/" for k in REDIRECTS))
     print(f"생성: index.html, posts/index.html, posts/*/index.html, feed.xml, sitemap.xml")
 
