@@ -6,13 +6,21 @@
     <description>AI 대회 회고와 생성형 디자인 제작기. 결과보다 어디서 막혔는지를 남깁니다.</description>
     <language>ko</language>
     <copyright>© 2026 Softkleenex</copyright>
-    <lastBuildDate>Mon, 10 Aug 2026 09:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2026 09:00:00 +0900</lastBuildDate>
     <atom:link href="https://softkleenex.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://softkleenex.github.io/assets/softkleenex-avatar.png</url>
       <title>Softkleenex Archive</title>
       <link>https://softkleenex.github.io/</link>
     </image>
+    <item>
+      <title>국립국어원 AI말평 글쓰기 채점 능력 평가 회고</title>
+      <link>https://softkleenex.github.io/posts/korean-writing-assessment-2026/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/korean-writing-assessment-2026/</guid>
+      <pubDate>Fri, 28 Aug 2026 09:00:00 +0900</pubDate>
+      <category>대회</category>
+      <description>한국어 에세이를 내용·구성·표현 3영역으로 자동 채점하고 근거까지 생성하는 모델을 만든 국립국어원 AI말평 경진대회 회고. 51팀 중 27위로 마쳤고, 진짜 병목은 점수모델이 아니라 LLM Judge였다는 사후 진단과, 마감 뒤 git 이력에서 essay 원문 유출을 발견해 고친 이야기를 남겼다.</description>
+    </item>
     <item>
       <title>Global Quantum AI 회고</title>
       <link>https://softkleenex.github.io/posts/2026-quantum-ai-competition/</link>
