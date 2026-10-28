@@ -75,7 +75,7 @@
       <guid isPermaLink="true">https://softkleenex.github.io/posts/dacon-etri-human-understanding/</guid>
       <pubDate>Fri, 26 Jun 2026 09:00:00 +0900</pubDate>
       <category>DACON</category>
-      <description>라이프로그로 수면과 스트레스를 예측한 대회 회고. 로컬 CV와 public LB가 어긋나는 상황에서 ID342를 방어선으로 삼고, 외부 데이터와 제출 운영을 어떻게 관리했는지 남겼다.</description>
+      <description>라이프로그로 수면과 스트레스를 예측한 대회 회고. 로컬 CV와 public LB가 어긋나는 상황에서 ID342를 방어선으로 삼은 과정과, 리더보드가 끝난 뒤 논문 채택·재현성 검증 지적·저자 등록 미결로 게재까지 가지 못한 석 달의 기록을 남겼다.</description>
     </item>
     <item>
       <title>모기 궤적 예측 대회 회고</title>
