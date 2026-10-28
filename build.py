@@ -34,6 +34,11 @@ SITE = {
     "adsense": "ca-pub-8567091536004202",
     "naver": "07d8e8da57a2f02b48c11e909923ec67",
     "year": 2026,
+    "github": "https://github.com/softkleenex",
+    "github_handle": "@softkleenex",
+    "repo": "https://github.com/softkleenex/softkleenex.github.io",
+    # 소개 페이지의 문의 항목. 비워 두면 GitHub 만 노출된다.
+    "email": "softkleenex1217@gmail.com",
 }
 
 # 탐색기와 홈에서 쓰는 카테고리 순서·설명
@@ -468,6 +473,7 @@ def main():
     urls = [("/", "weekly", "1.0", latest), ("/posts/", "weekly", "0.9", latest)]
     # 카테고리 목록은 noindex 라 사이트맵에 넣지 않는다. 색인 요청과 모순된다.
     urls += [(f"/posts/{p['slug']}/", "monthly", "0.8", p["updated"]) for p in posts]
+    urls += [("/about/", "yearly", "0.5", latest)]
     urls += [("/privacy/", "yearly", "0.3", latest)]
     body = "\n".join(
         f"""  <url>
@@ -484,6 +490,42 @@ def main():
 {body}
 </urlset>
 """,
+        encoding="utf-8",
+    )
+
+    # 소개. 운영자와 연락 수단을 밝히는 페이지는 애드센스 심사 항목이기도 하다.
+    about = ROOT / "about" / "index.html"
+    about.parent.mkdir(parents=True, exist_ok=True)
+    about.write_text(
+        env.get_template("about.html").render(
+            site=SITE,
+            groups=groups,
+            current=None,
+            page_title=f"소개 | {SITE['title']}",
+            description=(
+                f"{SITE['title']}를 누가 어떤 기준으로 쓰는지, "
+                f"글 {len(posts)}편이 어떻게 분류되는지, 문의는 어디로 하는지 안내합니다."
+            ),
+            url="/about/",
+            nav="about",
+            total=len(posts),
+            first_year=min(p["date"] for p in posts).year,
+            last_year=max(p["date"] for p in posts).year,
+            jsonld=[
+                ld(
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "AboutPage",
+                        "name": f"소개 | {SITE['title']}",
+                        "url": f"{SITE['url']}/about/",
+                        "inLanguage": "ko-KR",
+                        "isPartOf": {"@id": f"{SITE['url']}/#website"},
+                        "mainEntity": {"@id": f"{SITE['url']}/#person"},
+                    }
+                ),
+                jsonld_crumbs([("홈", f"{SITE['url']}/"), ("소개", None)]),
+            ],
+        ),
         encoding="utf-8",
     )
 
@@ -561,7 +603,7 @@ def main():
     print(f"글 {len(posts)}편")
     for g in groups:
         print(f"  {g['name']:<8} {len(g['posts'])}편")
-    print("생성: privacy/index.html, 404.html")
+    print("생성: about/index.html, privacy/index.html, 404.html")
     print(f"리다이렉트 {len(REDIRECTS)}개: " + ", ".join(f"/{k}/" for k in REDIRECTS))
     print(f"생성: index.html, posts/index.html, posts/*/index.html, feed.xml, sitemap.xml")
 

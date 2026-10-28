@@ -145,6 +145,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://softkleenex.github.io/about/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://softkleenex.github.io/privacy/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>yearly</changefreq>

@@ -45,8 +45,9 @@
         </a>
         <div class="site-nav">
           <a href="/posts/"{% if nav == 'posts' %} aria-current="page"{% endif %}>글</a>
+          <a href="/about/"{% if nav == 'about' %} aria-current="page"{% endif %}>소개</a>
           <a href="/feed.xml">RSS</a>
-          <a href="https://github.com/softkleenex">GitHub</a>
+          <a href="{{ site.github }}">GitHub</a>
         </div>
       </nav>
     </header>
@@ -55,8 +56,9 @@
       <div>
         <p>© {{ site.year }} Softkleenex. {{ site.title }}.</p>
         <p>
-          <a href="/posts/">글 목록</a> · <a href="/feed.xml">RSS</a> ·
-          <a href="https://github.com/softkleenex">GitHub</a> ·
+          <a href="/posts/">글 목록</a> · <a href="/about/">소개</a> ·
+          <a href="/about/#contact">문의</a> · <a href="/feed.xml">RSS</a> ·
+          <a href="{{ site.github }}">GitHub</a> ·
           <a href="/privacy/">개인정보처리방침</a>
         </p>
       </div>

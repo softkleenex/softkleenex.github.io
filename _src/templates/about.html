@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block layout %}
+<div class="shell">
+  <main id="content" class="post-body">
+    <nav class="breadcrumb" aria-label="탐색 경로">
+      <ol>
+        <li><a href="/">홈</a></li>
+        <li aria-current="page">소개</li>
+      </ol>
+    </nav>
+
+    <section class="hero">
+      <p class="eyebrow">About</p>
+      <h1>소개</h1>
+      <p class="lead">
+        {{ site.title }}는 AI 경진대회에 직접 참가하고 남긴 회고를 모아 두는 개인 아카이브입니다.
+        {{ first_year }}년부터 {{ last_year }}년까지 {{ total }}편을 썼습니다.
+      </p>
+    </section>
+
+    <h2>무엇을 쓰나</h2>
+    <p>
+      순위표에 남는 건 점수 한 줄뿐이라, 다음 대회에서 다시 꺼내 쓸 수 있는 게 없었습니다.
+      그래서 <strong>무엇을 검증했고 어디서 틀렸는지</strong>를 같이 남기기로 했습니다.
+      잘 된 접근뿐 아니라 실패한 가설, 버린 아이디어, 끝내 해결하지 못한 병목도 그대로 적습니다.
+    </p>
+    <p>글은 다섯 갈래로 나뉩니다.</p>
+    <ul>
+      {%- for g in groups %}
+      <li><a href="/posts/{{ g.anchor }}/"><strong>{{ g.name }}</strong></a> — {{ g.blurb }} ({{ g.posts|length }}편)</li>
+      {%- endfor %}
+    </ul>
+
+    <h2>어떻게 쓰나</h2>
+    <p>
+      각 글은 대회가 끝난 뒤 직접 작성합니다. 성능 수치, 실험 설정, 제출 기록은
+      당시 남긴 노트와 코드에서 가져오며, 기억에 의존해 재구성하지 않습니다.
+      모든 글에는 해당 작업의 저장소 링크를 함께 답니다.
+    </p>
+    <p>
+      결과가 나중에 바뀌거나(수상 발표, 최종 순위 확정) 내용에 오류를 발견하면
+      원문을 고치고 수정 사실을 본문에 남깁니다. 지워서 없던 일로 만들지 않습니다.
+    </p>
+
+    <h2>사이트에 대하여</h2>
+    <p>
+      이 사이트는 정적 사이트 생성기로 빌드합니다. 마크다운 원문과 생성기 코드, 글 전체가
+      <a href="{{ site.repo }}" rel="noopener" target="_blank">공개 저장소</a>에 그대로 올라가 있어
+      수정 이력을 누구나 확인할 수 있습니다.
+    </p>
+    <p>
+      광고는 Google AdSense를 통해 게재됩니다. 쿠키 사용과 개인정보 처리에 관해서는
+      <a href="/privacy/">개인정보처리방침</a>을 참고해 주세요.
+      새 글은 <a href="/feed.xml">RSS</a>로 받아보실 수 있습니다.
+    </p>
+
+    <h2 id="contact">문의</h2>
+    <p>
+      글의 오류 지적, 내용 관련 질문, 인용 요청은 아래로 연락해 주시면 확인하는 대로 답변드립니다.
+    </p>
+    <ul>
+      <li>GitHub — <a href="{{ site.github }}" rel="noopener" target="_blank">{{ site.github_handle }}</a></li>
+      {%- if site.email %}
+      <li>이메일 — <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+      {%- endif %}
+    </ul>
+    <p>
+      저장소의 <a href="{{ site.repo }}/issues" rel="noopener" target="_blank">이슈</a>로 남겨 주셔도 됩니다.
+      사실관계가 틀린 부분을 알려 주시면 해당 글을 수정하고 반영 내용을 적어 두겠습니다.
+    </p>
+  </main>
+</div>
+{% endblock %}
