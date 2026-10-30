@@ -78,8 +78,14 @@ def png_size(path):
 
 
 def cover_image(meta, body):
-    """frontmatter 의 image 가 우선, 없으면 본문 첫 로컬 이미지를 쓴다."""
+    """frontmatter 의 image 가 우선, 없으면 본문 첫 로컬 이미지를 쓴다.
+
+    image: none 은 본문에 이미지가 있어도 커버로 쓰지 않는다. 문서 스캔처럼
+    본문에서는 필요하지만 공유 카드로는 읽히지 않는 이미지를 위한 것이다.
+    """
     rel = meta.get("image")
+    if rel == "none":
+        return None
     if not rel:
         m = IMG_RE.search(body)
         rel = m.group(1) if m else None

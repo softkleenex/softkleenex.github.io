@@ -5,6 +5,7 @@ date: 2026-06-26
 category: "DACON"
 description: "라이프로그로 수면과 스트레스를 예측한 대회 회고. 로컬 CV와 public LB가 어긋나는 상황에서 ID342를 방어선으로 삼은 과정과, 리더보드가 끝난 뒤 논문 채택·재현성 검증 지적·저자 등록 미결로 게재까지 가지 못한 석 달의 기록을 남겼다."
 repo: "dacon-etri-human-understanding"
+image: none
 date_basis: "본문 명시(대회 종료일)"
 ---
 
@@ -233,9 +234,51 @@ ICTC 규정상 채택 논문은 저자 중 최소 1인이 Regular rate로 등록
 
 점수는 기대에 못 미쳤다. 그런데 이번에 진짜로 떨어진 지점은 점수가 아니었다. 논문은 통과했는데 절차에서 멈췄다. 모델링은 넉 달을 썼고 절차는 나흘을 썼다. 다음에는 그 비율을 조금 바꿔야 한다.
 
+### 근거
+
+"채택됐지만 게재되지 않았다"는 건 검색으로 확인되지 않는 상태다. IEEE Xplore에도,
+학회 proceedings에도, 웹 어디에도 이 논문은 없다. 없는 게 맞다. 그래서 1차 자료를
+저장소에 올려 두었다.
+
+![IEEE 저작권 양식 1면. 논문 제목, 저자명, 학회명이 함께 찍혀 있다.](/assets/dacon-etri-human-understanding/ieee-copyright-receipt.png)
+
+IEEE 저작권 양식(eCF) 1면이다. 논문 제목, 저자명, 그리고 학회명
+`2026 17th International Conference on Information and Communication Technology
+Convergence (ICTC)`이 한 장에 있다. 서명일 2026-09-15.
+
+같은 문서 GENERAL TERMS 4항에 이런 조항이 있다.
+
+> In the event the above work is not accepted and published by the IEEE or is
+> withdrawn by the author(s) before acceptance by the IEEE, the foregoing
+> copyright transfer shall be null and void.
+
+게재되지 않았으니 저작권 양도는 효력이 없다. 저작권은 나에게 돌아와 있고, 그래서
+원고를 공개하는 데 제약이 없다. 양도 각서가 동시에 "양도되지 않았다"는 증거가 되는
+셈인데, 기분이 묘하다.
+
+올려 둔 자료는 이렇다.
+
+| 자료 | 무엇을 보여주나 |
+| --- | --- |
+| IEEE 저작권 양식 | 제목·저자·학회명. 채택 사실의 단일 문서로는 가장 강하다 |
+| IEEE PDF eXpress 검증본 | 결과 Pass. 메타데이터에 `Certified by IEEE PDFExpress at September 15, 2026 16:40:17` |
+| camera-ready 원고 | 리뷰 반영 개정본 4페이지 |
+| 심사본 + LaTeX 원본 | 2026-07-17 EDAS 업로드본 |
+| 리뷰어 대응 문서 | 지적 5건과 각각의 대응. alpha 민감도 표 포함 |
+
+EDAS의 `Accepted` 상태 화면과 채택 통보 메일은 올리지 않았다. 전자는 로그인이
+필요하고, 후자는 담당자 신원이 들어간 사신이다. 데이콘 회신도 마찬가지라 위에
+인용한 두 문단이 전부다.
+
+정리와 범위는 저장소의 [`docs/EVIDENCE.md`](https://github.com/softkleenex/dacon-etri-human-understanding/blob/master/docs/EVIDENCE.md)에
+적어 두었다. **이 자료들이 증명하는 건 채택까지다. 게재는 증명하지 않는다** —
+그게 사실이니까.
+
 ### 참고 링크
 
 - 대회 페이지 — [제5회 ETRI 휴먼이해 인공지능 논문경진대회](https://dacon.io/competitions/official/236690/overview/description)
 - 작업 저장소 — [github.com/softkleenex/dacon-etri-human-understanding](https://github.com/softkleenex/dacon-etri-human-understanding)
 - 학회 — [KICS ICTC 2026](https://ictc.org/) (2026-10-14~16, 쉐라톤 제주)
 - 논문 — EDAS Paper ID `1571325954` / IEEE PDF eXpress Paper ID `2026332958` (미게재)
+- 근거 자료 — [docs/EVIDENCE.md](https://github.com/softkleenex/dacon-etri-human-understanding/blob/master/docs/EVIDENCE.md)
+- 리더보드 — [대회 최종 순위](https://dacon.io/competitions/official/236690/leaderboard) (로그인 불필요)
