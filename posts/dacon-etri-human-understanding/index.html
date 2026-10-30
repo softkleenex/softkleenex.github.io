@@ -339,9 +339,10 @@
 </tbody>
 </table></div>
 <p>5~6월 두 달은 거의 모델만 봤고, 9월 나흘에 모든 절차가 몰렸다. 그 나흘의 밀도가 이 대회의 결과를 정했다.</p>
-<h3>논문은 통과했다</h3>
+<h3>논문은 통과했다 — 다만 만장일치는 아니었다</h3>
 <p>논문 제목은 <em>Anchor-Constrained Feature-Similarity Ensembling for Multimodal Lifelog State Prediction</em>. 위에서 쓴 ID342를 그대로 논문으로 만든 것이다. 안정적인 sequence anchor(ID178)에 같은 참가자 최근접 이웃 보정이 들어간 모델(ID221)을 절반씩 섞고, 공개 점수를 받아 둔 anchor 쪽으로 다시 당기는 구조다.</p>
-<p>리뷰어는 다섯 가지를 지적했고, 전부 맞는 지적이었다.</p>
+<p>투고처는 ICTC 2026 본 트랙이 아니라 Special Track인 <strong>ICTC Workshop on ETRI Human Understanding AI Paper Challenge(iWETRIA)</strong>였다. 논문 번호 #373.</p>
+<p>리뷰는 세 건이 왔고 <strong>권고가 갈렸다 — 수락 하나, 중립 하나, 거절 하나.</strong> 이 글을 처음 쓸 때 나는 수락을 준 리뷰어의 코멘트만 보고 "리뷰어 지적"이라고 적었는데, 정확히는 그 한 명의 지적이다. 아래 다섯 가지가 그것이고, 전부 맞는 지적이었다.</p>
 <ol>
 <li>anchor와 운영 정책이 <strong>이미 본 공개 점수를 보고</strong> 정해졌다 — 독립적인 일반화 추정이 아니다</li>
 <li>alpha <code>0.50</code>의 근거가 약하다</li>
@@ -350,7 +351,9 @@
 <li>표 IV의 순위 일치는 이미 아는 공개 결과로 두 후보를 제외한 <strong>사후</strong> 진단이다</li>
 </ol>
 <p>개정본에서는 "feature similarity가 공개 점수 향상의 원인"이라는 주장을 거뒀다. OOF 기여분을 다시 분해해 보니 전체 local 이득 <code>0.004638</code> 중 유사도 보정에 귀속되는 몫은 <code>0.000508</code>, 약 11%였다. 나머지는 원래 있던 예측 계열에서 왔다. 논문의 기여를 "보수적 앙상블과 그 귀속·위험 감사"로 좁혔고, 그 상태로 채택됐다.</p>
+<p>거절을 준 리뷰어의 요지는 "참가자 10명 밖으로 일반성이 입증되지 않은 대회 특화 휴리스틱"이었다. 이것도 맞는 말이다. 개정본에서 주장을 좁힌 건 결국 같은 지점을 인정한 것이고, 그래도 그 지적이 사라지지는 않는다.</p>
 <p>여기까지는 괜찮았다. camera-ready도 올렸고 IEEE 저작권 양식도 냈고 PDF eXpress 검증도 통과했다. 게재까지 한 칸 남아 있었다.</p>
+<p>그 한 칸을 넘지 않은 결과가 기록에도 남았다. <strong>EDAS의 현재 논문 상태는 <code>Accepted</code>가 아니라 <code>Withdrawn</code>이다.</strong> 저자 등록을 하지 않으면 채택은 유지되지 않는다. 채택됐다가 철회된 것이고, 그래서 "채택 논문이 있다"고 말할 때는 이 줄까지 같이 말해야 맞다.</p>
 <h3>재현성 검증에서 받은 지적</h3>
 <p>9월 17일 데이콘 회신의 요지는 이랬다.</p>
 <blockquote>
