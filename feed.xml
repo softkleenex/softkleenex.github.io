@@ -6,13 +6,21 @@
     <description>AI 대회 회고와 생성형 디자인 제작기. 결과보다 어디서 막혔는지를 남깁니다.</description>
     <language>ko</language>
     <copyright>© 2026 Softkleenex</copyright>
-    <lastBuildDate>Fri, 28 Aug 2026 09:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 09:00:00 +0900</lastBuildDate>
     <atom:link href="https://softkleenex.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://softkleenex.github.io/assets/softkleenex-avatar.png</url>
       <title>Softkleenex Archive</title>
       <link>https://softkleenex.github.io/</link>
     </image>
+    <item>
+      <title>AI_TOP_100 2026 온라인 예선 회고</title>
+      <link>https://softkleenex.github.io/posts/2026-ai-top-100-preliminary/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/2026-ai-top-100-preliminary/</guid>
+      <pubDate>Wed, 04 Nov 2026 09:00:00 +0900</pubDate>
+      <category>대회</category>
+      <description>카카오톡 봇으로 동작하는 고객 응대 에이전트를 5시간 안에 만들어 제출한 AI_TOP_100 2026 온라인 예선 회고. 1초 웹훅 SLA와 500자 상한은 코드로 강제해 공개 테스트케이스 15건을 전수 통과했지만, 배점 1번인 인터뷰 지식 발굴은 발굴률 계기를 중간에 놓은 채 7명에서 멈췄다.</description>
+    </item>
     <item>
       <title>국립국어원 AI말평 글쓰기 채점 능력 평가 회고</title>
       <link>https://softkleenex.github.io/posts/korean-writing-assessment-2026/</link>

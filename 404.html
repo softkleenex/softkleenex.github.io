@@ -59,6 +59,12 @@
     </section>
 
     <p class="year">최근 글</p>
+    <a class="entry" href="/posts/2026-ai-top-100-preliminary/">
+      <p class="kicker">대회</p>
+      <h2>AI_TOP_100 2026 온라인 예선 회고</h2>
+      <p class="desc">카카오톡 봇으로 동작하는 고객 응대 에이전트를 5시간 안에 만들어 제출한 AI_TOP_100 2026 온라인 예선 회고. 1초 웹훅 SLA와 500자 상한은 코드로 강제해 공개 테스트케이스 15건을 전수 통과했지만, 배점 1번인 인터뷰 지식 발굴은 발굴률 계기를 중간에 놓은 채 7명에서 멈췄다.</p>
+      <time datetime="2026-11-04">2026년 11월 4일</time>
+    </a>
     <a class="entry" href="/posts/korean-writing-assessment-2026/">
       <p class="kicker">대회</p>
       <h2>국립국어원 AI말평 글쓰기 채점 능력 평가 회고</h2>
@@ -71,19 +77,13 @@
       <p class="desc">209개 회로를 검증하고 0.005점이 부족했다. depth 50 제약 아래의 2-qubit data re-uploading 분류기와 잘못 잡은 목표에 대한 기록.</p>
       <time datetime="2026-08-10">2026년 8월 10일</time>
     </a>
-    <a class="entry" href="/posts/2026-the-color-house/">
-      <p class="kicker">공모전</p>
-      <h2>THE COLOR HOUSE 제작기</h2>
-      <p class="desc">BBIA × AIBB의 One DNA를 두 개의 컬러룸과 듀얼 립앤치크 제품으로 번역하며 겪은 제품 일관성, 인물, 손, 타이포그래피 문제와 해결 과정. 그리고 미수상으로 끝난 뒤의 자체 분석.</p>
-      <time datetime="2026-07-21">2026년 7월 21일</time>
-    </a>
   </main>
 </div>
 <script>
 // 개편 전 주소를 새 주소로 보낸다. GitHub Pages 는 서버 리다이렉트를 만들 수 없어
 // 404 페이지에서 경로를 해석한다.
 (function () {
-  var SLUGS = ["korean-writing-assessment-2026", "2026-quantum-ai-competition", "2026-the-color-house", "2026-nypc-retrospective", "kaggle-hull-tactical-prediction", "hlftc", "dacon-webgamming", "dacon-etri-human-understanding", "dacon-mosquito-trajectory-prediction", "dacon-base", "kaggle-stanford-rna-3d-folding-2", "kaggle-dpc-tate", "kaggle-medgemma-clinical-rag-pipeline", "kaggle-heart-disease-prediction", "dacon-hai-2025", "dacon-k-league-pass-prediction", "dacon-mai-glm-2025", "kaggle-arc-prize-2025", "kaggle-jigsaw-acrc-portfolio", "dacon-toss-ctr-prediction", "dacon-shipping-anomaly-detection", "dacon-car-news-classification"];
+  var SLUGS = ["2026-ai-top-100-preliminary", "korean-writing-assessment-2026", "2026-quantum-ai-competition", "2026-the-color-house", "2026-nypc-retrospective", "kaggle-hull-tactical-prediction", "hlftc", "dacon-webgamming", "dacon-etri-human-understanding", "dacon-mosquito-trajectory-prediction", "dacon-base", "kaggle-stanford-rna-3d-folding-2", "kaggle-dpc-tate", "kaggle-medgemma-clinical-rag-pipeline", "kaggle-heart-disease-prediction", "dacon-hai-2025", "dacon-k-league-pass-prediction", "dacon-mai-glm-2025", "kaggle-arc-prize-2025", "kaggle-jigsaw-acrc-portfolio", "dacon-toss-ctr-prediction", "dacon-shipping-anomaly-detection", "dacon-car-news-classification"];
   var path = location.pathname.replace(/\/+$/, "");
   var last = path.split("/").pop();
   var dest = null;
