@@ -45,7 +45,7 @@ SITE = {
 CATEGORIES = [
     ("DACON", "dacon", "국내 AI 경진대회 회고"),
     ("Kaggle", "kaggle", "해외 대회와 자동화 실험"),
-    ("대회", "competition", "NYPC와 양자 AI 대회"),
+    ("대회", "competition", "주최사가 직접 여는 대회 회고"),
     ("공모전", "contest", "기획과 디자인 출품작"),
     ("기록", "notes", "운영 방식과 템플릿"),
 ]
