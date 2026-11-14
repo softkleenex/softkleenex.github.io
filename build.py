@@ -427,6 +427,7 @@ def main():
         env.get_template("home.html").render(
             site=SITE,
             posts=posts,
+            by_year=by_year_of(posts),
             recent=posts[:3],
             groups=groups,
             current=None,
@@ -571,6 +572,46 @@ def main():
         encoding="utf-8",
     )
 
+    # README. 저장소 페이지는 검색엔진이 자주 긁는 면이라,
+    # 외부에서 글 주소로 들어오는 경로를 하나 열어 둔다.
+    readme = [
+        f"# {SITE['title']}",
+        "",
+        "AI 대회 회고와 생성형 디자인 제작기를 쓰는 블로그입니다.",
+        "점수만 적으면 다음에 쓸 수 없어서, 무엇을 검증했고 어디서 틀렸는지를 같이 남깁니다.",
+        "",
+        f"**[softkleenex.github.io]({SITE['url']}/)** · "
+        f"[글 목록]({SITE['url']}/posts/) · "
+        f"[소개]({SITE['url']}/about/) · "
+        f"[RSS]({SITE['url']}/feed.xml)",
+        "",
+        f"## 글 {len(posts)}편",
+        "",
+    ]
+    for g in groups:
+        readme += [f"### {g['name']} — {g['blurb']} ({len(g['posts'])}편)", ""]
+        readme += [
+            f"- [{p['title']}]({SITE['url']}/posts/{p['slug']}/) — {p['date']}"
+            for p in g["posts"]
+        ]
+        readme.append("")
+    readme += [
+        "## 이 저장소",
+        "",
+        "마크다운 frontmatter를 단일 진실원으로 삼는 정적 사이트 생성기입니다.",
+        "글 페이지, 홈, 목록, RSS, 사이트맵, 이 README까지 `build.py` 하나에서 생성합니다.",
+        "",
+        "```",
+        "_src/posts/*.md        글 원문 (frontmatter + 본문)",
+        "_src/templates/*.html  Jinja2 템플릿",
+        "build.py               생성기",
+        "```",
+        "",
+        "빌드: `./.venv/bin/python build.py`",
+        "",
+    ]
+    (ROOT / "README.md").write_text("\n".join(readme), encoding="utf-8")
+
     # 옛 주소 리다이렉트
     for src, dst in REDIRECTS.items():
         out = ROOT / src / "index.html"
@@ -609,7 +650,7 @@ def main():
     print(f"글 {len(posts)}편")
     for g in groups:
         print(f"  {g['name']:<8} {len(g['posts'])}편")
-    print("생성: about/index.html, privacy/index.html, 404.html")
+    print("생성: about/index.html, privacy/index.html, 404.html, README.md")
     print(f"리다이렉트 {len(REDIRECTS)}개: " + ", ".join(f"/{k}/" for k in REDIRECTS))
     print(f"생성: index.html, posts/index.html, posts/*/index.html, feed.xml, sitemap.xml")
 

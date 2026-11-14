@@ -683,3 +683,55 @@ button:focus-visible {
   font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
+
+/* 홈의 전체 글 목록. 제목과 날짜만 한 줄로 두어 23편이 홈을 밀어내지 않게 한다. */
+.allposts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.allposts li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.allposts a {
+  color: var(--body);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.allposts a:hover {
+  color: var(--accent-deep);
+  text-decoration: underline;
+}
+
+.allposts .kicker {
+  flex: none;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.allposts time {
+  flex: none;
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .allposts li {
+    flex-wrap: wrap;
+    gap: 4px 8px;
+  }
+
+  .allposts a {
+    flex-basis: 100%;
+  }
+}

@@ -49,6 +49,28 @@
         {%- endfor %}
       </div>
     </section>
+
+    {#
+      전체 글을 홈에 펼친다. 검색엔진이 꾸준히 다시 긁는 페이지는 홈뿐이라
+      (크롤링 목적의 99%가 새로고침, 1% 미만이 신규 발견),
+      목록 페이지를 거치지 않고 여기서 바로 모든 글 주소를 노출한다.
+    #}
+    <section class="band">
+      <h2>전체 글</h2>
+      <p class="meta">{{ posts|length }}편 · <a href="/posts/">설명과 함께 보기</a></p>
+      {%- for year, items in by_year %}
+      <p class="year">{{ year }}<span>{{ items|length }}편</span></p>
+      <ul class="allposts">
+        {%- for p in items %}
+        <li>
+          <a href="/posts/{{ p.slug }}/">{{ p.title }}</a>
+          <span class="kicker">{{ p.category }}</span>
+          <time datetime="{{ p.date }}">{{ p.date_ko }}</time>
+        </li>
+        {%- endfor %}
+      </ul>
+      {%- endfor %}
+    </section>
   </main>
 </div>
 {% endblock %}
