@@ -61,6 +61,42 @@ REDIRECTS = {
     "dacon-etri-human-understanding": "/posts/dacon-etri-human-understanding/",
 }
 
+# 개편 전에는 글이 /coding_training/<보드>/<slug> 에 있었다. 지금 GitHub 레포
+# README 17 곳이 아직 이 주소를 링크하고 있고, 위의 "coding_training" 항목은
+# 디렉터리 한 개만 덮어서 글별 주소는 전부 404 를 돌려준다. 외부에서 들어오는
+# 링크가 그대로 죽고 있었으므로 글마다 스텁을 만든다.
+# 보드 구분은 추측하지 않고, 실제로 링크된 주소에서 그대로 옮겼다.
+OLD_BOARD = {
+    "dacon": [
+        "dacon-base",
+        "dacon-car-news-classification",
+        "dacon-hai-2025",
+        "dacon-k-league-pass-prediction",
+        "dacon-mai-glm-2025",
+        "dacon-mosquito-trajectory-prediction",
+        "dacon-shipping-anomaly-detection",
+        "dacon-toss-ctr-prediction",
+        "dacon-webgamming",
+    ],
+    "kaggle": [
+        "hlftc",
+        "kaggle-arc-prize-2025",
+        "kaggle-dpc-tate",
+        "kaggle-heart-disease-prediction",
+        "kaggle-hull-tactical-prediction",
+        "kaggle-jigsaw-acrc-portfolio",
+        "kaggle-medgemma-clinical-rag-pipeline",
+        "kaggle-stanford-rna-3d-folding-2",
+    ],
+}
+REDIRECTS.update(
+    {
+        f"coding_training/{board}/{slug}": f"/posts/{slug}/"
+        for board, slugs in OLD_BOARD.items()
+        for slug in slugs
+    }
+)
+
 # og:image 후보. 외부 URL 과 SVG 는 제외한다 -
 # 카카오·네이버 미리보기가 SVG 를 렌더링하지 않는다.
 IMG_RE = re.compile(r"!\[[^\]]*\]\((/assets/[^)\s]+\.(?:png|jpg|jpeg))\)", re.I)
