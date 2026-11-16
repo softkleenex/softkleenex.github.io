@@ -185,11 +185,8 @@
 </ol>
 <p>이 프로젝트는 "AI 대회에서 도메인 물리를 어떻게 모델링에 넣을 수 있는가"를 보여주는 좋은 사례로 남았다. 점수도 중요했지만, 더 오래 남은 건 1cm metric에 맞춰 문제를 다시 해석했던 과정이다.</p>
 <h2>더 읽을거리</h2>
-<ul>
-<li>상세 기술 백서와 실험 기록은 repo README와 docs에 남겨 두었다.</li>
-<li>이 글은 3D 물리 공간, metric 해석, 정렬 오류 디버깅, physics-informed selector 중심으로 요약했다.</li>
-<li>특히 <code>sample_submission.csv</code> 기준 재정렬과 ID 기반 merge는 이후 대회에서도 계속 재사용할 만한 제출 안정성 패턴이다.</li>
-</ul>
+<p>기술 백서와 실험 기록은 <a href="https://github.com/softkleenex/dacon-mosquito-trajectory-prediction">저장소 README</a>와 <a href="https://github.com/softkleenex/dacon-mosquito-trajectory-prediction/tree/HEAD/docs">docs/</a>에 남겨 뒀다.</p>
+<p><code>sample_submission.csv</code> 기준 재정렬과 ID 기반 merge는 이후 대회에서도 그대로 재사용한 제출 안정성 패턴이다. 정렬 하나가 어긋나면 모델이 아무리 좋아도 점수가 무너진다는 걸 여기서 배웠다.</p>
     </article>
     <nav class="postnav" aria-label="글 이동">
       <a class="pn prev" href="/posts/dacon-base/">

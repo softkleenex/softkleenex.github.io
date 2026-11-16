@@ -54,3 +54,9 @@ Chain-of-Thought 계열도 만능은 아니었다. `주제를 분석한 후 답�
 가장 아쉬운 부분은 private 분포를 더 잘 추정하지 못한 점이다. 제공 샘플 `46/46`은 좋아 보였지만 합성 데이터에서는 `86.7%`로 내려갔다. 이 차이는 public `0.856`이라는 결과와도 잘 맞는다. 샘플을 완벽히 맞히는 프롬프트가 실제 평가셋을 완벽히 일반화한다는 뜻은 아니었다.
 
 그럼에도 포트폴리오 관점에서는 꽤 좋은 작은 실험이었다. 모델 학습 없이도 평가 모델의 언어 민감도, 출력 형식, 도메인 경계, leaderboard feedback을 하나씩 분리해서 확인했다. 큰 모델을 쓰는 시대에도, 문제를 한 줄로 어떻게 압축하느냐가 여전히 실험 대상이라는 걸 보여준 대회였다.
+
+## 더 읽을거리
+
+프롬프트를 어떤 기준으로 줄였는지는 [docs/STRATEGY.md](https://github.com/softkleenex/dacon-car-news-classification/blob/HEAD/docs/STRATEGY.md), 제출별 점수는 [docs/SUBMISSION_HISTORY.md](https://github.com/softkleenex/dacon-car-news-classification/blob/HEAD/docs/SUBMISSION_HISTORY.md)에 있다.
+
+비교 실험은 스크립트로 남겼다. 제공 샘플 전체 테스트는 [test_all_prompts.py](https://github.com/softkleenex/dacon-car-news-classification/blob/HEAD/scripts/test_all_prompts.py), 언어별 비교는 [english_vs_korean_test.py](https://github.com/softkleenex/dacon-car-news-classification/blob/HEAD/scripts/english_vs_korean_test.py), CoT 비교는 [chain_of_thought_test.py](https://github.com/softkleenex/dacon-car-news-classification/blob/HEAD/scripts/chain_of_thought_test.py)다. 모델을 학습하지 않는 대회라, 결국 남은 건 이 비교 하네스뿐이었다.

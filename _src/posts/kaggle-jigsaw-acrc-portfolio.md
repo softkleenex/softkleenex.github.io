@@ -48,6 +48,6 @@ LLM/LoRA inference에서는 다음 검사가 필요하다.
 
 ## 더 읽을거리
 
-- 상세 실패 분석은 repo의 `docs/FAILURE_ANALYSIS.md`에서 확인할 수 있다.
-- 이 글은 LoRA compatibility, degenerate output, production ML debugging 교훈을 중심으로 요약했다.
-- 특히 adapter/base model mismatch가 crash 없이 all-zero prediction으로 이어질 수 있다는 점을 output sanity check 사례로 남겼다.
+사흘간의 실패 추적 전체는 [docs/FAILURE_ANALYSIS.md](https://github.com/softkleenex/kaggle-jigsaw-acrc-portfolio/blob/HEAD/docs/FAILURE_ANALYSIS.md)에 남겼다.
+
+adapter와 base model이 어긋나면 crash 없이 all-zero prediction으로 이어진다. 그 뒤로 output distribution sanity check를 기본 절차에 넣었다.

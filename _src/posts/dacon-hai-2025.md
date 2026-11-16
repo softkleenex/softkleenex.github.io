@@ -63,6 +63,6 @@ date_basis: "저장소 생성일"
 
 ## 기록 포인트
 
-- 상세 제출 이력은 repo의 `docs/SUBMISSION_HISTORY.csv`에서 확인할 수 있습니다.
-- rulebook 기반 운영 메모는 `docs/constraints.md`에 남아 있습니다.
-- 이 페이지는 deepfake detection 성능보다 public score, pseudo-labeling, rule audit의 충돌을 중심으로 정리합니다.
+제출 ID별 public score와 모델 구성은 [제출 이력 전체](https://github.com/softkleenex/kaggle-hai-2025/blob/HEAD/docs/SUBMISSION_HISTORY.csv)에 한 줄씩 남겼다.
+
+rulebook을 어떻게 읽었고 test set adaptation을 어디까지 허용할지 판단한 기준은 [constraints.md](https://github.com/softkleenex/kaggle-hai-2025/blob/HEAD/docs/constraints.md)에 따로 적어 뒀다. public score가 오를 때마다 이 문서를 다시 봐야 했다.

@@ -166,11 +166,8 @@
 </ol>
 <p>이 대회에서는 DeBERTa/SetFit 계열 접근으로 최종 <code>0.904 ROC-AUC</code>까지 갔지만, 더 오래 남은 건 LoRA 실패 분석이었다. 좋은 포트폴리오 기록은 항상 최고 점수만 보여줄 필요는 없다. 조용히 망가지는 시스템을 어떻게 추적했는지 보여주는 것도 실전 ML 역량에 가깝다.</p>
 <h2>더 읽을거리</h2>
-<ul>
-<li>상세 실패 분석은 repo의 <code>docs/FAILURE_ANALYSIS.md</code>에서 확인할 수 있다.</li>
-<li>이 글은 LoRA compatibility, degenerate output, production ML debugging 교훈을 중심으로 요약했다.</li>
-<li>특히 adapter/base model mismatch가 crash 없이 all-zero prediction으로 이어질 수 있다는 점을 output sanity check 사례로 남겼다.</li>
-</ul>
+<p>사흘간의 실패 추적 전체는 <a href="https://github.com/softkleenex/kaggle-jigsaw-acrc-portfolio/blob/HEAD/docs/FAILURE_ANALYSIS.md">docs/FAILURE_ANALYSIS.md</a>에 남겼다.</p>
+<p>adapter와 base model이 어긋나면 crash 없이 all-zero prediction으로 이어진다. 그 뒤로 output distribution sanity check를 기본 절차에 넣었다.</p>
     </article>
     <nav class="postnav" aria-label="글 이동">
       <a class="pn prev" href="/posts/dacon-toss-ctr-prediction/">

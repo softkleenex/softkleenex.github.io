@@ -33,3 +33,9 @@ ML 대회와는 완전히 다른 종류의 작업이었다. 점수식이나 CV�
 아쉬운 점은 playable demo와 gameplay capture까지 이어지는 공개 산출물 정리가 늦었다는 점이다. 코드는 GitHub에 공개했지만, 포트폴리오로 쓰려면 실제로 눌러볼 수 있는 배포 URL과 짧은 gameplay capture까지 붙여야 완성도가 훨씬 좋아질 것이다.
 
 이 작업은 이후 경쟁형 ML 대회에도 은근히 도움이 됐다. 해커톤에서는 “작게 만들고, 빨리 확인하고, 사용자가 느끼는 핵심 피드백에 집중한다”는 감각이 중요하다. ML에서도 feature를 무작정 늘리기보다, 점수를 움직이는 가장 짧은 loop를 찾아야 한다는 점에서 꽤 닮아 있었다.
+
+## 더 읽을거리
+
+기획을 원 버튼 패링으로 줄이기까지의 후보들은 [docs/IDEAS.md](https://github.com/softkleenex/dacon-webgamming/blob/HEAD/docs/IDEAS.md)에, 최종 발표 자료는 [docs/PITCH_DOCUMENT.md](https://github.com/softkleenex/dacon-webgamming/blob/HEAD/docs/PITCH_DOCUMENT.md)에 남아 있다.
+
+게임 로직 전체는 [src/main.ts](https://github.com/softkleenex/dacon-webgamming/blob/HEAD/src/main.ts) 한 파일이고, phase 전환과 parry window 판정도 여기 들어 있다. 사운드는 [src/audio.ts](https://github.com/softkleenex/dacon-webgamming/blob/HEAD/src/audio.ts)에서 Web Audio API로 직접 만들었다.

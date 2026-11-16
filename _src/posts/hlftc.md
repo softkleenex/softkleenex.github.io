@@ -32,7 +32,7 @@ date_basis: "저장소 생성일(신뢰도 낮음)"
 
 ## 근거 만들기
 
-이 작업에서 중요했던 건 그럴듯한 아이디어를 쓰는 것이 아니라, 숫자와 사례로 설득력을 만드는 일이었다. 그래서 `FACT_CHECK_REPORT.md`를 따로 만들고, 시장 규모와 벤치마크 수치를 검증했다.
+이 작업에서 중요했던 건 그럴듯한 아이디어를 쓰는 것이 아니라, 숫자와 사례로 설득력을 만드는 일이었다. 그래서 [`FACT_CHECK_REPORT.md`](https://github.com/softkleenex/hlftc/blob/HEAD/docs/FACT_CHECK_REPORT.md)를 따로 만들고, 시장 규모와 벤치마크 수치를 검증했다.
 
 확인한 근거는 대략 다음과 같았다.
 
@@ -61,11 +61,11 @@ date_basis: "저장소 생성일(신뢰도 낮음)"
 
 | 산출물                   | 역할                          |
 | ------------------------ | ----------------------------- |
-| `IDEA_LifeTwin_AI_v2.md` | 기획안 본문과 기술/시장 근거  |
-| `PPT_CONTENT_FINAL.md`   | 20장 분량 슬라이드별 메시지   |
-| `FACT_CHECK_REPORT.md`   | 수치와 주장 검증              |
+| [`IDEA_LifeTwin_AI_v2.md`](https://github.com/softkleenex/hlftc/blob/HEAD/docs/IDEA_LifeTwin_AI_v2.md) | 기획안 본문과 기술/시장 근거 |
+| [`PPT_CONTENT_FINAL.md`](https://github.com/softkleenex/hlftc/blob/HEAD/docs/PPT_CONTENT_FINAL.md) | 20장 분량 슬라이드별 메시지 |
+| [`FACT_CHECK_REPORT.md`](https://github.com/softkleenex/hlftc/blob/HEAD/docs/FACT_CHECK_REPORT.md) | 수치와 주장 검증 |
 | 제출 PDF                 | 공모전 제출용 완성본          |
-| `VIDEO_SCRIPT.md`        | 4분 내외 pitch video 스크립트 |
+| [`VIDEO_SCRIPT.md`](https://github.com/softkleenex/hlftc/blob/HEAD/submission-notes/VIDEO_SCRIPT.md) | 4분 내외 pitch video 스크립트 |
 | visualization images     | 시장/아키텍처/로드맵/ROI 차트 |
 
 이 과정은 "기획도 엔지니어링처럼 관리할 수 있다"는 감각을 줬다. 자료 수집, 출처 검증, 슬라이드 메시지, 발표 스크립트, 제출 양식이 따로 놀면 마지막에 무너진다. 그래서 문서별 역할을 나누고, 제출용 폴더와 참고자료 폴더를 분리했다.
@@ -86,6 +86,9 @@ date_basis: "저장소 생성일(신뢰도 낮음)"
 
 ## 기록 포인트
 
-- 상세 기획안은 로컬 `HLFTC/참고자료/IDEA_LifeTwin_AI_v2.md`에 정리되어 있습니다.
-- 제출 자료는 `HLFTC/제출용/`, 검증 자료는 `HLFTC/참고자료/FACT_CHECK_REPORT.md`에서 확인할 수 있습니다.
-- 이 페이지는 모델링 대회가 아니라 AI/FinTech/Healthcare 서비스 기획 포트폴리오로 정리합니다.
+기획안 본문은 [IDEA_LifeTwin_AI_v2.md](https://github.com/softkleenex/hlftc/blob/HEAD/docs/IDEA_LifeTwin_AI_v2.md),
+수치 검증은 [FACT_CHECK_REPORT.md](https://github.com/softkleenex/hlftc/blob/HEAD/docs/FACT_CHECK_REPORT.md),
+슬라이드 메시지는 [PPT_CONTENT_FINAL.md](https://github.com/softkleenex/hlftc/blob/HEAD/docs/PPT_CONTENT_FINAL.md),
+발표 스크립트와 제출 메모는 [submission-notes/](https://github.com/softkleenex/hlftc/tree/HEAD/submission-notes)에 있다.
+
+모델링 대회가 아니라 서비스 기획 공모였던 만큼, 남은 산출물도 코드가 아니라 문서와 발표 자료다.

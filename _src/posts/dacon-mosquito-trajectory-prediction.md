@@ -68,6 +68,6 @@ repo의 분석 문서에서는 이 패러다임을 `Regression -> Selection + Mi
 
 ## 더 읽을거리
 
-- 상세 기술 백서와 실험 기록은 repo README와 docs에 남겨 두었다.
-- 이 글은 3D 물리 공간, metric 해석, 정렬 오류 디버깅, physics-informed selector 중심으로 요약했다.
-- 특히 `sample_submission.csv` 기준 재정렬과 ID 기반 merge는 이후 대회에서도 계속 재사용할 만한 제출 안정성 패턴이다.
+기술 백서와 실험 기록은 [저장소 README](https://github.com/softkleenex/dacon-mosquito-trajectory-prediction)와 [docs/](https://github.com/softkleenex/dacon-mosquito-trajectory-prediction/tree/HEAD/docs)에 남겨 뒀다.
+
+`sample_submission.csv` 기준 재정렬과 ID 기반 merge는 이후 대회에서도 그대로 재사용한 제출 안정성 패턴이다. 정렬 하나가 어긋나면 모델이 아무리 좋아도 점수가 무너진다는 걸 여기서 배웠다.

@@ -36,16 +36,16 @@ pseudo-labeling은 test prediction confidence가 높은 샘플을 train에 다�
 
 로컬에서 전부 돌리기보다 Kaggle CLI와 notebook runner를 사용해 원격 실행 파이프라인을 만들었다.
 
-1. `src/` 아래에 model, preprocessing, ensemble 코드를 모듈화한다.
-2. `notebooks/kaggle_runner/runner.py`를 Kaggle entrypoint로 둔다.
-3. `kernel-metadata.json`과 `kaggle kernels push`로 cloud execution을 위임한다.
+1. [`src/`](https://github.com/softkleenex/kaggle-heart-disease-prediction/tree/HEAD/src) 아래에 model, preprocessing, ensemble 코드를 모듈화한다.
+2. [`notebooks/kaggle_runner/runner.py`](https://github.com/softkleenex/kaggle-heart-disease-prediction/blob/HEAD/notebooks/kaggle_runner/runner.py)를 Kaggle entrypoint로 둔다.
+3. [`kernel-metadata.json`](https://github.com/softkleenex/kaggle-heart-disease-prediction/blob/HEAD/notebooks/kernel-metadata.json)과 `kaggle kernels push`로 cloud execution을 위임한다.
 4. 결과물을 내려받아 local analysis와 submission 검증으로 이어간다.
 
 이 흐름은 단순한 대회용 편의 기능이 아니었다. 실험이 많아질수록 notebook 안에 로직을 쌓는 방식은 금방 무너진다. repo 중심 구조와 cloud runner를 분리한 덕분에, 이후 다른 Kaggle tabular 작업에도 가져갈 수 있는 보일러플레이트가 생겼다.
 
 ## 뼈아픈 부분
 
-가장 뼈아픈 실패는 막판 `SubmissionStatus.ERROR`였다. 기록상 `train_pseudo_round2.py`, `fix_submission.py` 계열 결과물이 Kaggle 시스템에서 에러를 냈고, 원인은 크게 두 가지로 추정됐다.
+가장 뼈아픈 실패는 막판 `SubmissionStatus.ERROR`였다. 기록상 [`train_pseudo_round2.py`](https://github.com/softkleenex/kaggle-heart-disease-prediction/blob/HEAD/src/pseudo_labeling/train_pseudo_round2.py), [`fix_submission.py`](https://github.com/softkleenex/kaggle-heart-disease-prediction/blob/HEAD/src/utils_and_analysis/fix_submission.py) 계열 결과물이 Kaggle 시스템에서 에러를 냈고, 원인은 크게 두 가지로 추정됐다.
 
 1. ensemble/post-processing 과정에서 확률값이 `[0, 1]` 범위를 미세하게 벗어났을 가능성
 2. pseudo-labeling 후 test set을 다시 분리하면서 `id` order가 어긋났을 가능성
@@ -74,6 +74,8 @@ assert submission["id"].equals(sample_submission["id"])
 
 ## 기록 포인트
 
-- 상세 회고는 repo의 `docs/retrospective_analysis.md`에 정리되어 있습니다.
-- 포트폴리오 요약은 `docs/portfolio_summary.md`, feature importance는 `docs/feature_importance.csv`에서 확인할 수 있습니다.
-- 이 페이지는 의료 예측 자체보다 synthetic tabular, CatBoost ensemble, Kaggle CLI MLOps, submission validation 교훈을 중심으로 정리합니다.
+실험별 회고는 [docs/retrospective_analysis.md](https://github.com/softkleenex/kaggle-heart-disease-prediction/blob/HEAD/docs/retrospective_analysis.md),
+요약은 [docs/portfolio_summary.md](https://github.com/softkleenex/kaggle-heart-disease-prediction/blob/HEAD/docs/portfolio_summary.md),
+어떤 feature가 실제로 작동했는지는 [docs/feature_importance.csv](https://github.com/softkleenex/kaggle-heart-disease-prediction/blob/HEAD/docs/feature_importance.csv)에 있다.
+
+synthetic tabular 데이터라 실제 의학적 해석을 그대로 믿을 수 없었고, 그 한계를 전제로 한 검증 절차가 이 기록의 중심이다.

@@ -59,6 +59,8 @@ repo의 README는 이 프로젝트를 `Autonomous MLOps Pipeline`으로 설명�
 
 ## 기록 포인트
 
-- 상세 시스템 설명은 repo의 `README.md`에서 확인할 수 있습니다.
-- 실험 흔적은 `notebooks/logs_v*`, `docs/current_strategy.txt`, `docs/reflect_prompt.txt`에 남아 있습니다.
-- 이 페이지는 RNA 3D 구조 예측 자체보다 agentic MLOps와 검증 병목을 중심으로 정리합니다.
+시스템 구조는 [저장소 README](https://github.com/softkleenex/kaggle-stanford-rna-3d-folding-2)에 설명해 뒀다.
+
+에이전트가 실제로 무슨 판단을 했는지는 [docs/current_strategy.txt](https://github.com/softkleenex/kaggle-stanford-rna-3d-folding-2/blob/HEAD/docs/current_strategy.txt)와 [docs/reflect_prompt.txt](https://github.com/softkleenex/kaggle-stanford-rna-3d-folding-2/blob/HEAD/docs/reflect_prompt.txt), 그리고 [notebooks/](https://github.com/softkleenex/kaggle-stanford-rna-3d-folding-2/tree/HEAD/notebooks) 아래 실행 로그에 그대로 남아 있다.
+
+RNA 구조 예측 자체보다, 사람이 자는 동안 돌아가는 루프를 어떻게 검증하느냐가 더 어려운 문제였다.

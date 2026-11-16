@@ -70,6 +70,6 @@ date_basis: "저장소 생성일"
 
 ## 기록 포인트
 
-- 핵심 발견은 repo의 `docs/FINDINGS.md`에 정리되어 있습니다.
-- 전체 실험 흐름은 `README.md`, `docs/FINAL_REPORT.txt`, `archive/experiments.md`에서 이어서 볼 수 있습니다.
-- 이 페이지는 유전체 모델 크기 경쟁보다 PCA noise reduction, objective mismatch, contrastive learning 교훈을 중심으로 정리합니다.
+핵심 발견은 [docs/FINDINGS.md](https://github.com/softkleenex/dacon-mai-glm-2025/blob/HEAD/docs/FINDINGS.md)에 모아 뒀다.
+
+실험이 어떤 순서로 꺾였는지는 [README](https://github.com/softkleenex/dacon-mai-glm-2025) → [docs/FINAL_REPORT.txt](https://github.com/softkleenex/dacon-mai-glm-2025/blob/HEAD/docs/FINAL_REPORT.txt) → [archive/experiments.md](https://github.com/softkleenex/dacon-mai-glm-2025/blob/HEAD/archive/experiments.md) 순으로 이어서 볼 수 있다.

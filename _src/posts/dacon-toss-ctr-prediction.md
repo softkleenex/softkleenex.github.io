@@ -78,6 +78,8 @@ CTR 예측은 결국 사람의 클릭을 맞히는 문제지만, 대회에서는
 
 ## 기록 포인트
 
-- 상세 제출 이력은 repo의 `docs/SUBMISSION_RECORD.md`에서 확인할 수 있습니다.
-- feature engineering 근거는 `docs/FEATURES.md`, 실험 결과는 `docs/RESULTS.md`에 남아 있습니다.
-- 이 페이지는 LightGBM/XGBoost ensemble보다 익명 로그 해석, calibration, 실패한 과최적화를 중심으로 정리합니다.
+제출 이력은 [docs/SUBMISSION_RECORD.md](https://github.com/softkleenex/dacon-toss-ctr-prediction/blob/HEAD/docs/SUBMISSION_RECORD.md),
+feature 하나하나를 왜 넣었는지는 [docs/FEATURES.md](https://github.com/softkleenex/dacon-toss-ctr-prediction/blob/HEAD/docs/FEATURES.md),
+실험 결과는 [docs/RESULTS.md](https://github.com/softkleenex/dacon-toss-ctr-prediction/blob/HEAD/docs/RESULTS.md)에 있다.
+
+익명 로그라 feature 이름이 없는 상태에서 어떤 가설을 세우고 무엇이 틀렸는지가 이 기록의 대부분이다.

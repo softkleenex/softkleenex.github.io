@@ -71,6 +71,6 @@ repo에는 `v24` 계열 validation 결과가 남아 있다. walk-forward validat
 
 ## 더 읽을거리
 
-- 상세 구현과 코드 스니펫은 repo README에서 확인할 수 있다.
-- 이 글은 public leaderboard 회피, live regime shift, risk management 교훈을 중심으로 요약했다.
-- 특히 walk-forward validation이 leakage를 줄여도 frozen live submission의 regime shift 대응까지 보장하지는 않는다는 점을 실패 사례로 남겼다.
+구현과 코드 스니펫은 [저장소 README](https://github.com/softkleenex/kaggle-hull-tactical-prediction)에 정리해 뒀다.
+
+walk-forward validation이 leakage를 줄여도, frozen live submission이 regime shift를 견딘다는 보장은 되지 않는다. 이 대회에서 가장 비싸게 배운 한 줄이다.

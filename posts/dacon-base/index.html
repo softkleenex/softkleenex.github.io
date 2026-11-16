@@ -124,10 +124,10 @@
 <h2>왜 만들었나</h2>
 <p>대회 막판에는 사람도 에이전트도 급해진다. 좋은 feature인지, public LB에만 맞춘 도박인지, 제출 파일 이름과 로그 행이 맞는지 확인하지 못한 채 넘어가기 쉽다. <code>dacon-base</code>는 그 지점을 줄이기 위한 바닥 공사에 가깝다.</p>
 <ul>
-<li><code>docs/MASTER_PLAN.md</code>로 validation-first 원칙과 작업 단계를 고정한다.</li>
-<li><code>docs/DATA_DICTIONARY.md</code>로 feature 의미와 EDA 발견을 공유 메모리로 남긴다.</li>
-<li><code>docs/SUBMISSION_HISTORY.md</code>와 <code>submissions/submission_log.csv</code>로 local CV, public LB, 제출 여부를 분리한다.</li>
-<li><code>src/</code>, <code>scripts/</code>, <code>configs/</code>, <code>notebooks/</code>를 기본 구조로 나눠 재사용 가능한 코드를 흩어지지 않게 한다.</li>
+<li><a href="https://github.com/softkleenex/dacon-base/blob/HEAD/docs/MASTER_PLAN.md"><code>docs/MASTER_PLAN.md</code></a>로 validation-first 원칙과 작업 단계를 고정한다.</li>
+<li><a href="https://github.com/softkleenex/dacon-base/blob/HEAD/docs/DATA_DICTIONARY.md"><code>docs/DATA_DICTIONARY.md</code></a>로 feature 의미와 EDA 발견을 공유 메모리로 남긴다.</li>
+<li><a href="https://github.com/softkleenex/dacon-base/blob/HEAD/docs/SUBMISSION_HISTORY.md"><code>docs/SUBMISSION_HISTORY.md</code></a>와 <a href="https://github.com/softkleenex/dacon-base/blob/HEAD/submissions/submission_log.csv"><code>submissions/submission_log.csv</code></a>로 local CV, public LB, 제출 여부를 분리한다.</li>
+<li><a href="https://github.com/softkleenex/dacon-base/tree/HEAD/src"><code>src/</code></a>, <a href="https://github.com/softkleenex/dacon-base/tree/HEAD/scripts"><code>scripts/</code></a>, <a href="https://github.com/softkleenex/dacon-base/tree/HEAD/configs"><code>configs/</code></a>, <a href="https://github.com/softkleenex/dacon-base/tree/HEAD/notebooks"><code>notebooks/</code></a>를 기본 구조로 나눠 재사용 가능한 코드를 흩어지지 않게 한다.</li>
 <li>Kaggle dataset과 notebook push/pull 흐름을 Makefile에 묶어 local과 cloud 실행을 오갈 수 있게 한다.</li>
 </ul>
 <h2>운영 철학</h2>

@@ -69,6 +69,6 @@ Akkadian transliteration은 일반적인 영어 tokenization과 잘 맞지 않�
 
 ## 기록 포인트
 
-- 점수 근거는 repo의 `data/deep-past-initiative-machine-translation-publicleaderboard-2026-05-04T06:46:20.csv`에서 확인했습니다.
-- 자동화 실패와 해결은 `docs/learnings.md`, `learnings.md`, `state.log`에 남아 있습니다.
-- 이 페이지는 Akkadian 번역 품질보다 ByT5/MBR/lexicon과 Kaggle automation resilience를 중심으로 정리합니다.
+자동화가 어디서 어떻게 끊겼고 무엇으로 복구했는지는 [docs/learnings.md](https://github.com/softkleenex/kaggle-dpc-tate/blob/HEAD/docs/learnings.md)와 루트의 [learnings.md](https://github.com/softkleenex/kaggle-dpc-tate/blob/HEAD/learnings.md)에 시간순으로 남겼다.
+
+점수 자체는 Kaggle public leaderboard 스냅샷을 직접 내려받아 대조했다. Akkadian 번역 품질보다, 며칠짜리 파이프라인이 사람 없이 버티게 만드는 쪽에 시간을 더 썼다.

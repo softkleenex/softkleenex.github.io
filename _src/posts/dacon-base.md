@@ -16,10 +16,10 @@ date_basis: "저장소 생성일"
 
 대회 막판에는 사람도 에이전트도 급해진다. 좋은 feature인지, public LB에만 맞춘 도박인지, 제출 파일 이름과 로그 행이 맞는지 확인하지 못한 채 넘어가기 쉽다. `dacon-base`는 그 지점을 줄이기 위한 바닥 공사에 가깝다.
 
-- `docs/MASTER_PLAN.md`로 validation-first 원칙과 작업 단계를 고정한다.
-- `docs/DATA_DICTIONARY.md`로 feature 의미와 EDA 발견을 공유 메모리로 남긴다.
-- `docs/SUBMISSION_HISTORY.md`와 `submissions/submission_log.csv`로 local CV, public LB, 제출 여부를 분리한다.
-- `src/`, `scripts/`, `configs/`, `notebooks/`를 기본 구조로 나눠 재사용 가능한 코드를 흩어지지 않게 한다.
+- [`docs/MASTER_PLAN.md`](https://github.com/softkleenex/dacon-base/blob/HEAD/docs/MASTER_PLAN.md)로 validation-first 원칙과 작업 단계를 고정한다.
+- [`docs/DATA_DICTIONARY.md`](https://github.com/softkleenex/dacon-base/blob/HEAD/docs/DATA_DICTIONARY.md)로 feature 의미와 EDA 발견을 공유 메모리로 남긴다.
+- [`docs/SUBMISSION_HISTORY.md`](https://github.com/softkleenex/dacon-base/blob/HEAD/docs/SUBMISSION_HISTORY.md)와 [`submissions/submission_log.csv`](https://github.com/softkleenex/dacon-base/blob/HEAD/submissions/submission_log.csv)로 local CV, public LB, 제출 여부를 분리한다.
+- [`src/`](https://github.com/softkleenex/dacon-base/tree/HEAD/src), [`scripts/`](https://github.com/softkleenex/dacon-base/tree/HEAD/scripts), [`configs/`](https://github.com/softkleenex/dacon-base/tree/HEAD/configs), [`notebooks/`](https://github.com/softkleenex/dacon-base/tree/HEAD/notebooks)를 기본 구조로 나눠 재사용 가능한 코드를 흩어지지 않게 한다.
 - Kaggle dataset과 notebook push/pull 흐름을 Makefile에 묶어 local과 cloud 실행을 오갈 수 있게 한다.
 
 ## 운영 철학

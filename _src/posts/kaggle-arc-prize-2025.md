@@ -70,6 +70,7 @@ ARC는 "많이 시도하면 언젠가 맞는다"가 잘 통하지 않는 문제�
 
 ## 기록 포인트
 
-- 빠른 제출 루프와 code competition 운영은 repo의 `docs/evaluation_reports/FINAL_SUMMARY.md`에 남아 있습니다.
-- 실패 유형 분석은 `docs/evaluation_reports/EVALUATION_INSIGHTS.md`에서 확인할 수 있습니다.
-- 이 페이지는 ARC score 자체보다 pixel-perfect reasoning, DSL search 한계, object-centric representation 필요성을 중심으로 정리합니다.
+제출 루프를 어떻게 돌렸는지는 [FINAL_SUMMARY.md](https://github.com/softkleenex/kaggle-arc-prize-2025/blob/HEAD/docs/evaluation_reports/FINAL_SUMMARY.md),
+어떤 유형에서 어떻게 틀렸는지는 [EVALUATION_INSIGHTS.md](https://github.com/softkleenex/kaggle-arc-prize-2025/blob/HEAD/docs/evaluation_reports/EVALUATION_INSIGHTS.md)에 남아 있다.
+
+ARC는 점수보다 실패 유형이 훨씬 많은 걸 알려주는 대회였다.

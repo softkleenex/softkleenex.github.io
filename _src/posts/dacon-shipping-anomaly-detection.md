@@ -33,3 +33,9 @@ feature engineering은 52개 원본 센서를 149개 후보 feature로 확장하
 이 프로젝트는 “도메인 지식 없이도 어느 정도는 갈 수 있지만, 끝까지는 어렵다”는 쪽에 가까웠다. 센서 이름이 숨겨져 있어도 통계적 패턴과 ensemble로 상위 24.9%까지는 만들 수 있었다. 하지만 상금권이나 최상위권을 노리려면 익명 feature를 feature로만 보지 않고, class boundary와 오류 유형을 더 적극적으로 역추적해야 했다.
 
 그래도 좋은 훈련이었다. local benchmark, feature importance, class-wise F1, GPU 리소스 문제, 제출 파일 운영이 한 번에 엮인 대회였고, 이후 ETRI 같은 더 큰 작업에서 “feature 의미를 기록하고, 로그와 제출 파일을 맞추고, hard segment를 따로 봐야 한다”는 습관으로 이어졌다.
+
+## 더 읽을거리
+
+149개까지 늘렸다 되돌린 feature 생성 코드는 [src/advanced_feature_engineering.py](https://github.com/softkleenex/dacon-shipping-anomaly-detection/blob/HEAD/src/advanced_feature_engineering.py)에 그대로 남아 있다.
+
+학습 로그는 [logs/train_improved_log.txt](https://github.com/softkleenex/dacon-shipping-anomaly-detection/blob/HEAD/logs/train_improved_log.txt), 제출 운영 메모는 [docs/](https://github.com/softkleenex/dacon-shipping-anomaly-detection/tree/HEAD/docs)에 있다. 익명 feature를 다루는 다음 대회에서 가장 먼저 다시 열어 본 건 모델 코드가 아니라 class별 F1 로그 쪽이었다.

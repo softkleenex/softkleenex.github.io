@@ -53,6 +53,6 @@ date_basis: "저장소 생성일"
 
 ## 더 읽을거리
 
-- 상세 제출 기록과 구현 구조는 repo README와 `analysis_results/`, `docs/`에 남겨 두었다.
-- 이 글은 delta prediction, pseudo-labeling, LOGO CV, Zone 6x6 baseline의 교훈을 중심으로 요약했다.
-- 특히 public score 개선보다 private/OOD 일반화를 더 믿을 수 있게 만든 검증 방식이 핵심 기록이다.
+제출 기록과 구현 구조는 [analysis_results/](https://github.com/softkleenex/dacon-k-league-pass-prediction/tree/HEAD/analysis_results)와 [docs/](https://github.com/softkleenex/dacon-k-league-pass-prediction/tree/HEAD/docs)에 남겨 뒀다.
+
+public score를 올린 것보다, private/OOD 일반화를 더 믿을 수 있게 만든 검증 방식이 이 대회에서 가장 오래 남은 기록이다.

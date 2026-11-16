@@ -75,7 +75,7 @@ AirKorea는 처음 받은 API가 실시간/최근 3개월 중심이라 대회 �
 
 Kaggle CLI 문제도 한동안 발목을 잡았다. 처음에는 인증이나 네트워크, slug 문제처럼 보였지만, 작은 Kaggle dataset/kernel probe는 성공했다. 결국 핵심 원인은 Kaggle 입력 패키지가 낡아 있었다는 점이었다.
 
-기존 `softkleenex/dacon-etri-human-base` 입력은 2026년 6월 17일 snapshot에 가까웠고, 최신 `reports/`와 post-ID341 산출물이 없었다. runner는 필요한 경로가 없어서 바로 실패했다. 이후 base dataset 위에 patch dataset을 overlay하는 방식으로 바꿨고, 최신 scripts, reports, submissions, base predictions를 덮어씌우게 했다. no-submit upstream rebuild v3는 remote blueprint gate까지 통과했지만, 새로 promotion할 artifact evidence는 나오지 않았다.
+기존 `softkleenex/dacon-etri-human-base` 입력은 2026년 6월 17일 snapshot에 가까웠고, 최신 [`reports/`](https://github.com/softkleenex/dacon-etri-human-understanding/tree/HEAD/reports)와 post-ID341 산출물이 없었다. runner는 필요한 경로가 없어서 바로 실패했다. 이후 base dataset 위에 patch dataset을 overlay하는 방식으로 바꿨고, 최신 scripts, reports, submissions, base predictions를 덮어씌우게 했다. no-submit upstream rebuild v3는 remote blueprint gate까지 통과했지만, 새로 promotion할 artifact evidence는 나오지 않았다.
 
 이 과정에서 Kaggle은 "제출 버튼을 대신 누르는 곳"이 아니라 "무거운 실험을 격리해서 검증하는 곳"이어야 한다는 생각이 더 강해졌다. 대회 막판에는 특히 자동화가 빠를수록 위험하다. no-submit run, artifact gate, submission log, decision note가 분리되어 있어야 실험이 운영 사고로 번지지 않는다.
 
