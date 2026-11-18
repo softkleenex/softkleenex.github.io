@@ -34,6 +34,8 @@ training phase의 public leaderboard에는 Sharpe `17.0+` 같은 비현실적인
 | 2026년 3월 |          -0.379 | whipsaw market에서 구조적 실패                |
 | 2026년 4월 |           0.721 | 손실은 멈췄지만 경쟁력은 회복하지 못함        |
 
+![2026년 1~4월 SPY 종가와 구간별 live Sharpe. 1월 3.898에서 3월 -0.379로 떨어진 구간이, 아래 패널에서 20일 연율화 변동성이 15% 임계선을 넘긴 시점과 겹친다.](/assets/kaggle-hull-tactical-prediction/live-regime-shift.png)
+
 여기까지 보면 "그래도 positive Sharpe로 살아남았다"고 말할 수도 있다. 하지만 포트폴리오 회고로는 그 정도 포장이 별로 의미가 없다. 이 모델은 leaderboard에서 경쟁력을 잃었고, 그 이유를 분석하는 쪽이 더 가치 있었다.
 
 ## 무엇이 문제였나

@@ -39,6 +39,8 @@ q0는 16개 블록이다. 첫 블록은 데이터 인코딩 없이 학습 회전
 
 depth 49, 2 qubits, CZ 1개, 학습 parameter 64개, threshold 0.47. private balanced accuracy는 0.820246이었다.
 
+![제출한 2-qubit data re-uploading 회로. q0와 q1에 회전 게이트가 길게 쌓이고, 마지막에 CZ 하나로 두 branch를 얽은 뒤 q0만 측정한다. depth 49, 학습 parameter 64개.](/assets/2026-quantum-ai-competition/final-circuit-depth49.png)
+
 CZ를 하나만 쓴 것은 예산을 아낀 게 아니다. entangler를 늘린 모든 변형 — CX echo, 추가 CZ, star 구조, 4-qubit 병렬 — 이 교차검증에서 재현되지 않아서다.
 
 ## depth 50을 49로 줄인 방법

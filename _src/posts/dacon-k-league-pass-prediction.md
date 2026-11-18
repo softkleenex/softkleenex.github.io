@@ -31,6 +31,8 @@ date_basis: "저장소 생성일"
 
 하지만 더 중요한 교훈은 Zone 6x6였다. 경기장을 36개 구역으로 나누는 단순한 공간 모델이, 복잡한 LSTM이나 과한 feature engineering보다 더 안정적이었다. 특히 LOGO, 즉 Leave-One-Game-Out 검증에서 새 경기로 넘어갔을 때의 gap을 보는 것이 중요했다.
 
+![LOGO CV와 GroupKFold 비교. 평균은 16.2011 대 16.2452로 거의 같지만, 경기 단위로 쪼개면 표준편차가 1.5348 대 0.3071로 5배 가까이 벌어진다. GroupKFold 숫자 하나만 보면 이 분산이 보이지 않는다.](/assets/dacon-k-league-pass-prediction/logo-vs-groupkfold.png)
+
 ## 실패한 가설
 
 가장 인상 깊었던 실패는 domain v2였다. "축구 도메인 지식을 더 넣고, 강한 정규화를 쓰면 OOD에 강해지지 않을까?"라는 가설이었다. 결과는 반대였다. 너무 적은 feature와 과도한 regularization으로 underfitting이 심해졌고, 핵심 공간 패턴을 제거하면서 CV가 `18.37` 수준까지 나빠졌다.
@@ -40,6 +42,8 @@ date_basis: "저장소 생성일"
 ## 회고
 
 이 대회는 "복잡한 모델이 항상 이긴다"는 생각을 꽤 세게 꺾어줬다. sequence model은 그럴듯했고, 파생 feature도 많을수록 좋아 보였지만, 실제 새 경기에서는 오히려 쉽게 흔들렸다. 반대로 Zone 6x6처럼 단순한 공간 prior는 설명 가능하고, 검증에서도 안정적이었다.
+
+![파라미터 수와 CV-public gap의 관계(로그-로그). Zone 6x6은 파라미터 290개 근처에서 gap이 가장 작고, LSTM v2는 파라미터가 100배 넘게 늘어난 자리에서 gap도 가장 크게 벌어진다.](/assets/dacon-k-league-pass-prediction/complexity-vs-ood-gap.png)
 
 다음에 비슷한 sports analytics 문제를 한다면 초반부터 이렇게 할 것 같다.
 
