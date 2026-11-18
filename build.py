@@ -103,14 +103,50 @@ IMG_RE = re.compile(r"!\[[^\]]*\]\((/assets/[^)\s]+\.(?:png|jpg|jpeg))\)", re.I)
 
 
 def png_size(path):
-    """PNG 헤더에서 가로·세로를 읽는다. og:image:width 를 추측하지 않기 위해서다."""
+    """이미지 헤더에서 가로·세로를 읽는다. og:image:width 를 추측하지 않기 위해서다.
+
+    PNG 와 JPEG 둘 다 본다. 사진 계열을 PNG 로 두면 한 장에 수 MB 가 되는데,
+    JPEG 로 바꿨을 때 여기서 크기를 못 읽으면 cover_image 가 None 을 돌려주고
+    og:image 가 통째로 사라진다. 그래서 두 포맷을 같이 지원한다.
+    """
     try:
-        head = path.read_bytes()[:24]
+        data = path.read_bytes()
     except OSError:
         return None
-    if len(head) < 24 or head[:8] != b"\x89PNG\r\n\x1a\n":
-        return None
-    return struct.unpack(">II", head[16:24])
+    if data[:8] == b"\x89PNG\r\n\x1a\n" and len(data) >= 24:
+        return struct.unpack(">II", data[16:24])
+    if data[:2] == b"\xff\xd8":
+        return jpeg_size(data)
+    return None
+
+
+# SOF0~SOF15 중 크기를 담지 않는 DHT(c4)·JPGA(c8)·DAC(cc) 는 뺀다.
+JPEG_SOF = {0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF}
+
+
+def jpeg_size(data):
+    """JPEG 의 SOF 세그먼트에서 가로·세로를 읽는다."""
+    i = 2
+    n = len(data)
+    while i + 3 < n:
+        if data[i] != 0xFF:
+            i += 1
+            continue
+        marker = data[i + 1]
+        if marker in (0xD8, 0x01) or 0xD0 <= marker <= 0xD7:
+            i += 2
+            continue
+        if marker == 0xFF:
+            i += 1
+            continue
+        seglen = struct.unpack(">H", data[i + 2 : i + 4])[0]
+        if marker in JPEG_SOF:
+            if i + 9 > n:
+                return None
+            h, w = struct.unpack(">HH", data[i + 5 : i + 9])
+            return (w, h)
+        i += 2 + seglen
+    return None
 
 
 def cover_image(meta, body):

@@ -14,7 +14,7 @@ date_basis: "기존 발행일"
 
 내가 만든 캠페인의 이름은 `THE COLOR HOUSE`, 제품명은 `COLOR ROOM DUO`다. 하나의 집 안에 BBIA 언니의 방과 AIBB 동생의 방을 만들고, 두 방 사이의 공용 화장대를 하나의 듀얼 립앤치크 콤팩트로 축소했다.
 
-![THE COLOR HOUSE 최종 포스터](/assets/2026-the-color-house/poster.png)
+![THE COLOR HOUSE 최종 포스터](/assets/2026-the-color-house/poster.jpg)
 
 ## 대회와 작업 범위
 
@@ -57,7 +57,7 @@ BBIA와 AIBB는 이름부터 서로를 반대로 비추는 구조다. 하지만 
 
 ## 제품: COLOR ROOM DUO
 
-![COLOR ROOM DUO 제품 최종 시안](/assets/2026-the-color-house/product.png)
+![COLOR ROOM DUO 제품 최종 시안](/assets/2026-the-color-house/product.jpg)
 
 `COLOR ROOM DUO`는 손바닥 크기의 얇고 둥근 직사각형 듀얼 립앤치크 콤팩트다.
 
@@ -143,7 +143,7 @@ AIBB 동생에게는 본인의 왼쪽 볼, 즉 관람자 기준 얼굴 오른쪽
 
 ## 최종 연출
 
-![BBIA 언니와 AIBB 동생의 컬러 선택 장면](/assets/2026-the-color-house/campaign.png)
+![BBIA 언니와 AIBB 동생의 컬러 선택 장면](/assets/2026-the-color-house/campaign.jpg)
 
 최종 연출은 두 자매가 서로를 바라보며 각자의 컬러를 사용하는 순간을 담았다. BBIA 언니의 뮤트 로즈와 AIBB 동생의 체리 글로우가 얼굴, 손, 배경과 제품에서 반복된다. 제품은 두 사람 사이에 놓여 두 브랜드를 연결한다.
 
