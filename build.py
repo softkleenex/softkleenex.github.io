@@ -149,6 +149,33 @@ def jpeg_size(data):
     return None
 
 
+SVG_W_RE = re.compile(rb'\bwidth="([0-9.]+)(?:px)?"')
+SVG_H_RE = re.compile(rb'\bheight="([0-9.]+)(?:px)?"')
+
+
+def svg_size(path):
+    """SVG 루트의 width/height 를 읽는다. 본문 <img> 의 치수 속성용이다.
+
+    og:image 후보로는 쓰지 않는다 - 카카오·네이버 미리보기가 SVG 를
+    렌더링하지 않아서 IMG_RE 가 애초에 SVG 를 걸러낸다.
+    """
+    try:
+        head = path.read_bytes()[:800]
+    except OSError:
+        return None
+    w, h = SVG_W_RE.search(head), SVG_H_RE.search(head)
+    if not (w and h):
+        return None
+    return (round(float(w.group(1))), round(float(h.group(1))))
+
+
+def image_size(path):
+    """PNG·JPEG·SVG 중 읽을 수 있는 것의 가로·세로."""
+    if path.suffix.lower() == ".svg":
+        return svg_size(path)
+    return png_size(path)
+
+
 # 문단 하나가 이미지 하나로만 된 경우. markdown 은 <p><img></p> 로 내보낸다.
 PARA_IMG_RE = re.compile(r"<p>\s*(<img\b[^>]*?/?>)\s*</p>")
 IMG_ALT_RE = re.compile(r'\balt="([^"]*)"')
@@ -174,7 +201,7 @@ def figurize(html):
         caption = alt.group(1) if alt else ""
         src = IMG_SRC_RE.search(tag)
         if src and src.group(1).startswith("/"):
-            size = png_size(ROOT / src.group(1).lstrip("/"))
+            size = image_size(ROOT / src.group(1).lstrip("/"))
             if size and "width=" not in tag:
                 tag = tag.replace(
                     "<img", f'<img width="{size[0]}" height="{size[1]}"', 1
