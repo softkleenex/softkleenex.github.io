@@ -5,7 +5,7 @@ AI 대회 회고와 생성형 디자인 제작기를 쓰는 블로그입니다.
 
 **[softkleenex.github.io](https://softkleenex.github.io/)** · [글 목록](https://softkleenex.github.io/posts/) · [소개](https://softkleenex.github.io/about/) · [RSS](https://softkleenex.github.io/feed.xml)
 
-## 글 23편
+## 글 24편
 
 ### DACON — 국내 AI 경진대회 회고 (9편)
 
@@ -41,8 +41,9 @@ AI 대회 회고와 생성형 디자인 제작기를 쓰는 블로그입니다.
 - [THE COLOR HOUSE 제작기](https://softkleenex.github.io/posts/2026-the-color-house/) — 2026-07-21
 - [한화생명 공모전 LifeTwin AI](https://softkleenex.github.io/posts/hlftc/) — 2026-06-28
 
-### 기록 — 운영 방식과 템플릿 (1편)
+### 기록 — 운영 방식과 템플릿 (2편)
 
+- [카카오테크캠퍼스 4기 회고](https://softkleenex.github.io/posts/2026-kakao-tech-campus-retrospective/) — 2026-11-20
 - [DACON 대회 시작 템플릿](https://softkleenex.github.io/posts/dacon-base/) — 2026-05-06
 
 ## 이 저장소

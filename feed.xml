@@ -6,13 +6,21 @@
     <description>AI 대회 회고와 생성형 디자인 제작기. 결과보다 어디서 막혔는지를 남깁니다.</description>
     <language>ko</language>
     <copyright>© 2026 Softkleenex</copyright>
-    <lastBuildDate>Wed, 04 Nov 2026 09:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 09:00:00 +0900</lastBuildDate>
     <atom:link href="https://softkleenex.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://softkleenex.github.io/assets/softkleenex-avatar.png</url>
       <title>Softkleenex Archive</title>
       <link>https://softkleenex.github.io/</link>
     </image>
+    <item>
+      <title>카카오테크캠퍼스 4기 회고</title>
+      <link>https://softkleenex.github.io/posts/2026-kakao-tech-campus-retrospective/</link>
+      <guid isPermaLink="true">https://softkleenex.github.io/posts/2026-kakao-tech-campus-retrospective/</guid>
+      <pubDate>Fri, 20 Nov 2026 09:00:00 +0900</pubDate>
+      <category>기록</category>
+      <description>결식아동 지원 가게 명단이 낡는 문제를 AI 에이전트의 조사와 확인 전화로 푼 선한레이더. 8월 전화 인터뷰 한마디에서 시작해 경산시 명단 232곳을 실제로 검증하고, 발표 뒤 두 기관의 도입 문의를 받기까지 팀장 시점의 기록.</description>
+    </item>
     <item>
       <title>AI_TOP_100 2026 온라인 예선 회고</title>
       <link>https://softkleenex.github.io/posts/2026-ai-top-100-preliminary/</link>

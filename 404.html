@@ -59,6 +59,12 @@
     </section>
 
     <p class="year">최근 글</p>
+    <a class="entry" href="/posts/2026-kakao-tech-campus-retrospective/">
+      <p class="kicker">기록</p>
+      <h2>카카오테크캠퍼스 4기 회고</h2>
+      <p class="desc">결식아동 지원 가게 명단이 낡는 문제를 AI 에이전트의 조사와 확인 전화로 푼 선한레이더. 8월 전화 인터뷰 한마디에서 시작해 경산시 명단 232곳을 실제로 검증하고, 발표 뒤 두 기관의 도입 문의를 받기까지 팀장 시점의 기록.</p>
+      <time datetime="2026-11-20">2026년 11월 20일</time>
+    </a>
     <a class="entry" href="/posts/2026-ai-top-100-preliminary/">
       <p class="kicker">대회</p>
       <h2>AI_TOP_100 2026 온라인 예선 회고</h2>
@@ -71,19 +77,13 @@
       <p class="desc">한국어 에세이를 내용·구성·표현 3영역으로 자동 채점하고 근거까지 생성하는 모델을 만든 국립국어원 AI말평 경진대회 회고. 51팀 중 27위로 마쳤고, 진짜 병목은 점수모델이 아니라 LLM Judge였다는 사후 진단과, 마감 뒤 git 이력에서 essay 원문 유출을 발견해 고친 이야기를 남겼다.</p>
       <time datetime="2026-08-28">2026년 8월 28일</time>
     </a>
-    <a class="entry" href="/posts/2026-quantum-ai-competition/">
-      <p class="kicker">대회</p>
-      <h2>Global Quantum AI 회고</h2>
-      <p class="desc">209개 회로를 검증하고 0.005점이 부족했다. depth 50 제약 아래의 2-qubit data re-uploading 분류기와 잘못 잡은 목표에 대한 기록.</p>
-      <time datetime="2026-08-10">2026년 8월 10일</time>
-    </a>
   </main>
 </div>
 <script>
 // 개편 전 주소를 새 주소로 보낸다. GitHub Pages 는 서버 리다이렉트를 만들 수 없어
 // 404 페이지에서 경로를 해석한다.
 (function () {
-  var SLUGS = ["2026-ai-top-100-preliminary", "korean-writing-assessment-2026", "2026-quantum-ai-competition", "2026-the-color-house", "2026-nypc-retrospective", "kaggle-hull-tactical-prediction", "hlftc", "dacon-webgamming", "dacon-etri-human-understanding", "dacon-mosquito-trajectory-prediction", "dacon-base", "kaggle-stanford-rna-3d-folding-2", "kaggle-dpc-tate", "kaggle-medgemma-clinical-rag-pipeline", "kaggle-heart-disease-prediction", "dacon-hai-2025", "dacon-k-league-pass-prediction", "dacon-mai-glm-2025", "kaggle-arc-prize-2025", "kaggle-jigsaw-acrc-portfolio", "dacon-toss-ctr-prediction", "dacon-shipping-anomaly-detection", "dacon-car-news-classification"];
+  var SLUGS = ["2026-kakao-tech-campus-retrospective", "2026-ai-top-100-preliminary", "korean-writing-assessment-2026", "2026-quantum-ai-competition", "2026-the-color-house", "2026-nypc-retrospective", "kaggle-hull-tactical-prediction", "hlftc", "dacon-webgamming", "dacon-etri-human-understanding", "dacon-mosquito-trajectory-prediction", "dacon-base", "kaggle-stanford-rna-3d-folding-2", "kaggle-dpc-tate", "kaggle-medgemma-clinical-rag-pipeline", "kaggle-heart-disease-prediction", "dacon-hai-2025", "dacon-k-league-pass-prediction", "dacon-mai-glm-2025", "kaggle-arc-prize-2025", "kaggle-jigsaw-acrc-portfolio", "dacon-toss-ctr-prediction", "dacon-shipping-anomaly-detection", "dacon-car-news-classification"];
   var path = location.pathname.replace(/\/+$/, "");
   var last = path.split("/").pop();
   var dest = null;
