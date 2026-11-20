@@ -149,6 +149,47 @@ def jpeg_size(data):
     return None
 
 
+# 문단 하나가 이미지 하나로만 된 경우. markdown 은 <p><img></p> 로 내보낸다.
+PARA_IMG_RE = re.compile(r"<p>\s*(<img\b[^>]*?/?>)\s*</p>")
+IMG_ALT_RE = re.compile(r'\balt="([^"]*)"')
+IMG_SRC_RE = re.compile(r'\bsrc="([^"]*)"')
+
+
+def figurize(html):
+    """본문 이미지를 <figure> + 보이는 <figcaption> 으로 감싼다.
+
+    캡션을 alt 에만 담아 두면 그림이 무슨 근거인지 화면에서 읽을 수 없다.
+    차트는 설명 문장이 그림의 절반이라 눈에 보여야 한다. figcaption 은
+    aria-hidden 으로 둔다 - 같은 문장을 alt 로 이미 읽어 주므로 스크린리더가
+    두 번 읽지 않게 한다.
+
+    로컬 이미지는 헤더에서 읽은 가로·세로를 속성으로 박아 둔다.
+    이미지가 늦게 도착할 때 본문이 밀려 내려가는 layout shift 를 막는다
+    (post.css 의 height: auto 와 함께 동작한다).
+    """
+
+    def wrap(m):
+        tag = m.group(1)
+        alt = IMG_ALT_RE.search(tag)
+        caption = alt.group(1) if alt else ""
+        src = IMG_SRC_RE.search(tag)
+        if src and src.group(1).startswith("/"):
+            size = png_size(ROOT / src.group(1).lstrip("/"))
+            if size and "width=" not in tag:
+                tag = tag.replace(
+                    "<img", f'<img width="{size[0]}" height="{size[1]}"', 1
+                )
+        if not caption:
+            return f"<figure>{tag}</figure>"
+        return (
+            f"<figure>{tag}"
+            f'<figcaption aria-hidden="true">{caption}</figcaption>'
+            f"</figure>"
+        )
+
+    return PARA_IMG_RE.sub(wrap, html)
+
+
 def cover_image(meta, body):
     """frontmatter 의 image 가 우선, 없으면 본문 첫 로컬 이미지를 쓴다.
 
@@ -216,6 +257,7 @@ def read_posts():
         html = md.convert(body)
         html = re.sub(r"<table>", '<div class="table-wrap"><table>', html)
         html = re.sub(r"</table>", "</table></div>", html)
+        html = figurize(html)
 
         d = meta["date"]
         if isinstance(d, str):

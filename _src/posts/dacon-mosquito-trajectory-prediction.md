@@ -50,6 +50,8 @@ repo의 분석 문서에서는 이 패러다임을 `Regression -> Selection + Mi
 
 이건 꽤 중요한 교훈이었다. competition에서는 모델이 틀릴 수도 있지만, 파이프라인이 틀릴 수도 있다. 특히 좌표 예측처럼 row alignment가 절대적인 문제에서는 제출 파일 검증이 모델 성능만큼 중요하다.
 
+![제출 로그에 남은 public score 39건. 0.4804에서 0.6876까지 올라가는 동안, 좌표값은 정상인데 행 정렬이 어긋난 제출 5건이 그대로 0점으로 떨어졌다(빨강). 최종 기록 0.6886은 이 로그 이후의 5-cohort blend다.](/assets/dacon-mosquito-trajectory-prediction/public-score-and-alignment-bug.png)
+
 ## 회고
 
 이 대회에서 재미있었던 점은, 성능 개선이 "더 복잡한 모델"이 아니라 "문제를 물리적으로 더 정확히 보는 방식"에서 나왔다는 것이다. 모기는 생물이고 궤적은 3D 물리 공간에 있다. 그 사실을 전처리, 후보 생성, 후처리, ensemble에 계속 반영할수록 점수가 좋아졌다.

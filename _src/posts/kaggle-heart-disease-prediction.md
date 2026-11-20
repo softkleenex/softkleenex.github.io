@@ -26,6 +26,8 @@ date_basis: "저장소 생성일"
 
 feature importance에서도 `Max HR`, `Cholesterol`, `Number of vessels fluro`, `MaxHR_Age_Ratio`, `ST depression` 같은 임상적으로 납득 가능한 feature가 위에 있었다. synthetic playground 데이터라고 해도, 도메인 감각이 완전히 사라지는 것은 아니었다.
 
+![CatBoost feature importance 21개. 상위에는 임상적으로 납득되는 feature가 있고, 직접 만든 MaxHR_Age_Ratio가 4위다. 반대로 _diff_mean 계열 3개는 importance 0으로, 만들었지만 모델이 한 번도 쓰지 않았다.](/assets/kaggle-heart-disease-prediction/feature-importance.png)
+
 ## Pseudo-Labeling
 
 pseudo-labeling은 test prediction confidence가 높은 샘플을 train에 다시 넣어 재학습하는 방식으로 사용했다. 기록상 threshold는 `0.98` 또는 `0.99` 계열이었다. 이 접근은 단일 모델 성능을 끌어올리는 데 도움이 됐다.

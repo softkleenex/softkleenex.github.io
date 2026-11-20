@@ -26,11 +26,11 @@ NEXT NATION은 그래프 형태의 맵에서 본부와 기지를 성장시키고
 
 ## 그래프가 경고한 것
 
-![유저 평가 레이팅 추이](https://raw.githubusercontent.com/softkleenex/2026_nypc/main/docs/assets/user-rating.svg)
+![유저 평가 레이팅 추이](/assets/2026-nypc-retrospective/user-rating.svg)
 
 레이팅은 꾸준히 오르지 않았다. 46번에서 1990, 62번에서 1980을 기록했지만 마지막 183번은 1710이었다.
 
-![유저 평가 순위 비율 추이](https://raw.githubusercontent.com/softkleenex/2026_nypc/main/docs/assets/user-rank-pool.svg)
+![유저 평가 순위 비율 추이](/assets/2026-nypc-retrospective/user-rank-pool.svg)
 
 참가 팀 수를 고려한 순위 비율도 마지막에 61.8%까지 악화됐다. 반면 로컬 proxy-rush 승률은 150번의 80%에서 183번의 95%로 올랐다. 우리가 좋아진다고 믿은 지표와 실제 목표가 분리되어 있었다.
 

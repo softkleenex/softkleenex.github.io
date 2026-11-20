@@ -127,7 +127,7 @@
 <p>처음에는 "라이프로그니까 도메인 신호를 잘 뽑으면 되지 않을까?"라고 생각했다. 앱 사용, 활동량, 수면 패턴, 날씨, 대기질 같은 신호를 잘 엮으면 점수가 내려갈 것 같았다. 그런데 실제로는 그렇게 단순하지 않았다. 어떤 feature는 로컬에서는 그럴듯했지만 public leaderboard에서는 거의 반응하지 않았고, 어떤 후보는 로컬 CV가 좋아졌는데 실제 제출 점수는 나빠졌다.</p>
 <p>이때부터 대회는 모델링 문제이면서 동시에 운영 문제가 됐다. 새 feature를 만드는 것만큼이나, 그 feature가 진짜 신호인지 아니면 split에 과적합한 착시인지 구분하는 일이 중요했다.</p>
 <p>문제의 어려움은 타깃이 하나의 상태로 묶이지 않는다는 데 있었다. Q1-Q3는 수면의 느낌, 피로, 스트레스처럼 사람이 직접 응답한 주관 지표에 가깝고, S1-S4는 수면 시간이나 수면 중 생체/행동 상태에 가까운 지표였다. 같은 라이프로그라도 앱 사용량이 Q3에는 말이 될 수 있고, HR이나 조도, 활동량은 S4 쪽에 더 말이 될 수 있다. 결국 "좋은 feature"라는 표현은 너무 넓었다. 어떤 타깃에, 어떤 시간대에서, 어떤 subject split에서 살아남는지가 훨씬 중요했다.</p>
-<p><img alt="Q1(주관적 수면 만족도) 두 class의 circadian 심박 dip 비율 분포. 야간 평균을 주간 평균으로 나눈, 꽤 그럴듯해 보이는 생체 feature인데 두 분포가 거의 겹친다. x축 범례 문구는 작성 당시 스크립트에 남아 있던 것이고, 실제 타깃은 이진이다." src="/assets/dacon-etri-human-understanding/circadian-hr-dip-q1.png" /></p>
+<figure><img width="1600" height="960" alt="Q1(주관적 수면 만족도) 두 class의 circadian 심박 dip 비율 분포. 야간 평균을 주간 평균으로 나눈, 꽤 그럴듯해 보이는 생체 feature인데 두 분포가 거의 겹친다. x축 범례 문구는 작성 당시 스크립트에 남아 있던 것이고, 실제 타깃은 이진이다." src="/assets/dacon-etri-human-understanding/circadian-hr-dip-q1.png" /><figcaption aria-hidden="true">Q1(주관적 수면 만족도) 두 class의 circadian 심박 dip 비율 분포. 야간 평균을 주간 평균으로 나눈, 꽤 그럴듯해 보이는 생체 feature인데 두 분포가 거의 겹친다. x축 범례 문구는 작성 당시 스크립트에 남아 있던 것이고, 실제 타깃은 이진이다.</figcaption></figure>
 <p>그래서 후반에는 feature 의미를 타깃별로 나눠 보려고 했다. Q2/Q3에는 앱 사용과 routine, S3/S4에는 수면 전후의 활동량, HR, light, 대기환경을 붙여봤다. 이 접근 자체는 맞는 방향이었지만, public으로 transfer될 만큼 큰 독립 신호를 찾지는 못했다.</p>
 <h2>끝까지 기준점이 된 ID342</h2>
 <p>public 기준으로 마지막까지 가장 좋았던 제출은 <code>ID342</code>였다.</p>
@@ -400,7 +400,7 @@
 <p>"채택됐지만 게재되지 않았다"는 건 검색으로 확인되지 않는 상태다. IEEE Xplore에도,
 학회 proceedings에도, 웹 어디에도 이 논문은 없다. 없는 게 맞다. 그래서 1차 자료를
 저장소에 올려 두었다.</p>
-<p><img alt="IEEE 저작권 양식 1면. 논문 제목, 저자명, 학회명이 함께 찍혀 있다." src="/assets/dacon-etri-human-understanding/ieee-copyright-receipt.png" /></p>
+<figure><img width="595" height="842" alt="IEEE 저작권 양식 1면. 논문 제목, 저자명, 학회명이 함께 찍혀 있다." src="/assets/dacon-etri-human-understanding/ieee-copyright-receipt.png" /><figcaption aria-hidden="true">IEEE 저작권 양식 1면. 논문 제목, 저자명, 학회명이 함께 찍혀 있다.</figcaption></figure>
 <p>IEEE 저작권 양식(eCF) 1면이다. 논문 제목, 저자명, 그리고 학회명
 <code>2026 17th International Conference on Information and Communication Technology
 Convergence (ICTC)</code>이 한 장에 있다. 서명일 2026-09-15.</p>

@@ -27,6 +27,8 @@ date_basis: "저장소 생성일"
 
 제출 이력은 꽤 선명했다. single DINO는 약했고, DINO/ViT/EfficientNet baseline ensemble은 public `0.6781`까지 올라갔다. 이후 pseudo-labeling 계열 실험에서 public `0.7038`, 최종적으로 V10 ensemble에서 public `0.7215`를 찍었다. 반면 ConvNeXt Celeb-DF injection이나 recursive pseudo-labeling은 기대만큼 안정적이지 않았다.
 
+![제출 24건의 public AUC를 시간순으로 본 것. 0.70 선을 처음 넘은 V7과 최고점 V10이 모두 pseudo-labeling·test-time adaptation 계열(주황)이다. 그 전까지 최고는 0.6781이었다. 점수를 열어 준 실험이 곧 규정 해석이 가장 애매한 실험이었다.](/assets/dacon-hai-2025/public-score-by-submission.png)
+
 ## 가장 큰 상승과 가장 큰 경고
 
 가장 크게 오른 실험은 test distribution에 강하게 맞춘 pseudo-labeling이었다. V10은 DINO pseudo 10x, EffB5 few-shot adapter, ViT regularizer를 `0.5 / 0.4 / 0.1`로 섞은 형태였고, 제출 기록상 public best였다.

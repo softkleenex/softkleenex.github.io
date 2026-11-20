@@ -157,6 +157,9 @@ figure {
 figure img {
   display: block;
   width: 100%;
+  /* build.py 가 실제 픽셀 크기를 width/height 속성으로 박아 둔다.
+     height: auto 가 없으면 그 값대로 늘어나 비율이 깨진다. */
+  height: auto;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);

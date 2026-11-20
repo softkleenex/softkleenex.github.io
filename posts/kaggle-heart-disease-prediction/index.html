@@ -15,14 +15,14 @@
     <meta property="og:title" content="Kaggle S6E2 심장질환 예측 | Softkleenex Archive" />
     <meta property="og:description" content="CatBoost 앙상블과 pseudo-labeling으로 private AUC 0.95506, 1위와 0.00029 차이. 막판 제출 에러로 좋은 모델과 안전한 제출은 별개임을 배웠다." />
     <meta property="og:url" content="https://softkleenex.github.io/posts/kaggle-heart-disease-prediction/" />
-    <meta property="og:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
-    <meta property="og:image:width" content="460" />
-    <meta property="og:image:height" content="460" />
+    <meta property="og:image" content="https://softkleenex.github.io/assets/kaggle-heart-disease-prediction/feature-importance.png" />
+    <meta property="og:image:width" content="1360" />
+    <meta property="og:image:height" content="1037" />
     <meta property="article:published_time" content="2026-02-13" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Kaggle S6E2 심장질환 예측 | Softkleenex Archive" />
     <meta name="twitter:description" content="CatBoost 앙상블과 pseudo-labeling으로 private AUC 0.95506, 1위와 0.00029 차이. 막판 제출 에러로 좋은 모델과 안전한 제출은 별개임을 배웠다." />
-    <meta name="twitter:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/kaggle-heart-disease-prediction/feature-importance.png" />
     <meta name="naver-site-verification" content="07d8e8da57a2f02b48c11e909923ec67" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -147,6 +147,7 @@
 </tbody>
 </table></div>
 <p>feature importance에서도 <code>Max HR</code>, <code>Cholesterol</code>, <code>Number of vessels fluro</code>, <code>MaxHR_Age_Ratio</code>, <code>ST depression</code> 같은 임상적으로 납득 가능한 feature가 위에 있었다. synthetic playground 데이터라고 해도, 도메인 감각이 완전히 사라지는 것은 아니었다.</p>
+<figure><img width="1360" height="1037" alt="CatBoost feature importance 21개. 상위에는 임상적으로 납득되는 feature가 있고, 직접 만든 MaxHR_Age_Ratio가 4위다. 반대로 _diff_mean 계열 3개는 importance 0으로, 만들었지만 모델이 한 번도 쓰지 않았다." src="/assets/kaggle-heart-disease-prediction/feature-importance.png" /><figcaption aria-hidden="true">CatBoost feature importance 21개. 상위에는 임상적으로 납득되는 feature가 있고, 직접 만든 MaxHR_Age_Ratio가 4위다. 반대로 _diff_mean 계열 3개는 importance 0으로, 만들었지만 모델이 한 번도 쓰지 않았다.</figcaption></figure>
 <h2>Pseudo-Labeling</h2>
 <p>pseudo-labeling은 test prediction confidence가 높은 샘플을 train에 다시 넣어 재학습하는 방식으로 사용했다. 기록상 threshold는 <code>0.98</code> 또는 <code>0.99</code> 계열이었다. 이 접근은 단일 모델 성능을 끌어올리는 데 도움이 됐다.</p>
 <p>다만 pseudo-labeling은 늘 양날이다. test distribution에 적응할 수 있지만, 잘못된 high-confidence sample이 들어가면 모델의 자기 확신을 증폭한다. 이 프로젝트에서는 CatBoost dominant ensemble과 함께 썼을 때 효과가 있었지만, 후반부 round2에서는 제출 에러와 id/order 위험이 같이 커졌다.</p>

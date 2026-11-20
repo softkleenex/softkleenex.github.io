@@ -15,14 +15,14 @@
     <meta property="og:title" content="모기 궤적 예측 대회 회고 | Softkleenex Archive" />
     <meta property="og:description" content="모기의 80ms 뒤 3D 좌표를 예측한 대회에서 785팀 중 117위. baseline 0.4848을 0.6886까지 올린 물리 기반 selector와 행 정렬 버그 디버깅 기록." />
     <meta property="og:url" content="https://softkleenex.github.io/posts/dacon-mosquito-trajectory-prediction/" />
-    <meta property="og:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
-    <meta property="og:image:width" content="460" />
-    <meta property="og:image:height" content="460" />
+    <meta property="og:image" content="https://softkleenex.github.io/assets/dacon-mosquito-trajectory-prediction/public-score-and-alignment-bug.png" />
+    <meta property="og:image:width" content="1360" />
+    <meta property="og:image:height" content="740" />
     <meta property="article:published_time" content="2026-05-06" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="모기 궤적 예측 대회 회고 | Softkleenex Archive" />
     <meta name="twitter:description" content="모기의 80ms 뒤 3D 좌표를 예측한 대회에서 785팀 중 117위. baseline 0.4848을 0.6886까지 올린 물리 기반 selector와 행 정렬 버그 디버깅 기록." />
-    <meta name="twitter:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/dacon-mosquito-trajectory-prediction/public-score-and-alignment-bug.png" />
     <meta name="naver-site-verification" content="07d8e8da57a2f02b48c11e909923ec67" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -172,6 +172,7 @@
 <p>가장 아찔했던 문제는 로컬 검증과 리더보드가 갑자기 벌어진 순간이었다. 예측 좌표의 개수와 값은 정상처럼 보이는데, 제출 점수가 급락했다. 원인은 모델이 아니라 행 정렬이었다.</p>
 <p>분산 실행과 후처리 과정에서 고유 ID와 예측 좌표의 매칭이 미묘하게 뒤틀렸다. 좌표값 자체는 그럴듯하지만, 다른 sample의 좌표를 제출하면 metric은 당연히 무너진다. 이 문제를 해결하기 위해 마지막 단계에서 ID 기반 <code>pd.merge</code>와 <code>sample_submission.csv</code> 기준 재정렬을 강제했다.</p>
 <p>이건 꽤 중요한 교훈이었다. competition에서는 모델이 틀릴 수도 있지만, 파이프라인이 틀릴 수도 있다. 특히 좌표 예측처럼 row alignment가 절대적인 문제에서는 제출 파일 검증이 모델 성능만큼 중요하다.</p>
+<figure><img width="1360" height="740" alt="제출 로그에 남은 public score 39건. 0.4804에서 0.6876까지 올라가는 동안, 좌표값은 정상인데 행 정렬이 어긋난 제출 5건이 그대로 0점으로 떨어졌다(빨강). 최종 기록 0.6886은 이 로그 이후의 5-cohort blend다." src="/assets/dacon-mosquito-trajectory-prediction/public-score-and-alignment-bug.png" /><figcaption aria-hidden="true">제출 로그에 남은 public score 39건. 0.4804에서 0.6876까지 올라가는 동안, 좌표값은 정상인데 행 정렬이 어긋난 제출 5건이 그대로 0점으로 떨어졌다(빨강). 최종 기록 0.6886은 이 로그 이후의 5-cohort blend다.</figcaption></figure>
 <h2>회고</h2>
 <p>이 대회에서 재미있었던 점은, 성능 개선이 "더 복잡한 모델"이 아니라 "문제를 물리적으로 더 정확히 보는 방식"에서 나왔다는 것이다. 모기는 생물이고 궤적은 3D 물리 공간에 있다. 그 사실을 전처리, 후보 생성, 후처리, ensemble에 계속 반영할수록 점수가 좋아졌다.</p>
 <p>아쉬운 점도 있다. 최종 117등은 나쁘지 않지만, 1등권과의 차이를 줄이려면 후보 selector를 더 안정적으로 학습하거나, 1cm 경계 부근의 boundary sample을 더 정교하게 다뤄야 했을 것 같다. 또 대회 중간에 정렬 오류를 잡는 데 시간이 꽤 들었는데, 처음부터 submission contract test를 더 강하게 만들었으면 시행착오를 줄일 수 있었다.</p>

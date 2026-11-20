@@ -15,14 +15,14 @@
     <meta property="og:title" content="HAI 2025 딥페이크 탐지 회고 | Softkleenex Archive" />
     <meta property="og:description" content="딥페이크 탐지 대회에서 1,356팀 중 121위, private AUC 0.70403. 점수를 가장 크게 올린 pseudo-labeling이 동시에 규정 위반 리스크였다는 기록을 남겼다." />
     <meta property="og:url" content="https://softkleenex.github.io/posts/dacon-hai-2025/" />
-    <meta property="og:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
-    <meta property="og:image:width" content="460" />
-    <meta property="og:image:height" content="460" />
+    <meta property="og:image" content="https://softkleenex.github.io/assets/dacon-hai-2025/public-score-by-submission.png" />
+    <meta property="og:image:width" content="1360" />
+    <meta property="og:image:height" content="770" />
     <meta property="article:published_time" content="2026-01-28" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="HAI 2025 딥페이크 탐지 회고 | Softkleenex Archive" />
     <meta name="twitter:description" content="딥페이크 탐지 대회에서 1,356팀 중 121위, private AUC 0.70403. 점수를 가장 크게 올린 pseudo-labeling이 동시에 규정 위반 리스크였다는 기록을 남겼다." />
-    <meta name="twitter:image" content="https://softkleenex.github.io/assets/softkleenex-avatar.png" />
+    <meta name="twitter:image" content="https://softkleenex.github.io/assets/dacon-hai-2025/public-score-by-submission.png" />
     <meta name="naver-site-verification" content="07d8e8da57a2f02b48c11e909923ec67" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -151,6 +151,7 @@
 </tbody>
 </table></div>
 <p>제출 이력은 꽤 선명했다. single DINO는 약했고, DINO/ViT/EfficientNet baseline ensemble은 public <code>0.6781</code>까지 올라갔다. 이후 pseudo-labeling 계열 실험에서 public <code>0.7038</code>, 최종적으로 V10 ensemble에서 public <code>0.7215</code>를 찍었다. 반면 ConvNeXt Celeb-DF injection이나 recursive pseudo-labeling은 기대만큼 안정적이지 않았다.</p>
+<figure><img width="1360" height="770" alt="제출 24건의 public AUC를 시간순으로 본 것. 0.70 선을 처음 넘은 V7과 최고점 V10이 모두 pseudo-labeling·test-time adaptation 계열(주황)이다. 그 전까지 최고는 0.6781이었다. 점수를 열어 준 실험이 곧 규정 해석이 가장 애매한 실험이었다." src="/assets/dacon-hai-2025/public-score-by-submission.png" /><figcaption aria-hidden="true">제출 24건의 public AUC를 시간순으로 본 것. 0.70 선을 처음 넘은 V7과 최고점 V10이 모두 pseudo-labeling·test-time adaptation 계열(주황)이다. 그 전까지 최고는 0.6781이었다. 점수를 열어 준 실험이 곧 규정 해석이 가장 애매한 실험이었다.</figcaption></figure>
 <h2>가장 큰 상승과 가장 큰 경고</h2>
 <p>가장 크게 오른 실험은 test distribution에 강하게 맞춘 pseudo-labeling이었다. V10은 DINO pseudo 10x, EffB5 few-shot adapter, ViT regularizer를 <code>0.5 / 0.4 / 0.1</code>로 섞은 형태였고, 제출 기록상 public best였다.</p>
 <p>하지만 이 실험은 그대로 "좋은 방법"이라고 쓰면 안 된다. repo의 <code>docs/constraints.md</code>에는 test set을 학습이나 fine-tuning에 쓰는 것을 leakage로 보는 규칙 정리가 남아 있다. 즉 이 프로젝트에서 중요한 교훈은 pseudo-labeling이 점수를 올렸다는 사실보다, 대회 규정과 public leaderboard 최적화가 충돌할 수 있다는 점이다.</p>
