@@ -11,7 +11,7 @@ date_basis: "기존 발행일"
 
 카카오테크캠퍼스 4기에서 경북대 6팀 팀장을 맡았다. 여섯 명이 만든 것은 **선한레이더**다. 결식아동을 돕는 가게 명단에서 폐업·이전·정보 변경을 AI 에이전트가 조사하고, 바뀐 것 같은 가게에는 직접 전화를 걸어 확인한 뒤, 담당자에게는 바뀐 것만 근거와 함께 올리는 서비스다. 9월 8일 첫 PR부터 11월 11일 마지막 머지까지 PR 191건, 그중 180건이 머지됐다.
 
-![2026년 11월 19일 수료식 날 저녁, 팀원 여섯이 한 자리에 모였다. 얼굴은 모두 가렸다](/assets/2026-kakao-tech-campus-retrospective/hero.jpg)
+![2026년 11월 19일 수료식 날 저녁, 팀원 여섯이 한 자리에 모였다. 얼굴은 이모지로 가렸다](/assets/2026-kakao-tech-campus-retrospective/hero.jpg)
 
 ## 문제는 전화기 옆에 있었다
 
@@ -81,3 +81,5 @@ date_basis: "기존 발행일"
 ![커뮤니티매핑센터 감사장(2026년 11월 9일). 232곳 확인·갱신 작업이 센터의 사업 결과보고서에 별도 사례로 실렸다는 내용](/assets/2026-kakao-tech-campus-retrospective/thank-you-letter.jpg)
 
 - 시연 영상 https://youtu.be/0Y5lPzmyg04
+
+<small>대표 사진의 얼굴 이모지는 <a href="https://github.com/jdecked/twemoji">Twemoji</a>(CC-BY 4.0)입니다.</small>
