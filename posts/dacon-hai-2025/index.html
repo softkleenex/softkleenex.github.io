@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HAI 2025 딥페이크 탐지 회고 | Softkleenex Archive</title>
-    <meta name="description" content="딥페이크 탐지 대회에서 1,356팀 중 121위, private AUC 0.70403. 점수를 가장 크게 올린 pseudo-labeling이 동시에 규정 위반 리스크였다는 기록을 남겼다." />
+    <meta name="description" content="딥페이크 탐지 대회 회고. 최종 순위를 만든 Test Set pseudo-labeling과 결과 앙상블은 대회 규정이 금지한 방법이었다. 그래서 그 순위를 성과로 쓰지 않는다." />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://softkleenex.github.io/posts/dacon-hai-2025/" />
     <link rel="icon" href="/assets/softkleenex-avatar.png" />
@@ -13,7 +13,7 @@
     <meta property="og:site_name" content="Softkleenex Archive" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="HAI 2025 딥페이크 탐지 회고 | Softkleenex Archive" />
-    <meta property="og:description" content="딥페이크 탐지 대회에서 1,356팀 중 121위, private AUC 0.70403. 점수를 가장 크게 올린 pseudo-labeling이 동시에 규정 위반 리스크였다는 기록을 남겼다." />
+    <meta property="og:description" content="딥페이크 탐지 대회 회고. 최종 순위를 만든 Test Set pseudo-labeling과 결과 앙상블은 대회 규정이 금지한 방법이었다. 그래서 그 순위를 성과로 쓰지 않는다." />
     <meta property="og:url" content="https://softkleenex.github.io/posts/dacon-hai-2025/" />
     <meta property="og:image" content="https://softkleenex.github.io/assets/dacon-hai-2025/public-score-by-submission.png" />
     <meta property="og:image:width" content="1360" />
@@ -21,14 +21,14 @@
     <meta property="article:published_time" content="2026-01-28" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="HAI 2025 딥페이크 탐지 회고 | Softkleenex Archive" />
-    <meta name="twitter:description" content="딥페이크 탐지 대회에서 1,356팀 중 121위, private AUC 0.70403. 점수를 가장 크게 올린 pseudo-labeling이 동시에 규정 위반 리스크였다는 기록을 남겼다." />
+    <meta name="twitter:description" content="딥페이크 탐지 대회 회고. 최종 순위를 만든 Test Set pseudo-labeling과 결과 앙상블은 대회 규정이 금지한 방법이었다. 그래서 그 순위를 성과로 쓰지 않는다." />
     <meta name="twitter:image" content="https://softkleenex.github.io/assets/dacon-hai-2025/public-score-by-submission.png" />
     <meta name="naver-site-verification" content="07d8e8da57a2f02b48c11e909923ec67" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="/assets/base.css" />
     <link rel="stylesheet" href="/assets/post.css" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "HAI 2025 딥페이크 탐지 회고", "alternativeHeadline": "public 점수를 올리는 실험과 규정 감사 사이에서", "description": "딥페이크 탐지 대회에서 1,356팀 중 121위, private AUC 0.70403. 점수를 가장 크게 올린 pseudo-labeling이 동시에 규정 위반 리스크였다는 기록을 남겼다.", "datePublished": "2026-01-28", "inLanguage": "ko-KR", "url": "https://softkleenex.github.io/posts/dacon-hai-2025/", "mainEntityOfPage": {"@id": "https://softkleenex.github.io/posts/dacon-hai-2025/"}, "author": {"@id": "https://softkleenex.github.io/#person"}, "publisher": {"@id": "https://softkleenex.github.io/#person"}, "isPartOf": {"@id": "https://softkleenex.github.io/#blog"}, "image": "https://softkleenex.github.io/assets/softkleenex-avatar.png"}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "HAI 2025 딥페이크 탐지 회고", "alternativeHeadline": "점수를 올린 방법이 규정 위반이었다", "description": "딥페이크 탐지 대회 회고. 최종 순위를 만든 Test Set pseudo-labeling과 결과 앙상블은 대회 규정이 금지한 방법이었다. 그래서 그 순위를 성과로 쓰지 않는다.", "datePublished": "2026-01-28", "inLanguage": "ko-KR", "url": "https://softkleenex.github.io/posts/dacon-hai-2025/", "mainEntityOfPage": {"@id": "https://softkleenex.github.io/posts/dacon-hai-2025/"}, "author": {"@id": "https://softkleenex.github.io/#person"}, "publisher": {"@id": "https://softkleenex.github.io/#person"}, "isPartOf": {"@id": "https://softkleenex.github.io/#blog"}, "image": "https://softkleenex.github.io/assets/softkleenex-avatar.png"}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "홈", "item": "https://softkleenex.github.io/"}, {"@type": "ListItem", "position": 2, "name": "글", "item": "https://softkleenex.github.io/posts/"}, {"@type": "ListItem", "position": 3, "name": "HAI 2025 딥페이크 탐지 회고"}]}</script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8567091536004202" crossorigin="anonymous"></script>
   </head>
@@ -115,13 +115,16 @@
       <header class="hero">
         <p class="eyebrow">DACON · 2026</p>
         <h1>HAI 2025 딥페이크 탐지 회고</h1>
-        <p class="lead">public 점수를 올리는 실험과 규정 감사 사이에서</p>
+        <p class="lead">점수를 올린 방법이 규정 위반이었다</p>
         <p class="meta">
           <time datetime="2026-01-28">2026년 1월 28일</time> · <a href="https://github.com/softkleenex/kaggle-hai-2025">저장소</a>
         </p>
       </header>
       <p>이 프로젝트는 DACON <code>HAI 2025 Deepfake Detection Challenge</code> 기록이다. 생성형 AI로 만들어진 딥페이크 영상과 실제 영상을 구분하는 문제였고, 최종 제출은 image/frame 단위의 real/fake 판별 모델을 중심으로 운영했다.</p>
-<p>기록상 최종 성적은 private AUC <code>0.70403</code>, <code>1,356</code>팀 중 <code>121</code>위, top 9%였다. public 최고 기록은 <code>0.72151</code>까지 올라갔다. 숫자만 보면 괜찮은 대회였지만, 이 회고에서 더 중요하게 남길 부분은 public 점수를 올리는 실험과 rulebook/재현성 감사 사이의 긴장이다.</p>
+<blockquote>
+<p><strong>먼저 밝혀 둔다.</strong> 리더보드 기록은 private AUC <code>0.70403</code>(<code>1,356</code>팀 중 <code>121</code>위)이지만, 이 점수는 대회 규정이 금지한 두 방법 — Test Set을 학습에 쓰는 pseudo-labeling과 여러 모델 결과를 평균하는 앙상블 — 으로 얻은 것이다. 규정을 <code>docs/constraints.md</code>에 정리해 두고도 실험을 바꿀 때마다 그 기준에 비춰 보지 않았다. 그래서 이 순위는 성과로 쓰지 않는다. 규정 안에서 확인된 단일 모델의 대회 테스트 AUC는 약 <code>0.49~0.64</code>였다.</p>
+</blockquote>
+<p>이 글은 그 과정을 숨기지 않고 남기는 기록이다.</p>
 <h2>문제와 접근</h2>
 <p>공식 학습 데이터가 충분히 주어지는 전형적인 이미지 분류 문제가 아니었다. 참가자가 외부 데이터를 직접 모으고, 얼굴 검출과 crop, frame sampling, 모델 학습, 제출 형식 검증까지 묶어야 했다. 이 때문에 모델 구조보다 데이터 구성과 도메인 갭이 훨씬 크게 작동했다.</p>
 <p>초기 접근은 서로 다른 inductive bias를 가진 모델을 섞는 것이었다.</p>
@@ -152,10 +155,10 @@
 </tbody>
 </table></div>
 <p>제출 이력은 꽤 선명했다. single DINO는 약했고, DINO/ViT/EfficientNet baseline ensemble은 public <code>0.6781</code>까지 올라갔다. 이후 pseudo-labeling 계열 실험에서 public <code>0.7038</code>, 최종적으로 V10 ensemble에서 public <code>0.7215</code>를 찍었다. 반면 ConvNeXt Celeb-DF injection이나 recursive pseudo-labeling은 기대만큼 안정적이지 않았다.</p>
-<figure><img width="1360" height="770" alt="제출 24건의 public AUC를 시간순으로 본 것. 0.70 선을 처음 넘은 V7과 최고점 V10이 모두 pseudo-labeling·test-time adaptation 계열(주황)이다. 그 전까지 최고는 0.6781이었다. 점수를 열어 준 실험이 곧 규정 해석이 가장 애매한 실험이었다." src="/assets/dacon-hai-2025/public-score-by-submission.png" /><figcaption aria-hidden="true">제출 24건의 public AUC를 시간순으로 본 것. 0.70 선을 처음 넘은 V7과 최고점 V10이 모두 pseudo-labeling·test-time adaptation 계열(주황)이다. 그 전까지 최고는 0.6781이었다. 점수를 열어 준 실험이 곧 규정 해석이 가장 애매한 실험이었다.</figcaption></figure>
-<h2>가장 큰 상승과 가장 큰 경고</h2>
+<figure><img width="1360" height="770" alt="제출 24건의 public AUC를 시간순으로 본 것. 0.70 선을 처음 넘은 V7과 최고점 V10이 모두 pseudo-labeling·test-time adaptation 계열(주황)이다. 그 전까지 최고는 0.6781이었다. 점수를 열어 준 실험이 곧 규정이 금지한 실험이었다." src="/assets/dacon-hai-2025/public-score-by-submission.png" /><figcaption aria-hidden="true">제출 24건의 public AUC를 시간순으로 본 것. 0.70 선을 처음 넘은 V7과 최고점 V10이 모두 pseudo-labeling·test-time adaptation 계열(주황)이다. 그 전까지 최고는 0.6781이었다. 점수를 열어 준 실험이 곧 규정이 금지한 실험이었다.</figcaption></figure>
+<h2>가장 큰 상승이 곧 규정 위반이었다</h2>
 <p>가장 크게 오른 실험은 test distribution에 강하게 맞춘 pseudo-labeling이었다. V10은 DINO pseudo 10x, EffB5 few-shot adapter, ViT regularizer를 <code>0.5 / 0.4 / 0.1</code>로 섞은 형태였고, 제출 기록상 public best였다.</p>
-<p>하지만 이 실험은 그대로 "좋은 방법"이라고 쓰면 안 된다. repo의 <code>docs/constraints.md</code>에는 test set을 학습이나 fine-tuning에 쓰는 것을 leakage로 보는 규칙 정리가 남아 있다. 즉 이 프로젝트에서 중요한 교훈은 pseudo-labeling이 점수를 올렸다는 사실보다, 대회 규정과 public leaderboard 최적화가 충돌할 수 있다는 점이다.</p>
+<p>하지만 이 실험은 "좋은 방법"이 아니라 규정 위반이다. 대회 규정을 정리한 <code>docs/constraints.md</code>는 Test Set을 학습이나 fine-tuning에 쓰는 것을 leakage로 <strong>금지</strong>하고, 여러 모델의 예측을 평균·가중합하는 결과 앙상블도 <strong>금지</strong>한다. V10은 두 가지를 모두 했다. 문서는 대회 초반에 이미 써 두었는데, 점수가 오를 때마다 그 문서에 비춰 보지 않았다. 이 회고의 핵심은 "규정과 리더보드가 충돌할 수 있다"가 아니라, <strong>규정을 알고도 실험 설계의 첫 조건으로 두지 않았다</strong>는 내 실수다.</p>
 <p>실전 대회에서는 다음을 분리해서 기록해야 한다.</p>
 <ol>
 <li>점수 탐색용 실험인지, 최종 제출 가능한 compliant 후보인지 구분한다.</li>
@@ -169,11 +172,11 @@
 <ul>
 <li><code>ConvNeXt</code> 결과가 all-zero로 나온 제출이 있었고, 제출 파일 검증의 중요성을 다시 확인했다.</li>
 <li>recursive pseudo-labeling은 점수를 떨어뜨렸다. pseudo signal이 강해질수록 domain adaptation이 아니라 자기 확신의 증폭이 될 수 있었다.</li>
-<li>video model <code>CNN+LSTM</code>은 public <code>0.7124</code>로 나쁘지 않았지만, frame 단위 규정과 실효성을 함께 고려해야 했다.</li>
+<li>video model <code>CNN+LSTM</code>은 규정의 시계열 학습 금지에 걸리는 방법이었고, 앙상블에 섞은 제출도 점수가 내려갔다.</li>
 <li>외부 데이터 Celeb-DF는 직관과 달리 안정적인 개선으로 이어지지 않았다. deepfake 탐지는 "외부 데이터가 많으면 좋다"보다 "평가 분포와 맞는 artifact를 학습했는가"가 더 중요했다.</li>
 </ul>
 <h2>포트폴리오에 남길 이유</h2>
-<p>이 프로젝트는 높은 private rank도 있지만, 더 좋은 포트폴리오 포인트는 실패를 숨기지 않는 운영 기록이다. <code>docs/SUBMISSION_HISTORY.csv</code>에는 제출 ID, 파일명, public score, 모델 구성, 실패 메모가 한 줄씩 남아 있다. 이 기록 덕분에 나중에 봐도 "왜 V10은 좋았고, 왜 V13/V16은 기대보다 낮았는지"를 다시 추적할 수 있다.</p>
+<p>이 프로젝트의 순위는 내세울 수 없다. 남길 만한 것은 실패를 숨기지 않는 운영 기록이다. <code>docs/SUBMISSION_HISTORY.csv</code>에는 제출 ID, 파일명, public score, 모델 구성, 실패 메모가 한 줄씩 남아 있다. 이 기록 덕분에 나중에 봐도 "왜 V10은 좋았고, 왜 V13/V16은 기대보다 낮았는지"를 다시 추적할 수 있다.</p>
 <p>딥페이크 탐지 모델링 자체도 중요했지만, 이 대회가 남긴 가장 큰 문장은 이것이다.</p>
 <blockquote>
 <p>public leaderboard는 실험 계기일 수 있지만, 최종 판단 기준은 규정, 재현성, private robustness까지 포함해야 한다.</p>
@@ -181,7 +184,7 @@
 <p>대회가 끝난 뒤 이 문장을 블로그에 남겨두는 이유는 간단하다. 다음 대회에서 같은 유혹이 오기 때문이다. 점수가 오르면 좋아 보인다. 하지만 좋은 기록은 점수뿐 아니라, 그 점수가 어떤 조건에서 만들어졌는지까지 설명할 수 있어야 한다.</p>
 <h2>기록 포인트</h2>
 <p>제출 ID별 public score와 모델 구성은 <a href="https://github.com/softkleenex/kaggle-hai-2025/blob/HEAD/docs/SUBMISSION_HISTORY.csv">제출 이력 전체</a>에 한 줄씩 남겼다.</p>
-<p>rulebook을 어떻게 읽었고 test set adaptation을 어디까지 허용할지 판단한 기준은 <a href="https://github.com/softkleenex/kaggle-hai-2025/blob/HEAD/docs/constraints.md">constraints.md</a>에 따로 적어 뒀다. public score가 오를 때마다 이 문서를 다시 봐야 했다.</p>
+<p>대회 규정을 정리한 문서는 <a href="https://github.com/softkleenex/kaggle-hai-2025/blob/HEAD/docs/constraints.md">constraints.md</a>에 있다. public score가 오를 때마다 이 문서를 다시 봐야 했는데, 그러지 않았다. 지금은 실험을 시작하기 전에 규정 체크리스트부터 통과시킨다.</p>
     </article>
     <nav class="postnav" aria-label="글 이동">
       <a class="pn prev" href="/posts/dacon-k-league-pass-prediction/">

@@ -147,7 +147,7 @@
       <guid isPermaLink="true">https://softkleenex.github.io/posts/dacon-hai-2025/</guid>
       <pubDate>Wed, 28 Jan 2026 09:00:00 +0900</pubDate>
       <category>DACON</category>
-      <description>딥페이크 탐지 대회에서 1,356팀 중 121위, private AUC 0.70403. 점수를 가장 크게 올린 pseudo-labeling이 동시에 규정 위반 리스크였다는 기록을 남겼다.</description>
+      <description>딥페이크 탐지 대회 회고. 최종 순위를 만든 Test Set pseudo-labeling과 결과 앙상블은 대회 규정이 금지한 방법이었다. 그래서 그 순위를 성과로 쓰지 않는다.</description>
     </item>
     <item>
       <title>K리그 패스 좌표 예측 회고</title>
